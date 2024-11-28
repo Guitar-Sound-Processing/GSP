@@ -1,3 +1,3 @@
-# [GSP](https://github.com/Guitar-Sound-Processing/GSP/wiki)
+# <div align="center">[GSP](https://github.com/Guitar-Sound-Processing/GSP/wiki)</div>
 
-## [Multi Effect Guitar Sound Processing](https://github.com/Guitar-Sound-Processing/GSP/wiki)
+## <div align="center">[Multi Effect Guitar Sound Processing](https://github.com/Guitar-Sound-Processing/GSP/wiki)</div>
