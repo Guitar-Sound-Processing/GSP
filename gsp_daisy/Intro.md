@@ -3,7 +3,7 @@
 
 ## 1 Description 
 
-The Guitar Sound Processing is configured by interpreted commands by Daisy Seed (DS) and by the External Device (ESP32 or Arduino, for instance), through serial interfaces or USB. These commands will be explained in next sessions. DS can accept specific commands to:
+The Guitar Sound Processing is configured by interpreted commands by Daisy Seed (DS) and by the External Device - ED (ESP32 or Arduino, for instance), through serial interfaces or USB. These commands will be explained in next sessions. DS can accept specific commands to:
 
 -	change effect parameters,
 -	select and activate the effect in chain,
