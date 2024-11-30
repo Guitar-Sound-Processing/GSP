@@ -21,6 +21,8 @@ Therefore, from the Application point of view, some of the commands are interpre
 
 - Effects commands
 - Chain commands
+- Interface commands
+- Expression pedal commands
 
 ## 2 Effects:
 
