@@ -2,11 +2,11 @@
 
 The GSP is programmable through ASCII commands from available serial lines. Presently GSP monitors the USB (serial) and UART_1 serial lines. Input commands from serial lines are interpreted and executed by internal GSP procedures. The command string shall terminate with standard ASCII control characters Carriage Return (CR - D13) or Line Feed (LF - D10). After receiving a command, the interpreter answers with knowledge prompt. For instance, the input command:
 
-```OVD```
+> ```OVD```
 
 is answered with:
 
-```->OVD (1): OFF(0)|ON(1) 0 | Sustain (0.1-1): 0.500 | Tone (0-1): 0.800 | Gain (0-1): 1.000```
+> ```->OVD (1): OFF(0)|ON(1) 0 | Sustain (0.1-1): 0.500 | Tone (0-1): 0.800 | Gain (0-1): 1.000```
 
 On the description that follows, the following rules apply:
  
@@ -21,31 +21,31 @@ The commands to GSP are separated in Effect Commands, Chain Commands, Interface 
 
 Any Effect Command must obey the following format:
 
-*efc* [([+][-]*c*)] […[[[[*s*] *p*1] *p*2] *p*3]…]
+*efc* [([+][-]*c*)] […[[[[*s*] *p*<sub>1</sub>] *p*<sub>2</sub>] *p*<sub>3</sub>]…]
 
 in which:
 
 -	*efc* stands for the three-characters effect name, like ```ovd``` (for Overdrive), ```tml``` (for Tremolo) and ```phr``` (for phaser).
--	*p*1, *p*2, … pn are numeric parameters
+-	*p*<sub>1</sub>, *p*<sub>2</sub>, … *p*<sub>*n*</sub> are numeric parameters
 -	[.] – A variable under brackets means it is optional. The brackets must be omitted on commands
--	(c) – A number under parenthesis means a desired chain position of the effect, on command, or the current effect position in chain, on GSP reply. c allows changing the effect position in chain (from 0 up to number_effects) and must follow the effect name after a separation (blank) character. The chain position parameter *c* is optional, but if present the parenthesis are necessary to differentiate from the remaining parameters.
+-	(*c*) – A number under parenthesis means a desired chain position of the effect, on command, or the current effect position in chain, on GSP reply. *c* allows changing the effect position in chain (from 0 up to number_effects) and must follow the effect name after a separation (blank) character. The chain position parameter *c* is optional, but if present the parenthesis are necessary to differentiate from the remaining parameters.
 -	*s* – The *s* parameter is the effect switch. It can be 0 (OFF, or by-pass) or 1 (ON)
--	*s*, *p*1, *p*2, *p*3 … are optional, but if *p*3 has to be changed, then *s*, *p*1 and *p*2 must also be defined in the command.
--	Each parameter pi can be separated with blank, “,” or “;”. Example: efc (c), s p1,p2; p3. Additional blank characters are ignored.
+-	*s*, *p*<sub>1</sub>, *p*<sub>2</sub>, *p*<sub>3</sub> … are optional, but if *p*<sub>3</sub> has to be changed, then *s*, *p*<sub>1</sub> and *p*<sub>2</sub> must also be defined in the command.
+-	Each parameter *p*<sub>*i*</sub> can be separated with blank, “,” or “;”. Example: *efc* (*c*), *s* *p*<sub>1</sub>, *p*<sub>2</sub>; *p*<sub>3</sub>. Additional blank characters are ignored.
 
 Moreover, the following rules apply
 
-a)	For any effect already in chain, the (c) parameter in Effect Command swaps the effect efc with the one in c position. 
-b)	If the effect isn’t already in chain, the (c) parameter inserts the effect on the slot pointed by c, and shifts the remaining effects to right. 
-c)	If c is greater than the position of the last effect in chain, the effect will be appended at the chain output. 
-d)	If c is negative then the absolute value is disregarded and the effect will be removed from chain. The remaining effects in chain are shifted to left to fulfill the blank position.
+1. For any effect already in chain, the (*c*) parameter in Effect Command swaps the effect efc with the one in c position. 
+2. If the effect isn’t already in chain, the (*c*) parameter inserts the effect on the slot pointed by *c*, and shifts the remaining effects to right. 
+3. If *c* is greater than the position of the last effect in chain, the effect will be appended at the chain output. 
+4. If *c* is negative then the absolute value is disregarded and the effect will be removed from chain. The remaining effects in chain are shifted to left to fulfill the blank position.
 
 Whenever the GSP_CC detects a non valid or a non expected character in command line it discards the command and answers with “?” in console. For example:
 
-	ovf 1 0.5
-	->?
+> ```ovf 1 0.5```<br>
+> ```->?```</br>
 
-since “ovf” isn’t a valid command.
+since ```“ovf”``` isn’t a valid command.
 
 3.1.1. Parameter range
 
