@@ -15,6 +15,8 @@ Like any analog gear, the GSP effects need two conditions to process the input s
 
 The effect switch acts like a by-pass: if turned on (*s* = 1) the effect is active in chain. Otherwise, when *s* = 0, the effect is disabled and the signal is by-passed through the chain.
 
+To include, delete, or change the effect order in the current chain, please refer to the *c* parameter in the Effect Command documentation.
+
 Here are some examples of chain command output (see Chain Command section):
 
 ```->Inp->CMP->OVD->WAH->EQZ->DFB->NGT->Out->``` <br>
