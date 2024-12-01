@@ -6,7 +6,7 @@ Some additional commands were created to visualize GSP performance.
 
 Toggle the verbose (command echoes) on and off (off is default). When verbose is on, GSP echoes any command to serial line with leading “<-” string. 
 
-```vbs```
+    vbs
 
 By sending a ```ovd 0 0.9``` command with verbose on, for instance, GSP answers with
 
