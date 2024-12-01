@@ -55,13 +55,13 @@ The Level Detector is not an “effect” but it is necessary for other effects.
 Duplicates the signal with changes in pitch drove by a LFO
 
 	chs [([+][-]c)] s depth delay_ms mixer lfo.profile lfo.freq lfo.duty gain<br>
-		depth 		– Depth<br>
-		delay_ms 	– Delay (milliseconds)<br>
-		mixer 		– Mixer<br>
-		lfo.profile 	– LFFG Profile<br>
-		lfo.freq 	– LFFG Frequency (Hz)<br>
-		lfo.duty	– LFFG Duty cycle<br>
-		gain 		– Gain</br>
+		depth 		– Depth
+		delay_ms 	– Delay (milliseconds)
+		mixer 		– Mixer
+		lfo.profile 	– LFFG Profile
+		lfo.freq 	– LFFG Frequency (Hz)
+		lfo.duty	– LFFG Duty cycle
+		gain 		– Gain
 
 > ->CHS (8): OFF(0)|ON(1) 0 | Depth (0.1-100)(ms): 5.0 | Delay (0-1000)(ms): 1.0 | Mixer: 0.500 | Profile: (0-10) 0 | Frequency (0.2-5)(Hz): 0.500 | Duty Cycle (0-100)(): 50.0 | Gain (0-1): 1.000
 
@@ -276,29 +276,29 @@ Modifies the tone of the input signal driven by a LFO
 
 ## Effect Command Examples
 
-```ovd```<br>
-->OVD (1): OFF(0)|ON(1) 0 | Sustain (0.1-1): 0.500 | Tone (0-1): 0.800 | Mixer (0-1): 1.000 | Gain (0-1): 1.000
+```ovd```
+> ->OVD (1): OFF(0)|ON(1) 0 | Sustain (0.1-1): 0.500 | Tone (0-1): 0.800 | Mixer (0-1): 1.000 | Gain (0-1): 1.000
 
-```phr (5)```<br>
-->Inp->CMP->OVD->OCT->SFT->DTN->PHR->WAH->EQZ->CHS->VBT->RVB->DFB->EFB->DFF->EFF->TML->VOL->LIM->NGT->Out->
+```phr (5)```
+> ->Inp->CMP->OVD->OCT->SFT->DTN->PHR->WAH->EQZ->CHS->VBT->RVB->DFB->EFB->DFF->EFF->TML->VOL->LIM->NGT->Out->
 
-```tml (-1)```<br>
-->Inp->CMP->OVD->OCT->SFT->DTN->PHR->WAH->EQZ->CHS->VBT->RVB->DFB->EFB->DFF->EFF->VOL->LIM->NGT->Out->
+```tml (-1)```
+> ->Inp->CMP->OVD->OCT->SFT->DTN->PHR->WAH->EQZ->CHS->VBT->RVB->DFB->EFB->DFF->EFF->VOL->LIM->NGT->Out->
 
-```eqz (+)```<br>
-->Inp->EQZ->CMP->OVD->OCT->SFT->DTN->PHR->WAH->CHS->VBT->RVB->DFB->EFB->DFF->EFF->VOL->LIM->NGT->Out->
+```eqz (+)```
+> ->Inp->EQZ->CMP->OVD->OCT->SFT->DTN->PHR->WAH->CHS->VBT->RVB->DFB->EFB->DFF->EFF->VOL->LIM->NGT->Out->
 
-dfb
-->DFB (11): OFF(0)|ON(1) 0 | Delay Time (0.2-100)(ms): 31.0 | Decay rate (0-0.95): 0.700 | Gain (0-1): 1.000
+```dfb```
+> ->DFB (11): OFF(0)|ON(1) 0 | Delay Time (0.2-100)(ms): 31.0 | Decay rate (0-0.95): 0.700 | Gain (0-1): 1.000
 
-```dfb 1 22 0.8```<br>
-->DFB (11): OFF(0)|ON(1) 1 | Delay Time (0.2-100)(ms): 22.0 | Decay rate (0-0.95): 0.800 | Gain (0-1): 1.000
+```dfb 1 22 0.8```
+> ->DFB (11): OFF(0)|ON(1) 1 | Delay Time (0.2-100)(ms): 22.0 | Decay rate (0-0.95): 0.800 | Gain (0-1): 1.000
 
-vbt
-->VBT (9): OFF(0)|ON(1) 0 | Depth (0.1-100)(ms): 5.0 | Delay (0-1000)(ms): 1.0 | Profile: (0-10) 0 | Frequency (0.2-5)(Hz): 0.500 | Duty Cycle (0-100)(): 50.0 | Gain (0-1): 1.000
+```vbt```
+> ->VBT (9): OFF(0)|ON(1) 0 | Depth (0.1-100)(ms): 5.0 | Delay (0-1000)(ms): 1.0 | Profile: (0-10) 0 | Frequency (0.2-5)(Hz): 0.500 | Duty Cycle (0-100)(): 50.0 | Gain (0-1): 1.000
 
-```vbt```</br>
-->VBT (9): OFF(0)|ON(1) 1 | Depth (0.1-100)(ms): 10.0 | Delay (0-1000)(ms): 1.0 | Profile: (0-10) 5 | Frequency (0.2-5)(Hz): 0.500 | Duty Cycle (0-100)(): 50.0 | Gain (0-1): 1.000
+```vbt 1 10 1 5```
+> ->VBT (9): OFF(0)|ON(1) 1 | Depth (0.1-100)(ms): 10.0 | Delay (0-1000)(ms): 1.0 | Profile: (0-10) 5 | Frequency (0.2-5)(Hz): 0.500 | Duty Cycle (0-100)(): 50.0 | Gain (0-1): 1.000
 
 
 
