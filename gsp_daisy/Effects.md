@@ -275,12 +275,12 @@ Modifies the tone of the input signal driven by a LFO
 
 ## Effect Command Examples
 
-```ovd```
-```phr (5)```
-```tml (-1)```
-```cmp (+)```
-```dfb 1 22 0.8```
-```vbt```
+```ovd```<br>
+```phr (5)```<br>
+```tml (-1)```<br>
+```cmp (+)```<br>
+```dfb 1 22 0.8```<br>
+```vbt```</br>
 include gsp replies.
 
 
