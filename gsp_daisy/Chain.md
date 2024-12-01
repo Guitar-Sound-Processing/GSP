@@ -30,7 +30,7 @@ Any Chain can be configured by using a small set or commands. Some commands were
 
 Erase the current chain and start a new one with the complete set of effects. Although the previous chain is erased, all the effect parameters remain with their preceding settings.
 
-```new```
+  new
 
 > ->CMP->OVD->PHR->OCT->SFT->DTN->WAH->EQZ->CHS->VBT->RVB->DFB->EFB->DFF->EFF->TML->VOL->LIM->NGT->
 
@@ -39,7 +39,7 @@ Erase the current chain and start a new one with the complete set of effects. Al
 
 Prints the current chain sequence.
 
-```all```
+  all
 
 > ->Inp->CMP->OVD->RVB->Out->
 
@@ -47,7 +47,7 @@ Prints the current chain sequence.
 
 Clear the whole chain sequence (no effects left on chain)
 
-```clr```
+  clr
 
 > ->Inp->Out->
 
