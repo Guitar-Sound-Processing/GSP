@@ -53,14 +53,14 @@ The Level Detector is not an “effect” but it is necessary for other effects.
 
 Duplicates the signal with changes in pitch drove by a LFO
 
-	chs [([+][]c)] s depth delay_ms mixer lfo.profile lfo.freq lfo.duty gain
-		depth 		– Depth
-		delay_ms 	– Delay (milliseconds)
-		mixer 		– Mixer
-		lfo.profile 	– LFFG Profile
-		lfo.freq 	– LFFG Frequency (Hz)
-		lfo.duty	– LFFG Duty cycle
-		gain 		– Gain
+	chs [([+][-]c)] s depth delay_ms mixer lfo.profile lfo.freq lfo.duty gain<br>
+		depth 		– Depth<br>
+		delay_ms 	– Delay (milliseconds)<br>
+		mixer 		– Mixer<br>
+		lfo.profile 	– LFFG Profile<br>
+		lfo.freq 	– LFFG Frequency (Hz)<br>
+		lfo.duty	– LFFG Duty cycle<br>
+		gain 		– Gain</br>
 
 > ->CHS (8): OFF(0)|ON(1) 0 | Depth (0.1-100)(ms): 5.0 | Delay (0-1000)(ms): 1.0 | Mixer: 0.500 | Profile: (0-10) 0 | Frequency (0.2-5)(Hz): 0.500 | Duty Cycle (0-100)(): 50.0 | Gain (0-1): 1.000
 
@@ -68,7 +68,7 @@ Duplicates the signal with changes in pitch drove by a LFO
 
 Reduces the gain for loud signals
 
- 	cmp [([+][]c)] s attack_ms release_ms gain_db threshold_db
+ 	cmp [([+][-]c)] s attack_ms release_ms gain_db threshold_db
 		attack_ms 	– Attack time (milliseconds)
 		release_ms 	– Release time (milliseconds)
 		gain_db		– Gain in dB
@@ -80,7 +80,7 @@ Reduces the gain for loud signals
 
 Mixes the signal with a several delayed and attenuated copies
 
- 	dfb [([+][]c)] s delay_ms decay_rate gain
+ 	dfb [([+][-]c)] s delay_ms decay_rate gain
 		delay_ms 	– Delay (milliseconds)
 		decay_rate 	– Decay rate
 		gain 		– Gain
@@ -91,7 +91,7 @@ Mixes the signal with a several delayed and attenuated copies
 
 Mixes the signal with a given number of copies (maximum 8)
 
-	dff [([+][]c)] s delay_ms decay_rate repeats gain
+	dff [([+][-]c)] s delay_ms decay_rate repeats gain
 		delay_ms 	– Delay (milliseconds)
 		decay_rate 	– Decay rate
 		repeats 	– Number of repeats
@@ -103,7 +103,7 @@ Mixes the signal with a given number of copies (maximum 8)
 
 Reduces the frequency of the input signal down to half (inverse of Pitch Shifter)
 
-	dtn [([+][]c)] s detune mixer gain
+	dtn [([+][-]c)] s detune mixer gain
 		detune 		– Pitch (detune)
 		mixer 		– Mixer
 		gain 		– Gain
@@ -114,7 +114,7 @@ Reduces the frequency of the input signal down to half (inverse of Pitch Shifter
 
 Same as Delay Feedback but with large time delays
 
-	efb [([+][]c)] s delay_ms decay_rate gain
+	efb [([+][-]c)] s delay_ms decay_rate gain
 		delay_ms 	– Delay (milliseconds)
 		decay_rate 	– Decay rate
 		gain 		– Gain
@@ -125,7 +125,7 @@ Same as Delay Feedback but with large time delays
 
 Same as Delay Feedforward but with large time delays
 
-	eff [([+][]c)] s delay_ms decay_rate repeats gain
+	eff [([+][-]c)] s delay_ms decay_rate repeats gain
 		delay_ms 	– Delay (milliseconds)
 		decay_rate 	– Decay rate
 		repeats 	– Number of repeats
@@ -137,7 +137,7 @@ Same as Delay Feedforward but with large time delays
 
 Three band equalizer with frequency adjustment
 
-	eqz [([+][]c)] s g_low g_mean g_high f_low f_high
+	eqz [([+][-]c)] s g_low g_mean g_high f_low f_high
 		g_low 		– Low frequency gain
 		g_mean 		– Medium frequency gain
 		g_high 		– High frequency gain
@@ -150,7 +150,7 @@ Three band equalizer with frequency adjustment
 
 Soft amplitude clipping, to avoid signal distortion
 
-	lim [([+][]c)] s smooth input_gain
+	lim [([+][-]c)] s smooth input_gain
 		smooth 		– Smoothness
 		input_gain 	– Input gain
 
@@ -160,7 +160,7 @@ Soft amplitude clipping, to avoid signal distortion
 
 Mutes the output for low level signals
 
-	ngt atk_tm rel_tm gain threshold
+	ngt [([+][-]c)] s atk_tm rel_tm gain threshold
 		rel_tm 		– Attack time (milliseconds)
 		rel_tm		– Release time (milliseconds)
 		gain		– Output gain
@@ -172,7 +172,7 @@ Mutes the output for low level signals
 
 Doubles the signal frequency and mixes with the input
 
-	oct [([+][]c)] s mixer gain
+	oct [([+][-]c)] s mixer gain
 		mixer 		– Mixer
 		gain 		– Gain
 
@@ -182,7 +182,7 @@ Doubles the signal frequency and mixes with the input
 
 Applies a hard clipping on the signal (distortion)
 
-	ovd [([+][]c)] s sustain tone gain
+	ovd [([+][-]c)] s sustain tone gain
 		sustain 	– Sustain
 		tone 		– Tone
 		gain 		– Output gain
@@ -193,7 +193,7 @@ Applies a hard clipping on the signal (distortion)
 
 Mixes the signal with an out of phase copy drove by a LFO
 
-	phr [([+][]c)] s depth level lfo.profile lfo.freq lfo.duty gain
+	phr [([+][-]c)] s depth level lfo.profile lfo.freq lfo.duty gain
 		depth 		– Depth
 		level 		– Level
 		lfo.profile 	– LFFG Profile
@@ -206,7 +206,7 @@ Mixes the signal with an out of phase copy drove by a LFO
 
 Increases the frequency of the input signal continously up to double (Inverse of Detune)
 
-	sft [([+][]c)] s pshift mixer gain
+	sft [([+][-]c)] s pshift mixer gain
 		pshift 		– Pitch (shift)
 		mixer 		– Mixer
 		gain 		– Gain
@@ -217,7 +217,7 @@ Increases the frequency of the input signal continously up to double (Inverse of
 
 Mimics the reverberation of a large room
 
-	rvb [([+][]c)] s rvbtime_time gain
+	rvb [([+][-]c)] s rvbtime_time gain
 		rvbtime_time 	– Reverber time
 		gain 		– Gain
 
@@ -227,7 +227,7 @@ Mimics the reverberation of a large room
 
 Changes the input amplitude with a LFO
 
-	tml [([+][]c)] s lfo.profile lfo.freq lfo.duty gain
+	tml [([+][-]c)] s lfo.profile lfo.freq lfo.duty gain
 		lfo.profile 	– LFFG Profile
 		lfo.freq 	– LFFG Frequency (Hz)
 		lfo.duty	– LFFG Duty cycle
@@ -239,7 +239,7 @@ Changes the input amplitude with a LFO
 
 Changes the input frequency with a LFO
 
-	vbt [([+][]c)] s depth delay_ms lfo.profile lfo.freq lfo.duty gain
+	vbt [([+][-]c)] s depth delay_ms lfo.profile lfo.freq lfo.duty gain
 		depth 		– Depth
 		delay_ms 	– Delay (milliseconds)
 		lfo.profile 	– LFFG Profile
@@ -253,7 +253,7 @@ Changes the input frequency with a LFO
 
 Changes the input level based on a LFO with external (potentiometer) signal
 
-	vol [([+][]c)] s lfo.profile lfo.freq lfo.duty gain
+	vol [([+][-]c)] s lfo.profile lfo.freq lfo.duty gain
 		lfo.profile 	– LFFG Profile
 		lfo.freq 	– LFFG Frequency (Hz)
 		lfo.duty	– LFFG Duty cycle
@@ -265,7 +265,7 @@ Changes the input level based on a LFO with external (potentiometer) signal
 
 Modifies the tone of the input signal driven by a LFO
 
-	wah [([+][]c)] s lfo.profile lfo.freq lfo.duty gain
+	wah [([+][-]c)] s lfo.profile lfo.freq lfo.duty gain
 		lfo.profile 	– LFFG Profile
 		lfo.freq 	– LFFG Frequency (Hz)
 		lfo.duty	– LFFG Duty cycle
