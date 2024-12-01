@@ -285,9 +285,20 @@ Modifies the tone of the input signal driven by a LFO
 ```tml (-1)```<br>
 ->Inp->CMP->OVD->OCT->SFT->DTN->PHR->WAH->EQZ->CHS->VBT->RVB->DFB->EFB->DFF->EFF->VOL->LIM->NGT->Out->
 
-```cmp (+)```<br>
+```eqz (+)```<br>
+->Inp->EQZ->CMP->OVD->OCT->SFT->DTN->PHR->WAH->CHS->VBT->RVB->DFB->EFB->DFF->EFF->VOL->LIM->NGT->Out->
+
+dfb
+->DFB (11): OFF(0)|ON(1) 0 | Delay Time (0.2-100)(ms): 31.0 | Decay rate (0-0.95): 0.700 | Gain (0-1): 1.000
+
 ```dfb 1 22 0.8```<br>
+->DFB (11): OFF(0)|ON(1) 1 | Delay Time (0.2-100)(ms): 22.0 | Decay rate (0-0.95): 0.800 | Gain (0-1): 1.000
+
+vbt
+->VBT (9): OFF(0)|ON(1) 0 | Depth (0.1-100)(ms): 5.0 | Delay (0-1000)(ms): 1.0 | Profile: (0-10) 0 | Frequency (0.2-5)(Hz): 0.500 | Duty Cycle (0-100)(): 50.0 | Gain (0-1): 1.000
+
 ```vbt```</br>
-include gsp replies.
+->VBT (9): OFF(0)|ON(1) 1 | Depth (0.1-100)(ms): 10.0 | Delay (0-1000)(ms): 1.0 | Profile: (0-10) 5 | Frequency (0.2-5)(Hz): 0.500 | Duty Cycle (0-100)(): 50.0 | Gain (0-1): 1.000
+
 
 
