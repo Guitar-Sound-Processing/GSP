@@ -1,5 +1,7 @@
 
-## Effect Commands
+# Effect Commands
+
+## Effect Command format
 
 Any Effect Command must obey the following format:
 
@@ -33,7 +35,7 @@ since ```“ovf”``` isn’t a valid command.
 
 Each parameter *p*<sub>*n*</sub> of any effect has its own maximum and minimum allowable values. Sending a command with no parameters, like ```ovd```, produces a printout of the current effect parameters as well as the maximum and minimum allowable values. Any parameter above the maximum or below the minimum allowable values will be internally clipped respectively to maximum or minimum. 
 
-## Effect configuration
+## Configuration Commands
 
 Any effect can be configured by a three-character command together with effect parameters. The configuration commands are explained below. Deep explanation on the effect parameters can be found in specific algorithm documentation.
 
@@ -94,6 +96,8 @@ Mixes the signal with a given number of copies (maximum 8)
 		decay_rate 	– Decay rate
 		repeats 	– Number of repeats
 		gain 		– Gain
+
+> ->DFF (13): OFF(0)|ON(1) 0 | Delay Time (0.2-100)(ms): 31.0 | Decay rate (0-1): 0.900 | Number of repeats (1-8): 4 | Gain (0-1): 1.000
 
 ### Detune:
 
@@ -162,7 +166,7 @@ Mutes the output for low level signals
 		gain		– Output gain
 		threshold	– Output threshold
 
-. ->NGT (18): OFF(0)|ON(1) 0 | Attack (20-2000)(ms): 10.0 | Release (20-2000)(ms): 1000.0 | Gain (0.1-1): 1.000 | Threshold (0-1): 0.100
+> ->NGT (18): OFF(0)|ON(1) 0 | Attack (20-2000)(ms): 10.0 | Release (20-2000)(ms): 1000.0 | Gain (0.1-1): 1.000 | Threshold (0-1): 0.100
 
 ### Octave:
 
@@ -269,36 +273,14 @@ Modifies the tone of the input signal driven by a LFO
 
 > ->WAH (6): OFF(0)|ON(1) 0 | Profile: (0-10) 1 | Frequency (0.2-5)(Hz): 2.000 | Duty Cycle (0-100)(): 50.0 | Gain (0-1): 1.000
 
+## Effect Command Examples
 
+```ovd```
+```phr (5)```
+```tml (-1)```
+```cmp (+)```
+```dfb 1 22 0.8```
+```vbt```
+include gsp replies.
 
-
-ovd
-phr (5)
-tml (1)
-cmp (+)
-dfb 1 22 0.8
-vbt
-colocar as respostas.
-
-
-->CMP (0) 0 10.0 1000.0 20 40
-->LVD: Attack (ms):    1.000 | Release (ms): 1000.000
-->OVD (1) 0 0.500 0.800 1.000
-->PHR (2) 0 0.500 10.0 0 0.250 50.0 1.000
-->OCT (3) 0 0.500 1.000
-->SFT (4) 0 5.000 0.500  1.000
-->DTN (5) 0 5.000 0.500 1.000
-->WAH (6) 0 1 2.000 50.0 1.000
-->EQZ (7) 0 1.000 1.000 1.000 200.000 800.0
-->CHS (8) 0 5.0 1.0 0.500 0 0.500 50.0 1.000
-->VBT (9) 0 5.0 1.0 0 0.500 50.0 1.000
-->RVB (10) 0 1000.0 1.000
-->DFB (11) 0 31.0 0.700 1.000
-->EFB (12) 0 1000.0 0.700 1.000
-->DFF (13) 0 31.0 0.900 4 1.000
-->EFF (14) 0 1000.0 0.900 4 1.000
-->TML (15) 0 1 2.000 50.0 1.000
-->VOL (16) 0 1 2.000 50.0 1.000
-->LIM (17) 0 1.000 1.000
-->NGT (18) 0 10.0  1000.0 1.000 0.100
 
