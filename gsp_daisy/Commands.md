@@ -94,7 +94,7 @@ Reduces the gain for loud signals
 
 ### Delay Feedback:
 
-Mix the signal with a several delayed and attenuated copies
+Mixes the signal with a several delayed and attenuated copies
 
  	dfb [([+][]c)] s delay_ms decay_rate gain
 		delay_ms 	– Delay (milliseconds)
@@ -115,7 +115,7 @@ Mixes the signal with a given number of copies (maximum 8)
 
 ### Detune:
 
-Reduces the frequency of the input signal down to half maximum (inverse of Pitch Shifter)
+Reduces the frequency of the input signal down to half (inverse of Pitch Shifter)
 
 	dtn [([+][]c)] s detune mixer gain
 		detune 		– Pitch (detune)
@@ -162,7 +162,7 @@ Three band equalizer with frequency adjustment
 
 ### Limiter: 
 
-Soft level clipping, to avoid signal distortion
+Soft amplitude clipping, to avoid signal distortion
 
 	lim [([+][]c)] s smooth input_gain
 		smooth 		– Smoothness
@@ -184,7 +184,7 @@ Mutes the output for low level signals
 
 ### Octave:
 
-Double the signal frequency and mixes with the input
+Doubles the signal frequency and mixes with the input
 
 	oct [([+][]c)] s mixer gain
 		mixer 		– Mixer
@@ -218,7 +218,7 @@ Mixes the signal with an out of phase copy drove by a LFO
 
 ### Pitch Shifter:
 
-Increases the frequency of the input signal continously up to two (Inverse of Detune)
+Increases the frequency of the input signal continously up to double (Inverse of Detune)
 
 	sft [([+][]c)] s pshift mixer gain
 		pshift 		– Pitch (shift)
@@ -277,7 +277,7 @@ Changes the input level based on a LFO with external (potentiometer) signal
 
 ### WahWha:
 
-Modifies the tone of the input signal with a LFO
+Modifies the tone of the input signal driven by a LFO
 
 	wah [([+][]c)] s lfo.profile lfo.freq lfo.duty gain
 		lfo.profile 	– LFFG Profile
