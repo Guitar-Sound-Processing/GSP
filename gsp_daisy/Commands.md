@@ -1,6 +1,6 @@
 # GSP Command Decoder
 
-## 1 Description 
+## Description 
 
 The Guitar Sound Processing is configured by interpreted commands by Daisy Seed (DS) and by the External Device - ED (ESP32 or Arduino, for instance), through serial interfaces or USB. There are commands to change the effects setup and the effect position in chain. More specificaly DS can accept commands to:
 
@@ -18,7 +18,7 @@ On the other hand, the ED will be in charge to
 
 Therefore, from the Application point of view, some of the commands are interpreted by the Daisy Seed, while others are interpreted by the External Device, aiming to let the DS to process the effect algorithms instead to interpret all commands. DS is then responsible to interpret a minimum set of commands, while the External Device interpret high level commands. 
 
-The complete list of commands to GSP comprises
+The complete list of configuration commands to GSP comprises
 
 - Effects commands
 - Chain commands
@@ -33,7 +33,7 @@ The effect modules are codified in classes of C++, and obey some guidelines desc
 
 - Effect Software Directives
 
-## 2 GSP Programming 
+## GSP Programming 
 
 GSP is programmable through ASCII commands from available serial lines. Presently GSP monitors the USB (serial) and UART_1 serial lines. Input commands from serial lines are interpreted and executed by internal GSP procedures. The command string shall terminate with standard ASCII control characters Carriage Return (CR - D13) or Line Feed (LF - D10). After receiving a command, the interpreter answers with knowledge prompt. For instance, the input command:
 
@@ -43,7 +43,7 @@ is answered with:
 
 > ```->OVD (1): OFF(0)|ON(1) 0 | Sustain (0.1-1): 0.500 | Tone (0-1): 0.800 | Gain (0-1): 1.000```
 
-## 3 Available Effects:
+## Available Effects:
 
 Currently there are 19 available effects in GSP 1.0.0, besides a multi-purpose Low Frequency and Function Generator (LFFG) to provide low frequency audio modulation for several effects. The available effects are:
 
@@ -82,7 +82,7 @@ Some effects share the same code, but with different default parameters. They ar
 
 GSP software is composed by the effect algorithms and command interface modules. The algorithms will be described later on separated document. The user interface is shown here.
 
-## 4 Parameter format
+## Parameter format
 
 On the description of the commands, the following rules apply to the parameters:
  
