@@ -44,6 +44,7 @@ The ```out``` command turns on and off the output time. For instance, this comma
 This command selects between normal printings on console, if *f* is zero, the short format with numeric values only, if *f* is equal to 1, or muted output, if *f* is -1. Any other value or no value at all is considered by GSP as *f* equal to 0. 
 
 	fmt [f]
+ 		f 	Output reply parameter: standard:0 | short=1 | muted=-1 
 
 The normal output, for instance, is:
 
