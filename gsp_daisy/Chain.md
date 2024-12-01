@@ -17,10 +17,10 @@ The effect switch acts like a by-pass: if turned on (*s* = 1) the effect is acti
 
 To include, delete, or change the effect order in the current chain, please refer to the *c* parameter in the Effect Command documentation.
 
-Here are some examples of chain command output (see Chain Command section):
+Here are some examples of chain command output:
 
-```->Inp->CMP->OVD->WAH->EQZ->DFB->NGT->Out->``` <br>
-```->Inp->OCT->EQZ->CHS->RVB->LIM->Out->```</br>
+> ->Inp->CMP->OVD->WAH->EQZ->DFB->NGT->Out-> <br>
+> ->Inp->OCT->EQZ->CHS->RVB->LIM->Out-></br>
 
 ## Chain Commands:
 
@@ -30,16 +30,16 @@ Any Chain can be configured by using a small set or commands. Some commands were
 
 Erase the current chain and start a new one with the complete set of effects. Although the previous chain is erased, all the effect parameters remain with their preceding settings.
 
-  new
+	new
 
-> ->CMP->OVD->PHR->OCT->SFT->DTN->WAH->EQZ->CHS->VBT->RVB->DFB->EFB->DFF->EFF->TML->VOL->LIM->NGT->
+> ->Inp->CMP->OVD->PHR->OCT->SFT->DTN->WAH->EQZ->CHS->VBT->RVB->DFB->EFB->DFF->EFF->TML->VOL->LIM->NGT->Out->
 
 
 ### Current Chain
 
 Prints the current chain sequence.
 
-  all
+	all
 
 > ->Inp->CMP->OVD->RVB->Out->
 
@@ -47,7 +47,7 @@ Prints the current chain sequence.
 
 Clear the whole chain sequence (no effects left on chain)
 
-  clr
+	clr
 
 > ->Inp->Out->
 
