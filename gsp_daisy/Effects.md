@@ -23,6 +23,7 @@ Moreover, the following rules apply
 2. If the effect isn’t already in chain, the (*c*) parameter inserts the effect on the slot pointed by *c*, and shifts the remaining effects to right. 
 3. If *c* is greater than the position of the last effect in chain, the effect will be appended at the chain output. 
 4. If *c* is negative then the absolute value is disregarded and the effect will be removed from chain. The remaining effects in chain are shifted to left to fulfill the blank position.
+5. if *c* is ommited or changed to just a plus sign ```(+)``` the effect will be positioned at entrance. 
 
 Whenever the GSP_CC detects a non valid or a non expected character in command line it discards the command and answers with “?” in console. For example:
 
@@ -276,8 +277,14 @@ Modifies the tone of the input signal driven by a LFO
 ## Effect Command Examples
 
 ```ovd```<br>
+->OVD (1): OFF(0)|ON(1) 0 | Sustain (0.1-1): 0.500 | Tone (0-1): 0.800 | Mixer (0-1): 1.000 | Gain (0-1): 1.000
+
 ```phr (5)```<br>
+->Inp->CMP->OVD->OCT->SFT->DTN->PHR->WAH->EQZ->CHS->VBT->RVB->DFB->EFB->DFF->EFF->TML->VOL->LIM->NGT->Out->
+
 ```tml (-1)```<br>
+->Inp->CMP->OVD->OCT->SFT->DTN->PHR->WAH->EQZ->CHS->VBT->RVB->DFB->EFB->DFF->EFF->VOL->LIM->NGT->Out->
+
 ```cmp (+)```<br>
 ```dfb 1 22 0.8```<br>
 ```vbt```</br>
