@@ -24,23 +24,30 @@ Here are some examples of chain command output (see Chain Command section):
 
 Any Chain can be configured by using a small set or commands. Some commands were created to check the chain sequence, to create a new one and to erase the whole chain. They are:
 
-# New chain
+### New Chain
 
-Erase the current chain and start a new one with the complete set of effects:
+Erase the current chain and start a new one with the complete set of effects. Although the previous chain is erased, all the effect parameters remain with their preceding settings.
 
-new
+```new```
 
 > ->CMP->OVD->PHR->OCT->SFT->DTN->WAH->EQZ->CHS->VBT->RVB->DFB->EFB->DFF->EFF->TML->VOL->LIM->NGT->
 
-Although the previous chain is modified, all the effect parameters remain with their preceding settings.
 
-all
-Prints the current chain sequence, like 
+### Current Chain
+
+Prints the current chain sequence.
+
+```all```
 
 > ->Inp->CMP->OVD->RVB->Out->
-		
-clr
+
+### Clear Chain
+
 Clear the whole chain sequence (no effects left on chain)
+
+```clr```
+
+> ->Inp->Out->
 
 
 
