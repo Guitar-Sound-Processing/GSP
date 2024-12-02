@@ -16,40 +16,28 @@ If rid is negative, disregarding its value, the effect will be unassigned from i
 
 When receiving a ```pot``` request, GSP answers with 
 
-> ->POT (*n*): Effect: *efc* - Pot ID: *k*
+> ->POT: Effect: *efc* | Pot ID: *k*
 
-where *n* is the number of Expression Pedals configured so far, *efc* is the requested effect and *k* is the associated potenciometer ID. If there is no Expression Pedals configured so far GSP answers with *n* equal to zero. The standard reply for a ```pot``` command without parameters is a list of all Expression Pedals attached on GSP.
+where *efc* is the requested effect and *k* is the associated potenciometer ID. If there is no previously Expression Pedals configured with the ```pot``` command, GSP answers with \<none>. The standard reply for a ```pot``` command without parameters is a list of all Expression Pedals attached on GSP so far.
 
 To attach the Volume effect in channel 5 and Wah-Wah effect on channel 3, the following commands must be sent:
 
 
-pot
-->POT: <none>
-pot vol 5
-->POT: Effect: VOL - Pot ID: 5
-pot
-->POT: Effect: VOL - Pot ID: 5
-pot wah 3
-->POT: Effect: WAH - Pot ID: 3
-pot
-->POT: Effect: WAH - Pot ID: 3
-->POT: Effect: VOL - Pot ID: 5
-
-
-
-
 ```pot```
-> ->POT (0)
+> ->POT: \<none>
 
 ```pot vol 5```
-> ->POT (0): Effect: VOL - Pot ID: 5
-
-```pot wah 3```
-> ->POT (1): Effect: WAH - Pot ID: 3
+> ->POT: Effect: VOL | Pot ID: 5
 
 ```pot```
-> ->POT (0): Effect: WAH - Pot ID: 3 <br>
-> ->POT (1): Effect: VOL - Pot ID: 5 </br>
+> ->POT: Effect: VOL | Pot ID: 5
+
+```pot wah 3```
+> ->POT: Effect: WAH | Pot ID: 3
+
+```pot```
+> ->POT: Effect: WAH | Pot ID: 3 <br>
+> ->POT: Effect: VOL | Pot ID: 5 </br>
 
 After receiving the Expression Pedal command, the DS sends an assign command to the External Device (ED) with the required sequence to send the potentiometer data. This command has the following format
 
