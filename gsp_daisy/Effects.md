@@ -27,7 +27,7 @@ Moreover, the following rules apply
 
 Whenever the GSP_CC detects a non valid or a non expected character in command line it discards the command and answers with “?” in console. For example:
 
-> ```ovf 1 0.5```<br>
+```ovf 1 0.5```
 > ```->?```</br>
 
 since ```“ovf”``` isn’t a valid command.
