@@ -54,7 +54,7 @@ The Level Detector is not an “effect” but it is necessary for other effects.
 
 Duplicates the signal with changes in pitch drove by a LFO
 
-	chs [([+][-]c)] s depth delay_ms mixer lfo.profile lfo.freq lfo.duty gain<br>
+	chs [([+][-]c)] s depth delay_ms mixer lfo.profile lfo.freq lfo.duty gain
 		depth 		– Depth
 		delay_ms 	– Delay (milliseconds)
 		mixer 		– Mixer
@@ -149,7 +149,7 @@ Three band equalizer with frequency adjustment
 
 ### Limiter: 
 
-Soft amplitude clipping, to avoid signal distortion
+It applies a soft amplitude clipping, to avoid signal distortion
 
 	lim [([+][-]c)] s smooth input_gain
 		smooth 		– Smoothness
@@ -159,7 +159,7 @@ Soft amplitude clipping, to avoid signal distortion
 
 ### Noise Gate:
 
-Mutes the output for low level signals
+Mutes the output of low level signals
 
 	ngt [([+][-]c)] s atk_tm rel_tm gain threshold
 		rel_tm 		– Attack time (milliseconds)
