@@ -37,7 +37,7 @@ The effect modules are codified in classes of C++, and obey some guidelines desc
 
 GSP is programmable through ASCII commands from available serial lines. Presently GSP monitors the USB (serial) and UART_1 serial lines. Input commands from serial lines are interpreted and executed by internal GSP procedures. The command string shall terminate with standard ASCII control characters Carriage Return (CR - D13) or Line Feed (LF - D10). After receiving a command, the interpreter answers with knowledge prompt. For instance, the input command:
 
-> ```OVD```
+```OVD```
 
 is answered with:
 
