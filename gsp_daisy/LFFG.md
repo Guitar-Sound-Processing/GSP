@@ -63,5 +63,5 @@ Besides the profiles, the Frequency $f_{LFO}$ (or the Period $T_{LFO}$) and the 
 
 in which the Phaser parameters are specified with triangle envelope (4) and useless duty cycle of 0. 
 
-In addition, the Attack and Decay of LFO_LEVEL can be adjusted using the ```lfo``` command.
+In addition, the Attack and Release times of LFO_LEVEL can be adjusted using the ```lvd``` command.
 
