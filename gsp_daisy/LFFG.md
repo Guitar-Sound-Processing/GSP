@@ -59,8 +59,8 @@ The LFFG can be configured by several parameters and profiles. The profiles chan
 
 Besides the profiles, the Frequency $f_{LFO}$ (or the Period $T_{LFO}$) and the Duty Cycle of the LFFG can be individually adjusted for each one of the six above mentioned effects. The duty cycle parameter *D* (lfo.duty) is necessary only in LFO_SQUARE, LFO_EXPDECREASE and LFO_EXPINCREASE profiles. However, the *efc* commands still require the lfo.duty parameter, even when no one of these profiles is selected, for instance:
 
-phr 1 0.8 100 4 0.5 0 0.9
+      phr 1 0.8 100 4 0.5 0 0.9
 
-in which the Phaser parameters are specified with triangle envelope (4) and unused duty cycle of 0. 
+in which the Phaser parameters are specified with triangle envelope (4) and useless duty cycle of 0. 
 
 
