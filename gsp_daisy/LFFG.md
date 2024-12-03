@@ -29,7 +29,7 @@ The LFFG can be configured by several parameters and profiles. The profiles chan
 
 6)	LFO_TRIANGLE (4). Triangle wave: 
 
- 
+$$a(t)=\left{\begin{pmatrix} 1 \\ 2 \end{pmatrix}$$
 
 7)	LFO_SQUARE (5). Square wave:
 
