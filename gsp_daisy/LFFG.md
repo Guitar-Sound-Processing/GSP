@@ -32,11 +32,12 @@ The LFFG can be configured by several parameters and profiles. The profiles chan
 ```math
 \left\{ \begin{array}{rcl}\overline{\overline{z^2}+\cos z} & \mbox{for}& |z|<3 \\ 
 0 & \mbox{for} & 3\leq|z|\leq5 \\
-\sin\overline{z} & \mbox{for} & |z|>5 \end{array}\right
+\sin\overline{z} & \mbox{for} & |z|>5 \end{array}\right.
 ```
 
-$$a(t)=\left{\begin{pmatrix} 1 \\ 2 \end{pmatrix}$$
-
+```math
+a(t)= \left\{ \begin{array}\left{\begin{pmatrix} 1 \\ 2 \end{pmatrix}$$
+```
 7)	LFO_SQUARE (5). Square wave:
 
  
