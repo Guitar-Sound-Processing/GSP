@@ -60,18 +60,17 @@ As an example, let us assume 3 expression pedals connected to pot identifiers 0,
 
 Nor Daisy Seed or the ED can identify if there really is an expression pedal attached to a given pedal input. So the user has to take care in order to select the appropriate identifier when linking it to a given effect.
 
-Example:
-	Command to link potentiometers:
-	pot tml 5
+For instance, if two Expression pedals are selected with commands:
+
+ 	pot tml 5
 	pot wah 3
 
-	ED identifiers: 	0 	1 	2 	3 	4 	5	6	7
-	Attached pots: 		x	x	x	o	x	o	x	x
+then DS will send this request command to ED 
 
-	Command from DS to ED (51 = 3 + 48):
-		A<51><53>\n	
+	A<51><53>\n	
 
-	Potentiometer data sent by ED at 10 Hz frequency:
-Data: P<2><P3><P5>\n
+in which 51 = 3 + 48 and 53 = 5 + 48. After receiving the enable sending data command, ```S```, ED answers with the potentiometer data sent at 10 Hz frequency:
+
+	P<2><P3><P5>\n
 
 
