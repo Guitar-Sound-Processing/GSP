@@ -13,31 +13,28 @@ The LFFG can be configured by several parameters and profiles. The profiles chan
 
 1)	LFO_SIN (0). Sine wave profile:
 
-      $a(t)=\frac{1}{2}(\sin2\pi t + 1)$
+      $\large a(t)=\frac{1}{2}(\sin2\pi t + 1)$
    
 3)	LFO_HALFSINE (1). Half sine wave (default profile): 
 
-      $a(t)=\sin\pi t$
+      $\large a(t)=\sin\pi t$
 
 4)	LFO_RAMP (2). Increasing linear ramp: 
 
-      $a(t)= t$
+      $\large a(t)= t$
 
 5)	LFO_SAW (3). Decreasing linear ramp: 
 
-      $a(t)=1-t$
+      $\large a(t)=1-t$
 
 6)	LFO_TRIANGLE (4). Triangle wave: 
 
-```math
-\left\{ \begin{array}{rcl}\overline{\overline{z^2}+\cos z} & \mbox{for}& |z|<3 \\ 
-0 & \mbox{for} & 3\leq|z|\leq5 \\
-\sin\overline{z} & \mbox{for} & |z|>5 \end{array}\right.
+
+```math 
+\large a(t) = \left\{ \begin{array}{ll} 2t, \; 0 \leq t < 0.5 \\
+2-2t, \; 0.5 \leq t < 1 \end{array} \right.
 ```
 
-```math
-a(t)= \left\{ \begin{array}\left{\begin{pmatrix} 1 \\ 2 \end{pmatrix}$$
-```
 7)	LFO_SQUARE (5). Square wave:
 
  
