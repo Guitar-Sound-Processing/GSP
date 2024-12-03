@@ -20,8 +20,7 @@ When receiving a ```pot``` request, GSP answers with
 
 where *efc* is the requested effect and *k* is the associated potenciometer ID. If there is no previously Expression Pedals configured with the ```pot``` command, GSP answers with \<none>. The standard reply for a ```pot``` command without parameters is a list of all Expression Pedals attached on GSP so far.
 
-To attach the Volume effect in channel 5 and Wah-Wah effect on channel 3, the following commands must be sent:
-
+To attach Volume in channel 5 and Wah-Wah on channel 3, the following commands must be sent:
 
 ```pot```
 > ->POT: \<none>
@@ -41,7 +40,7 @@ To attach the Volume effect in channel 5 and Wah-Wah effect on channel 3, the fo
 
 After receiving the Expression Pedal command, the DS sends an assign command to the External Device (ED) with the sequence of potentiometer data that ED is required to send to Seed. This command has the following format
 
-	A{r_1}{r2}…{rm}\n
+	A{r1}{r2}…{rm}\n
 
 It starts with ASCII A, with one or more rid identifiers in sequence. The rid is not a true ASCII number, but, instead, it is the potentiometer identifier number plus 48, which means that the sequence matches the ASCII table for identifiers from 0 to 9, but identifier 10 is, therefore, 58 (“:”) and so on. This strategy allows GSP to have more than 9 identifiers (up to 207) with only one byte and avoids having problems with identifiers in the non-printing range of ASCII table. The carriage return terminator indicates the command has finished. The number of potentiometer data to be sent is, therefore, given by the number of identifiers present in this command. Two or more rm may refer to the same potentiometer identifier, since two or more effects can share the same potentiometer, like A0323, for instance.
 
