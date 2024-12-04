@@ -92,10 +92,10 @@ or the reduced format:
 
 > ->OVD (1) 0 0.500 0.800 1.000
 
-The out_list selects the required output format: normal or reduced (see fmt in Interface Commands section), while the input chn_pos gives the current effect position in the chain (see Effect Commands section).
+The ```out_list``` selects the required output format: normal or reduced (see ```fmt``` in Interface Commands), while the input ```chn_pos``` has the current effect position in the chain (see Effect Commands section).
 
-The Get_Params method retrieves all the effect parameters in a single float array fn. The parameters shall be stored in fn in the same sequence as they appear in Command line, always starting with the switch state (Switch method). Typecast and unit conversion, if required, must be internally made by Get_Params method. 
+The GetParams method retrieves all the effect parameters in a single float array ```fn```. The parameters shall be stored in ```fn``` in the same sequence as they appear in Command line, always starting with the switch state (Switch method). Typecast and unit conversion, if required, must be internally made by GetParams method. 
 
-The Set_Params method set all the effect parameters with the values stored in the float array fn, including the effect switch state. The GSP command interpreter retrieves the parameter values from Command line and calls the corresponding Set_Params method to change the effect setup. Normally Set_Params just provides a set of calling to the single parameter configuration methods explained above.
+The SetParams method set all the effect parameters with the values stored in the float array ```fn```, including the effect switch state. The GSP command interpreter retrieves the parameter values from Command line and calls the corresponding SetParams method to change the effect setup. Normally SetParams just provides callings to the single parameter configuration methods explained before.
 
 
