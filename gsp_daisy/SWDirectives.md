@@ -31,7 +31,7 @@ The GSP effect class shall be addressed by
 
 	GSP_EffectName
 
-There are two kind of methods required for GSP: processing methods and configuration methods. These are presented below.
+There are two kind of methods required for any GSP effect: processing methods and configuration methods. These are presented below.
 
 ### Processing methods
 
