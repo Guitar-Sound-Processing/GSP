@@ -96,6 +96,6 @@ The ```out_list``` selects the required output format: normal or reduced (see ``
 
 The GetParams method retrieves all the effect parameters in a single float array ```fn```. The parameters shall be stored in ```fn``` in the same sequence as they appear in Command line, always starting with the switch state (Switch method). Typecast and unit conversion, if required, must be internally made by GetParams method. 
 
-The SetParams method set all the effect parameters with the values stored in the float array ```fn```, including the effect switch state. The GSP command interpreter retrieves the parameter values from Command line and calls the corresponding SetParams method to change the effect setup. Normally SetParams just provides callings to the single parameter configuration methods explained before.
+The SetParams method set all the effect parameters with the values stored in the float array ```fn```, including the Switch state. The GSP command interpreter retrieves the parameter values from Command line and calls the corresponding SetParams method to change the effect setup. Normally SetParams just provides callings to the single parameter configuration methods explained before.
 
 
