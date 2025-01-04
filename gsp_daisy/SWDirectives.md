@@ -61,7 +61,7 @@ The Switch method stores the effect on-off (by-pass) switch state, and has the f
 
 	void GSP_EffectName::Switch(uint8_t mode)
 
-where ```mode``` can be ```GSP_ON``` or ```GSP_OFF```. The GSP main loop is responsible to interpret the Switch state, which means that the Process method is not affected by the switching state. 
+where ```mode``` can be ```GSP_ON``` or ```GSP_OFF```. The GSP main loop is responsible to act according to the Switch state, which means that the Process method shall not interpret the switching state. 
 
 ### Configuration methods
 
