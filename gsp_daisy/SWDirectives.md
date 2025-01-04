@@ -53,7 +53,7 @@ Similarly, there are two Process methods:
 	int32_t GSP_EffectName::Process(int32_t sampl,)
 	int32_t GSP_EffectName::Process(int32_t sampl, uint32_t buffer_pointer)
 
-to support effects that need and do not need audio buffer. The ```sampl``` input is the current audio sample (mono channel), and ```buffer_pointer``` is the current storage position of the audio sample in ```ptr_buffer```. This buffer is updated with the current audio sampler by GSP before any effect processing. Exceptions are the Feedback Delay and Feedback Echo effects, which updates the audio buffer with the processed audio. Any effect after these ones in chain and needs the audio buffer will be affected by the changes made by the GSP in the buffer’s content. Reverber uses its own buffer.
+to support effects that need and do not need audio buffer. The ```sampl``` input is the current audio sample (mono channel), and ```buffer_pointer``` is the current storage position of the audio sample in ```ptr_buffer```. This buffer is updated with the current audio sampler by GSP before any effect processing. Exceptions are the Feedback Delay and Feedback Echo effects, which updates the audio buffer with the processed audio. Any effect after these ones in chain who needs the audio buffer will be affected by the changes made by the GSP in the buffer’s content. Reverber uses its own buffer.
 
 The Process method shall perform all the necessary computation to change the audio sample according to the effect algorithm. The output of Process method is the processed audio sample which is transferred to the main GSP loop by the returning value. 
 
