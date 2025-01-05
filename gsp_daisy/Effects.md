@@ -42,7 +42,7 @@ Any effect can be configured by a three-character command and their parameters. 
 
 ### Level Detector:
 
-The Level Detector is not an “effect” but it is necessary for other effects. It is always active. Therefore it doesn’t have the switch *s*. The Level Detector measures the level of the input audio signal to drive the LFFG when configured in LFO_POWER, and, therefore, ```lvd``` doesn’t change the audio signal. However, the attack and release parameters can be user configured. See LFFG specific documentation for more information.
+The Level Detector is not an “effect” but it is necessary for other effects. It is always active. Therefore it doesn’t have the switch *s*. The Level Detector measures the level of the input audio signal to drive the [LFFG](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/LFFG.md) when configured in LFO_POWER, and, therefore, ```lvd``` doesn’t change the audio signal. However, the attack and release parameters can be user configured. See LFFG specific documentation for more information.
 
 	lvd atk_tm rel_tm
 		rel_tm 		– Attack time (milliseconds)
