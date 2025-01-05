@@ -19,11 +19,11 @@ in which:
 
 Moreover, the following rules apply
 
-1. For any effect already in chain, the (*c*) parameter in Effect Command swaps the effect efc with the one in c position. 
+1. For any effect already in chain, the (*c*) parameter in Effect Command swaps the effect *efc* with the one in c position. 
 2. If the effect isn’t already in chain, the (*c*) parameter inserts the effect on the slot pointed by *c*, and shifts the remaining effects to right. 
 3. If *c* is greater than the position of the last effect in chain, the effect will be appended at the chain output. 
 4. If *c* is negative then the absolute value is disregarded and the effect will be removed from chain. The remaining effects in chain are shifted to left to fulfill the blank position.
-5. if *c* is ommited or changed to just a plus sign ```(+)``` the effect will be positioned at entrance. 
+5. if *c* is ommited (but not the parenthesis) or it is just a plus sign ```(+)``` the effect will be positioned at entrance. 
 
 Whenever the GSP_CC detects a non valid or a non expected character in command line it discards the command and answers with “?” in console. For example:
 
@@ -38,7 +38,7 @@ Each parameter *p*<sub>*n*</sub> of any effect has its own maximum and minimum a
 
 ## Configuration Commands
 
-Any effect can be configured by a three-character command together with effect parameters. The configuration commands are explained below. Deep explanation on the effect parameters can be found in specific algorithm documentation.
+Any effect can be configured by a three-character command and their parameters. The configuration commands are explained below. Deep explanation on the effect parameters can be found in specific effect documentation.
 
 ### Level Detector:
 
