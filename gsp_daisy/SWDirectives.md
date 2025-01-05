@@ -31,15 +31,17 @@ The GSP effect class shall be addressed by
 
 	GSP_EffectName
 
-There are two kind of methods required for any GSP effect: processing methods and configuration methods. These are presented below.
+There are two kind of methods required for any GSP effect: [processing](#prcsmt) methods and [configuration](#cfgr) methods. These are presented below.
 
-### Processing methods
+### <h3 id="prcsmt">Processing methods</h3>
 
 Each effect class shall have standard methods to process the audio signal. Only three processing methods are required in GSP:
 
 - Init
-- Processing
+- Process
 - Switch
+
+#### Init methods
 
 There are two versions of Init method:
 
@@ -47,6 +49,8 @@ There are two versions of Init method:
 	GSP_EffectName::Init(uint32_t sampling_rate, int16_t *ptr_buffer, uint32_t buffer_size)
 
 The first one can be employed in effects that do not require buffers to store audio samples, like Overdrive, for instance. The second one provides pointers to access the buffer and its size, like the Delay effects. Caution must be taken, since the buffer is for read-only purposes. The audio samples are store in the buffer by the GSP effects loop.
+
+#### Process methods
 
 Similarly, there are two Process methods: 
 
@@ -57,13 +61,15 @@ to support effects that need and do not need audio buffer. The ```sampl``` input
 
 The Process method shall perform all the necessary computation to change the audio sample according to the effect algorithm. The output of Process method is the processed audio sample which is transferred to the main GSP loop by the returning value. 
 
+#### Switch method
+
 The Switch method stores the effect on-off (by-pass) switch state, and has the format:
 
 	void GSP_EffectName::Switch(uint8_t mode)
 
-where ```mode``` can be ```GSP_ON``` or ```GSP_OFF```. The GSP main loop is responsible to act according to the Switch state, which means that the Process method shall not interpret the switching state. 
+where ```mode``` can be ```GSP_ON``` or ```GSP_OFF```. The GSP main loop is responsible to act according to the Switch state, which means that the Process method shall not interpret the switching state.
 
-### Configuration methods
+### <h3 id="cfgr">Configuration methods</h3>
 
 The methods usually employed for effect configuration can be classified in two categories: Single and Multiple parameter configurations. The Single parameter configurations are methods required to set and to retrieve a single parameter. Methods to set a given parameter are usually named as SetParameter whereas methods to retrieve its value shall be named GetParameter. Both methods shall address one and only one parameter. Obviously the heading of these methods are:
 
