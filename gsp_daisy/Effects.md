@@ -40,28 +40,30 @@ Each parameter *p*<sub>*n*</sub> of any effect has its own maximum and minimum a
 
 Any effect can be configured by a three-character command and their parameters. The configuration commands are explained below. Deep explanation on the effect parameters can be found in specific effect documentation. Current effects on GSP comprise
 
-- Level Detector (lvd)
-- Chorus (chs)
-- Compressor (cmp)
-- Delay Feedback (dfb)
-- Delay Feedforward (dff)
-- Detune (dtn)
-- Echo Feedback (efb)
-- Echo Feedforward (eff)
-- Equalizer (eqz)
-- Limiter (lim)
-- Noise Gate (ngt)
-- Octave (oct)
-- Overdrive (ovd)
-- Phaser (phr)
-- Pitch Shifter
-- Reverb (rvb)
-- Tremolo (tml)
-- Vibrato (vbt)
-- Volume (vol)
-- Wah Wah (wah)
+- [Level Detector (lvd)](#efclvd)
+- [Chorus (chs)](#efcchs)
+- [Compressor (cmp)](#efccmp)
+- [Delay Feedback (dfb)](#efcdfb)
+- [Delay Feedforward (dff)](#efcdff)
+- [Detune (dtn)](#efcdtn)
+- [Echo Feedback (efb)](#efcefb)
+- [Echo Feedforward (eff)](#efceff)
+- [Equalizer (eqz)](#efceqz)
+- [Limiter (lim)](#efclim)
+- [Noise Gate (ngt)](#efcngt)
+- [Octave (oct)](#efcoct)
+- [Overdrive (ovd)](#efcovd)
+- [Phaser (phr)](#efcphr)
+- [Pitch Shifter (sft)](#efcsft)
+- [Reverb (rvb)](#efcrvb)
+- [Tremolo (tml)](#efctml)
+- [Vibrato (vbt)](#efcvbt)
+- [Volume (vol)](#efcvol)
+- [Wah Wah (wah)](#efcwah)
 
-### Level Detector:
+See also [Command Examples](#efcexp) section
+
+### <h3 id="efclvd">Level Detector:</h3>
 
 The Level Detector is not an “effect” but it is necessary for other effects. It is always active. Therefore it doesn’t have the switch *s*. The Level Detector measures the level of the input audio signal to drive the [LFFG](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/LFFG.md) when configured in LFO_POWER, and, therefore, ```lvd``` doesn’t change the audio signal. However, the attack and release parameters can be user configured. See LFFG specific documentation for more information.
 
@@ -71,7 +73,7 @@ The Level Detector is not an “effect” but it is necessary for other effects.
  
 > ->LVD: Attack (ms):    1.000 | Release (ms): 1000.000
 
-### Chorus:
+### <h3 id="efcchs">Chorus:</h3>
 
 Duplicates the signal with changes in pitch drove by a LFO
 
@@ -86,7 +88,7 @@ Duplicates the signal with changes in pitch drove by a LFO
 
 > ->CHS (8): OFF(0)|ON(1) 0 | Depth (0.1-100)(ms): 5.0 | Delay (0-1000)(ms): 1.0 | Mixer: 0.500 | Profile: (0-10) 0 | Frequency (0.2-5)(Hz): 0.500 | Duty Cycle (0-100)(): 50.0 | Gain (0-1): 1.000
 
-### Compressor:
+### <h3 id="efccmp">Compressor:</h3>
 
 Reduces the gain for loud signals
 
@@ -98,7 +100,7 @@ Reduces the gain for loud signals
 
 > ->CMP (0): OFF(0)|ON(1) 0 | Attack (20-2000)(ms): 10.0 | Release (20-2000)(ms): 1000.0 | Gain (0-80)(dB): 20 | Threshold (0-80)(dB): 40
 
-### Delay Feedback:
+### <h3 id="efcdfb">Delay Feedback:</h3>
 
 Mixes the signal with a several delayed and attenuated copies
 
@@ -109,7 +111,7 @@ Mixes the signal with a several delayed and attenuated copies
 
 > ->DFB (11): OFF(0)|ON(1) 0 | Delay Time (0.2-100)(ms): 31.0 | Decay rate (0-0.95): 0.700 | Gain (0-1): 1.000
 
-### Delay Feedforward:
+### <h3 id="efcdff">Delay Feedforward:</h3>
 
 Mixes the signal with a given number of copies (maximum 8)
 
@@ -121,7 +123,7 @@ Mixes the signal with a given number of copies (maximum 8)
 
 > ->DFF (13): OFF(0)|ON(1) 0 | Delay Time (0.2-100)(ms): 31.0 | Decay rate (0-1): 0.900 | Number of repeats (1-8): 4 | Gain (0-1): 1.000
 
-### Detune:
+### <h3 id="efcdtn">Detune:</h3>
 
 Reduces the frequency of the input signal down to half (inverse of Pitch Shifter)
 
@@ -132,7 +134,7 @@ Reduces the frequency of the input signal down to half (inverse of Pitch Shifter
 
 > ->DTN (5): OFF(0)|ON(1) 0 | Detune (down) (0-12): 5.000 | Mixer (0-1): 0.500 | Gain (0-1): 1.000
 
-### Echo Feedback:
+### <h3 id="efcefb">Echo Feedback:</h3>
 
 Same as Delay Feedback but with large time delays
 
@@ -143,7 +145,7 @@ Same as Delay Feedback but with large time delays
 
 > ->EFB (12): OFF(0)|ON(1) 0 | Delay Time (50-)(ms): 1000.0 | Decay rate (0-0.95): 0.700 | Gain (0-1): 1.000
 
-### Echo Feedforward:
+### <h3 id="efceff">Echo Feedforward:</h3>
 
 Same as Delay Feedforward but with large time delays
 
@@ -155,7 +157,7 @@ Same as Delay Feedforward but with large time delays
 
 > ->EFF (14): OFF(0)|ON(1) 0 | Delay Time (50-)(ms): 1000.0 | Decay rate (0-1): 0.900 | Number of repeats (1-8): 4 | Gain (0-1): 1.000
 
-### Equalizer:
+### <h3 id="efceqz">Equalizer:</h3>
 
 Three band equalizer with frequency adjustment
 
@@ -168,7 +170,7 @@ Three band equalizer with frequency adjustment
 
 > ->EQZ (7): OFF(0)|ON(1) 0 | Gains (0-1): Low 1.000 , Medium  1.000 , High 1.000 | Cutoff frequencies (Hz): Low (200-) 200.000 , High (-2000) 800.0
 
-### Limiter: 
+### <h3 id="efclim">Limiter: </h3>
 
 It applies a soft amplitude clipping, to avoid signal distortion
 
@@ -178,7 +180,7 @@ It applies a soft amplitude clipping, to avoid signal distortion
 
 > ->LIM (17): OFF(0)|ON(1) 0 | Smooth factor (0-1): 1.000 | Gain (0- ): 1.000
 
-### Noise Gate:
+### <h3 id="efcngt">Noise Gate:</h3>
 
 Mutes the output of low level signals
 
@@ -190,7 +192,7 @@ Mutes the output of low level signals
 
 > ->NGT (18): OFF(0)|ON(1) 0 | Attack (20-2000)(ms): 10.0 | Release (20-2000)(ms): 1000.0 | Gain (0.1-1): 1.000 | Threshold (0-1): 0.100
 
-### Octave:
+### <h3 id="efcoct">Octave:</h3>
 
 Doubles the signal frequency and mixes with the input
 
@@ -200,7 +202,7 @@ Doubles the signal frequency and mixes with the input
 
 > ->OCT (3): OFF(0)|ON(1) 0 | Mixer (0-1): 0.500 | Gain (0-1): 1.000
 
-### Overdrive:
+### <h3 id="efcovd">Overdrive:</h3>
 
 Applies a hard clipping on the signal (distortion)
 
@@ -211,7 +213,7 @@ Applies a hard clipping on the signal (distortion)
 
 > ->OVD (1): OFF(0)|ON(1) 0 | Sustain (0.1-1): 0.500 | Tone (0-1): 0.800 | Gain (0-1): 1.000
 
-### Phaser:
+### <h3 id="efcphr">Phaser:</h3>
 
 Mixes the signal with an out of phase copy drove by a LFO
 
@@ -224,7 +226,7 @@ Mixes the signal with an out of phase copy drove by a LFO
 		gain 		– Gain
 > ->PHR (2): OFF(0)|ON(1) 0 | Depth (0-1): 0.500 | Level (0-1000): 10.0 | Profile: (0-10) 0 | Frequency (0.2-5)(Hz): 0.250 | Duty Cycle (0-100)(): 50.0 | Gain (0-1): 1.000
 
-### Pitch Shifter:
+### <h3 id="efcsft">Pitch Shifter:</h3>
 
 Increases the frequency of the input signal continously up to double (Inverse of Detune)
 
@@ -235,7 +237,7 @@ Increases the frequency of the input signal continously up to double (Inverse of
 
 > ->SFT (4): OFF(0)|ON(1) 0 | Shift (up) (0-12): 5.000 | Mixer (0-1): 0.500 | Gain (0-1): 1.000
 
-### Reverb:
+### <h3 id="efcrvb">Reverb:</h3>
 
 Mimics the reverberation of a large room
 
@@ -245,7 +247,7 @@ Mimics the reverberation of a large room
 
 > ->RVB (10): OFF(0)|ON(1) 0 | Reverber Time (0-20000)(ms): 1000.0 | Gain (0-1): 1.000
 
-### Tremolo:
+### <h3 id="efctml">Tremolo:</h3>
 
 Changes the input amplitude with a LFO
 
@@ -257,7 +259,7 @@ Changes the input amplitude with a LFO
 
 > ->TML (15): OFF(0)|ON(1) 0 | Profile: (0-10) 1 | Frequency (0.2-5)(Hz): 2.000 | Duty Cycle (0-100)(): 50.0 | Gain (0-1): 1.000
 
-### Vibrato:
+### <h3 id="efcvbt">Vibrato:</h3>
 
 Changes the input frequency with a LFO
 
@@ -271,7 +273,7 @@ Changes the input frequency with a LFO
 
 > ->VBT (9): OFF(0)|ON(1) 0 | Depth (0.1-100)(ms): 5.0 | Delay (0-1000)(ms): 1.0 | Profile: (0-10) 0 | Frequency (0.2-5)(Hz): 0.500 | Duty Cycle (0-100)(): 50.0 | Gain (0-1): 1.000
 
-### Volume:
+### <h3 id="efcvol">Volume:</h3>
 
 Changes the input level based on a LFO with external (potentiometer) signal
 
@@ -283,7 +285,7 @@ Changes the input level based on a LFO with external (potentiometer) signal
 
 > ->VOL (16): OFF(0)|ON(1) 0 | Profile: (0-10) 1 | Frequency (0.2-5)(Hz): 2.000 | Duty Cycle (0-100)(): 50.0 | Gain (0-1): 1.000
 
-### WahWha:
+### <h3 id="efcwah">Wah Wha:</h3>
 
 Modifies the tone of the input signal driven by a LFO
 
@@ -295,7 +297,7 @@ Modifies the tone of the input signal driven by a LFO
 
 > ->WAH (6): OFF(0)|ON(1) 0 | Profile: (0-10) 1 | Frequency (0.2-5)(Hz): 2.000 | Duty Cycle (0-100)(): 50.0 | Gain (0-1): 1.000
 
-## Effect Command Examples
+## <h3 id="efcexp">Effect Command Examples</h3>
 
 ```ovd```
 > ->OVD (1): OFF(0)|ON(1) 0 | Sustain (0.1-1): 0.500 | Tone (0-1): 0.800 | Mixer (0-1): 1.000 | Gain (0-1): 1.000
