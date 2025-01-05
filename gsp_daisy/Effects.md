@@ -38,7 +38,28 @@ Each parameter *p*<sub>*n*</sub> of any effect has its own maximum and minimum a
 
 ## Configuration Commands
 
-Any effect can be configured by a three-character command and their parameters. The configuration commands are explained below. Deep explanation on the effect parameters can be found in specific effect documentation.
+Any effect can be configured by a three-character command and their parameters. The configuration commands are explained below. Deep explanation on the effect parameters can be found in specific effect documentation. Current effects on GSP comprise
+
+- Level Detector (lvd)
+- Chorus (chs)
+- Compressor (cmp)
+- Delay Feedback (dfb)
+- Delay Feedforward (dff)
+- Detune (dtn)
+- Echo Feedback (efb)
+- Echo Feedforward (eff)
+- Equalizer (eqz)
+- Limiter (lim)
+- Noise Gate (ngt)
+- Octave (oct)
+- Overdrive (ovd)
+- Phaser (phr)
+- Pitch Shifter
+- Reverb (rvb)
+- Tremolo (tml)
+- Vibrato (vbt)
+- Volume (vol)
+- Wah Wah (wah)
 
 ### Level Detector:
 
@@ -214,7 +235,7 @@ Increases the frequency of the input signal continously up to double (Inverse of
 
 > ->SFT (4): OFF(0)|ON(1) 0 | Shift (up) (0-12): 5.000 | Mixer (0-1): 0.500 | Gain (0-1): 1.000
 
-### Reverber:
+### Reverb:
 
 Mimics the reverberation of a large room
 
