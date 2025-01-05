@@ -71,7 +71,11 @@ where ```mode``` can be ```GSP_ON``` or ```GSP_OFF```. The GSP main loop is resp
 
 ### <h3 id="cfgr">Configuration methods</h3>
 
-The methods usually employed for effect configuration can be classified in two categories: Single and Multiple parameter configurations. The Single parameter configurations are methods required to set and to retrieve a single parameter. Methods to set a given parameter are usually named as SetParameter whereas methods to retrieve its value shall be named GetParameter. Both methods shall address one and only one parameter. Obviously the heading of these methods are:
+The methods usually employed for effect configuration can be classified in two categories: Single and Multiple parameter configurations. 
+
+#### Single parameter config
+
+The Single parameter configurations are methods required to set and to retrieve a single parameter. Methods to set a given parameter are usually named as SetParameter whereas methods to retrieve its value shall be named GetParameter. Both methods shall address one and only one parameter. Obviously the heading of these methods are:
 
 	void GSP_EffectName::SetParameter(type NewValue)
 	type GSP_EffectName::GetParameter()
@@ -83,6 +87,8 @@ The configuration parameters are dependent of the effect and may change between 
 - Depth
 - Treble
 - Volume, etc.
+
+#### Multiple parameter config
 
 There are three methods to store and to retrieve multiple effect parameters, but all these methods are not essential for proper effect operation: they just make coding easier. They are:
 
