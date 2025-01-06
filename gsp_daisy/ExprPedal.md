@@ -2,6 +2,15 @@
 
 GSP can handle up to 8 expression pedals, to drive effects like Volume, Wah-Wah and several others. The External Device reads the potentiometer voltage, scale it and send to Daisy Seed by serial line at 10 Hz frequency.
 
+## Parameter format
+
+On the description of the commands, the following rules apply to the parameters:
+ 
+- {var} indicates a numeric value in ASCII
+- \<var\> indicates a numeric value sent by serial line in binary format
+- /var\ indicates that the string stored in the variable var is sent in ASCII code.
+- *efc* indicates a command or effect name like ovd, phr, wah, pot, and others.
+
 ## Expression Pedal Command
 
 The command ```pot``` links a given effect configured with LFO_EXTERNAL profile in the LFFG to an expression pedal.
