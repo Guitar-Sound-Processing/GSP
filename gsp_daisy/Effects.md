@@ -17,7 +17,14 @@ in which:
 -	*s*, *p*<sub>1</sub>, *p*<sub>2</sub>, *p*<sub>3</sub> … are optional, but if *p*<sub>3</sub> has to be changed, then *s*, *p*<sub>1</sub> and *p*<sub>2</sub> must also be defined in the command.
 -	Each parameter *p*<sub>*i*</sub> can be separated with blank, “,” or “;”. Example: *efc* (*c*), *s* *p*<sub>1</sub>, *p*<sub>2</sub>; *p*<sub>3</sub>. Additional blank characters are ignored.
 
-Moreover, the following rules apply
+Whenever the GSP_CC detects a non valid or a non expected character in command line it discards the command and answers with “?” in console. For example:
+
+```ovf 1 0.5```
+> ```->?```</br>
+
+since ```“ovf”``` isn’t a valid command.
+
+## Chain parameter
 
 1. For any effect already in chain, the (*c*) parameter in Effect Command swaps the effect *efc* with the one in c position. 
 2. If the effect isn’t already in chain, the (*c*) parameter inserts the effect on the slot pointed by *c*, and shifts the remaining effects to right. 
@@ -25,12 +32,9 @@ Moreover, the following rules apply
 4. If *c* is negative then the absolute value is disregarded and the effect will be removed from chain. The remaining effects in chain are shifted to left to fulfill the blank position.
 5. if *c* is ommited (but not the parenthesis) or it is just a plus sign ```(+)``` the effect will be positioned at entrance. 
 
-Whenever the GSP_CC detects a non valid or a non expected character in command line it discards the command and answers with “?” in console. For example:
+## Switch parameter
 
-```ovf 1 0.5```
-> ```->?```</br>
-
-since ```“ovf”``` isn’t a valid command.
+The *s* Switch parameter indicates the activation or deactivation (by-pass) of the selected effect, such as 0 (zero) means by-pass and 1 (one) means effect activation. The effect is not removed from chain, but remains disabled at the same chain position.
 
 ## Parameter range
 
