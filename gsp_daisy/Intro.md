@@ -17,7 +17,7 @@ On the other hand, the ED will be in charge to
 -	communicate with the application software to receive and transmit commands,
 -	read Volume or Expression pedals and send these data to DS
 
-Therefore, from the Application point of view, some of the commands are interpreted by the Daisy Seed, while others are interpreted by the External Device, aiming to let the DS to process the effect algorithms instead to interpret all commands. DS is then responsible to interpret a minimum set of commands, while the External Device interpret high level commands. The complete list of commands are explained in
+Therefore, from the Application point of view, some of the commands are interpreted by the Daisy Seed, while others are interpreted by the External Device, aiming to let the DS to process the effect algorithms instead to interpret all commands. DS is then responsible to interpret a minimum set of commands, while the External Device interpret high level commands. The complete list of commands are separated in
 
 - Effects commands
 - Chain commands
