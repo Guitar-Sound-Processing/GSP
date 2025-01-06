@@ -47,25 +47,25 @@ is answered with:
 
 Currently there are 19 available effects in GSP 1.0.0, besides a multi-purpose Low Frequency and Function Generator (LFFG) to provide low frequency audio modulation for several effects. The available effects are:
 
-- Chorus – (com) ([doc](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects/Chorus/Chorus.pdf)) - Mixes the input signal with a LFFG delayed copy.
-- Compressor – Compress the input signal to increase the dynamic range.
-- Delay Feedback – Mixes the input signal with a feedback attenuated and delayed copy.
-- Delay Feedforward – Mixes the input signal with a fixed number of attenuated and delayed copies.
-- Detune – Decreases continuously the pitch, to up one octave below.
-- Echo Feedback– Mixes the input signal with a feedback time delayed copy.
-- Echo Feedforward – Mixes the input signal with a fixed number of attenuated and long time delayed copies.
-- Equalizer – Three-band equalizer with adjustable frequencies.
-- Limiter – Applies a non-linear threshold on the input level.
-- Noise Gate – Mutes the output signal when the input power falls below a given threshold.
-- Octave – Increases the pitch by one octave (double frequency).
-- Overdrive – Distortion based on Big Muff.
-- Phaser – Mixes the input signal with an out-of-phase copy driven by a LFFG.
-- Pitch Shifter – Increases continuously the pitch, up to one octave above.
-- Reverber – Simulates the sound of reverberation rooms.
-- Tremolo – Applies a LFFG envelop to the amplitude of the input signal.
-- Vibrato – Produces a LFFG delayed signal that mimics a vibrato.
-- Volume – Applies a LFFG to the input signal (same as Tremolo).
-- Wahwah – Applies a BPF (Band Pass Filter) adjusted by a LFFG.
+- [Chorus](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects.md#efcchs) – ([doc](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects/Chorus/Chorus.pdf)) - Mixes the input signal with a LFFG delayed copy.
+- [Compressor](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects.md#efccmp) – Compress the input signal to increase the dynamic range.
+- [Delay Feedback](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects.md#efcdfb) – Mixes the input signal with a feedback attenuated and delayed copy.
+- [Delay Feedforward](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects.md#efcdff) – Mixes the input signal with a fixed number of attenuated and delayed copies.
+- [Detune](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects.md#efcdtn) – Decreases continuously the pitch, to up one octave below.
+- [Echo Feedback](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects.md#efcefb)– Mixes the input signal with a feedback time delayed copy.
+- [Echo Feedforward](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects.md#efceff) – Mixes the input signal with a fixed number of attenuated and long time delayed copies.
+- [Equalizer](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects.md#efceqz) – Three-band equalizer with adjustable frequencies.
+- [Limiter](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects.md#efclim) – Applies a non-linear threshold on the input level.
+- [Noise Gate](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects.md#efcngt) – Mutes the output signal when the input power falls below a given threshold.
+- [Octave](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects.md#efcoct) – Increases the pitch by one octave (double frequency).
+- [Overdrive](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects.md#efcovd) – Distortion based on Big Muff.
+- [Phaser](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects.md#efcphr) – Mixes the input signal with an out-of-phase copy driven by a LFFG.
+- [Pitch Shifter](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects.md#efcsft) – Increases continuously the pitch, up to one octave above.
+- [Reverber](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects.md#efcrvb) – Simulates the sound of reverberation rooms.
+- [Tremolo](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects.md#efctml) – Applies a LFFG envelop to the amplitude of the input signal.
+- [Vibrato](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects.md#efcvbt) – Produces a LFFG delayed signal that mimics a vibrato.
+- [Volume](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects.md#efcvol) – Applies a LFFG to the input signal (same as Tremolo).
+- [Wahwah](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects.md#efcwah) – Applies a BPF (Band Pass Filter) adjusted by a LFFG.
 
 There is also a Level Detector which isn’t exactly an effect, but rather a user configurable level measurement of the input signal, before the signal is changed by any effect:
 
