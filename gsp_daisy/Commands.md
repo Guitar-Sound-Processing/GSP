@@ -20,10 +20,10 @@ Therefore, from the Application point of view, some of the commands are interpre
 
 The complete list of configuration commands to GSP comprises
 
-- Effects commands
-- Chain commands
-- Interface commands
-- Expression Pedal commands
+- [Effects commands](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects/Commands.md)
+- [Chain commands](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects/Chain.md)
+- [Interface commands](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects/Interfaces.md)
+- [Expression Pedal commands](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects/ExpPedal.md)
 
 All these effects are processed and interpreted by the Daisy Seed board. There are also some available commands designed to select a whole chain configuration stored on SSD. These and other commands are interpreted by the External Device, like ESP32, explained in:
 
@@ -69,9 +69,9 @@ Currently there are 19 available effects in GSP 1.0.0, besides a multi-purpose L
 
 There is also a Level Detector which isn’t exactly an effect, but rather a user configurable level measurement of the input signal, before the signal is changed by any effect:
 
-- [Level Detector] – Measures the level of the input signal. It can be used to drive the LFFG (Low Frequency Function Generator) when the selected envelop amplitude is LFO_POWER mode.
+- [Level Detector](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects.md#efclvd) – ([doc](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects/Level_Detector/Level_Detector.pdf))Measures the level of the input signal. It can be used to drive the LFFG (Low Frequency Function Generator) when the selected envelop amplitude is LFO_POWER mode.
 
-Besides these effects, a Tone_LPHP (Low-Pass High-Pass or Treble filter) class was developed for the Overdrive effect, but can be used in any future developments. Documentation of LPHP filter can be found on Overdrive doc.
+Besides these effects, a Tone_LPHP (Low-Pass High-Pass or Treble filter) class was developed for the Overdrive effect, but can be used in any future developments. Documentation of LPHP filter can be found on [Overdrive doc](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects/Overdrive/Overdrive.pdf).
 
 Some effects share the same code, but with different default parameters. They are:
 
