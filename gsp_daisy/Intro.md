@@ -33,8 +33,8 @@ Currently there are 19 available effects in GSP 1.0.0, besides a multi-purpose L
 -	Delay Feedback – Mixes the input signal with a feedback attenuated and delayed copy.
 -	Delay Feedforward – Mixes the input signal with a fixed number of attenuated and delayed copies.
 -	Detune – Decreases continuously the pitch, to up one octave below.
--	Echo Feedback– Mixes the input signal with a feedback time delayed copy.
--	Echo Feedforward – Mixes the input signal with a fixed number of attenuated and long time delayed copies.
+-	Echo Feedback– Mixes the input signal with a feedback delayed copy.
+-	Echo Feedforward – Mixes the input signal with a fixed number of attenuated and long delayed copies.
 -	Equalizer – Three-band equalizer with adjustable frequencies.
 -	Limiter – Applies a non-linear threshold on the input level.
 -	Noise Gate – Mutes the output signal when the input power falls below a given threshold.
