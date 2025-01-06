@@ -26,7 +26,7 @@ Therefore, from the Application point of view, some of the commands are interpre
 
 ## 2 Effects:
 
-Currently there are 19 available effects in GSP 1.0.0, besides a multi-purpose Low Frequency and Function Generator (LFFG) to provide low frequency audio modulation for several effects. The available effects are:
+Currently there are 19 available effects in GSP 1.0.0, besides a multi-purpose Low Frequency and Function Generator (LFFG) to provide low frequency audio modulation for several effects, and a configurable input level detector. The available effects are:
 
 -	Chorus – Mixes the input signal with a LFFG delayed copy.
 -	Compressor – Compress the input signal to increase the dynamic range.
