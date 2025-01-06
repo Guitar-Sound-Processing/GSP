@@ -19,7 +19,7 @@ On the other hand, the ED will be in charge to
 
 Therefore, from the Application point of view, some of the commands are interpreted by the Daisy Seed, while others are interpreted by the External Device, aiming to let the DS to process the effect algorithms instead to interpret all commands. DS is then responsible to interpret a minimum set of commands, while the External Device interpret high level commands. The complete list of commands are separated in
 
-- [Effects commands](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects.md#efclvd)
+- [Effects commands](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects.md)
 - [Chain commands](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Chain.md)
 - [Interface commands](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Interfaces.md)
 - [Expression pedal commands](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/ExprPedal.md)
