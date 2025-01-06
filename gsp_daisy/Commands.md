@@ -69,9 +69,9 @@ Currently there are 19 available effects in GSP 1.0.0, besides a multi-purpose L
 
 There is also a Level Detector which isn’t exactly an effect, but rather a user configurable level measurement of the input signal, before the signal is changed by any effect:
 
-- Level Detector – Measures the level of the input signal. It can be used to drive the LFFG (Low Frequency Function Generator) when the selected envelop amplitude is LFO_POWER mode.
+- [Level Detector] – Measures the level of the input signal. It can be used to drive the LFFG (Low Frequency Function Generator) when the selected envelop amplitude is LFO_POWER mode.
 
-Besides these effects, a Tone_LPHP (Low-Pass High-Pass or Treble) class was developed for the Overdrive effect, but can be used in any future developments.
+Besides these effects, a Tone_LPHP (Low-Pass High-Pass or Treble filter) class was developed for the Overdrive effect, but can be used in any future developments. Documentation of LPHP filter can be found on Overdrive doc.
 
 Some effects share the same code, but with different default parameters. They are:
 
