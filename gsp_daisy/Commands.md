@@ -80,5 +80,5 @@ Some effects share the same code, but with different default parameters. They ar
 - Delay Feedforward and Echo Feedforward
 - Tremolo and Volume
 
-GSP software is composed by the effect algorithms and command interface modules. The algorithms will be described later on separated document. The user interface is shown here.
+GSP software is composed by the effect algorithms and command interface modules. The algorithms are described on specific documentation for each effect (see 'doc' above).
 
