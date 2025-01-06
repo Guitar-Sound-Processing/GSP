@@ -20,10 +20,10 @@ Therefore, from the Application point of view, some of the commands are interpre
 
 The complete list of configuration commands to GSP comprises
 
-- [Effects commands](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects/Commands.md)
-- [Chain commands](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects/Chain.md)
-- [Interface commands](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects/Interfaces.md)
-- [Expression Pedal commands](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects/ExpPedal.md)
+- [Effects commands](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects.md)
+- [Chain commands](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Chain.md)
+- [Interface commands](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Interfaces.md)
+- [Expression Pedal commands](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/ExpPedal.md)
 
 All these effects are processed and interpreted by the Daisy Seed board. There are also some available commands designed to select a whole chain configuration stored on SSD. These and other commands are interpreted by the External Device, like ESP32, explained in:
 
