@@ -34,7 +34,7 @@ since ```“ovf”``` isn’t a valid command.
 
 ## Switch parameter
 
-The *s* Switch parameter indicates the activation or deactivation (by-pass) of the selected effect, such as 0 (zero) means by-pass and 1 (one) means effect activation. The effect is not removed from chain, but remains disabled at the same chain position.
+The *s* Switch parameter indicates the activation or deactivation (by-pass) of the selected effect, such that 0 (zero) means by-pass and 1 (one) means effect activation. The effect is not removed from chain, but remains disabled at the same chain position.
 
 ## Parameter range
 
