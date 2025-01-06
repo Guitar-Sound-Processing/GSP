@@ -47,7 +47,7 @@ is answered with:
 
 Currently there are 19 available effects in GSP 1.0.0, besides a multi-purpose Low Frequency and Function Generator (LFFG) to provide low frequency audio modulation for several effects. The available effects are:
 
-- Chorus – Mixes the input signal with a LFFG delayed copy.
+- Chorus – (com) (doc) - Mixes the input signal with a LFFG delayed copy.
 - Compressor – Compress the input signal to increase the dynamic range.
 - Delay Feedback – Mixes the input signal with a feedback attenuated and delayed copy.
 - Delay Feedforward – Mixes the input signal with a fixed number of attenuated and delayed copies.
