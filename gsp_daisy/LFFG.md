@@ -2,12 +2,12 @@
 
 Some guitar effects need a LFFG (Low Frequency Function Generator) in order to generate a time varying tone or amplitude envelop. Most of the GSP generated functions are periodic and, therefore, can be said that are, in fact, Low Frequency Oscillators (LFO). Sometimes ‘LFO’ and ‘LFFG’ are used indistinctly, mainly in the LFFG configuration parameters, like in lfo.duty, for instance. The effects that are modulated by LFFG are:
 
--	Chorus (chr)
--	Phaser (phr)
--	Tremolo (tml)
--	Vibrato (vbt)
--	Volume (vol)
--	Wahwah (wah)
+-	[Chorus](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects.md#efcchs) (chr)
+-	[Phaser](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects.md#efcphr) (phr)
+-	[Tremolo](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects.md#efctml) (tml)
+-	[Vibrato](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects.md#efcvbt) (vbt)
+-	[Volume](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects.md#efcvol) (vol)
+-	[Wahwah](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects.md#efcwah) (wah)
 
 The LFFG can be configured by several parameters and profiles. The profiles change the LFFG amplitude between 0 (lowest) and 1 (maximum) with time dependent math functions. The LFFG period TLFO (or the frequency fLFO) can be adjusted anytime, and the modulation amplitude a(t) can be obtained by calling an appropriate function. The profiles are stored in lfo_wave enumerator and are:
 
