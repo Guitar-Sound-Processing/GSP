@@ -58,4 +58,4 @@ The short format can be useful for copying and pasting when configuring chain pr
 
 GSP replies to ```fmt 0``` command with
 
-> ->FMT: Mute(-1)|Complete(0)|Data only(1) 0
+> ->FMT: Mute(-1) | Complete(0) | Data only(1) 0
