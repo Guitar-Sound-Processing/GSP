@@ -54,7 +54,7 @@ while the short format is:
  
 > ->OCT (3) 0 0.500 1.000 
 
-The short format can be useful for copying and pasting when configuring chain profiles. Care must be taken with *f* = -1, since there will no information if a wrong command is sent to GSP. However, verbose can still work if activated. 
+The short format can be useful for copying and pasting when configuring chain profiles. Care must be taken with *f* = -1, since there will be no information if a wrong command is sent to GSP. However, verbose can still work if activated. 
 
 GSP replies to ```fmt 0``` command with
 
