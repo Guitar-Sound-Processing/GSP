@@ -79,7 +79,7 @@ The Level Detector is not an “effect” but it is necessary for other effects.
 
 ### <h3 id="efcchs">Chorus:</h3>
 
-Duplicates the signal with changes in pitch drove by a LFO
+Duplicates the signal with changes in pitch drove by a [LFFG](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/LFFG.md) (or LFO)
 
 	chs [([+][-]c)] s depth delay_ms mixer lfo.profile lfo.freq lfo.duty gain
 		depth 		– Depth
@@ -219,7 +219,7 @@ Applies a hard clipping on the signal (distortion)
 
 ### <h3 id="efcphr">Phaser:</h3>
 
-Mixes the signal with an out of phase copy drove by a LFO
+Mixes the signal with an out of phase copy drove by a [LFFG](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/LFFG.md)
 
 	phr [([+][-]c)] s depth level lfo.profile lfo.freq lfo.duty gain
 		depth 		– Depth
@@ -253,7 +253,7 @@ Mimics the reverberation of a large room
 
 ### <h3 id="efctml">Tremolo:</h3>
 
-Changes the input amplitude with a LFO
+Changes the input amplitude with a [LFFG](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/LFFG.md) 
 
 	tml [([+][-]c)] s lfo.profile lfo.freq lfo.duty gain
 		lfo.profile 	– LFFG Profile
@@ -265,7 +265,7 @@ Changes the input amplitude with a LFO
 
 ### <h3 id="efcvbt">Vibrato:</h3>
 
-Changes the input frequency with a LFO
+Changes the input frequency with a [LFFG](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/LFFG.md) 
 
 	vbt [([+][-]c)] s depth delay_ms lfo.profile lfo.freq lfo.duty gain
 		depth 		– Depth
@@ -279,7 +279,7 @@ Changes the input frequency with a LFO
 
 ### <h3 id="efcvol">Volume:</h3>
 
-Changes the input level based on a LFO with external (potentiometer) signal
+Changes the input level based on a [LFFG](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/LFFG.md) with external (potentiometer) signal
 
 	vol [([+][-]c)] s lfo.profile lfo.freq lfo.duty gain
 		lfo.profile 	– LFFG Profile
@@ -291,7 +291,7 @@ Changes the input level based on a LFO with external (potentiometer) signal
 
 ### <h3 id="efcwah">Wah Wha:</h3>
 
-Modifies the tone of the input signal driven by a LFO
+Modifies the tone of the input signal driven by a [LFFG](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/LFFG.md)
 
 	wah [([+][-]c)] s lfo.profile lfo.freq lfo.duty gain
 		lfo.profile 	– LFFG Profile
