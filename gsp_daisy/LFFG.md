@@ -17,51 +17,51 @@ The LFFG can be configured by several parameters and profiles. The profiles chan
 
 More can be found in LFFG specific documentation. The profiles are stored in ```lfo_wave``` enumerator and are:
 
-1)	LFO_SIN (0). Sine wave profile:
+1)	```LFO_SIN```. Sine wave profile:
 
       $\large a(t)=\frac{1}{2}(\sin2\pi t + 1)$
    
-3)	LFO_HALFSINE (1). Half sine wave (default profile): 
+3)	```LFO_HALFSINE```. Half sine wave (default profile): 
 
       $\large a(t)=\sin\pi t$
 
-4)	LFO_RAMP (2). Increasing linear ramp: 
+4)	```LFO_RAMP```. Increasing linear ramp: 
 
       $\large a(t)= t$
 
-5)	LFO_SAW (3). Decreasing linear ramp: 
+5)	```LFO_SAW```. Decreasing linear ramp: 
 
       $\large a(t)=1-t$
 
-6)	LFO_TRIANGLE (4). Triangle wave: 
+6)	```LFO_TRIANGLE```. Triangle wave: 
   	    
 ```math
 \large a(t) = \left\{ \begin{array}{ll} 2t, \; 0 \leq t < 0.5 \\
 2-2t, \; 0.5 \leq t < 1 \end{array} \right.
 ``` 
       
-7)	LFO_SQUARE (5). Square wave:
+7)	```LFO_SQUARE```. Square wave:
 
 ```math
 \large a(t) = \left\{ \begin{array}{ll} 0, \; 0 \leq t < D \\
 1, \; D \leq t < 1 \end{array} \right.
 ``` 
 
-8)	LFO_EXPDECREASE (6). Decreasing exponential with continuous attack and decay:
+8)	```LFO_EXPDECREASE```. Decreasing exponential with continuous attack and decay:
 
       $\large a(t)=[1-\mathrm{e}^{-t/2}] \mathrm{e}^{(-t/D)}$
  
-9)	LFO_EXPINCREASE (7). Increasing exponential with continuous attack and decay:
+9)	```LFO_EXPINCREASE```. Increasing exponential with continuous attack and decay:
 
       $\large a(t)=[1-\mathrm{e}^{t/2-1/2}] \mathrm{e}^{(t/D-1/D)}$
 
-10)	LFO_EXTERNAL (8). External signal from potentiometer (volume pedal).
+10)	```LFO_EXTERNAL```. External signal from potentiometer (volume pedal).
  
-11)	LFO_LEVEL (9). Power amplitude of input signal, coming from the Level Detector (lvd) procedure.
+11)	```LFO_LEVEL```. Power amplitude of input signal, coming from the Level Detector (lvd) procedure.
 
-12)	LFO_REVERSE_LEVEL (9). Reversed power amplitude of the input signal, coming from the Level Detector (lvd) procedure.
+12)	```LFO_REVERSE_LEVEL```. Reversed power amplitude of the input signal, coming from the Level Detector (lvd) procedure.
 
-13)	LFO_LAST (10). No profile.
+13)	```LFO_LAST```. No profile.
 
 Besides the profiles, the Frequency $f_{LFO}$ (or the Period $T_{LFO}$) and the Duty Cycle of the LFFG can be individually adjusted for each one of the six above mentioned effects. The Period scales *t* so when *t* = 1 the output *a*(*t*) starts a new cycle. The duty cycle parameter *D* (lfo.duty) is necessary only in LFO_SQUARE, LFO_EXPDECREASE and LFO_EXPINCREASE profiles, in percentage of the Period (0 < *D* < 100). It's worth to mention that the *efc* commands still require the lfo.duty parameter, even when no one of these profiles is selected, for instance:
 
