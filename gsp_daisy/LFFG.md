@@ -63,6 +63,8 @@ More can be found in [LFFG specific documentation](https://github.com/Guitar-Sou
 
 13)	```LFO_LAST```. No profile.
 
+In the above expressions, $\large 0 \leq t \leq 1$ is the time for function generation and $\large D$ is the duty cycle.
+
 Besides the profiles, the Frequency $f_{LFO}$ (or the Period $T_{LFO}$) and the Duty Cycle of the LFFG can be individually adjusted for each one of the six above mentioned effects. The Period scales *t* so when *t* = 1 the output *a*(*t*) starts a new cycle. The duty cycle parameter *D* (lfo.duty) is necessary only in LFO_SQUARE, LFO_EXPDECREASE and LFO_EXPINCREASE profiles, in percentage of the Period (0 < *D* < 100). It's worth to mention that the *efc* commands still require the lfo.duty parameter, even when no one of these profiles is selected, for instance:
 
 ```phr 1 0.8 100 4 0.5 0 0.9```
