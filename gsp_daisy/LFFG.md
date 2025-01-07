@@ -71,5 +71,5 @@ Besides the profiles, the Frequency $\large f_{LFO}$ (or the Period $\large T_{L
 
 in which the Phaser parameters are specified with triangle envelope (4) and useless duty cycle of 0. 
 
-In addition, the Attack and Release times of ```LFO_LEVEL``` can be adjusted using the [Level Detector]((https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects.md#efcchs)) ```lvd``` command.
+In addition, the Attack and Release times of ```LFO_LEVEL``` can be adjusted using the [Level Detector](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects.md#efclvd) ```lvd``` command.
 
