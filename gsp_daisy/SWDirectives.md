@@ -29,7 +29,7 @@ and effect switching values:
 	
 The GSP effect class shall be addressed by 
 
-	GSP_EffectName
+	GSP_\EffectName\
 
 There are two kind of methods required for any GSP effect: [processing](#prcsmt) methods and [configuration](#cfgr) methods. These are presented below.
 
