@@ -11,11 +11,11 @@ Some guitar effects need a LFFG (Low Frequency Function Generator) in order to g
 
 The LFFG can be configured by several parameters and profiles. The profiles change the LFFG shape that modulates the signal amplitude between 0 (lowest) and 65535 (maximum) with time dependent math functions. The LFFG period TLFO (or the frequency fLFO) can be adjusted anytime, and the modulation amplitude a(t) can be retrieved by the public variables:
 
-- ```lfo.profile```      function profile (1 to 12)
-- ```lfo.period```       modulation period (miliseconds)
-- ```lfo.duty```         duty cycle (profiles 7, 8 and 9)
+- ```lfo.profile``` - function profile (1 to 12)
+- ```lfo.period``` - modulation period (miliseconds)
+- ```lfo.duty``` - duty cycle (profiles 7, 8 and 9)
 
-More can be found in LFFG specific documentation. The profiles are stored in lfo_wave enumerator and are:
+More can be found in LFFG specific documentation. The profiles are stored in ```lfo_wave``` enumerator and are:
 
 1)	LFO_SIN (0). Sine wave profile:
 
