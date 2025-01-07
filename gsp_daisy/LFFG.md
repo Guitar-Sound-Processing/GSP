@@ -15,7 +15,7 @@ The LFFG can be configured by several parameters and profiles. The profiles chan
 - ```lfo.period``` - modulation period (miliseconds)
 - ```lfo.duty``` - duty cycle (profiles 7, 8 and 9)
 
-More can be found in LFFG specific documentation. The profiles are stored in ```lfo_wave``` enumerator and are:
+More can be found in [LFFG specific documentation](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects/LFFG/LFFG.pdf). The profiles are stored in ```lfo_wave``` enumerator and are:
 
 1)	```LFO_SIN```. Sine wave profile:
 
