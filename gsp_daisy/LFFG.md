@@ -65,11 +65,11 @@ More can be found in [LFFG specific documentation](https://github.com/Guitar-Sou
 
 In the above expressions, $\large 0 \leq t \leq 1$ is the time for function generation and $\large D$ is the duty cycle.
 
-Besides the profiles, the Frequency $\large f_{LFO}$ (or the Period $\large T_{LFO}$) and the Duty Cycle of the LFFG can be individually adjusted for each one of the six above mentioned effects. The Period scales *t* so when *t* = 1 the output *a*(*t*) starts a new cycle. The duty cycle parameter $\large D$ (lfo.duty) is necessary only in LFO_SQUARE, LFO_EXPDECREASE and LFO_EXPINCREASE profiles, in percentage of the Period ($\large 0 \leq D \leq 1$). It's worth to mention that the *efc* commands still require the lfo.duty parameter, even when no one of these profiles is selected, for instance:
+Besides the profiles, the Frequency $\large f_{LFO}$ (or the Period $\large T_{LFO}$) and the Duty Cycle of the LFFG can be individually adjusted for each one of the six above mentioned effects. The Period scales $\large t$ so when $\large t = 1$ the output $\large a(t)$ starts a new cycle. The duty cycle parameter $\large D$ (```lfo.duty```) is necessary only in ```LFO_SQUARE```, ```LFO_EXPDECREASE``` and ```LFO_EXPINCREASE``` profiles, in percentage of the Period ($\large 0 \leq D \leq 100$). It's worth to mention that the *efc* commands still require the ```lfo.duty``` parameter, even when no one of these profiles is selected, for instance:
 
 ```phr 1 0.8 100 4 0.5 0 0.9```
 
 in which the Phaser parameters are specified with triangle envelope (4) and useless duty cycle of 0. 
 
-In addition, the Attack and Release times of LFO_LEVEL can be adjusted using the ```lvd``` command.
+In addition, the Attack and Release times of ```LFO_LEVEL``` can be adjusted using the ```lvd``` command.
 
