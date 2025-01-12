@@ -88,7 +88,7 @@ The configuration parameters are dependent of the effect and may change between 
 - Treble
 - Volume, etc.
 
-However the ```state``` parameter shall be included in any effect to store the Switch status (```GSP_ON``` or ```GSP_OFF```). GSP gets this parameter in main loop to call or to by-pass this effect.
+However the ```state``` parameter shall be included in any effect to store the Switch status (```GSP_ON``` or ```GSP_OFF```). GSP gets this parameter in main loop to call or to by-pass each effect according to its Switch state.
 
 #### Multiple parameter config
 
