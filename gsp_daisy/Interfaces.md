@@ -41,7 +41,7 @@ The ```out``` command turns on and off the output time. For instance, this comma
 
 ### Standard reply
 
-This command selects between normal printings on console, if *f* is zero, the short format with numeric values only, if *f* is equal to 1, or muted output, if *f* is -1. Any other value or no value at all is considered by GSP as *f* equal to 0. 
+This command selects between normal printings on console (long format), if *f* is zero, the short format with numeric values only, if *f* is equal to 1, or muted output, if *f* is -1. Any other value or no value at all is considered by GSP as *f* equal to 0. 
 
 	fmt [f]
  		f 	Output reply parameter: standard:0 | short=1 | muted=-1 
@@ -54,7 +54,7 @@ while the short format is:
  
 > ->OCT (3) 0 0.500 1.000 
 
-The short format can be useful for copying and pasting when configuring chain profiles. Care must be taken with *f* = -1, since there will be no information if a wrong command is sent to GSP. However, verbose can still work if activated. 
+The short format can be useful for copying and pasting when configuring chain profiles. Care must be taken with *f* = -1, since there will be no information if a wrong command is sent to GSP after this command. However, verbose can still work if activated. 
 
 GSP replies to ```fmt 0``` command with
 
