@@ -45,8 +45,8 @@ Each effect class shall have standard methods to process the audio signal. Only 
 
 There are two versions of Init method:
 
-	GSP_EffectName::Init(uint32_t sampling_rate)
-	GSP_EffectName::Init(uint32_t sampling_rate, int16_t *ptr_buffer, uint32_t buffer_size)
+	GSP_\EffectName\::Init(uint32_t sampling_rate)
+	GSP_\EffectName\::Init(uint32_t sampling_rate, int16_t *ptr_buffer, uint32_t buffer_size)
 
 The first one can be employed in effects that do not require buffers to store audio samples, like Overdrive, for instance. The second one provides pointers to access the buffer and its size, like the Delay effects. Caution must be taken, since the buffer is for read-only purposes. The audio samples are store in the buffer by the GSP effects loop.
 
@@ -54,8 +54,8 @@ The first one can be employed in effects that do not require buffers to store au
 
 Similarly, there are two Process methods: 
 
-	int32_t GSP_EffectName::Process(int32_t sampl,)
-	int32_t GSP_EffectName::Process(int32_t sampl, uint32_t buffer_pointer)
+	int32_t GSP_\EffectName\::Process(int32_t sampl,)
+	int32_t GSP_\EffectName\::Process(int32_t sampl, uint32_t buffer_pointer)
 
 to support effects that need and do not need audio buffer. The ```sampl``` input is the current audio sample (mono channel), and ```buffer_pointer``` is the current storage position of the audio sample in ```ptr_buffer```. This buffer is updated with the current audio sampler by GSP before any effect processing. Exceptions are the Feedback Delay and Feedback Echo effects, which updates the audio buffer with the processed audio. Any effect after these ones in chain who needs the audio buffer will be affected by the changes made by the GSP in the buffer’s content. Reverber uses its own buffer.
 
@@ -65,7 +65,7 @@ The Process method shall perform all the necessary computation to change the aud
 
 The Switch method stores the effect on-off (by-pass) switch state, and has the format:
 
-	void GSP_EffectName::Switch(uint8_t mode)
+	void GSP_\EffectName\::Switch(uint8_t mode)
 
 where ```mode``` can be ```GSP_ON``` or ```GSP_OFF```. The GSP main loop is responsible to act according to the Switch state, which means that the Process method shall not interpret the switching state.
 
@@ -77,8 +77,8 @@ The methods usually employed for effect configuration can be classified in two c
 
 The Single parameter configurations are methods required to set and to retrieve a single parameter. Methods to set a given parameter are usually named as SetParameter whereas methods to retrieve its value shall be named GetParameter. Both methods shall address one and only one parameter. Obviously the heading of these methods are:
 
-	void GSP_EffectName::SetParameter(type NewValue)
-	type GSP_EffectName::GetParameter()
+	void GSP_\EffectName\::SetParameter(type NewValue)
+	type GSP_\EffectName\::GetParameter()
 
 The configuration parameters are dependent of the effect and may change between them. Common parameters are, for instance:
 
@@ -88,13 +88,15 @@ The configuration parameters are dependent of the effect and may change between 
 - Treble
 - Volume, etc.
 
+However the ```state``` parameter shall be included in any effect to store the Switch status (```GSP_ON``` or ```GSP_OFF```). GSP gets this parameter in main loop to call or to by-pass this effect.
+
 #### Multiple parameter config
 
 There are three methods to store and to retrieve multiple effect parameters, but all these methods are not essential for proper effect operation: they just make coding easier. They are:
 
-	void GSP_EffectName::Printout(uint8_t out_list, int32_t chn_pos, char *printout)
-	void GSP_EffectName::GetParams(float fn[])
-	void GSP_EffectName::SetParams(float fn[])
+	void GSP_\EffectName\::Printout(uint8_t out_list, int32_t chn_pos, char *printout)
+	void GSP_\EffectName\::GetParams(float fn[])
+	void GSP_\EffectName\::SetParams(float fn[])
 
 The Printout method writes all the effect parameters in the output buffer ```*printout``` in ASCII format (maximum 250 characters), according to the standard output format, like the normal form:
 
