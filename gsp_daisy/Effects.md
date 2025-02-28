@@ -69,7 +69,7 @@ See also [Command Examples](#efcexp) section
 
 ### <h3 id="efclvd">Level Detector:</h3>
 
-The Level Detector is not an “effect” but it is necessary for other effects. It is always active. Therefore it doesn’t have the switch *s*. The Level Detector measures the level of the input audio signal to drive the [LFFG](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/LFFG.md) when configured in ```LFO_LEVEL``` and ```LFO_REVERSE_LEVEL```, and, therefore, ```lvd``` doesn’t change the audio signal. However, the attack and release parameters can be user configured. See [LFFG specific documentation](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects/LFFG/LFFG.pdf) and [Level Detector doc](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects/Level_Detector/Level_Detector.pdf) for more information.
+The Level Detector is not an “effect” but it is necessary for other effects. It is always active. Therefore it doesn’t have the switch *s*. The Level Detector measures the level of the input audio signal to drive the [LFFG](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/LFFG.md) when configured in ```LFO_LEVEL``` or ```LFO_REVERSE_LEVEL```, and, therefore, ```lvd``` doesn’t change the audio signal. However, the attack and release parameters can be user configured. See [LFFG specific documentation](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects/LFFG/LFFG.pdf) and [Level Detector doc](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects/Level_Detector/Level_Detector.pdf) for more information.
 
 	lvd atk_tm rel_tm
 		rel_tm 		– Attack time (milliseconds)
