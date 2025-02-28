@@ -42,7 +42,7 @@ Each parameter *p*<sub>*n*</sub> of any effect has its own maximum and minimum a
 
 ## Configuration Commands
 
-Any effect can be configured by a three-character command and their parameters. The configuration commands are explained below. Deep explanation on the effect parameters can be found in specific effect documentation that can be found in [Commands](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Commands.md). Current effects on GSP comprise
+Any effect can be configured by a three-character command and their parameters. The configuration commands are explained below. Deep explanation on the effect parameters can be found in specific effect documentation that can be found in the Available Effects section on [Commands](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Commands.md). Current effects on GSP comprise
 
 - [Level Detector (lvd)](#efclvd)
 - [Chorus (chs)](#efcchs)
