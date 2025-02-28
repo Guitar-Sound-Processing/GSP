@@ -78,17 +78,18 @@ void LowFreqOsc::SetProfile(uint8_t prof)
 	by the SetFrequency(.) method, and amplitude of 65532 (16 bits). 
 	The selected profile can be
 		prof
-			LFO_SIN 		 	Sine <0:2*pi>
+			LFO_SIN 	 	Sine <0:2*pi>
 			LFO_HALFSINE 		Half sine <0:pi> (default)
-			LFO_RAMP			Ramp /|/|/|
-			LFO_SAW 			Saw tooth |\|\|\
+			LFO_RAMP		Ramp /|/|/|
+			LFO_SAW 		Saw tooth |\|\|\
 			LFO_TRIANGLE		Triangle /\/\/\
-			LFO_SQUARE			Square |-|_|-|_|
+			LFO_SQUARE		Square |-|_|-|_|
 			LFO_EXPDECREASE 	Decreasing exponential |\_
 			LFO_EXPINCREASE 	Increasing exponential _/|
 			LFO_EXTERNAL 		External signal
-			LFO_POWER 			Power amplitude of input signal
-			LFO_LAST			None
+			LFO_LEVEL 		Power amplitude of input signal
+			LFO_REVERSE_LEVEL 	Reverse amplitude of input signal
+			LFO_LAST		None
 	The LFO_SQUARE, LFO_EXPDECREASE and LFO_EXPINCREASE profiles needs 
 	also a duty cycle to adjust the active phase of LFO_SQUARE and the
 	decay time of the exponential profiles (SetDutyCycle(.))
