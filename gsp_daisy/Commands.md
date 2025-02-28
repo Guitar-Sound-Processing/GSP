@@ -43,7 +43,7 @@ is answered with:
 
 > ```->OVD (1): OFF(0)|ON(1) 0 | Sustain (0.1-1): 0.500 | Tone (0-1): 0.800 | Gain (0-1): 1.000```
 
-## Available Effects:
+## <h3 id="avlefc">Available Effects:</h3>
 
 Currently there are 19 available effects in GSP 1.0.0, besides a multi-purpose Low Frequency and Function Generator (LFFG) to provide low frequency audio modulation for several effects. The available effects are:
 
