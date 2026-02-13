@@ -12,7 +12,7 @@ in which:
 -	*efc* stands for the three-characters effect name, like ```ovd``` (for Overdrive), ```tml``` (for Tremolo) and ```phr``` (for Phaser).
 -	*p*<sub>1</sub>, *p*<sub>2</sub>, … *p*<sub>*n*</sub> are numeric parameters
 -	[.] – A variable under brackets means it is optional. The brackets must be omitted on commands
--	(*c*) – A number under parenthesis means a desired chain position of the effect, on command, or the current effect position in chain, on GSP reply. *c* allows changing the effect position in chain (from 0 up to number_effects) and must follow the effect name after a separation (blank) character. The chain position parameter *c* is optional, but if present the parenthesis are necessary to differentiate from the remaining parameters.
+-	(*c*) – A number under parenthesis means a desired effect position in chain, on command, or the current effect position in chain, on GSP reply. *c* allows changing the effect position in chain (from 0 up to number_effects) and must follow the effect name after a separation (blank) character. The chain position parameter *c* is optional, but if present the parenthesis are necessary to differentiate from the remaining parameters.
 -	*s* – The *s* parameter is the effect switch. It can be 0 (OFF, or by-pass) or 1 (ON)
 -	*s*, *p*<sub>1</sub>, *p*<sub>2</sub>, *p*<sub>3</sub> … are optional, but if *p*<sub>3</sub> has to be changed, then *s*, *p*<sub>1</sub> and *p*<sub>2</sub> must also be defined in the command.
 -	Each parameter *p*<sub>*i*</sub> can be separated with blank, “,” or “;”. Example: *efc* (*c*), *s* *p*<sub>1</sub>, *p*<sub>2</sub>; *p*<sub>3</sub>. Additional blank characters are ignored.
