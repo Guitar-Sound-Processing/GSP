@@ -27,7 +27,7 @@ Print the processing time at 1 Hz frequency, in percentage of the duty cycle. Sm
 
 	out
 
-The ```out``` command turns on and off the output time. For instance, this command produces the following output in console:
+The ```out``` command turns on and off the output time (toggle). For instance, this command produces the following output in console:
 
 > ->Duty Time on <br>
 > 5.286427<br>
@@ -41,7 +41,7 @@ The ```out``` command turns on and off the output time. For instance, this comma
 
 ### Standard reply
 
-This command selects between normal printings on console (long format), if *f* is zero, the short format with numeric values only, if *f* is equal to 1, or muted output, if *f* is -1. Any other value or no value at all is considered by GSP as *f* equal to 0. 
+This command selects normal printings on console (long format) if *f* is zero, short format with numeric values only if *f* is equal to 1, or muted output if *f* is -1. Any other value or no value at all is considered by GSP as *f* equal to 0. 
 
 	fmt [f]
  		f 	Output reply parameter: standard:0 | short=1 | muted=-1 
