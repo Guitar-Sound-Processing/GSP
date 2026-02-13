@@ -41,12 +41,12 @@ The ```out``` command turns on and off the output time (toggle). For instance, t
 
 ### Standard reply
 
-This command selects normal printings on console (long format) if *f* is zero, short format with numeric values only if *f* is equal to 1, or muted output if *f* is -1. Any other value or no value at all is considered by GSP as *f* equal to 0. 
+This command selects standard printings on console (long format) if *f* is zero, short format with numeric values only if *f* is equal to 1, or muted output if *f* is -1. Any other value or no value at all is considered by GSP as *f* equal to 0. 
 
 	fmt [f]
  		f 	Output reply parameter: standard:0 | short=1 | muted=-1 
 
-The normal output, for instance, is:
+The standard output, for instance, is:
 
 > ->OCT (3): OFF(0)|ON(1) 0 | Mixer (0-1): 0.500 | Gain (0-1): 1.000
 
