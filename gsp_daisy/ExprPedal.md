@@ -13,7 +13,7 @@ On the description of the commands, the following rules apply to the parameters:
 
 ## Expression Pedal Command
 
-The command ```pot``` links a given effect configured with LFO_EXTERNAL profile in the LFFG to an expression pedal.
+The command ```pot``` links a given effect configured with LFO_EXTERNAL profile in the [LFFG](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/LFFG.md) to an expression pedal.
 
 	pot /efc\ {rid}
 		efc 	– Effect name (wah, phr, tml, chs or vbt)
