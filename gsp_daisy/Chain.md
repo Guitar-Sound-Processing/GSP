@@ -26,6 +26,10 @@ Here are some examples of chain command output:
 
 Any Chain can be configured by using a small set or commands. Some commands were created to check the chain sequence, to create a new one and to erase the whole chain. They are:
 
+- [New Chain](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Chain.md#new-chain)
+- [Show Chain](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Chain.md#show-chain)
+- [Clear Chain](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Chain.md#clear-chain)
+
 ### New Chain
 
 Erase the current chain and start a new one with the complete set of effects. Although the previous chain is erased, all the effect parameters remain with their preceding settings.
@@ -35,7 +39,7 @@ Erase the current chain and start a new one with the complete set of effects. Al
 > ->Inp->CMP->OVD->PHR->OCT->SFT->DTN->WAH->EQZ->CHS->VBT->RVB->DFB->EFB->DFF->EFF->TML->VOL->LIM->NGT->Out->
 
 
-### Current Chain
+### Show Chain
 
 Prints the current chain sequence.
 
