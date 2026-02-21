@@ -38,8 +38,8 @@ There are two kind of methods required for any GSP effect: [processing](#prcsmt)
 Each effect class shall have standard methods to process the audio signal. Only three processing methods are required in GSP:
 
 - [Init](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/SWDirectives.md#init-methods)
-- Process
-- Switch
+- [Process](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/SWDirectives.md#process-methods)
+- [Switch](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/SWDirectives.md#switch-method)
 
 #### Init methods
 
