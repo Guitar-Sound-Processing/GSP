@@ -6,7 +6,7 @@ A Chain (or a pedal board, or rig) is a sequence of effects such that the output
 
 Input $\rightarrow$ Compressor $\rightarrow$ Overdrive $\rightarrow$ Equalizer $\rightarrow$ Delay $\rightarrow$ Output
 
-The number of effects in the chain and their order can be configured by commands, although only one instance of each effect can be used in the current GSP version. From input to output, the effect position is numbered starting from 0. In the above example, Compressor is placed in 0, Overdrive in 1, Equalizer in 2 and so on.
+The number of effects in the chain and their sequence can be configured by commands, although only one instance of each effect can be used in the current GSP version. From input to output, the effect position is numbered starting from 0. In the above example, Compressor is placed in 0, Overdrive in 1, Equalizer in 2 and so on.
 
 Like any analog gear, the GSP effects need two conditions to process the input signal:
 
