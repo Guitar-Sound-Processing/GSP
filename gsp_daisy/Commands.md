@@ -31,7 +31,7 @@ All these effects are processed and interpreted by the Daisy Seed board. There a
 
 The effect modules are codified in classes of C++, and obey some guidelines described in
 
-- Effect Software Directives
+- [Effect Software Directives](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/SWDirectives.md#effect-software-directives)
 
 ## GSP Programming 
 
