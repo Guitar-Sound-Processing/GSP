@@ -11,7 +11,7 @@ The number of effects in the chain and their sequence can be configured by comma
 Like any analog gear, the GSP effects need two conditions to process the input signal:
 
 1)	The effect must be inserted into chain.
-2)	The effect must be switched on (see effect switch *s*).
+2)	The effect must be switched on (see [Effect Switch *s*](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects.md#switch-parameter)).
 
 The effect switch acts like a by-pass: if turned on (*s* = 1) the effect is active in chain. Otherwise, when *s* = 0, the effect is disabled and the signal is by-passed through the chain.
 
