@@ -61,7 +61,7 @@ to support effects that need and do not need audio buffer. The ```sampl``` input
 
 The Process method shall perform all the necessary computation to change the audio sample according to the effect algorithm. The output of Process method is the processed audio sample which is transferred to the main GSP loop by the returning value. 
 
-It is important to note that GSP Main Loop retrieves the audio samples from Daisy Seed in ```float``` format, but delivers it to the Process methods in ```int32_t``` format. Numerical computation using integer numbers are significantly faster than floating, although scaling some variables is sometimes required. Not any effect can be processed with integer computation. In this case casting the sample input to float and casting the output to integer can be easily done.
+It is important to note that GSP Main Loop retrieves the audio samples from Daisy Seed in ```float``` format, but delivers it to the Process methods in ```int32_t``` format. Numerical computation using integer numbers are significantly faster than floating, although scaling some variables is sometimes required. Not any effect can be processed with integer computation. In this case casting the sample input to ```float``` and casting the output to ```int32_t``` can be easily done.
 
 #### Switch method
 
