@@ -78,7 +78,7 @@ then DS will send this request command to ED
 
 	A<51><53>\n	
 
-in which 51 = 3 + 48 and 53 = 5 + 48. After receiving the enable sending data command, ```S```, ED answers with the potentiometer data sent at 10 Hz frequency:
+in which 51 = 3 + 48 and 53 = 5 + 48. After receiving the enable command to send data command, ```S```, ED answers with the potentiometer data sent at 10 Hz frequency:
 
 	P<2><P3><P5>\n
 
