@@ -24,7 +24,7 @@ Whenever the GSP_CC detects a non valid or a non expected character in command l
 
 since ```“ovf”``` isn’t a valid command.
 
-## Chain parameter
+## Position parameter
 
 1. For any effect already in chain, the (*c*) parameter in Effect Command swaps the effect *efc* with the one in c position. 
 2. If the effect isn’t already in chain, the (*c*) parameter inserts the effect on the slot pointed by *c*, and shifts the remaining effects to right. 
@@ -42,7 +42,7 @@ Each parameter *p*<sub>*n*</sub> of any effect has its own maximum and minimum a
 
 ## Configuration Commands
 
-Any effect can be configured by a three-character command and their parameters. The configuration commands are explained below. Deep explanation on the effect parameters can be found in specific effect documentation that can be found in the [Available Effects section](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Commands.md#avlefc). Current effects on GSP comprise
+Any effect can be configured by a three-character command and their parameters. The configuration commands are explained below, as well as their default parameters. Deep explanation on the effect parameters can be found in specific effect documentation that can be found in the [Available Effects section](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Commands.md#avlefc). Current effects on GSP comprise
 
 - [Level Detector (lvd)](#efclvd)
 - [Chorus (chs)](#efcchs)
@@ -74,7 +74,9 @@ The Level Detector is not an “effect” but it is necessary for other effects.
 	lvd atk_tm rel_tm
 		rel_tm 		– Attack time (milliseconds)
 		rel_tm		– Release time (milliseconds)
- 
+
+Default:
+
 > ->LVD: Attack (ms):    1.000 | Release (ms): 1000.000
 
 ### <h3 id="efcchs">Chorus:</h3>
@@ -90,6 +92,8 @@ Duplicates the signal with changes in pitch drove by a [LFFG](https://github.com
 		lfo.duty	– LFFG Duty cycle
 		gain 		– Gain
 
+Default:
+
 > ->CHS (8): OFF(0)|ON(1) 0 | Depth (0.1-100)(ms): 5.0 | Delay (0-1000)(ms): 1.0 | Mixer: 0.500 | Profile: (0-10) 0 | Frequency (0.2-5)(Hz): 0.500 | Duty Cycle (0-100)(): 50.0 | Gain (0-1): 1.000
 
 ### <h3 id="efccmp">Compressor:</h3>
@@ -102,6 +106,8 @@ Reduces the gain for loud signals
 		gain_db		– Gain in dB
 		threshold_db 	– Threshold in dB
 
+Default:
+
 > ->CMP (0): OFF(0)|ON(1) 0 | Attack (20-2000)(ms): 10.0 | Release (20-2000)(ms): 1000.0 | Gain (0-80)(dB): 20 | Threshold (0-80)(dB): 40
 
 ### <h3 id="efcdfb">Delay Feedback:</h3>
@@ -112,6 +118,8 @@ Mixes the signal with a several delayed and attenuated copies
 		delay_ms 	– Delay (milliseconds)
 		decay_rate 	– Decay rate
 		gain 		– Gain
+
+Default:
 
 > ->DFB (11): OFF(0)|ON(1) 0 | Delay Time (0.2-100)(ms): 31.0 | Decay rate (0-0.95): 0.700 | Gain (0-1): 1.000
 
@@ -136,6 +144,8 @@ Reduces the frequency of the input signal down to half (inverse of Pitch Shifter
 		mixer 		– Mixer
 		gain 		– Gain
 
+Default:
+
 > ->DTN (5): OFF(0)|ON(1) 0 | Detune (down) (0-12): 5.000 | Mixer (0-1): 0.500 | Gain (0-1): 1.000
 
 ### <h3 id="efcefb">Echo Feedback:</h3>
@@ -146,6 +156,8 @@ Same as Delay Feedback but with large time delays
 		delay_ms 	– Delay (milliseconds)
 		decay_rate 	– Decay rate
 		gain 		– Gain
+
+Default:
 
 > ->EFB (12): OFF(0)|ON(1) 0 | Delay Time (50-)(ms): 1000.0 | Decay rate (0-0.95): 0.700 | Gain (0-1): 1.000
 
@@ -158,6 +170,8 @@ Same as Delay Feedforward but with large time delays
 		decay_rate 	– Decay rate
 		repeats 	– Number of repeats
 		gain 		– Gain
+
+Default:
 
 > ->EFF (14): OFF(0)|ON(1) 0 | Delay Time (50-)(ms): 1000.0 | Decay rate (0-1): 0.900 | Number of repeats (1-8): 4 | Gain (0-1): 1.000
 
@@ -182,6 +196,8 @@ It applies a soft amplitude clipping, to avoid signal distortion
 		smooth 		– Smoothness
 		input_gain 	– Input gain
 
+Default:
+
 > ->LIM (17): OFF(0)|ON(1) 0 | Smooth factor (0-1): 1.000 | Gain (0- ): 1.000
 
 ### <h3 id="efcngt">Noise Gate:</h3>
@@ -194,6 +210,8 @@ Mutes the output of low level signals
 		gain		– Output gain
 		threshold	– Output threshold
 
+Default:
+
 > ->NGT (18): OFF(0)|ON(1) 0 | Attack (20-2000)(ms): 10.0 | Release (20-2000)(ms): 1000.0 | Gain (0.1-1): 1.000 | Threshold (0-1): 0.100
 
 ### <h3 id="efcoct">Octave:</h3>
@@ -203,6 +221,8 @@ Doubles the signal frequency and mixes with the input
 	oct [([+][-]c)] s mixer gain
 		mixer 		– Mixer
 		gain 		– Gain
+
+Default:
 
 > ->OCT (3): OFF(0)|ON(1) 0 | Mixer (0-1): 0.500 | Gain (0-1): 1.000
 
@@ -228,6 +248,9 @@ Mixes the signal with an out of phase copy drove by a [LFFG](https://github.com/
 		lfo.freq	– LFFG Frequency (Hz)
 		lfo.duty	– LFFG Duty cycle
 		gain 		– Gain
+
+Default:
+
 > ->PHR (2): OFF(0)|ON(1) 0 | Depth (0-1): 0.500 | Level (0-1000): 10.0 | Profile: (0-10) 0 | Frequency (0.2-5)(Hz): 0.250 | Duty Cycle (0-100)(): 50.0 | Gain (0-1): 1.000
 
 ### <h3 id="efcsft">Pitch Shifter:</h3>
@@ -239,6 +262,8 @@ Increases the frequency of the input signal continously up to double (Inverse of
 		mixer 		– Mixer
 		gain 		– Gain
 
+Default:
+
 > ->SFT (4): OFF(0)|ON(1) 0 | Shift (up) (0-12): 5.000 | Mixer (0-1): 0.500 | Gain (0-1): 1.000
 
 ### <h3 id="efcrvb">Reverb:</h3>
@@ -248,6 +273,8 @@ Mimics the reverberation of a large room
 	rvb [([+][-]c)] s rvbtime_time gain
 		rvbtime_time 	– Reverber time
 		gain 		– Gain
+
+Default:
 
 > ->RVB (10): OFF(0)|ON(1) 0 | Reverber Time (0-20000)(ms): 1000.0 | Gain (0-1): 1.000
 
@@ -260,6 +287,8 @@ Changes the input amplitude with a [LFFG](https://github.com/Guitar-Sound-Proces
 		lfo.freq 	– LFFG Frequency (Hz)
 		lfo.duty	– LFFG Duty cycle
 		gain 		– Gain
+
+Default:
 
 > ->TML (15): OFF(0)|ON(1) 0 | Profile: (0-10) 1 | Frequency (0.2-5)(Hz): 2.000 | Duty Cycle (0-100)(): 50.0 | Gain (0-1): 1.000
 
@@ -275,6 +304,8 @@ Changes the input frequency with a [LFFG](https://github.com/Guitar-Sound-Proces
 		lfo.duty	– LFFG Duty cycle
 		gain 		– Gain
 
+Default:
+
 > ->VBT (9): OFF(0)|ON(1) 0 | Depth (0.1-100)(ms): 5.0 | Delay (0-1000)(ms): 1.0 | Profile: (0-10) 0 | Frequency (0.2-5)(Hz): 0.500 | Duty Cycle (0-100)(): 50.0 | Gain (0-1): 1.000
 
 ### <h3 id="efcvol">Volume:</h3>
@@ -287,6 +318,8 @@ Changes the input level based on a [LFFG](https://github.com/Guitar-Sound-Proces
 		lfo.duty	– LFFG Duty cycle
 		gain 		– Gain
 
+Default:
+
 > ->VOL (16): OFF(0)|ON(1) 0 | Profile: (0-10) 1 | Frequency (0.2-5)(Hz): 2.000 | Duty Cycle (0-100)(): 50.0 | Gain (0-1): 1.000
 
 ### <h3 id="efcwah">Wah Wha:</h3>
@@ -298,6 +331,8 @@ Modifies the tone of the input signal driven by a [LFFG](https://github.com/Guit
 		lfo.freq 	– LFFG Frequency (Hz)
 		lfo.duty	– LFFG Duty cycle
 		gain 		– Gain 
+
+Default:
 
 > ->WAH (6): OFF(0)|ON(1) 0 | Profile: (0-10) 1 | Frequency (0.2-5)(Hz): 2.000 | Duty Cycle (0-100)(): 50.0 | Gain (0-1): 1.000
 
