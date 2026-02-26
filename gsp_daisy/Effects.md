@@ -133,6 +133,8 @@ Mixes the signal with a given number of copies (maximum 8)
 		repeats 	– Number of repeats
 		gain 		– Gain
 
+Default:
+
 > ->DFF (13): OFF(0)|ON(1) 0 | Delay Time (0.2-100)(ms): 31.0 | Decay rate (0-1): 0.900 | Number of repeats (1-8): 4 | Gain (0-1): 1.000
 
 ### <h3 id="efcdtn">Detune:</h3>
@@ -186,6 +188,8 @@ Three band equalizer with frequency adjustment
 		f_low 		– Low frequency cutoff
 		f_high 		– High frequency cutoff
 
+Default:
+
 > ->EQZ (7): OFF(0)|ON(1) 0 | Gains (0-1): Low 1.000 , Medium  1.000 , High 1.000 | Cutoff frequencies (Hz): Low (200-) 200.000 , High (-2000) 800.0
 
 ### <h3 id="efclim">Limiter: </h3>
@@ -234,6 +238,8 @@ Applies a hard clipping on the signal (distortion)
 		sustain 	– Sustain
 		tone 		– Tone
 		gain 		– Output gain
+
+Default:
 
 > ->OVD (1): OFF(0)|ON(1) 0 | Sustain (0.1-1): 0.500 | Tone (0-1): 0.800 | Gain (0-1): 1.000
 
