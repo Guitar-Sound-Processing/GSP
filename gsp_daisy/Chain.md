@@ -1,4 +1,4 @@
-# Chains
+# Chain Commands
 
 ## Definition
 
