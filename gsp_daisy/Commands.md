@@ -75,10 +75,10 @@ Besides these effects, a Tone_LPHP (Low-Pass High-Pass or Treble filter) class w
 
 Some effects share the same code, but with different default parameters. They are:
 
-- Chorus and Vibrato
-- Delay Feedback and Echo Feedback
-- Delay Feedforward and Echo Feedforward
-- Tremolo and Volume
+- [Chorus](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects.md#efcchs) and [Vibrato](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects.md#efcvbt)
+- [Delay Feedback](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects.md#efcdfb) and [Echo Feedback](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects.md#efcefb)
+- [Delay Feedforward](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects.md#efcdff) and [Echo Feedforward](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects.md#efceff)
+- [Tremolo](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects.md#efctml) and [Volume](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects.md#efcvol)
 
 GSP software is composed by the effect algorithms and command interface modules. The algorithms are described on specific documentation for each effect (see 'doc' above).
 
