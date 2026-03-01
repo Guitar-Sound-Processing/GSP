@@ -17,7 +17,7 @@ The Effect Switch acts like a by-pass: if turned on (*s* = 1) the effect is acti
 
 To include, delete, or change the effect position in the current chain, please refer to the *c* parameter in the [Effect Command](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects.md) documentation.
 
-Here are some examples of chain command output:
+Here are some examples of chain shown by the all command:
 
 > ->Inp->CMP->OVD->WAH->EQZ->DFB->NGT->Out-> <br>
 > ->Inp->OCT->EQZ->CHS->RVB->LIM->Out-></br>
