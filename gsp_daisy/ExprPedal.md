@@ -21,7 +21,7 @@ The command ```pot``` links a given effect configured with LFO_EXTERNAL profile 
 
 The GSP software on DS exchanges data with the External Device processor (ESP32, for instance) through serial interface using predefined commands to request and to deliver potentiometer data. Each potentiometer attached to the external processor will receive a numeric identifier based on its connection interface (GPIO). The interface identifiers are predefined by software and can’t be changed. Up to 8 identifiers can be used, numbered from 0 to 7. The link between the potentiometer identifier and the associated effect is done by the Expression Pedal ```pot``` command. 
 
-If ```rid``` is negative, disregarding its value, the effect will be unassigned from its previously attached pot. However, one has to take care to avoid sending something like -0, since negative zero has no useful meaning. if ```rid``` is absent the command is disregarded.  A given potentiometer identifier can be assigned to more than one effect on the chain, although the inverse isn’t valid.
+If ```rid``` is negative, disregarding its value, the effect will be unassigned from its previously attached pot. However, one has to take care to avoid sending something like -0, since negative zero has no useful meaning. If ```rid``` is absent the command is disregarded.  A given potentiometer identifier can be assigned to more than one effect on the chain, although the inverse isn’t valid.
 
 When receiving a ```pot``` request, GSP answers with 
 
