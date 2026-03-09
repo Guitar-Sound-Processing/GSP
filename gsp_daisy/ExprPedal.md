@@ -62,7 +62,7 @@ in which
 - ```m``` is  the number of expression pedals data contained in the message, in binary format, one byte, and 
 - ```P1…Pm``` are the potentiometer data, scaled from 0 up to 65535 (two bytes), less significant byte first.
 
-As an example, let us assume 3 expression pedals connected to pot identifiers 0, 2, and 5, where ID 0 is shared between two effects. Daisy Seed then sends to ED the command ```A0205\n```, followed by the ```S``` command. ED then starts sending the expression pedals data at 10 Hz with messages in the format ```P<4><P0><P2><P0><P5>\n```. One may note that only the characters ```P``` and the terminator ```\n``` are mapped to ASCII table. ```m``` and ```Pi``` (```i``` = 1, …, ```m```) are all sent in binary format. Of course ```m``` defines the number of binary data received from the DS side.
+As an example, let us assume 3 expression pedals connected to pot identifiers 0, 2, and 5, where ID 0 is shared between two effects. Daisy Seed then sends to ED the command ```A0205\n```, followed by the ```S``` command. ED then starts sending the expression pedal data at 10 Hz with messages in the format ```P<4><P0><P2><P0><P5>\n```. One may note that only the characters ```P``` and the terminator ```\n``` are mapped to ASCII table. ```m``` and ```Pi``` (```i``` = 1, …, ```m```) are all sent in binary format. Of course ```m``` defines the number of binary data received from the DS side.
 
 Nor Daisy Seed or the ED can identify if there really is an expression pedal attached to a given pedal input. So the user has to take care in order to select the appropriate identifier when linking it to a given effect.
 
