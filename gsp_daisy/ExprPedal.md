@@ -27,7 +27,7 @@ When receiving a ```pot``` request, GSP answers with
 
 > ->POT: Effect: *efc* | Pot ID: *k*
 
-where *efc* is the requested effect and *k* is the associated potenciometer ID. If there is no previously Expression Pedals configured with the ```pot``` command, GSP answers with \<none>. The standard reply for a ```pot``` command without parameters is a list of all Expression Pedals attached on GSP so far.
+where *efc* is the requested effect and *k* is the associated potenciometer ID. The standard reply for a ```pot``` command without parameters is a list of all Expression Pedals attached on GSP so far. If there is no previously Expression Pedals configured with the ```pot``` command, GSP answers with \<none>.
 
 To attach Volume in channel 5 and Wah-Wah on channel 3, the following commands must be sent:
 
