@@ -37,9 +37,6 @@ To attach Volume in channel 5 and Wah-Wah on channel 3, the following commands m
 ```pot vol 5```
 > ->POT: Effect: VOL | Pot ID: 5
 
-```pot```
-> ->POT: Effect: VOL | Pot ID: 5
-
 ```pot wah 3```
 > ->POT: Effect: WAH | Pot ID: 3
 
