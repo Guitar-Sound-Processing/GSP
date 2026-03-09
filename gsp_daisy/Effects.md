@@ -17,7 +17,7 @@ in which:
 -	*s*, *p*<sub>1</sub>, *p*<sub>2</sub>, *p*<sub>3</sub> … are optional, but if *p*<sub>3</sub> has to be changed, then *s*, *p*<sub>1</sub> and *p*<sub>2</sub> must also be defined in the command.
 -	Each parameter *p*<sub>*i*</sub> can be separated with blank (space character), “,” or “;”. Example: *efc* (*c*), *s* *p*<sub>1</sub>, *p*<sub>2</sub>; *p*<sub>3</sub>. Additional blank characters are ignored.
 
-Whenever the GSP_CC detects a non valid or a non expected character in command line it discards the command and answers with “?” in console. For example:
+Whenever the GSP Command Decoder detects a non valid or a non expected character in command line it discards the command and answers with “?” in console. For example:
 
 ```ovf 1 0.5```
 > ```->?```</br>
