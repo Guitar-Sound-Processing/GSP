@@ -4,3 +4,6 @@ GSP main code is responsible to provide all interfaces to libDaisy, as well as t
 
 Main loop interfaces to the External Device (ED) by UART Serial or to any computer by virtual COM port through USB. Presentely the UART Serial shares both Effect Commands and Expression Pedal data coming from ED in the same serial line. They differentiate by a preceeding 
 opening brace (```{```) for Effect Command and a closing brace (```}```) for Expression Pedal. They shall utilize two serial lines in future GSP versions.
+
+Since GSP is a large program, it can't fit in the internal flash memory of the STM32H750IB processor. So it is necessary to store the program in the SDRAM external memory of Daisy Seed. The provided Makefile is already configured to do this, by using Visual Studio Code.
+However, it is also required to change the normal bootloader of DS with the Daisy Bootloader, explained in the [Daisy Seed](https://daisy.audio/tutorials/_a7_Getting-Started-Daisy-Bootloader/) page.
