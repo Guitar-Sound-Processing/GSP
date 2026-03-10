@@ -1,5 +1,7 @@
 # GSP Main Loop
 
-GSP main code is responsible to provide all interfaces to libDaisy, as well as to call the process modules for all the audio effects in chain ([Effect Sofware Directives](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/SWDirectives.md)). 
+GSP main code is responsible to provide all interfaces to libDaisy, as well as to call the process methods for all the audio effects in chain ([Effect Sofware Directives](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/SWDirectives.md)). The main loop provides also the Effect Command decoding and execution, besides Expression Pedal assignments. It runs exclusively in Daisy Seed, and does not store any configuration in flash memory, in order to avoid wasting time.
+
+Main loop comunicates to the External Device by UART Serial
 
 ## Standard headers
