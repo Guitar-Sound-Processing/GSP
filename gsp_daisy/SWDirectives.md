@@ -108,7 +108,7 @@ or the short format:
 
 > ->OVD (1) 0 0.500 0.800 1.000
 
-The ```out_list``` selects the required output format: long or short (see ```fmt``` in Interface Commands), while the input ```chn_pos``` has the current effect position in the chain (see Effect Commands section).
+The ```out_list``` selects the required output format: long or short (see ```fmt``` in Interface Commands), while the input ```chn_pos``` has the current effect position in the chain (see [Effect Commands](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects.md) section).
 
 The GetParams method retrieves all the effect parameters in a single float array ```fn```. The parameters shall be stored in ```fn``` in the same sequence as they appear in Command line, always starting with the switch state (Switch method). Typecast and unit conversion, if required, must be internally made by GetParams method. 
 
