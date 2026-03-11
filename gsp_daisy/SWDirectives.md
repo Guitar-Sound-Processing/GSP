@@ -94,7 +94,7 @@ However the ```state``` parameter shall be included in any effect to store the S
 
 #### Multiple parameter config
 
-There are three methods to store and to retrieve multiple effect parameters, but all these methods are not essential for proper effect operation: they just make coding easier. They are:
+There are three methods to store and to retrieve several effect parameters at once, but all these methods are not essential for proper effect operation: they just make coding easier. They are:
 
 	void GSP_\EffectName\::Printout(uint8_t out_list, int32_t chn_pos, char *printout)
 	void GSP_\EffectName\::GetParams(float fn[])
