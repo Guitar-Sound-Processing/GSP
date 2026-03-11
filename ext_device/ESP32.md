@@ -6,5 +6,5 @@ Although any microprocessor module may be used to translate high level to low le
 
 ESP32 WROVER has the following tasks:
 
-. To receive, interpret and execute the Expression Pedal commands (A, C and S)
+. To receive, interpret and execute the Expression Pedal commands (P, A, S and C)
 
