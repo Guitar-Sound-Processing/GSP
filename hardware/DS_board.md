@@ -4,3 +4,4 @@ This board was designed so as to provide interface between the Daisy Seed module
 
 - Two pin headers for DS with two additional already connected for air wiring.
 - A socket for step down 2A DC/DC converter module with small footprint, based on LM2586.
+<p align="center"><img src="https://raw.githubusercontent.com/Guitar-Sound-Processing/GSP/master/resources/dcdc_module.png" alt="DCDC Module"></p>
