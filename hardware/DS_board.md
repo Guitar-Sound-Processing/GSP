@@ -11,3 +11,11 @@ This board was designed so as to provide interface between the Daisy Seed module
 - A JST PH headers for 9V-Gnd power input, 9V-Gnd output and 9V-4.5V-Gnd Power output to Audio Driver Board.
 - 2 JST PH headers with additional pin headers for air wiring connection with DS for UART Serial lines.
 - 2 JST PH headers with additional pin headers for air wiring connection with DS for ADC and DAC signals coming from and going to the Audio Driver Board.
+- A JST PH header to provide analogue Vref and AGND from DS to the ADB connected by jumper.
+- 5 jumpers to direct connect:
+    - 5V to DS Vin
+    - Grounding to DS DGND
+    - Vref to JST header
+    - AGND to JST header
+    - DGND to AGND
+  
