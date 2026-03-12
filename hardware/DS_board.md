@@ -19,5 +19,5 @@ This board was designed so as to provide interface between the Daisy Seed module
     - AGND to JST header
     - DGND to AGND
 
-In normal situation, all these jumpers shall be wired.
+In normal situation all these jumpers shall be wired.
 
