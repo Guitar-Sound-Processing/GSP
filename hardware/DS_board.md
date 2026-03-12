@@ -4,7 +4,7 @@ This board was designed so as to provide interface between the Daisy Seed module
 
 - Two pin headers for DS with two additional headers already connected for air wiring.
 - A socket for step down 2A DC/DC converter module with small footprint, based on LM2586. The output must be adjusted to 5V.
-<p align="center"><img src="https://raw.githubusercontent.com/Guitar-Sound-Processing/GSP/master/resources/dcdc_module.png" alt="DCDC Module"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/Guitar-Sound-Processing/GSP/master/resources/dcdc_module.png" width="216" height="162" alt="DCDC Module"></p>
 
 - An operation amplifier LM358 to generate 9V/2 (4.5V) to biase input audio signal.
 - - 3 JST PH headers for any GPIO peripheral with pin headers for air wiring connection. It can be used to Expression Pedal interface, but the current GSP version of DS sofware does not have support to them.
