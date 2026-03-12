@@ -18,4 +18,6 @@ This board was designed so as to provide interface between the Daisy Seed module
     - Vref to JST header
     - AGND to JST header
     - DGND to AGND
-  
+
+In normal situation, all these jumpers shall be wired.
+
