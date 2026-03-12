@@ -23,6 +23,6 @@ In normal situation all these jumpers shall be wired.
 
 The PCB was designed with Autodesk Eagle, but next version will be based on Kicad. The schematics and boards are available here.
 
-<p align="center"><img src="https://raw.githubusercontent.com/Guitar-Sound-Processing/GSP/master/resources/DS_board_1_2.jpg" alt="DCDC Board1"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/Guitar-Sound-Processing/GSP/master/resources/DS_board_1_2.jpg" width="303" height="533" alt="DCDC Board1"></p>
 
 
