@@ -20,6 +20,6 @@ This board was designed so as to provide interface between the Daisy Seed module
     - DGND to AGND
 
 In normal situation all these jumpers shall be wired.
-<p align="center"><img style="width: 303; height: 533;" src="https://raw.githubusercontent.com/Guitar-Sound-Processing/GSP/master/resources/DS_board_1_2.jpg" alt="DCDC Board1"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/Guitar-Sound-Processing/GSP/master/resources/DS_board_1_2.jpg" alt="DCDC Board1"></p>
 
 
