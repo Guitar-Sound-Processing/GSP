@@ -43,7 +43,7 @@ is answered with:
 
 > ```->OVD (1): OFF(0)|ON(1) 0 | Sustain (0.1-1): 0.500 | Tone (0-1): 0.800 | Gain (0-1): 1.000```
 
-GSP decoder is case insensitive, which means that ```oVD```, ```Ovd```, ```OvD``` and so on are all recognized as OVD.
+GSP decoder is case insensitive, which means that ```oVD```, ```Ovd```, ```OvD``` and so on are all recognized as ```OVD```.
 
 ## <h3 id="avlefc">Available Effects:</h3>
 
