@@ -5,18 +5,18 @@ Chain Profiles are groups of any of the effect or setup commands. Therefore, Cha
 ```ovd```
 *efc* [([+][-]*c*)] […[[[[*s*] *p*<sub>1</sub>] *p*<sub>2</sub>] *p*<sub>3</sub>]…]
 
-	chain [*chain_name*]
-	*efc* [(*c*)] s p1 p2```
-	*efc* [(*c*)] s p1 p2 p3
-	```set``` *mysetup*
+	chain [chain_name]
+	efc [(c)] s p1 p2
+	efc [(c)] s p1 p2 p3
+	set mysetup
 	…
-	*efc* [(*c*)] s p1 p2
-	```pot``` *efc* rid1
-	```pot``` *efc* rid2
-	```chain``` [*chain_name*]
-	```set``` *setup1*
+	efc [(c)] s p1 p2
+	pot efc rid1
+	pot efc rid2
+	chain [chain_name]
 	set setup1
-	*efc* [(*c*)] s p1 p2 p3
+	set setup2
+	efc [(c)] s p1 p2 p3
 	…
 
 Chain Profiles are handled and interpreted by the External Device. They are stored in permanent memory (SSD) in the External Processor (EP) in the chain.txt file (ASCII characters), which sends to DS the complete chain configuration. Any number of chain profiles can be stored in the SSD, as long as there is still available memory on card. A specific chain can be selected by providing the chain command with the profile name to EP serial interface:
