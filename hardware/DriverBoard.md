@@ -10,4 +10,4 @@ The major components of the Driver Board are, as shown in the figure above:
 - 3 hadware switches to bypass the compressor, expander and Daisy Seed board
 - 6 trimpot potentiometers to adjust the input level, compressor output level, ADC input level, DAC output level, expander output level, and GSP output level
 
-The Driver Board has a quadruple operation amplifier LM324 to amplify the input signal from approximately 1V guitar amplitude up to 7V for compressor 
+The Driver Board has a quadruple operation amplifier LM324 to amplify the input signal from approximately 1V guitar amplitude up to 3.5V (biased at +4.5V) for compressor input using the input level trimpot. The amplitude of the compressor output shall be adjusted by the compressor output trimpot to have the same level of its input signal. Then the signal is biased to +1.75V and to 1.75V amplitude using the ADC input trimpot. After being digitally processed by the Daisy Shield the analogue signal returns to the Driver Board and is again amplified to 
