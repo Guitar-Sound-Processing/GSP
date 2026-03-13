@@ -44,13 +44,10 @@ By using a position of 20, it is assured that the effect will be appended at the
 
 to the External Processor and using the above file example, it answers with
 
-> ESP32>DS: clr
-
-> ESP32>DS: cmp (20) 1
- 
-> ESP32>DS: ovd (20) 1
- 
-> ESP32>DS: dff (20) 1
+<p> > ESP32>DS: clr</p>
+<p> > ESP32>DS: cmp (20) 1</p>
+<p> > ESP32>DS: ovd (20) 1</p>
+<p> > ESP32>DS: dff (20) 1</p>
 
 such that ```ESP32>DS``` means that the External Processor has sent the following Effect Command to Daisy Seed.
 
