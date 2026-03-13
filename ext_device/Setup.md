@@ -4,7 +4,7 @@ Some or all the effects can be associated to a previously stored setup configura
 
 ```setup_name effect_command```
 
-Here is some examples:
+Here is some examples stored in setup.txt file:
 
 ```
 overdrive1 ovd 1 1 0.2 
@@ -15,7 +15,7 @@ overdrive2 ovd 1 1 0.8
 
 Any effect setup can be selected by the ```set``` command:
 
-```set mysetup```
+```set setup_name```
 
 where mysetup is one of the available setups stored in the setup.txt file. Some valid examples are:
 
@@ -23,3 +23,5 @@ where mysetup is one of the available setups stored in the setup.txt file. Some 
 set overdrive1
 set myequalizer
 ```
+
+The ```set``` command must have the setup_name associated 
