@@ -11,55 +11,55 @@ Some guitar effects need a LFFG (Low Frequency Function Generator) in order to g
 
 The LFFG can be configured by several parameters and profiles. The profiles change the LFFG shape that modulates the signal amplitude between 0 (lowest) and 65535 (maximum) with time dependent math functions. The LFFG period TLFO (or the frequency fLFO) can be adjusted anytime, and the modulation amplitude a(t) can be retrieved by the public variables:
 
-- ```lfo.profile``` - function profile (1 to 12)
+- ```lfo.profile``` - function profile (0 to 10)
 - ```lfo.period``` - modulation period (miliseconds)
 - ```lfo.duty``` - duty cycle (profiles 7, 8 and 9)
 
 More can be found in [LFFG specific documentation](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects/LFFG/LFFG.pdf). The profiles are stored in ```lfo_wave``` enumerator and are:
 
-1)	```LFO_SIN```. Sine wave profile:
+0)	```LFO_SIN```. Sine wave profile:
 
       $\large a(t)=\frac{1}{2}(\sin2\pi t + 1)$
    
-3)	```LFO_HALFSINE```. Half sine wave (default profile): 
+1)	```LFO_HALFSINE```. Half sine wave (default profile): 
 
       $\large a(t)=\sin\pi t$
 
-4)	```LFO_RAMP```. Increasing linear ramp: 
+2)	```LFO_RAMP```. Increasing linear ramp: 
 
       $\large a(t)= t$
 
-5)	```LFO_SAW```. Decreasing linear ramp: 
+3)	```LFO_SAW```. Decreasing linear ramp: 
 
       $\large a(t)=1-t$
 
-6)	```LFO_TRIANGLE```. Triangle wave: 
+4)	```LFO_TRIANGLE```. Triangle wave: 
   	    
 ```math
 \large a(t) = \left\{ \begin{array}{ll} 2t, \; 0 \leq t < 0.5 \\
 2-2t, \; 0.5 \leq t < 1 \end{array} \right.
 ``` 
       
-7)	```LFO_SQUARE```. Square wave:
+5)	```LFO_SQUARE```. Square wave:
 
 ```math
 \large a(t) = \left\{ \begin{array}{ll} 0, \; 0 \leq t < D \\
 1, \; D \leq t < 1 \end{array} \right.
 ``` 
 
-8)	```LFO_EXPDECREASE```. Decreasing exponential with continuous attack and decay:
+6)	```LFO_EXPDECREASE```. Decreasing exponential with continuous attack and decay:
 
       $\large a(t)=[1-\mathrm{e}^{-t/2}] \mathrm{e}^{(-t/D)}$
  
-9)	```LFO_EXPINCREASE```. Increasing exponential with continuous attack and decay:
+7)	```LFO_EXPINCREASE```. Increasing exponential with continuous attack and decay:
 
       $\large a(t)=[1-\mathrm{e}^{t/2-1/2}] \mathrm{e}^{(t/D-1/D)}$
 
-10)	```LFO_EXTERNAL```. External signal from potentiometer (volume pedal).
+8)	```LFO_EXTERNAL```. External signal from potentiometer (volume pedal).
  
-11)	```LFO_LEVEL```. Power amplitude of input signal, coming from the Level Detector (lvd) procedure.
+9)	```LFO_LEVEL```. Power amplitude of input signal, coming from the Level Detector (lvd) procedure.
 
-12)	```LFO_REVERSE_LEVEL```. Reversed power amplitude of the input signal, coming from the Level Detector (lvd) procedure.
+10)	```LFO_REVERSE_LEVEL```. Reversed power amplitude of the input signal, coming from the Level Detector (lvd) procedure.
 
 13)	```LFO_LAST```. No profile.
 
