@@ -17,10 +17,10 @@ Chain Profiles are groups of any of the effect or setup commands. Therefore, Cha
 	…
 
 ```
-chain [chain_name]
-efc [(c)] s p1 p2
-efc [(c)] s p1 p2 p3
-set mysetup
+	chain [chain_name]
+	efc [(c)] s p1 p2
+	efc [(c)] s p1 p2 p3
+	set mysetup
 ```
 
 ~~~
