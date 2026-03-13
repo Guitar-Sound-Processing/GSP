@@ -24,4 +24,3 @@ set overdrive1
 set myequalizer
 ```
 
-The ```set``` command must have the setup_name associated 
