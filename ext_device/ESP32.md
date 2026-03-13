@@ -12,7 +12,7 @@ ESP32 WROVER has the following tasks:
 
 From low to high level commands, they are:
 
-- Effect Commands (interpreted by Daisy Seed)
+- [Effect Commands](https://github.com/Guitar-Sound-Processing/GSP/blob/905e93f35ec7b43535aa493525fcdbdda664c829/gsp_daisy/Commands.md) (interpreted by Daisy Seed)
 - Effect Setups (interpreted by ESP32)
 - Chain Profiles (interpreted by ESP32)
 - Song Set (TBD)
