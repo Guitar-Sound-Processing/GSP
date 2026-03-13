@@ -24,19 +24,19 @@ The chain name can have any number of characters, provided there are no blank sp
 
 Some examples of valid Chain Profiles are:
 
-chain chain1
-cmp (20) 1
-ovd (20) 1
-dff (20) 1
-chain chain2
-eqz (20) 1
-rvb (20) 1
-tml (20) 1
-chain chain3
-cmp (20) 1
-dfb (20) 1
-phr (20) 1
-oct (20) 1
+	chain chain1
+	cmp (20) 1
+	ovd (20) 1
+	dff (20) 1
+	chain chain2
+	eqz (20) 1
+	rvb (20) 1
+	tml (20) 1
+	chain chain3
+	cmp (20) 1
+	dfb (20) 1
+	phr (20) 1
+	oct (20) 1
 
 By using a position of 20, it is assured that the effect will be appended at the chain output, resulting therefore of a chain with effects in the same order as they appear in the command sequence. By sending the command
 
