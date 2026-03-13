@@ -14,3 +14,9 @@ The Driver Board has a quadruple operation amplifier LM324 to amplify the input 
 
 <p align="center"><img src="https://raw.githubusercontent.com/Guitar-Sound-Processing/GSP/master/resources/driver_board_pcb.png" width="302" height="533" alt="Driver Board PCB"></p>
 
+DB was designed using the free version of Autodesk Eagle. Future versions will be based on Kicad. Moreover the board was conceived so as to avoid SMD components, to make it easy to populate by DIY users. The schematics are available to download as well as the board layout in Eagle files. For those that prefer Kicad instead of Eagle, is worth to mention that Kicad easily opens and converts Eagle files.
+
+<p align="center"><img src="https://raw.githubusercontent.com/Guitar-Sound-Processing/GSP/master/resources/driver_board_sch.png" alt="Driver Board SCH"></p>
+
+
+
