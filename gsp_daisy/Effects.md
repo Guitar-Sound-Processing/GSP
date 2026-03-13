@@ -237,11 +237,12 @@ Applies a hard clipping on the signal (distortion)
 	ovd [([+][-]c)] s sustain tone gain
 		sustain 	– Sustain
 		tone 		– Tone
+		mixer		– Mixer
 		gain 		– Output gain
 
 Default:
 
-> ->OVD (1): OFF(0)|ON(1) 0 | Sustain (0.1-1): 0.500 | Tone (0-1): 0.800 | Gain (0-1): 1.000
+> ->OVD (1): OFF(0)|ON(1) 0 | Sustain (0.1-1): 0.500 | Tone (0-1): 0.800 | Mixer (0-1): 1.000 | Gain (0-1): 1.000
 
 ### <h3 id="efcphr">Phaser:</h3>
 
