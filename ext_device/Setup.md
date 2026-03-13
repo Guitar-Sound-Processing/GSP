@@ -13,7 +13,7 @@ myequalizer eql 1 0.5 .8 1
 overdrive2 ovd 1 1 0.8 
 ```
 
-Any effect setup can be selected by the ```set``` command:
+Any effect setup can be selected with the ```set``` command:
 
 ```set setup_name```
 
