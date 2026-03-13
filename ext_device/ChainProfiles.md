@@ -34,12 +34,13 @@ dff (20) 1
 chain chain2
 eqz (20) 1
 rvb (20) 1
-tml (20) 1
+tml (20) 1 1
 chain chain3
 cmp (20) 1
-dfb (20) 1
-phr (20) 1
+dfb (20) 1 40 0.85
+phr (20) 1 0.8 100
 oct (20) 1
+vol (20) 
 ```
 
 By using a position of 20, it is assured that the effect will be appended at the chain output, resulting therefore of a chain with effects in the same order as they appear in the command sequence. By sending the command
