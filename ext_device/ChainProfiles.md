@@ -1,6 +1,6 @@
 # Chain Profiles
 
-Chain Profiles are groups of any of the effect or setup commands. Therefore, Chain Profiles may have commands for Effect Configuration, Chain Configuration, Expression Pedal and Effect Setup. The profiles are grouped in lines starting with “chain” *chain_name*: 
+Chain Profiles are groups of any of the effect or setup commands. Therefore, Chain Profiles may have commands for Effect Configuration, Chain Configuration, Expression Pedal and Effect Setup. The profiles are grouped in lines starting with ```chain``` *chain_name*: 
 
 ```ovd```
 *efc* [([+][-]*c*)] […[[[[*s*] *p*<sub>1</sub>] *p*<sub>2</sub>] *p*<sub>3</sub>]…]
