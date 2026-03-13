@@ -3,7 +3,7 @@
 Current GSP version comprises four small pcb boards:
 
 - [Daisy Seed Shield](https://github.com/Guitar-Sound-Processing/GSP/blob/e73611437c55d084acf5c42a5f1019c4a5c5ceec/hardware/DS_board.md)
-- [Driver Board](https://github.com/Guitar-Sound-Processing/GSP/blob/e73611437c55d084acf5c42a5f1019c4a5c5ceec/hardware/DriverBoard.md)
+- [Driver Board](https://github.com/Guitar-Sound-Processing/GSP/blob/45dd3de8b2cd265d7cf072f2df70d805a0425745/hardware/DriverBoard.md)
 - ESP32 Shield
 - Input and Output Board
 
