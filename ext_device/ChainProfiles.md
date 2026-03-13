@@ -18,7 +18,7 @@ Chain Profiles are groups of any of the effect or setup commands. Therefore, Cha
 
 Chain Profiles are handled and interpreted by the External Device. They are stored in permanent memory (SSD) in the External Processor (EP) in the chain.txt file (ASCII characters), which sends to DS the complete chain configuration. Any number of chain profiles can be stored in the SSD, as long as there is still available memory on card. A specific chain can be selected by providing the chain command with the profile name to EP serial interface:
 
-	chain /chain_name\
+	chain [chain_name]
 
 The chain name can have any number of characters, provided there are no blank spaces, comma or semicolon in the name. However, the maximum length of each line in chain.txt file is restricted to 128 characters. Commands in Chain Profile may include any Effect Commands, Chain Configuration, Interface Commands and Expression Pedal linkage. After receiving a valid chain command, the EP sends a clr command to DS, then locates and retrieves from SSD card the matched Chain Profile and sends the Effect Commands to DS one by one. It is important to know that all the Effect Commands need to specify the (c) parameter to force the effect to be inserted in the chain. If all the c parameters of the effect commands are greater than the maximum number of effects, the effects will be inserted into chain in the same sequence they appear in the Chain Profile.
 
