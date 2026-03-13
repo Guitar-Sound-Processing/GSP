@@ -2,7 +2,9 @@
 
 Some or all the effects can be associated to a previously stored setup configuration in setup.txt file. This file shall contain the setup name following the effect command for that setup in each line:
 
-```set <setup_name>```
+*setup_name* *effect_command*
+
+Here is some examples:
 
 ```
 overdrive1 ovd 1 1 0.2 
