@@ -7,7 +7,7 @@ Although any microprocessor module can be used to translate high level to low le
 ESP32 WROVER has the following tasks:
 
 - To receive, interpret and execute the [Expression Pedal](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/ExprPedal.md) commands (P, A, S and C) coming from DS through UART_1 Serial line.
-- To receive, interpret and translate the high level commands from Playlist, Chain Profiles and Songs to low level commands (Setup and Effect Commands) from end users, and send then to Daisy Seed through UART_1 Serial line.
+- To receive, interpret and translate the high level commands from Playlist, Chain Profiles and Songs to low level commands (Setup and [Effect Commands](https://github.com/Guitar-Sound-Processing/GSP/blob/905e93f35ec7b43535aa493525fcdbdda664c829/gsp_daisy/Commands.md)) from end users, and send then to Daisy Seed through UART_1 Serial line.
 - To retrieve the high level commands from stored files and corresponding link to the low level configuration commands.
 
 From low to high level commands, they are:
