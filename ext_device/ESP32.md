@@ -18,4 +18,5 @@ From low to high level commands, they are:
 - [Songs](https://github.com/Guitar-Sound-Processing/GSP/blob/d68c116f49ef13aa1b3948ecab4c9a651261ede5/ext_device/Songs.md) (TBD)
 - [Playlists](https://github.com/Guitar-Sound-Processing/GSP/blob/d68c116f49ef13aa1b3948ecab4c9a651261ede5/ext_device/Playlists.md) (TBD)
 
-<p align="center"><img src="https://raw.githubusercontent.com/Guitar-Sound-Processing/GSP/master/resources/hl_com.png" alt="GSP High and Low level commands"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/Guitar-Sound-Processing/GSP/master/resources/hl_com..png" width="512" height="185" alt="DCDC Board1"></p>
+
