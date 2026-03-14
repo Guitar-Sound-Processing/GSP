@@ -16,7 +16,7 @@ The Driver Board has a quadruple operation amplifier LM324 to amplify the input 
 
 DB was designed using the free version of Autodesk Eagle. Future versions will be based on Kicad. Moreover the board was conceived so as to avoid SMD components, to make it easy to populate by DIY users. The schematics are available to download as well as the board layout in Eagle files. For those that prefer Kicad instead of Eagle, is worth to mention that Kicad easily opens and converts Eagle files.
 
-<font color="red">Important notes:</font>
+**Important notes:**
 
   1) Diodes D1 and D2 are protection diodes. They are NOT really required and can distort the audio signal. Please ignore this diode unless you feel unsecured.
   2) Resistor R24 is just an air jumper (0 Ohm). It gives more flexibility case the output of the Expander does not reach the desired voltage.
