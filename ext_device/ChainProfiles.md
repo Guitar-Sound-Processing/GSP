@@ -54,5 +54,5 @@ to the External Processor and using the file example shown above, it answers wit
 > <p> ESP32>DS: ovd (20) 1</p>
 > <p> ESP32>DS: dff (20) 1</p>
 
-such that ```ESP32>DS``` means that the External Processor has sent the following Effect Command to Daisy Seed.
+such that ```ESP32>DS``` means that the External Processor has sent to Daisy Seed the attached Effect Command.
 
