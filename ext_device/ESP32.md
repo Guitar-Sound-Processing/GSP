@@ -16,5 +16,5 @@ From low to high level commands, they are:
 - [Effect Setups](https://github.com/Guitar-Sound-Processing/GSP/blob/a6110c35568fb845425bcf964dfb7564135c35df/ext_device/Setup.md) (interpreted by ESP32)
 - [Chain Profiles](https://github.com/Guitar-Sound-Processing/GSP/blob/07dee8d4ad24ca601d4f08727b1f1b7b17d918a4/ext_device/ChainProfiles.md) (interpreted by ESP32)
 - Songs (TBD)
-- Playlists (TBD)
+- [Playlists](https://github.com/Guitar-Sound-Processing/GSP/blob/d68c116f49ef13aa1b3948ecab4c9a651261ede5/ext_device/Playlists.md) (TBD)
 
