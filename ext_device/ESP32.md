@@ -15,6 +15,6 @@ From low to high level commands, they are:
 - [Effect Commands](https://github.com/Guitar-Sound-Processing/GSP/blob/905e93f35ec7b43535aa493525fcdbdda664c829/gsp_daisy/Commands.md) (interpreted by Daisy Seed)
 - [Effect Setups](https://github.com/Guitar-Sound-Processing/GSP/blob/a6110c35568fb845425bcf964dfb7564135c35df/ext_device/Setup.md) (interpreted by ESP32)
 - [Chain Profiles](https://github.com/Guitar-Sound-Processing/GSP/blob/07dee8d4ad24ca601d4f08727b1f1b7b17d918a4/ext_device/ChainProfiles.md) (interpreted by ESP32)
-- Song Set (TBD)
+- Songs (TBD)
 - Playlists (TBD)
 
