@@ -47,7 +47,7 @@ By using a position of 20, it is assured that the effect will be appended at the
 
 ```chain chain1```
 
-to the External Processor and using the above file example, it answers with
+to the External Processor and using the file example shown above, it answers with
 
 > <p> ESP32>DS: clr</p>
 > <p> ESP32>DS: cmp (20) 1</p>
