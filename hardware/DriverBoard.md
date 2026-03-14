@@ -18,7 +18,7 @@ DB was designed using the free version of Autodesk Eagle. Future versions will b
 
 **Important notes:**
 
-  1) Diodes D1 and D2 are protection diodes. They are NOT really required and can distort the audio signal. Please ignore this diode unless you feel unsecured.
+  1) Diodes D1 and D2 are protection diodes. They are NOT really required and can distort the audio signal. Please ignore these diodes unless you feel unsecured.
   2) Resistor R24 is just an air jumper (0 Ohm). It gives more flexibility case the output of the Expander does not reach the desired voltage.
 
 <p align="center"><img src="https://raw.githubusercontent.com/Guitar-Sound-Processing/GSP/master/resources/driver_board_sch.png" alt="Driver Board SCH"></p>
