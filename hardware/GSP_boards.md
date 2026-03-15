@@ -9,7 +9,7 @@ Current GSP version comprises four small pcb boards:
 
 All boards have the same footprint, of 50 x 90 mm, which are less cheaper to produce. They can be easily stacked, although they don't have stacking headers; only JST PH 2.0 Plug 2.0mm pitch headers to provide electrical interface between boards.
 
-The boards were designed with 1 mm thick wiring, 2 layers (Bottom and Up) and no vias. That makes it easy to hand made all boards.
+The boards were designed with 1 mm width wiring, 2 layers (Bottom and Up) and no vias. That makes it easy to hand made all boards.
 
 Daisy Seed Shield (DSS) provides a double header to stack the Daisy Seed board, besides a small DC/DC converter for 5V output to DS and ESP32 boards, together with JST headers for input and output audio signal.
 
