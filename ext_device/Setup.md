@@ -33,7 +33,7 @@ The command ```set``` without setup_id causes a printout of the available setup 
 >  ->myequalizer</br>
 >  ->overdrive2</br>
 
-However if the ```set``` (without ```setup_id```) command is inserted in any Chain Profile then DS answers with unknown command:
+However, if the ```set``` (without ```setup_id```) command is inserted in any Chain Profile then DS answers with unknown command:
 
 >  -> ?
 
