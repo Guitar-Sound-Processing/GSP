@@ -24,7 +24,15 @@ set overdrive1
 set myequalizer
 ```
 
-The command ```set``` without setup_id causes a printout of the available setup ids on setup.txt file. However if the ```set``` (without ```setup_id```) command is inserted in any Chain Profile then DS answers with unknown command:
+The command ```set``` without setup_id causes a printout of the available setup ids on setup.txt file. For example:
+
+```set```
+>  ->overdrive1
+>  ->vibrat_1
+>  ->myequalizer
+>  ->overdrive2
+
+However if the ```set``` (without ```setup_id```) command is inserted in any Chain Profile then DS answers with unknown command:
 
 >  -> ?
 
