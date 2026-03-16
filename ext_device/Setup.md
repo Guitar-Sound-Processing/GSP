@@ -1,8 +1,8 @@
 # Effect Setups
 
-Some or all the effects can be associated to a previously stored setup configuration in setup.txt file. This file shall contain the setup name following the effect command for that setup in each line:
+Some or all the effects can be associated to a previously stored setup configuration in setup.txt file. This file shall contain the setup identification name following the effect command for that setup in each line:
 
-```setup_name effect_command```
+```setup_id effect_command```
 
 Here is some examples stored in setup.txt file:
 
@@ -15,7 +15,7 @@ overdrive2 ovd 1 1 0.8
 
 Any effect setup can be selected with the ```set``` command:
 
-```set setup_name```
+```set mysetup```
 
 where mysetup is one of the available setups stored in the setup.txt file. Some valid examples are:
 
@@ -24,3 +24,6 @@ set overdrive1
 set myequalizer
 ```
 
+The command ```set``` without setup_id causes a printout of the available setup ids on setup.txt file. However if the ```set``` (without setup_id) command is inserted in any Chain Profile then DS answers with an unknown command:
+
+  > ?
