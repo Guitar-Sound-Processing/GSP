@@ -28,7 +28,7 @@ The command ```set``` without setup_id causes a printout of the available setup 
 
 ```set```
 
-  ->overdrive1
+  ->overdrive1</p>
   ->vibrat_1
   ->myequalizer
   ->overdrive2
