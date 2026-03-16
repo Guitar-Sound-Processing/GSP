@@ -28,10 +28,10 @@ The command ```set``` without setup_id causes a printout of the available setup 
 
 ```set```
 
->  ->overdrive1</p>
->  ->vibrat_1</p>
->  ->myequalizer</p>
->  ->overdrive2</p>
+>  ->overdrive1</br>
+>  ->vibrat_1</br>
+>  ->myequalizer</br>
+>  ->overdrive2</br>
 
 However if the ```set``` (without ```setup_id```) command is inserted in any Chain Profile then DS answers with unknown command:
 
