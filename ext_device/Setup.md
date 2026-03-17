@@ -1,6 +1,6 @@
 # Effect Setups
 
-Some or all the effects can be associated to a previously stored setup configuration in setup.txt file. This file shall contain the setup identification name following the effect command for that setup in each line:
+Some or all the effects can be associated to a previously stored setup configuration in setup.txt file. This file shall contain the setup identification name following the Effect Command for that setup in each line:
 
 ```setup_id effect_command```
 
