@@ -9,7 +9,7 @@ Some guitar effects need a LFFG (Low Frequency Function Generator) in order to g
 -	[Volume](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects.md#efcvol) (vol)
 -	[Wahwah](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects.md#efcwah) (wah)
 
-The LFFG can be configured by several parameters and profiles. The profiles change the LFFG shape that modulates the signal amplitude between 0 (lowest) and 65535 (maximum) with time dependent math functions. The LFFG period *T_LFO~* (or the frequency fLFO) can be adjusted anytime, and the modulation amplitude a(t) can be retrieved by the public variables:
+The LFFG can be configured by several parameters and profiles. The profiles change the LFFG shape that modulates the signal amplitude between 0 (lowest) and 65535 (maximum) with time dependent math functions. The LFFG period *T_LFO* (or the frequency fLFO) can be adjusted anytime, and the modulation amplitude a(t) can be retrieved by the public variables:
 
 - ```lfo.profile``` - function profile (0 to 10)
 - ```lfo.period``` - modulation period (miliseconds)
