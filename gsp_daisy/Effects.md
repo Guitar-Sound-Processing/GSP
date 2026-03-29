@@ -139,7 +139,7 @@ Default:
 
 ### <h3 id="efcdtn">Detune:</h3>
 
-Reduces the frequency of the input signal down to half (inverse of Pitch Shifter)
+Reduces the frequency of the input signal down to a half (inverse of Pitch Shifter)
 
 	dtn [([+][-]c)] s detune mixer gain
 		detune 		– Pitch (detune)
@@ -220,7 +220,7 @@ Default:
 
 ### <h3 id="efcoct">Octave:</h3>
 
-Doubles the signal frequency and mixes with the input
+Doubles the signal frequency and mixes it with input
 
 	oct [([+][-]c)] s mixer gain
 		mixer 		– Mixer
