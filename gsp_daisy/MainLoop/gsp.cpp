@@ -387,7 +387,6 @@ void loop()
 		uart_cs = uart.PopFifo();
         if (uart_ready == 0)
         {
-            //hw.PrintLine("-> Received 1: %c %d", (char)uart_cs, uart_cs);
             if (uart_cs == 123)
             {
                 uart_comm   = 1; // eff command
@@ -569,7 +568,7 @@ void _Setcommand(char ct[], uint8_t source)
 			LevelDetectorParameters(fn);
             ChangeEffectParams(fl, fn, fl_nb);
 			LevelDetectorSetTimes(samplerate, fn[0], fn[1]);
-//			LevelDetectorPrintout(pout);
+			LevelDetectorPrintout(out_list, pout);
 			decoded   = 1;
 		}
 
