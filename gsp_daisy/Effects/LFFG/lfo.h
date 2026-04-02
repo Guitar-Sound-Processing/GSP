@@ -2,23 +2,20 @@
 #ifndef GSP_LFO
 #define GSP_LFO
 
-#include "../guitar_dsp.h"
-#include "../Level_Detector/level_detector.h"
-
 enum lfo_wave
 {
-	LFO_SIN, 		// Sine <0:2*pi>
+	LFO_SIN, 			// Sine <0:2*pi>
 	LFO_HALFSINE, 		// Half sine <0:pi>
-	LFO_RAMP,		// Saw tooth /|/|/|
-	LFO_SAW, 		// Saw tooth |\|\|\.
+	LFO_RAMP,			// Saw tooth /|/|/|
+	LFO_SAW, 			// Saw tooth |\|\|\.
 	LFO_TRIANGLE,		// Saw tooth /\/\/\.
-	LFO_SQUARE,		// Square |-|_|-|_|
+	LFO_SQUARE,			// Square |-|_|-|_|
 	LFO_EXPDECREASE, 	// Decreasing exponential |\_
 	LFO_EXPINCREASE, 	// Increasing exponential _/|
 	LFO_EXTERNAL, 		// External signal ('pot')
-	LFO_LEVEL, 		// Power amplitude of input signal
-    	LFO_REVERSE_LEVEL,  	// Reverse amplitude level of input signal
-	LFO_LAST		// None
+	LFO_LEVEL, 			// Power amplitude of input signal
+	LFO_REVERSE_LEVEL, 	// Reversed power amplitude of input signal
+	LFO_LAST			// None
 };
 
 class LowFreqOsc
