@@ -1,6 +1,7 @@
 #include <math.h>
 #include <stdio.h>
 
+#include "guitar_dsp.h"
 #include "level_detector.h"
 
 int32_t 	conv_ 	= 65536;
@@ -151,16 +152,16 @@ void LevelDetectorPrintout(uint8_t out_list, char *printout)
 
     if (out_list == 0)
     {
-        sprintf(printout, "->LVD: Attack (ms): %8.3f "
-        "| Release (ms): %8.3f\n", 
+        sprintf(printout, "->LVD: Attack (0.2-)(ms): %8.3f "
+        "| Release (0.2-)(ms): %8.3f\n%c", 
         LevelDetectorGetAttackMS(),
-        LevelDetectorGetReleaseMS());
+        LevelDetectorGetReleaseMS(), 0);
     }
     if (out_list == 1)
     {
-        sprintf(printout, "->LVD %8.3f %8.3f\n", 
+        sprintf(printout, "->LVD %8.3f %8.3f\n%c", 
         LevelDetectorGetAttackMS(),
-        LevelDetectorGetReleaseMS());
+        LevelDetectorGetReleaseMS(), 0);
     }
 	
 	return;
