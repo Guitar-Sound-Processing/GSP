@@ -18,9 +18,9 @@ The LFFG can be configured by several parameters and profiles. The profiles chan
 More can be found in [LFFG specific documentation](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects/LFFG/LFFG.pdf). The profiles are stored in ```lfo_wave``` enumerator and are:
 
 0)	```LFO_SIN```. Sine wave profile:
-
-      $\large a(t)=\frac{1}{2}(\sin2\pi t + 1)$
-   
+```math
+$\large a(t)=\frac{1}{2}(\sin2\pi t + 1)$
+```
 1)	```LFO_HALFSINE```. Half sine wave (default profile): 
 
       $\large a(t)=\sin\pi t$
