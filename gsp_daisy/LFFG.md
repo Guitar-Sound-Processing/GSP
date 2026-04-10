@@ -18,20 +18,28 @@ The LFFG can be configured by several parameters and profiles. The profiles chan
 More can be found in [LFFG specific documentation](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects/LFFG/LFFG.pdf). The profiles are stored in ```lfo_wave``` enumerator and are:
 
 0)	```LFO_SIN```. Sine wave profile:
+
 ```math
-$\large a(t)=\frac{1}{2}(\sin2\pi t + 1)$
+\large a(t)=\frac{1}{2}(\sin2\pi t + 1)
 ```
+
 1)	```LFO_HALFSINE```. Half sine wave (default profile): 
 
-      $\large a(t)=\sin\pi t$
+```math
+\large a(t)=\sin\pi t
+```
 
 2)	```LFO_RAMP```. Increasing linear ramp: 
 
-      $\large a(t)= t$
+```math
+\large a(t)= t
+```
 
 3)	```LFO_SAW```. Decreasing linear ramp: 
 
-      $\large a(t)=1-t$
+```math
+      \large a(t)=1-t
+```
 
 4)	```LFO_TRIANGLE```. Triangle wave: 
   	    
@@ -49,11 +57,15 @@ $\large a(t)=\frac{1}{2}(\sin2\pi t + 1)$
 
 6)	```LFO_EXPDECREASE```. Decreasing exponential with continuous attack and decay:
 
-      $\large a(t)=[1-\mathrm{e}^{-t/2}] \mathrm{e}^{(-t/D)}$
+```math
+\large a(t)=[1-\mathrm{e}^{-t/2}] \mathrm{e}^{(-t/D)}
+```
  
 7)	```LFO_EXPINCREASE```. Increasing exponential with continuous attack and decay:
 
-      $\large a(t)=[1-\mathrm{e}^{t/2-1/2}] \mathrm{e}^{(t/D-1/D)}$
+```math
+\large a(t)=[1-\mathrm{e}^{t/2-1/2}] \mathrm{e}^{(t/D-1/D)}
+```
 
 8)	```LFO_EXTERNAL```. External signal from potentiometer (volume pedal).
  
