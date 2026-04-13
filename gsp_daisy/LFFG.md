@@ -55,13 +55,13 @@ More can be found in [LFFG specific documentation](https://github.com/Guitar-Sou
 1, \; D \leq t < 1 \end{array} \right.
 ``` 
 
-6)	```LFO_EXPDECREASE```. Decreasing exponential with continuous attack and decay:
+6)	```LFO_EXPDECREASE```. Descent exponential with continuous attack and decay:
 
 ```math
 \large a(t)=[1-\mathrm{e}^{-t/2}] \mathrm{e}^{(-t/D)}
 ```
  
-7)	```LFO_EXPINCREASE```. Increasing exponential with continuous attack and decay:
+7)	```LFO_EXPINCREASE```. Ascent exponential with continuous attack and decay:
 
 ```math
 \large a(t)=[1-\mathrm{e}^{t/2-1/2}] \mathrm{e}^{(t/D-1/D)}
