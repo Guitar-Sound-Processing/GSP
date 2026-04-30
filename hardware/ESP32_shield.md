@@ -6,7 +6,7 @@ The current version of GSP uses a ESP32 Wrover as External Device. To integrate 
 - Two 4 pin sockets to connect ESP32 to nRF24L01 module with air jumpers.
 - A JST PH header for 3V and ground output to support magnetic isolator module
 - Two JST PH 4 pin headers for Expression Pedal connection with Plug and Play capability.
-- Two JST PH 2 pin headers to provide Serial lines with Daisy Seed board.
+- Two JST PH 2 pin headers to provide Serial lines to [Daisy Seed Shield](https://github.com/Guitar-Sound-Processing/GSP/blob/main/hardware/DS_board.md).
 <p align="center"><img src="https://raw.githubusercontent.com/Guitar-Sound-Processing/GSP/master/resources/ESP32_board.png" width="292" height="526" alt="DCDC Module"></p>
 
 - An operation amplifier LM358 to generate 9V/2 (4.5V) to biase input audio signal.
