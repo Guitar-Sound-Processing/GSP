@@ -3,11 +3,13 @@
 The Input and Output Board offers some small funcionalities to GSP, although they are not fully necessary. So the IO Board hosts three 1/4 inch jacks, for guitar input, signal output and Expression Pedal. For input and output signals only the sleeve and tip contacts are needed. Of course the Expression Pedal jack uses stereo contacts. The board also holds contact for nRF24L01 wireless module. Conection to the [ESP32 Shield](https://github.com/Guitar-Sound-Processing/GSP/blob/main/hardware/ESP32_shield.md) is provided by two JST PH 4 pin headers, but it is only necessary if wireless Expression Pedals are going to be attached to GSP. Finally there is a IC female socket for ADUM1201 magnetic isolator module, and two 4 pin JST PH headers to connect this module to [ESP32 Shield](https://github.com/Guitar-Sound-Processing/GSP/blob/main/hardware/ESP32_shield.md).
 
 Therefore the IO Board has the following connectors:
-- One JST PH header for guitar input connection to the GSP Driver board.
-- Two 4 pin sockets to connect ESP32 to nRF24L01 module with air jumpers.
-- A JST PH header for 3V3 and ground output to support magnetic isolator module
-- Two JST PH 4 pin headers for Expression Pedal connection with Plug and Play capability.
-- Two JST PH 2 pin headers to provide Serial lines to [Daisy Seed Shield](https://github.com/Guitar-Sound-Processing/GSP/blob/main/hardware/DS_board.md).
+- A JST PH 2 pin header for guitar input connection to the GSP [Driver Board](https://github.com/Guitar-Sound-Processing/GSP/blob/main/hardware/DriverBoard.md).
+- A JST PH 2 pin header for guitar output connection from the GSP [Driver Board](https://github.com/Guitar-Sound-Processing/GSP/blob/main/hardware/DriverBoard.md).
+- Two JST PH 4 pin header for magnetic isolator module connection with [ESP32 Shield](https://github.com/Guitar-Sound-Processing/GSP/blob/main/hardware/ESP32_shield.md).
+- - Two JST PH 4 pin header nRF24L01 module connection to [ESP32 Shield](https://github.com/Guitar-Sound-Processing/GSP/blob/main/hardware/ESP32_shield.md).
+
+Expression Pedals comes in two polarities, depending the manufacturer. Moog, Roland, M-audio and Hammond, among others, adopt the RTS (Ring, Tip, Sleeve) configuration, and Yamaha, Korg and Behringer use the TRS (Tip, Ring and Sleeve). The order of RTS or TRS corresponds to the CCW-Wiper-CW of the potentiometer. So the Wiper can be attached to the Ring or the Tip, depending on the pedal. On the other hand, the power line (in this case, the 3.3V line can be connected to the Tip or the Ring. Sleeve always get the Ground line. The IO Board can be configured to support both arquitectures with jumpers in the R-P-T and T-VC-R headers. When R-P and T-VC are jumped (RTS), Wiper goes to Ring and 3V3 goes to Tip. If P-T and VC-R are jumped (TRS) then Wiper will be attached to Tip and 3V3 to Ring. 
+
 <p align="center"><img src="https://raw.githubusercontent.com/Guitar-Sound-Processing/GSP/master/resources/IO_board.png" width="343" height="526" alt="DCDC Module"></p>
 
 Some of these connectors are already connected to the ESP32 pins, although they need jumpers to enable connection. They are:
