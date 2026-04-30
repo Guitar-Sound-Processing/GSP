@@ -12,13 +12,6 @@ Expression Pedals comes in two polarities, depending the manufacturer. Moog, Rol
 
 <p align="center"><img src="https://raw.githubusercontent.com/Guitar-Sound-Processing/GSP/master/resources/IO_board.png" width="343" height="526" alt="DCDC Module"></p>
 
-Some of these connectors are already connected to the ESP32 pins, although they need jumpers to enable connection. They are:
-
- - Vin jumper connects the 5Vin (input power) to ESP32 VIN pin.
- - Gnd jumper joins the input ground from 5Vin input power to ESP32 Wrover ground pins, besides grounding both Expression Pedal headers and the ground pin of 3V3 output header.
- - 3V3 jumper enables the connection between the 3V3 output from ESP32 to the Expression Pedal headers and the 3V3 output connector for magnetic isolator module.
- - Tx1, Rx1, Tx2 and Rx2 jumpers to connect the JST headers for Serial lines to ESP32 pins: Tx1-GPIO23, Rx1-GPIO22, Tx2-GPIO19, Rx2-GPIO18.
-
-In normal situation all these jumpers shall be wired. The ESP32 Wrover TIGO module has 34 pins (2x17). However the board has 36 (2x18) pins, as can be seen in figure above, since it is difficult to find female headers with 17 pins. So care must be taken in order to avoid placing the Wrover module in the wrong pins. 
+Do not attempt arrangement other than these two, otherwise you expression pedal will not work. Also note that the TRS configuration can cause an electrical short circuit if a mono plug was inserted in the jack.
 
 <p align="center"><img src="https://raw.githubusercontent.com/Guitar-Sound-Processing/GSP/master/resources/IO_sheet.png" width="772" height="533" alt="DCDC Board1"></p>
