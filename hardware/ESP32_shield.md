@@ -7,7 +7,7 @@ The current version of GSP uses a ESP32 Wrover as External Device. To integrate 
 - A JST PH header for 3V3 and ground output to support magnetic isolator module
 - Two JST PH 4 pin headers for Expression Pedal connection with Plug and Play capability.
 - Two JST PH 2 pin headers to provide Serial lines to [Daisy Seed Shield](https://github.com/Guitar-Sound-Processing/GSP/blob/main/hardware/DS_board.md).
-<p align="center"><img src="https://raw.githubusercontent.com/Guitar-Sound-Processing/GSP/master/resources/ESP32_board.png" width="292" height="526" alt="DCDC Module"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/Guitar-Sound-Processing/GSP/master/resources/ESP32_board.png" width="292" height="526" alt="ESP32 Board"></p>
 
 Some of these connectors are already connected to the ESP32 pins, although they need jumpers to enable connection. They are:
 
@@ -18,7 +18,7 @@ Some of these connectors are already connected to the ESP32 pins, although they 
 
 In normal situation all these jumpers shall be wired. The ESP32 Wrover TIGO module has 34 pins (2x17). However the board has 36 (2x18) pins, as can be seen in figure above, since it is difficult to find female headers with 17 pins. So care must be taken in order to avoid placing the Wrover module in the wrong pins. 
 
-<p align="center"><img src="https://raw.githubusercontent.com/Guitar-Sound-Processing/GSP/master/resources/ESP32_shield.png" width="772" height="533" alt="DCDC Board1"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/Guitar-Sound-Processing/GSP/master/resources/ESP32_shield.png" width="772" height="533" alt="ESP32 Board schematics"></p>
 
 The PCB was designed with Autodesk Eagle, but next version will be based on Kicad. The Eagle files for schematics and boards are available [here](https://raw.githubusercontent.com/Guitar-Sound-Processing/GSP/master/resources/ESP32_shield.zip).
 
