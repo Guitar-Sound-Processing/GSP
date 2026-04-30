@@ -12,7 +12,7 @@ The current version of GSP uses a ESP32 Wrover as External Device. To integrate 
 Some of these connectors are already connected to the ESP32 pins, although they need jumpers to enable connection. They are:
 
  - Vin jumper connects the 5Vin (input power) to ESP32 VIN pin.
- - Gnd jumper joins the input ground from 5Vin input power to ESP32 Wrover ground pins, besides grounding to both Expression Pedal headers.
+ - Gnd jumper joins the input ground from 5Vin input power to ESP32 Wrover ground pins, besides grounding both Expression Pedal headers and the ground pin of 3V3 output header.
  - 3V3 jumper enables the connection between the 3V3 output from ESP32 to the Expression Pedal headers and the 3V3 output connector for magnetic isolator module.
  - Tx1, Rx1, Tx2 and Rx2 jumpers to connect the JST headers for Serial lines to ESP32 pins: Tx1-GPIO23, Rx1-GPIO22, Tx2-GPIO19, Rx2-GPIO18.
 
