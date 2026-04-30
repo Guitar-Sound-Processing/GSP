@@ -2,8 +2,11 @@
 
 The current version of GSP uses a ESP32 Wrover as External Device. To integrate the Wrover board to GSP, a dedicated pcb shield was designed to provide standard interfaces to Expression Pedals and Serial UART lines to Daisy Seed. Moreover, some jumpers are provided to interface the ESP32 Shield to a nRF24L01 wireless module for remote Expression Pedals. The Shield board does not contain any direct wiring to peripherics. All connections shall be manually provided by jumpers. This allow flexibility to change the Wrover (or any other compatible ESP32 board) pins to the desired data and power lines. The main characteristics of the board are:
 
-- Two pin headers for DS with two additional headers already connected for air wiring.
-- A socket for step down 2A DC/DC converter module with small footprint, based on LM2586. The output must be adjusted to 5V.
+- One JST PH header for 5V ESP32 input power line.
+- Two 4 pin sockets to connect ESP32 to nRF24L01 module with air jumpers.
+- A JST PH header for 3V and ground output to support magnetic isolator module
+- Two JST PH 4 pin headers for Expression Pedal connection with Plug and Play capability.
+- Two JST PH 2 pin headers to provide Serial lines with Daisy Seed board.
 <p align="center"><img src="https://raw.githubusercontent.com/Guitar-Sound-Processing/GSP/master/resources/ESP32_board.png" width="292" height="526" alt="DCDC Module"></p>
 
 - An operation amplifier LM358 to generate 9V/2 (4.5V) to biase input audio signal.
