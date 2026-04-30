@@ -5,8 +5,8 @@ The Input and Output Board offers some small funcionalities to GSP, although the
 Therefore the IO Board has the following connectors:
 - A JST PH 2 pin header for guitar input connection to the GSP [Driver Board](https://github.com/Guitar-Sound-Processing/GSP/blob/main/hardware/DriverBoard.md).
 - A JST PH 2 pin header for guitar output connection from the GSP [Driver Board](https://github.com/Guitar-Sound-Processing/GSP/blob/main/hardware/DriverBoard.md).
-- Two JST PH 4 pin header for magnetic isolator module connection with [ESP32 Shield](https://github.com/Guitar-Sound-Processing/GSP/blob/main/hardware/ESP32_shield.md).
-- Two JST PH 4 pin header nRF24L01 module connection to [ESP32 Shield](https://github.com/Guitar-Sound-Processing/GSP/blob/main/hardware/ESP32_shield.md).
+- Two JST PH 4 pin headers for magnetic isolator module connection with [ESP32 Shield](https://github.com/Guitar-Sound-Processing/GSP/blob/main/hardware/ESP32_shield.md).
+- Two JST PH 4 pin headers nRF24L01 module connection to [ESP32 Shield](https://github.com/Guitar-Sound-Processing/GSP/blob/main/hardware/ESP32_shield.md).
 
 Expression Pedals comes in two polarities, depending the manufacturer. Moog, Roland, M-audio and Hammond, among others, adopt the RTS (Ring, Tip, Sleeve) configuration, and Yamaha, Korg and Behringer use the TRS (Tip, Ring and Sleeve). The order of RTS or TRS corresponds to the CCW-Wiper-CW of the potentiometer. So the Wiper can be attached to the Ring or the Tip, depending on the pedal. On the other hand, the power line (in this case, the 3.3V line can be connected to the Tip or the Ring. Sleeve always get the Ground line. The IO Board can be configured to support both arquitectures with jumpers in the R-P-T and T-VC-R headers. When R-P and T-VC are jumped (RTS), Wiper goes to Ring and 3V3 goes to Tip. If P-T and VC-R are jumped (TRS) then Wiper will be attached to Tip and 3V3 to Ring. 
 
