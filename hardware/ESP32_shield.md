@@ -4,26 +4,20 @@ The current version of GSP uses a ESP32 Wrover as External Device. To integrate 
 
 - One JST PH header for 5V ESP32 input power line.
 - Two 4 pin sockets to connect ESP32 to nRF24L01 module with air jumpers.
-- A JST PH header for 3V and ground output to support magnetic isolator module
+- A JST PH header for 3V3 and ground output to support magnetic isolator module
 - Two JST PH 4 pin headers for Expression Pedal connection with Plug and Play capability.
 - Two JST PH 2 pin headers to provide Serial lines to [Daisy Seed Shield](https://github.com/Guitar-Sound-Processing/GSP/blob/main/hardware/DS_board.md).
 <p align="center"><img src="https://raw.githubusercontent.com/Guitar-Sound-Processing/GSP/master/resources/ESP32_board.png" width="292" height="526" alt="DCDC Module"></p>
 
-Some of these connectors are already connected to the ESP32 pins, although 
-- An operation amplifier LM358 to generate 9V/2 (4.5V) to biase input audio signal.
-- - 3 JST PH headers for any GPIO peripheral with pin headers for air wiring connection. It can be used to Expression Pedal interface, but the current GSP version of DS sofware does not have support to them.
-- A JST PH headers for 9V-Gnd power input, 9V-Gnd output and 9V-4.5V-Gnd Power output to Audio Driver Board.
-- 3 JST PH headers with additional pin headers for air wiring connection with DS for UART Serial lines.
-- 2 JST PH headers with additional pin headers for air wiring connection with DS for ADC and DAC signals coming from and going to the Audio Driver Board.
-- A JST PH header to provide analogue Vref and AGND from DS to the ADB connected by jumper.
-- 5 jumpers to direct connect:
-    - 5V to DS Vin
-    - Grounding to DS DGND
-    - Vref to JST header
-    - AGND to JST header
-    - DGND to AGND
+Some of these connectors are already connected to the ESP32 pins, although they need jumpers to enable connection. They are:
 
-In normal situation all these jumpers shall be wired.
+ - Vin jumper connects the 5Vin (input power) to ESP32 VIN pin.
+ - Gnd jumper joins the input ground from 5Vin input power to ESP32 Wrover ground pins, besides grounding to both Expression Pedal headers.
+ - 3V3 jumper enables the connection between the 3V3 output from ESP32 to the Expression Pedal headers and the 3V3 output connector for magnetic isolator module.
+ - Tx1, Rx1, Tx2 and Rx2 jumpers to connect the JST headers for Serial lines to ESP32 pins: Tx1-GPIO23, Rx1-GPIO22, Tx2-GPIO19, Rx2-GPIO18.
+
+In normal situation all these jumpers shall be wired. The ESP32 Wrover TIGO module has 34 pins (2x17). However the board has 36 (2x18) pins, since it is difficult to find female headers with 17 pins, as can be seen in figure above. So care must be taken in order to avoid placing the Wrover module in the wrong pins. 
+
 <p align="center"><img src="https://raw.githubusercontent.com/Guitar-Sound-Processing/GSP/master/resources/DS_board_1_2.jpg" width="303" height="533" alt="DCDC Board1"></p>
 
 The PCB was designed with Autodesk Eagle, but next version will be based on Kicad. The Eagle files for schematics and boards are available [here](https://github.com/Guitar-Sound-Processing/GSP/blob/fb6eaf6ac311b30f773d6f07a96264511f1aebff/resources/gsp_ds_v3.zip).
