@@ -16,12 +16,11 @@ Some of these connectors are already connected to the ESP32 pins, although they 
  - 3V3 jumper enables the connection between the 3V3 output from ESP32 to the Expression Pedal headers and the 3V3 output connector for magnetic isolator module.
  - Tx1, Rx1, Tx2 and Rx2 jumpers to connect the JST headers for Serial lines to ESP32 pins: Tx1-GPIO23, Rx1-GPIO22, Tx2-GPIO19, Rx2-GPIO18.
 
-In normal situation all these jumpers shall be wired. The ESP32 Wrover TIGO module has 34 pins (2x17). However the board has 36 (2x18) pins, since it is difficult to find female headers with 17 pins, as can be seen in figure above. So care must be taken in order to avoid placing the Wrover module in the wrong pins. 
+In normal situation all these jumpers shall be wired. The ESP32 Wrover TIGO module has 34 pins (2x17). However the board has 36 (2x18) pins, as can be seen in figure above, since it is difficult to find female headers with 17 pins. So care must be taken in order to avoid placing the Wrover module in the wrong pins. 
 
 <p align="center"><img src="https://raw.githubusercontent.com/Guitar-Sound-Processing/GSP/master/resources/ESP32_shield.png" width="772" height="533" alt="DCDC Board1"></p>
 
-The PCB was designed with Autodesk Eagle, but next version will be based on Kicad. The Eagle files for schematics and boards are available [here](https://github.com/Guitar-Sound-Processing/GSP/blob/fb6eaf6ac311b30f773d6f07a96264511f1aebff/resources/gsp_ds_v3.zip).
+The PCB was designed with Autodesk Eagle, but next version will be based on Kicad. The Eagle files for schematics and boards are available [here](https://raw.githubusercontent.com/Guitar-Sound-Processing/GSP/master/resources/ESP32_shield.zip).
 
-<p align="center"><img src="https://raw.githubusercontent.com/Guitar-Sound-Processing/GSP/master/resources/DS_board_sch.png" width="772" height="532" alt="DCDC Board1"></p>
 
 
