@@ -8,28 +8,26 @@ The command "cid" (command id) tells GSP to show the number of available effects
 	
 	cid
 	
-	> ->20
- 	> ->Compressor CMP
- 
-> ->Detune DTN
- 
-> ->Equalizer EQZ
-> ->FeedbackDelay DFB
-> ->FeedbackEcho EFB
-> ->FeedforwardDelay DFF
-> ->FeedforwardEcho EFF
-> ->LevelDetector LVD
-> ->Limiter LIM
-> ->NoiseGate NGT
-> ->Octave OCT
-> ->Overdrive OVD
-> ->Phaser PHR
-> ->PitchShifter SFT
-> ->Reverber RVB
-> ->Tremolo TML
-> ->Vibrato VBT
-> ->Volume VOL
-> ->Wah-wah WAH
+> ->20<br>
+> ->Compressor CMP<br>
+> ->Detune DTN<br>
+> ->Equalizer EQZ<br>
+> ->FeedbackDelay DFB<br>
+> ->FeedbackEcho EFB<br>
+> ->FeedforwardDelay DFF<br>
+> ->FeedforwardEcho EFF<br>
+> ->LevelDetector LVD<br>
+> ->Limiter LIM<br>
+> ->NoiseGate NGT<br>
+> ->Octave OCT<br>
+> ->Overdrive OVD<br>
+> ->Phaser PHR<br>
+> ->PitchShifter SFT<br>
+> ->Reverber RVB<br>
+> ->Tremolo TML<br>
+> ->Vibrato VBT<br>
+> ->Volume VOL<br>
+> ->Wah-wah WAH<br>
 
 ### Verbose
 
