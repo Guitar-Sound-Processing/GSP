@@ -6,7 +6,7 @@ Some additional commands were created to visualize GSP performance.
 
 The command "cid" (command id) tells GSP to show the number of available effects in the current version, besides their names and the three letters command identification
 	
-	cid
+```cid```
 	
 > ->20<br>
 > ->Compressor CMP<br>
