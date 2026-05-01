@@ -8,9 +8,8 @@ The command "cid" (command id) tells GSP to show the number of available effects
 	
 	cid
 	
-> ->20
- 
-> ->Compressor CMP
+	> ->20
+ 	> ->Compressor CMP
  
 > ->Detune DTN
  
