@@ -2,6 +2,33 @@
 
 Some additional commands were created to visualize GSP performance.
 
+### Available effects
+
+The command "cid" (command id) tells GSP to show the number of available effects in the current version, besides their names and the three letters command identification
+	
+	cid
+	
+->20 
+->Compressor CMP
+->Detune DTN
+->Equalizer EQZ
+->FeedbackDelay DFB
+->FeedbackEcho EFB
+->FeedforwardDelay DFF
+->FeedforwardEcho EFF
+->LevelDetector LVD
+->Limiter LIM
+->NoiseGate NGT
+->Octave OCT
+->Overdrive OVD
+->Phaser PHR
+->PitchShifter SFT
+->Reverber RVB
+->Tremolo TML
+->Vibrato VBT
+->Volume VOL
+->Wah-wah WAH
+
 ### Verbose
 
 Toggle the verbose (command echoes) on and off (off is default). When verbose is on, GSP echoes any command to serial line with leading “<-” string. 
