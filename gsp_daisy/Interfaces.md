@@ -8,7 +8,8 @@ The command "cid" (command id) tells GSP to show the number of available effects
 	
 ```cid```
 	
-> ->20<br>
+> ->19<br>
+> ->(LevelDetector LVD)<br>
 > ->Compressor CMP<br>
 > ->Detune DTN<br>
 > ->Equalizer EQZ<br>
@@ -16,7 +17,6 @@ The command "cid" (command id) tells GSP to show the number of available effects
 > ->FeedbackEcho EFB<br>
 > ->FeedforwardDelay DFF<br>
 > ->FeedforwardEcho EFF<br>
-> ->LevelDetector LVD<br>
 > ->Limiter LIM<br>
 > ->NoiseGate NGT<br>
 > ->Octave OCT<br>
