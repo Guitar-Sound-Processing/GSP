@@ -87,5 +87,5 @@ GSP replies to ```fmt``` command without parameter with
 
 > ->FMT: Mute (-1) | Complete (0) | Data only (1): 0
 
-The Mute option affects only the Effect and Potentiometer commands. All others, including the Interface Commands are still printed on terminal.
+The Mute option affects only the [Effect](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects.md) and [Expression Pedal](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/ExprPedal.md) commands. All others, including the [Interface Commands](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Interfaces.md) are still printed on terminal.
 
