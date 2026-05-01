@@ -68,7 +68,7 @@ The ```out``` command turns on and off the output time (toggle). For instance, t
 
 ### Standard reply
 
-This command selects standard printings on console (long format) if *f* is zero, short format with numeric values only if *f* is equal to 1, or muted output if *f* is -1. Any other value or no value at all is considered by GSP as *f* equal to 0. 
+This command selects standard printings on console (long format) if *f* is zero, short format with numeric values only if *f* is equal to 1, or muted output if *f* is -1. Any other value or no value at all is considered by GSP as *f* equals to 0. 
 
 	fmt [f]
  		f 	Output reply parameter: standard:0 | short=1 | muted=-1 
