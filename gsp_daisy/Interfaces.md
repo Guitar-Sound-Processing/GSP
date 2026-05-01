@@ -86,3 +86,6 @@ The short format can be useful for copying and pasting when configuring chain pr
 GSP replies to ```fmt``` command without parameter with
 
 > ->FMT: Mute (-1) | Complete (0) | Data only (1): 0
+
+The Mute option affects only the Effect and Potentiometer commands. All others, including the Interface Commands are still printed on terminal.
+
