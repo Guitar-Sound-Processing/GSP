@@ -83,6 +83,6 @@ while the short format is:
 
 The short format can be useful for copying and pasting when configuring chain profiles. Care must be taken with *f* = -1, since there will be no information if a wrong command is sent to GSP after ```fmt -1``` is enabled. However, verbose can still work if activated. 
 
-GSP replies to ```fmt 0``` command with
+GSP replies to ```fmt``` command without parameter with
 
 > ->FMT: Mute (-1) | Complete (0) | Data only (1): 0
