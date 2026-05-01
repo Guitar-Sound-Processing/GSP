@@ -8,9 +8,12 @@ The command "cid" (command id) tells GSP to show the number of available effects
 	
 	cid
 	
-> ->20 
+> ->20
+ 
 > ->Compressor CMP
+ 
 > ->Detune DTN
+ 
 > ->Equalizer EQZ
 > ->FeedbackDelay DFB
 > ->FeedbackEcho EFB
