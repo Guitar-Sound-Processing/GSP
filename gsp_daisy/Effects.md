@@ -77,7 +77,7 @@ The Level Detector is not an “effect” but it is necessary for other effects.
 
 Default:
 
-> ->LVD: Attack (0.2-)(ms):    1.000 | Release (0.2-)(ms): 1000.000
+> ->LVD (-1): Attack (0.2-)(ms):    1.000 | Release (0.2-)(ms): 1000.000
 
 ### <h3 id="efcchs">Chorus:</h3>
 
