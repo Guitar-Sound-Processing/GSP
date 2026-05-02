@@ -69,7 +69,7 @@ See also [Command Examples](#efcexp) section
 
 ### <h3 id="efclvd">Level Detector:</h3>
 
-The Level Detector is not an “effect” but it is necessary for other effects. It is always active. Therefore it doesn’t have the switch *s*. The Level Detector measures the level of the input audio signal to drive the [LFFG](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/LFFG.md) when configured in ```LFO_LEVEL``` or ```LFO_REVERSE_LEVEL```, and, therefore, ```lvd``` doesn’t change the audio signal. However, the attack and release parameters can be user configured. Since the Level Detector is the first effect on chain and can't be moved, its position in chain is always -1. See [LFFG specific documentation](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects/LFFG/LFFG.pdf) and [Level Detector doc](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects/Level_Detector/Level_Detector.pdf) for more information.
+The Level Detector is not an “effect” but it is necessary for other effects. It is always active. Therefore it doesn’t have the switch *s*. The Level Detector measures the level of the input audio signal to drive the [LFFG](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/LFFG.md) when configured in ```LFO_LEVEL``` or ```LFO_REVERSE_LEVEL```, and, therefore, ```lvd``` doesn’t change the audio signal. However, the attack and release parameters can be user configured. Since the Level Detector is the first effect on chain and can't be moved, its position in chain is always -1. Moreover, the switch parameter is also always switched on (*s* = 1), and can't be changed. In fact, the '''lvd''' command does not have the switch parameter. See [LFFG specific documentation](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects/LFFG/LFFG.pdf) and [Level Detector doc](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects/Level_Detector/Level_Detector.pdf) for more information.
 
 	lvd atk_tm rel_tm
 		rel_tm 		– Attack time (milliseconds)
@@ -77,7 +77,7 @@ The Level Detector is not an “effect” but it is necessary for other effects.
 
 Default:
 
-> ->LVD (-1): Attack (0.2-)(ms):    1.000 | Release (0.2-)(ms): 1000.000
+> ->LVD (-1): 1 Attack (0.2-)(ms):    1.000 | Release (0.2-)(ms): 1000.000
 
 ### <h3 id="efcchs">Chorus:</h3>
 
