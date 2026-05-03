@@ -29,6 +29,23 @@ The command "cid" (command id) tells GSP to show the number of available effects
 > ->Volume VOL<br>
 > ->Wah-wah WAH<br>
 
+### LFFG Profiles
+
+The command ```pfl``` shows the available Low Frequency Function Generator profiles. It also shows which profile depends on frequency (Freq) or duty cycle (Duty), besides the total number of profiles:
+
+> -> 11 <br>
+> ->Sine Freq<br>
+> ->Half_sine Freq<br>
+> ->Ramp Freq<br>
+> ->Slope Freq<br>
+> ->Triangle Freq<br>
+> ->Square Freq Duty<br>
+> ->Exponential_descend Freq Duty<br>
+> ->Exponential_ascend Freq Duty<br>
+> ->Expression_pedal<br>
+> ->Power_level<br>
+> ->Reverse_power <br>
+
 ### Verbose
 
 Toggle the verbose (command echoes) on and off (off is default). When verbose is on, GSP echoes any command to serial line with leading “<-” string. 
