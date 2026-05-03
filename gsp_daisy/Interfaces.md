@@ -4,9 +4,9 @@ Some additional commands were created to visualize GSP performance.
 
 ### Available effects
 
-The command "cid" (command id) tells GSP to show the number of available effects in the current version, besides their names and the three letters command identification
+The command ```cid``` (command id) tells GSP to show the number of available effects in the current version, besides their names and the three letters command identification
 	
-```cid```
+	cid
 	
 > ->19<br>
 > ->(LevelDetector LVD)<br>
@@ -32,6 +32,8 @@ The command "cid" (command id) tells GSP to show the number of available effects
 ### LFFG Profiles
 
 The command ```pfl``` shows the available Low Frequency Function Generator profiles. It also shows which profile depends on frequency (Freq) or duty cycle (Duty), besides the total number of profiles:
+
+	pfl
 
 > -> 11 <br>
 > ->Sine Freq<br>
