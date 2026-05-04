@@ -9,7 +9,7 @@ On the description of the commands, the following rules apply to the parameters:
 - {var} indicates a numeric value in ASCII
 - \<var\> indicates a numeric value sent by serial line in binary format
 - /var\ indicates that the string stored in the variable var is sent in ASCII code.
-- *efc* indicates a command or effect name like ovd, phr, wah, pot, and others.
+- *efc* indicates a command or effect name like ```ovd```, ```phr```, ```wah```, ```pot```, and others.
 
 ## Expression Pedal Command
 
