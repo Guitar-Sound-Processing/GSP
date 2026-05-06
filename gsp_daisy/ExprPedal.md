@@ -44,7 +44,7 @@ To attach Volume in channel 5 and Wah-Wah on channel 3, the following commands m
 > ->POT: Effect: WAH | Pot ID: 3 <br>
 > ->POT: Effect: VOL | Pot ID: 5 </br>
 
-After receiving the Expression Pedal command, the DS sends an assign command to the External Device (ED) with the sequence of potentiometer data that ED is required to send to Daisy Seed. This command has the following format
+After receiving the Expression Pedal command, the DS sends an assign command to the External Device (ED) with the sequence of required potentiometer data that ED shall send to Daisy Seed. This command has the following format
 
 	A{r1}{r2}…{rm}\n
 
