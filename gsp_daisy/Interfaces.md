@@ -110,3 +110,8 @@ The Mute option affects only the [Effect](https://github.com/Guitar-Sound-Proces
 
 ```fmt 1``` also changes the exhibition of chain commands. For instance, when *f* is zero, the output for the all command will be:
 
+> ->Inp->(LVD)->CMP->OVD->PHR->OCT->SFT->DTN->WAH->EQZ->CHS->VBT->RVB->DFB->EFB->DFF->EFF->TML->VOL->LIM->NGT->Out->
+
+and when *f* is 1, then
+
+> ->(LVD) CMP OVD PHR OCT SFT DTN WAH EQZ CHS VBT RVB DFB EFB DFF EFF TML VOL LIM NGT
