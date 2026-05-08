@@ -108,3 +108,5 @@ GSP replies to ```fmt``` command without parameter with
 
 The Mute option affects only the [Effect](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects.md) and [Expression Pedal](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/ExprPedal.md) commands. All others, including the [Interface Commands](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Interfaces.md) are still printed on terminal.
 
+```fmt 1``` also changes the exhibition of chain commands. For instance, when *f* is zero, the output for the all command will be:
+
