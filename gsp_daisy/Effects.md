@@ -112,7 +112,7 @@ Default:
 
 ### <h3 id="efcdfb">Delay Feedback:</h3>
 
-Mixes the signal with a several delayed and attenuated copies
+Mixes the signal with several delayed and attenuated copies
 
  	dfb [([+][-]c)] s delay_ms decay_rate gain
 		delay_ms 	– Delay (milliseconds)
