@@ -191,7 +191,7 @@ void GSP_SignalChain::Remove(int32_t effect)
 
 	effect_pos 	= Locate(effect);
 	
-	if (effect_pos > 0)	
+	if (effect_pos >= 0)	
 	{						// the effect is in chain
 		ToLast(effect_pos);
 		number_effects--;
@@ -227,7 +227,7 @@ int32_t GSP_SignalChain::Locate(int32_t effect)
 void GSP_SignalChain::Name(int32_t effect, char *printout)
 {
 	/*
-    Return a pointer to the effect name given its enumerator
+    Return a pointer to the effect identifier given its enumerator
 		effect
 			effect name ("GSP_TML", "GSP_OVD", for instance)
         printout
@@ -240,6 +240,7 @@ void GSP_SignalChain::Name(int32_t effect, char *printout)
     //name 	= "NUL";
 	sprintf(printout, "NUL");
 	//if (effect == GSP_CMP) name = "CMP";
+    if (effect == GSP_LVD) sprintf(printout, "(LVD)");
     if (effect == GSP_CMP) sprintf(printout, "CMP");
 	if (effect == GSP_OVD) sprintf(printout, "OVD");
 	if (effect == GSP_PHR) sprintf(printout, "PHR");
@@ -265,6 +266,59 @@ void GSP_SignalChain::Name(int32_t effect, char *printout)
 
 // *****************************************************************************
 
+void GSP_SignalChain::Effect_Name(int32_t effect, char *printout)
+{
+	/*
+    Return a pointer to the effect name and identifier in alphabetical order
+    from 0 up to max_effect_number - 1
+		effect
+			effect sequence order
+        printout
+            pointing to a char array with the effect name 
+            as "Overdrive OVD", "Tremolo TML", etc.
+	*/
+
+	uint32_t     efc_id;
+
+    if (effect == GSP_LVD)
+    {
+        sprintf(printout, "->(LevelDetector LVD)\n");
+    } 
+    else
+    {
+        efc_id      = effect;
+        if (efc_id < 0) efc_id  = 0;
+        if (efc_id > max_effect_number - 1) efc_id  = max_effect_number - 1;
+            efc_id  = alpha_names[efc_id];
+
+	    sprintf(printout, "NUL");
+    
+        if (efc_id == GSP_CMP) sprintf(printout, "->Compressor CMP\n");
+	    if (efc_id == GSP_OVD) sprintf(printout, "->Overdrive OVD\n");
+	    if (efc_id == GSP_PHR) sprintf(printout, "->Phaser PHR\n");
+	    if (efc_id == GSP_OCT) sprintf(printout, "->Octave OCT\n");
+	    if (efc_id == GSP_SFT) sprintf(printout, "->PitchShifter SFT\n");
+	    if (efc_id == GSP_DTN) sprintf(printout, "->Detune DTN\n");
+	    if (efc_id == GSP_WAH) sprintf(printout, "->Wah-wah WAH\n");
+	    if (efc_id == GSP_EQZ) sprintf(printout, "->Equalizer EQZ\n");
+	    if (efc_id == GSP_CHS) sprintf(printout, "->Chorus CHS\n");
+	    if (efc_id == GSP_VBT) sprintf(printout, "->Vibrato VBT\n");
+	    if (efc_id == GSP_RVB) sprintf(printout, "->Reverber RVB\n");
+	    if (efc_id == GSP_DFB) sprintf(printout, "->FeedbackDelay DFB\n");
+	    if (efc_id == GSP_EFB) sprintf(printout, "->FeedbackEcho EFB\n");
+	    if (efc_id == GSP_DFF) sprintf(printout, "->FeedforwardDelay DFF\n");
+	    if (efc_id == GSP_EFF) sprintf(printout, "->FeedforwardEcho EFF\n");
+	    if (efc_id == GSP_TML) sprintf(printout, "->Tremolo TML\n");
+	    if (efc_id == GSP_VOL) sprintf(printout, "->Volume VOL\n");
+	    if (efc_id == GSP_LIM) sprintf(printout, "->Limiter LIM\n");
+	    if (efc_id == GSP_NGT) sprintf(printout, "->NoiseGate NGT\n");
+    }
+
+ 	return;
+}
+
+// *****************************************************************************
+
 int32_t GSP_SignalChain::Number(char* name)
 {
 	/*
@@ -283,6 +337,7 @@ int32_t GSP_SignalChain::Number(char* name)
 	st[2] 	= tolower(name[2]);
 	st[3] 	= 0;
 	
+	if (strcmp(st, "lvd") == 0) return GSP_LVD;
 	if (strcmp(st, "cmp") == 0) return GSP_CMP;
 	if (strcmp(st, "ovd") == 0) return GSP_OVD;
 	if (strcmp(st, "phr") == 0) return GSP_PHR;
@@ -329,23 +384,39 @@ int32_t GSP_SignalChain::RemoveEffect(char ct[])
 
 // *****************************************************************************
 
-void GSP_SignalChain::Printout(char* printout)
+void GSP_SignalChain::Printout(uint8_t out_list, char* printout)
 {
     uint32_t i;
     char  pname[4];
     //char* pchar;
     
-    sprintf(printout, "->Inp->");
- 
-    for (i = 0; i < number_effects; i++)
+    if (out_list == 0)
     {
-        Name(sgn_chain[i], pname);
-        strcat(printout, pname);
-        strcat(printout, "->");
+        sprintf(printout, "->Inp->(LVD)->");
+ 
+        for (i = 0; i < number_effects; i++)
+        {
+            Name(sgn_chain[i], pname);
+            strcat(printout, pname);
+            strcat(printout, "->");
+        }
+
+        strcat(printout, "Out->\n");
+        //*pchar 	= 0; 		//sprintf(pchar, "%c", 0);
+        strcat(printout, "\0"); 	//strcat(printout, pchar);
     }
-    strcat(printout, "Out->\n");
-    //*pchar 	= 0; 		//sprintf(pchar, "%c", 0);
-    strcat(printout, "\0"); 	//strcat(printout, pchar);
+    if (out_list == 1)
+    {
+        sprintf(printout, "->(LVD) ");
+        for (i = 0; i < number_effects; i++)
+        {
+            Name(sgn_chain[i], pname);
+            strcat(printout, pname);
+            strcat(printout, " ");
+        }
+        //*pchar 	= 0; 		//sprintf(pchar, "%c", 0);
+        strcat(printout, "\n\0");
+    }
 }
 
 

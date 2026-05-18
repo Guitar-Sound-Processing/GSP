@@ -44,15 +44,18 @@ class GSP_SignalChain
 		void 		Remove(int32_t effect);
 		int32_t 	Locate(int32_t effect);
 		void	    Name(int32_t effect, char *printout);
+        void        Effect_Name(int32_t effect, char *printout);
 		int32_t 	Number(char* name);
 		int32_t		RemoveEffect(char ct[]);
-		void 		Printout(char* printout);
+		void 		Printout(uint8_t out_list, char* printout);
 
 		int32_t 	sgn_chain[MAX_EFFECT_NUMBER];
 		uint32_t 	number_effects;
+        uint32_t    max_effect_number = MAX_EFFECT_NUMBER;
 	private:
-
+        int8_t      alpha_names[MAX_EFFECT_NUMBER] = {8, 0, 5, 7, 11, 12, 13, 14, 17, 18, 
+            3, 1, 2, 4, 10, 15, 9, 16, 6};
+        int32_t     GSP_LVD = -1;
 };
 
 #endif 	// GSP_CHAIN_H
-
