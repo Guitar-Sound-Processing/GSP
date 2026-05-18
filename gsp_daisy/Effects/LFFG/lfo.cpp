@@ -1,4 +1,6 @@
 #include <math.h>
+#include <stdio.h>
+#include <string.h>
 
 #include "guitar_dsp.h"
 #include "level_detector.h"
@@ -244,3 +246,19 @@ uint32_t LowFreqOsc::GetValue()
 	}
 }
 
+void LowFreqOsc::Printout(int32_t profile, char *printout)
+{
+    if (profile == LFO_SIN)             sprintf(printout, "->Sine Freq\n");
+	if (profile == LFO_HALFSINE)        sprintf(printout, "->Half_sine Freq\n");
+	if (profile == LFO_RAMP)            sprintf(printout, "->Ramp Freq\n");
+	if (profile == LFO_SAW)             sprintf(printout, "->Slope Freq\n");
+	if (profile == LFO_TRIANGLE)        sprintf(printout, "->Triangle Freq\n");
+	if (profile == LFO_SQUARE)          sprintf(printout, "->Square Freq Duty\n");
+	if (profile == LFO_EXPDECREASE)     sprintf(printout, "->Exponential_descend Freq Duty\n");
+	if (profile == LFO_EXPINCREASE)     sprintf(printout, "->Exponential_ascend Freq Duty\n");
+	if (profile == LFO_EXTERNAL)        sprintf(printout, "->Expression_pedal\n");
+	if (profile == LFO_LEVEL)           sprintf(printout, "->Power_level\n");
+	if (profile == LFO_REVERSE_LEVEL)   sprintf(printout, "->Reverse_power \n");
+
+    return;
+}

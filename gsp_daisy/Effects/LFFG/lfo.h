@@ -2,6 +2,7 @@
 #ifndef GSP_LFO
 #define GSP_LFO
 
+#define     PROFILES_NUMBER  11       
 enum lfo_wave
 {
 	LFO_SIN, 			// Sine <0:2*pi>
@@ -32,9 +33,10 @@ class LowFreqOsc
 		void 		SetGain(uint32_t gain);
 		uint32_t	GetAmplitude();
 		uint32_t 	GetValue();
-
+        void        Printout(int32_t chn_pos, char *printout);
 		uint32_t 	sample_rate;	// sampling rate
 		uint8_t   	profile;
+        uint8_t     profiles_number     = PROFILES_NUMBER;  // number of profiles
 		uint32_t  	period;  		// period of LFO in milliseconds
 		float   	duty;     		// duty cycle (on) for some profiles, in percentile of period
 		uint32_t 	max_gain; 		// LFO Amplitude
