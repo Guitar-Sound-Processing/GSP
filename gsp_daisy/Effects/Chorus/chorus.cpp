@@ -176,7 +176,7 @@ void GSP_Chorus::Printout(uint8_t out_list, int32_t chn_pos, char *printout)
     		"->CHS (%ld): OFF(0)|ON(1) %d "
 	    	"| Depth (0.1-100)(ms): %-.1f "
 		    "| Delay (0-1000)(ms): %-.1f "
-    		"| Mixer: %-.3f "
+    		"| Mixer (0-1): %-.3f "
         	"| Profile: (0-10) %d "
     	    "| Frequency (0.2-5)(Hz): %-.3f "
         	"| Duty Cycle (0-100)(%%): %-.1f "
