@@ -40,6 +40,7 @@ uint32_t    samplerate;
 // Output flags
 volatile uint8_t  poutFlag = 0, verbose_flag = 0;
 uint8_t     out_list = 0;
+bool        muted = false;
 
 // Built-in LED
 bool        ledstate = false;
@@ -100,6 +101,7 @@ GSP_NoiseGate     ngt;
 
 GSP_SignalChain   chain;
 GSP_Pots          expot;
+LowFreqOsc        lffg;
 
 // ****************************************************************************
 // Prototypes
@@ -111,7 +113,6 @@ int32_t CommandDecoder(char ct[], int32_t *chn_chg,
         int32_t *chn_code, float fl[], int32_t *fl_nb);
 int8_t  PotDecoder(GSP_SignalChain *chain_, char ct[],  
         int32_t* effect_number, int32_t* pot_number);
-int32_t CommandDecoder(char ct[], char cmd[], int32_t *chn_code, float fl[], int32_t *fl_nb);
 void    ChangeEffectParams(float fl[], float fn[], int32_t nb);
 void    SendPotStruct(GSP_Pots *pots_);
 
@@ -516,7 +517,7 @@ void _Setcommand(char ct[], uint8_t source)
     decoded     = 0;
     chainf      = 0;
     gpot        = 0;
-    
+        
     if (source == 1)
     {
         //https://stackoverflow.com/questions/51640225/how-to-cast-const-uint8-t-to-char
@@ -554,7 +555,7 @@ void _Setcommand(char ct[], uint8_t source)
         if (strcmp(cmd, "pot") != 0)
         {
             cdec     = CommandDecoder(stc, &ceff, &pos, fl, &fl_nb);
-            if (ceff != 0) chainf = 1;
+            //if (ceff != 0) chainf = 1;    // this prints the chain when an effect change its position
         }
         else cdec   = 0;
     }
@@ -569,7 +570,8 @@ void _Setcommand(char ct[], uint8_t source)
             ChangeEffectParams(fl, fn, fl_nb);
 			LevelDetectorSetTimes(samplerate, fn[0], fn[1]);
 			LevelDetectorPrintout(out_list, pout);
-			decoded   = 1;
+            if (muted) decoded      = 2;
+            else decoded    = 1;
 		}
 
 		//************************************* Compressor
@@ -582,7 +584,8 @@ void _Setcommand(char ct[], uint8_t source)
             ChangeEffectParams(fl, fn, fl_nb);
 			cps.SetParams(fn);
             cps.Printout(out_list, pos, pout);
-			decoded   = 1;
+            if (muted) decoded      = 2;
+            else decoded    = 1;
 		}
 
 		//************************************* Overdrive
@@ -595,7 +598,8 @@ void _Setcommand(char ct[], uint8_t source)
             ChangeEffectParams(fl, fn, fl_nb);
 			ovd.SetParams(fn);
 			ovd.Printout(out_list, pos, pout);
-			decoded   = 1;
+            if (muted) decoded      = 2;
+            else decoded    = 1;
 		}
 
 		//************************************* Phaser
@@ -608,7 +612,8 @@ void _Setcommand(char ct[], uint8_t source)
             ChangeEffectParams(fl, fn, fl_nb);
 			phr.SetParams(fn);
 			phr.Printout(out_list, pos, pout);
-			decoded   = 1;
+            if (muted) decoded      = 2;
+            else decoded    = 1;
 		}
 
 		//************************************* Octave
@@ -621,7 +626,8 @@ void _Setcommand(char ct[], uint8_t source)
             ChangeEffectParams(fl, fn, fl_nb);
 			oct.SetParams(fn);
 			oct.Printout(out_list, pos, pout);
-			decoded   = 1;
+            if (muted) decoded      = 2;
+            else decoded    = 1;
 		}
 
 		//************************************* PShifter
@@ -634,7 +640,8 @@ void _Setcommand(char ct[], uint8_t source)
             ChangeEffectParams(fl, fn, fl_nb);
 			sft.SetParams(fn);
 			sft.Printout(out_list, pos, pout);
-			decoded   = 1;
+            if (muted) decoded      = 2;
+            else decoded    = 1;
 		}
 
 		//************************************* Detune
@@ -647,7 +654,8 @@ void _Setcommand(char ct[], uint8_t source)
             ChangeEffectParams(fl, fn, fl_nb);
 			dtn.SetParams(fn);
 			dtn.Printout(out_list, pos, pout);
-			decoded   = 1;
+            if (muted) decoded      = 2;
+            else decoded    = 1;
 		}
 
 		//************************************* WahWah
@@ -660,7 +668,8 @@ void _Setcommand(char ct[], uint8_t source)
             ChangeEffectParams(fl, fn, fl_nb);
 			wah.SetParams(fn);
 			wah.Printout(out_list, pos, pout);
-			decoded   = 1;
+            if (muted) decoded      = 2;
+            else decoded    = 1;
 		}
 
 		//************************************* Equalizer
@@ -673,7 +682,8 @@ void _Setcommand(char ct[], uint8_t source)
             ChangeEffectParams(fl, fn, fl_nb);
 			eqz.SetParams(fn);
 			eqz.Printout(out_list, pos, pout);
-			decoded   = 1;
+            if (muted) decoded      = 2;
+            else decoded    = 1;
 		}
 
 		//************************************* Chorus
@@ -686,7 +696,8 @@ void _Setcommand(char ct[], uint8_t source)
             ChangeEffectParams(fl, fn, fl_nb);
 			chs.SetParams(fn);
 			chs.Printout(out_list, pos, pout);
-			decoded   = 1;
+            if (muted) decoded      = 2;
+            else decoded    = 1;
 		}
 
 		//************************************* Vibrato
@@ -699,7 +710,8 @@ void _Setcommand(char ct[], uint8_t source)
             ChangeEffectParams(fl, fn, fl_nb);
 			vbt.SetParams(fn);
 			vbt.Printout(out_list, pos, pout);
-			decoded   = 1;
+            if (muted) decoded      = 2;
+            else decoded    = 1;
 		}
 		//************************************* Reverber
 		if (strcmp(cmd, "rvb") == 0)
@@ -711,7 +723,8 @@ void _Setcommand(char ct[], uint8_t source)
             ChangeEffectParams(fl, fn, fl_nb);
 			rvb.SetParams(fn);
 			rvb.Printout(out_list, pos, pout);
-			decoded   = 1;
+            if (muted) decoded      = 2;
+            else decoded    = 1;
 		}
 		//************************************* Delay_FB
 		if (strcmp(cmd, "dfb") == 0)
@@ -723,7 +736,8 @@ void _Setcommand(char ct[], uint8_t source)
             ChangeEffectParams(fl, fn, fl_nb);
 			dfb.SetParams(fn);
 			dfb.Printout(out_list, pos, pout);
-			decoded   = 1;
+            if (muted) decoded      = 2;
+            else decoded    = 1;
 		}
 		//************************************* Echo_FB
 		if (strcmp(cmd, "efb") == 0)
@@ -735,7 +749,8 @@ void _Setcommand(char ct[], uint8_t source)
             ChangeEffectParams(fl, fn, fl_nb);
 			efb.SetParams(fn);
 			efb.Printout(out_list, pos, pout);
-			decoded   = 1;
+            if (muted) decoded      = 2;
+            else decoded    = 1;
 		}
 		//************************************* Delay_FF
 		if (strcmp(cmd, "dff") == 0)
@@ -747,7 +762,8 @@ void _Setcommand(char ct[], uint8_t source)
             ChangeEffectParams(fl, fn, fl_nb);
 			dff.SetParams(fn);
 			dff.Printout(out_list, pos, pout);
-			decoded   = 1;
+            if (muted) decoded      = 2;
+            else decoded    = 1;
 		}
 		//************************************* Echo_FF
 		if (strcmp(cmd, "eff") == 0)
@@ -759,7 +775,8 @@ void _Setcommand(char ct[], uint8_t source)
             ChangeEffectParams(fl, fn, fl_nb);
 			eff.SetParams(fn);
 			eff.Printout(out_list, pos, pout);
-			decoded   = 1;
+            if (muted) decoded      = 2;
+            else decoded    = 1;
 		}
 		//************************************* Tremolo
 		if (strcmp(cmd, "tml") == 0)
@@ -771,7 +788,8 @@ void _Setcommand(char ct[], uint8_t source)
             ChangeEffectParams(fl, fn, fl_nb);
 			tml.SetParams(fn);
 			tml.Printout(out_list, pos, pout);
-			decoded   = 1;
+            if (muted) decoded      = 2;
+            else decoded    = 1;
 		}
 		//************************************* Limiter
 		if (strcmp(cmd, "lim") == 0)
@@ -783,7 +801,8 @@ void _Setcommand(char ct[], uint8_t source)
             ChangeEffectParams(fl, fn, fl_nb);
 			lmt.SetParams(fn);
 			lmt.Printout(out_list, pos, pout);
-			decoded   = 1;
+            if (muted) decoded      = 2;
+            else decoded    = 1;
 		}
 		//************************************* Volume
 		if (strcmp(cmd, "vol") == 0)
@@ -798,7 +817,8 @@ void _Setcommand(char ct[], uint8_t source)
             pout[2]   = 'V';
             pout[3]   = 'O';
             pout[4]   = 'L';
-			decoded   = 1;
+            if (muted) decoded      = 2;
+            else decoded    = 1;
 		}
 		//************************************* Noise Gate
 		if (strcmp(cmd, "ngt") == 0)
@@ -810,7 +830,8 @@ void _Setcommand(char ct[], uint8_t source)
             ChangeEffectParams(fl, fn, fl_nb);
 			ngt.SetParams(fn);
 			ngt.Printout(out_list, pos, pout);
-			decoded   = 1;
+            if (muted) decoded      = 2;
+            else decoded    = 1;
 		}
 
 		// ************************************* External potentiometer
@@ -833,18 +854,21 @@ void _Setcommand(char ct[], uint8_t source)
 			    		send_pot_data   = true;
                         decoded     = 2;
                     
-                        chain.Name(effect_n, pname);
-                        sprintf(pout, "->POT: Effect: %s | Potentiometer ID: %ld\r\n",
+                        if (!muted)
+                        {
+                            chain.Name(effect_n, pname);
+                            sprintf(pout, "->POT: Effect: %s | Potentiometer ID: %ld\r\n",
                                 pname, pot_id);
 
-                        if (source == 0) hw.PrintLine(pout);
-                        if (source == 1) 
-                        {
-                            uart.BlockingTransmit(uart_com, 1);
-                            uart.BlockingTransmit(u_pout, strlen(pout));
+                            if (source == 0) hw.PrintLine(pout);
+                            if (source == 1) 
+                            {
+                                uart.BlockingTransmit(uart_com, 1);
+                                uart.BlockingTransmit(u_pout, strlen(pout));
+                            }
+                            decoded = 2; // no error
+                            gpot    = 0; // no pot printing
                         }
-                        decoded = 2; // no error
-                        gpot    = 0; // no pot printing
                     }
                     else
  		    		{
@@ -888,7 +912,7 @@ void _Setcommand(char ct[], uint8_t source)
                 }
 			}
 
-            if (gpot > 0)
+            if (gpot > 0 && !muted)
             {
                 if (expot.number_pots == 0)
                 {
@@ -936,6 +960,60 @@ void _Setcommand(char ct[], uint8_t source)
             chain.New();
 			chainf    = 1;
 		}
+		//*********************************************** Command ID - Chain
+		if (strcmp(cmd, "cid") == 0)
+		{
+            sprintf(pout, "-> %lu \n", chain.max_effect_number);
+            if (source == 0) hw.Print(pout);
+            if (source == 1) 
+            {
+                uart.BlockingTransmit(uart_com, 1);
+                uart.BlockingTransmit(u_pout, strlen(pout));
+            }
+
+            chain.Effect_Name(-1, pout);
+            if (source == 0) hw.Print(pout);
+            if (source == 1) 
+            {
+                uart.BlockingTransmit(uart_com, 1);
+                uart.BlockingTransmit(u_pout, strlen(pout));
+            }
+
+            for (i = 1; i < chain.max_effect_number; i++)
+            {
+                chain.Effect_Name(i, pout);
+                if (source == 0) hw.Print(pout);
+                if (source == 1) 
+                {
+                    uart.BlockingTransmit(uart_com, 1);
+                    uart.BlockingTransmit(u_pout, strlen(pout));
+                }
+            }
+            decoded     = 2;
+		}
+		//*********************************************** LFFG profiles
+		if (strcmp(cmd, "pfl") == 0)
+		{
+            sprintf(pout, "-> %d \n", lffg.profiles_number);
+            if (source == 0) hw.Print(pout);
+            if (source == 1) 
+            {
+                uart.BlockingTransmit(uart_com, 1);
+                uart.BlockingTransmit(u_pout, strlen(pout));
+            }
+
+            for (i = 0; i < lffg.profiles_number; i++)
+            {
+                lffg.Printout(i, pout);
+                if (source == 0) hw.Print(pout);
+                if (source == 1) 
+                {
+                    uart.BlockingTransmit(uart_com, 1);
+                    uart.BlockingTransmit(u_pout, strlen(pout));
+                }
+            }
+            decoded     = 2;
+		}
 		//*********************************************** Time print
 		if (strcmp(cmd, "out") == 0)
 		{
@@ -958,20 +1036,31 @@ void _Setcommand(char ct[], uint8_t source)
 		//*********************************************** Output type
 		if (strcmp(cmd, "fmt") == 0)
 		{
-            if (fl[0] < 0 || fl[0] > 1) fl[0]   = 0;
-            out_list    = fl[0];
-            sprintf(pout, "->FMT: Complete(0)|Data only(1) %d\n", out_list);
+            i       = 0;
+            if (fl[0] < -1.5 || fl[0] > 1.5) i  = 0.;
+            if (fl[0] > -0.5 && fl[0] < 0.5) i  = 0;
+            if (fl[0] > 0.5 && fl[0] < 1.5) i   = 1;
+            out_list    = i;
+            if (fl[0] < -0.5)
+            {
+                i    = -1;
+                muted = true;
+            }
+            else    muted = false;
+
+            sprintf(pout, "->FMT: Mute (-1) | Complete (0) | Data only (1) %ld\n", i);
             decoded     = 1;
 		}
         // #******************************************* Chain Printout
 		if (chainf == 1)
 		{
-			chain.Printout(pout);
+			chain.Printout(out_list, pout);
             decoded = 1;
 		}
  		// #*********************************************** Output
 		if (decoded == 1)
 		{
+            //hw.PrintLine(">> %d  %d", muted, out_list);
             if (strlen(pout) > 120)
             {
                 phal = pout[120];
@@ -1013,7 +1102,13 @@ void _Setcommand(char ct[], uint8_t source)
 	}
 	else
     {
-        hw.PrintLine("-> ?");
+        if (source == 0) hw.PrintLine("->Unknown");
+        if (source == 1) 
+        {
+            sprintf(pout, "->Unknown\n");
+            uart.BlockingTransmit(uart_com, 1);
+            uart.BlockingTransmit(u_pout, strlen(pout));
+        }
 //>>>   Serial1.println("-> ?");
     }
 
