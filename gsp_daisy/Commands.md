@@ -73,7 +73,7 @@ There is also a Level Detector which isn’t exactly an effect, but rather a use
 
 - [Level Detector](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects.md#efclvd) – ([doc](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects/Level_Detector/Level_Detector.pdf)) - Measures the level of the input signal. It can be used to drive the LFFG (Low Frequency Function Generator) when the selected envelop amplitude is LFO_POWER mode.
 
-Besides these effects, a Tone_LPHP (Low-Pass High-Pass or Treble filter) class was developed for the Overdrive effect, but can be used in any future developments. Documentation of LPHP filter can be found on [Overdrive doc](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects/Overdrive/Overdrive.pdf).
+Besides these effects, a Tone_LPHP (Low-Pass High-Pass or Treble filter) class was developed for the Overdrive effect, but can be used in any future developments. Documentation of LPHP filter can be found in [Overdrive doc](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects/Overdrive/Overdrive.pdf).
 
 Some effects share the same code, but with different default parameters. They are:
 
