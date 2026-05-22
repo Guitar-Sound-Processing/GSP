@@ -13,10 +13,10 @@ ESP32 WROVER has the following tasks:
 From low to high level commands, they are:
 
 - [Effect Commands](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Commands.md) (interpreted by Daisy Seed)
-- [Effect Presets](https://github.com/Guitar-Sound-Processing/GSP/blob/main/ext_device/Presets.md) (interpreted by GSP Android)
-- [Chain Profiles](https://github.com/Guitar-Sound-Processing/GSP/blob/main/ext_device/ChainProfiles.md) (interpreted by by GSP Android)
-- [Songs](https://github.com/Guitar-Sound-Processing/GSP/blob/main/ext_device/Songs.md) (interpreted by by GSP Android)
-- [Playlists](https://github.com/Guitar-Sound-Processing/GSP/blob/main/ext_device/Playlists.md) (interpreted by by GSP Android)
+- Presets (interpreted by GSP Android)
+- Chain Profiles (interpreted by by GSP Android)
+- Songs (interpreted by by GSP Android)
+- Playlists (interpreted by by GSP Android)
 
 <p align="center"><img src="https://raw.githubusercontent.com/Guitar-Sound-Processing/GSP/master/resources/hl_com.png" width="512" height="185" alt="High and Low Level commands"></p>
 
