@@ -58,7 +58,7 @@ By sending this command, GSP answers with
 
 > ->Verbose on
 
-and by sending ```vbs``` again it reply with
+and by sending ```vbs``` again it replies with
 
 > ->Verbose off
 
