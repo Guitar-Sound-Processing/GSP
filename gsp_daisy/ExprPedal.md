@@ -62,7 +62,7 @@ Besides the ```A``` command, DS can send also two other commands: ```S``` and ``
 
 The ```S``` command states that the External Device shall start sending potentiometer data, at a rate of 10 Hz, with two bytes (one word) each, in the format specified bellow. The ```C``` command orders the ED to stop sending data and to clear the potentiometers field (number of pot data is zero).
 
-After reading the potentiometer voltages, ED sends the data to DS by serial line in following binary format:
+After reading the potentiometer voltages and receiving the ```S``` command, ED sends the data to DS by serial line in following binary format:
 
 	P<m><P1><P2><P3>…<Pm>\n
 
