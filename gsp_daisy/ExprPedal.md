@@ -44,7 +44,7 @@ To attach Volume in channel 5 and Wah-Wah on channel 3, the following commands m
 > ->POT: Effect: WAH | Potentiometer ID: 3 <br>
 > ->POT: Effect: VOL | Potentiometer ID: 5 </br>
 
-The answer to the ```pot``` command is affected by the Standard Reply fmt command. If the short answer is selected, then GSP replies to ```pot``` with
+The answer to the ```pot``` command is affected by the Standard Reply ```fmt``` command. If the short answer is selected, then GSP replies to ```pot``` with
 
 ```pot```
 > ->POT: WAH 3 <br>
