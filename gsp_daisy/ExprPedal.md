@@ -50,6 +50,8 @@ The answer to the ```pot``` command is affected by the Standard Reply ```fmt``` 
 > ->POT: WAH 3 <br>
 > ->POT: VOL 5 </br>
 
+## Potentiometer data 
+
 After receiving the Expression Pedal command, the DS sends an assign command to the External Device (ED) with the sequence of required potentiometer data that ED shall send to Daisy Seed. This command has the following format
 
 	A{r1}{r2}…{rm}\n
