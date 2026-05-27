@@ -16,7 +16,7 @@ On the other hand, the ED will be in charge to
 - communicate with the application software to receive and retransmit commands,
 - read Volume or Expression pedals and send these data to DS
 
-Therefore, from the Application point of view, some of the commands are interpreted by the Daisy Seed, while others are interpreted by the External Device, aiming to let the DS to process the effect algorithms instead to interpret all commands. DS is then responsible to interpret a minimum set of commands, while the External Device interpret high level commands. 
+Therefore, from the Application point of view, some of the commands are interpreted by the Daisy Seed, while others are interpreted by the External Device, aiming to let the DS to process the effect algorithms instead to interpret all commands. DS is then responsible to interpret a minimum set of commands, while the External Device provides interface with potentiometers of Expression Pedals. 
 
 The complete list of configuration commands to GSP comprises
 
@@ -25,11 +25,7 @@ The complete list of configuration commands to GSP comprises
 - [Interface commands](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Interfaces.md)
 - [Expression Pedal commands](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/ExprPedal.md)
 
-All these effects are processed and interpreted by the Daisy Seed board. There are also some available commands designed to select a whole chain configuration stored on SSD. These and other commands are interpreted by the External Device, like ESP32, explained in:
-
-- Chain profiles
-
-The effect modules are codified in classes of C++, and obey some guidelines described in
+All these effects are processed and interpreted by the Daisy Seed board. The External Device, like ESP32, acts also as passthrough device to send commands to DS through USB or Bluetooth. The effect modules are codified in classes of C++, and obey some guidelines described in
 
 - [Effect Software Directives](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/SWDirectives.md#effect-software-directives)
 
