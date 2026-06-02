@@ -31,9 +31,6 @@ where *efc* is the requested effect and *k* is the associated potenciometer ID. 
 
 To attach Volume in channel 5 and Wah-Wah on channel 3, the following commands must be sent:
 
-```pot```
-> ->POT: \<none>
-
 ```pot vol 5```
 > ->POT: Effect: VOL | Potentiometer ID: 5
 
