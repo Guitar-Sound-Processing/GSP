@@ -37,7 +37,7 @@ To attach Volume in channel 5 and Wah-Wah on channel 3, the following commands m
 ```pot wah 3```
 > ->POT: Effect: WAH | Potentiometer ID: 3
 
-GSP answers to the ```pot``` command without parameters with the list of all the effects which have LFFG with its associated potentiometer identificator:
+GSP answers to the ```pot``` command without parameters with the list of all the effects which have LFFG with their associated potentiometer identificator:
 
 ```pot```
 
