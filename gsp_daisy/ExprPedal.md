@@ -16,7 +16,7 @@ On the description of the commands, the following rules apply to the parameters:
 The command ```pot``` links a given effect configured with LFO_EXTERNAL profile in the [LFFG](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/LFFG.md) to an expression pedal.
 
 	pot /efc\ {rid}
-		efc 	– Effect name (wah, phr, tml, chs or vbt)
+		efc 	– Effect name (wah, phr, tml, chs, vbt or vol)
 		rid 	– Potentiometer identifier number
 
 The GSP software on DS exchanges data with the External Device processor (ESP32, for instance) through serial interface using predefined commands to request and to deliver potentiometer data. Each potentiometer attached to the external processor will receive a numeric identifier based on its connection interface (GPIO). The interface identifiers are predefined by software and can’t be changed. Up to 8 identifiers can be used, numbered from 0 to 7. The link between the potentiometer identifier and the associated effect is done by the Expression Pedal ```pot``` command. 
