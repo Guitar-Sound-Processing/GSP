@@ -23,22 +23,21 @@ The GSP software on DS exchanges data with the External Device processor (ESP32,
 
 If ```rid``` is negative, disregarding its value, the effect will be unassigned from its previously attached pot. However, one has to take care to avoid sending something like -0, since negative zero has no useful meaning. If ```rid``` is absent the command is disregarded.  A given potentiometer identifier can be assigned to more than one effect on the chain, although the inverse isn’t valid.
 
-When receiving a ```pot``` request, GSP answers with 
+When receiving a ```pot``` request, GSP lists all the effects using [LFFG](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/LFFG.md) and their associated potentiometer identifier in the format:
 
 > ->POT Effect: *efc* | Pot ID: *k*
 
-where *efc* is the requested effect and *k* is the associated potenciometer ID. To attach Volume in channel 5 and Wah-Wah on channel 3, the following commands must be sent:
+where *efc* is the effect acronym and *k* is the associated potenciometer ID. To attach Volume in channel 5 and Wah-Wah on channel 3, the following commands must be sent:
 
 ```pot vol 5```
-> ->POT Effect: VOL | Potentiometer ID: 5
+> ->POT Effect: PHR | Potentiometer ID: -1 <br>
+> ->POT Effect: WAH | Potentiometer ID: -1 <br>
+> ->POT Effect: CHS | Potentiometer ID: -1 <br>
+> ->POT Effect: VBT | Potentiometer ID: -1 <br>
+> ->POT Effect: TML | Potentiometer ID: -1 <br>
+> ->POT Effect: VOL | Potentiometer ID: 5 </br>
 
 ```pot wah 3```
-> ->POT Effect: WAH | Potentiometer ID: 3
-
-GSP answers to the ```pot``` command without parameters with the list of all the effects which have LFFG with their associated potentiometer identificator:
-
-```pot```
-
 > ->POT Effect: PHR | Potentiometer ID: -1 <br>
 > ->POT Effect: WAH | Potentiometer ID: 3 <br>
 > ->POT Effect: CHS | Potentiometer ID: -1 <br>
@@ -46,7 +45,17 @@ GSP answers to the ```pot``` command without parameters with the list of all the
 > ->POT Effect: TML | Potentiometer ID: -1 <br>
 > ->POT Effect: VOL | Potentiometer ID: 5 </br>
 
-The answer to the ```pot``` command is affected by the Standard Reply ```fmt``` command. If the short answer is selected, then GSP replies to ```pot``` by printing a single line with
+GSP answers to the ```pot``` command without parameters with the current list of all the effects which use LFFG with their associated potentiometer identifier:
+
+```pot```
+> ->POT Effect: PHR | Potentiometer ID: -1 <br>
+> ->POT Effect: WAH | Potentiometer ID: 3 <br>
+> ->POT Effect: CHS | Potentiometer ID: -1 <br>
+> ->POT Effect: VBT | Potentiometer ID: -1 <br>
+> ->POT Effect: TML | Potentiometer ID: -1 <br>
+> ->POT Effect: VOL | Potentiometer ID: 5 </br>
+
+The answer to the ```pot``` command is affected by the Standard Reply ```fmt``` command. If the short answer is selected, then GSP replies to any ```pot``` by printing a single line with the current configuration
 
 > ->POT PHR -1 WAH 3 CHS -1 VBT -1 TML -1 VOL 5 
 
