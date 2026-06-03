@@ -55,7 +55,7 @@ GSP answers to the ```pot``` command without parameters with the current list of
 > ->POT Effect: TML | Potentiometer ID: -1 <br>
 > ->POT Effect: VOL | Potentiometer ID: 5 </br>
 
-The answer to the ```pot``` command is affected by the Standard Reply ```fmt``` command. If the short answer is selected, then GSP replies to any ```pot``` by printing a single line with the current configuration
+The answer to the ```pot``` command is affected by the Standard Reply ```fmt``` command. If the short answer is selected, then GSP replies to any ```pot``` command by printing a single line with the current configuration
 
 > ->POT PHR -1 WAH 3 CHS -1 VBT -1 TML -1 VOL 5 
 
