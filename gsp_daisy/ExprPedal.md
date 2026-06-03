@@ -25,30 +25,30 @@ If ```rid``` is negative, disregarding its value, the effect will be unassigned 
 
 When receiving a ```pot``` request, GSP answers with 
 
-> ->POT: Effect: *efc* | Pot ID: *k*
+> ->POT Effect: *efc* | Pot ID: *k*
 
 where *efc* is the requested effect and *k* is the associated potenciometer ID. To attach Volume in channel 5 and Wah-Wah on channel 3, the following commands must be sent:
 
 ```pot vol 5```
-> ->POT: Effect: VOL | Potentiometer ID: 5
+> ->POT Effect: VOL | Potentiometer ID: 5
 
 ```pot wah 3```
-> ->POT: Effect: WAH | Potentiometer ID: 3
+> ->POT Effect: WAH | Potentiometer ID: 3
 
 GSP answers to the ```pot``` command without parameters with the list of all the effects which have LFFG with their associated potentiometer identificator:
 
 ```pot```
 
-> ->POT: Effect: PHR | Potentiometer ID: -1 <br>
-> ->POT: Effect: WAH | Potentiometer ID: 3 <br>
-> ->POT: Effect: CHS | Potentiometer ID: -1 <br>
-> ->POT: Effect: VBT | Potentiometer ID: -1 <br>
-> ->POT: Effect: TML | Potentiometer ID: -1 <br>
-> ->POT: Effect: VOL | Potentiometer ID: 5 </br>
+> ->POT Effect: PHR | Potentiometer ID: -1 <br>
+> ->POT Effect: WAH | Potentiometer ID: 3 <br>
+> ->POT Effect: CHS | Potentiometer ID: -1 <br>
+> ->POT Effect: VBT | Potentiometer ID: -1 <br>
+> ->POT Effect: TML | Potentiometer ID: -1 <br>
+> ->POT Effect: VOL | Potentiometer ID: 5 </br>
 
 The answer to the ```pot``` command is affected by the Standard Reply ```fmt``` command. If the short answer is selected, then GSP replies to ```pot``` by printing a single line with
 
-> ->POT: PHR -1 WAH 3 CHS -1 VBT -1 TML -1 VOL 5 
+> ->POT PHR -1 WAH 3 CHS -1 VBT -1 TML -1 VOL 5 
 
 ## Potentiometer data 
 
