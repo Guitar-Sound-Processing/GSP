@@ -67,7 +67,7 @@ More can be found in [LFFG specific documentation](https://github.com/Guitar-Sou
 \large a(t)=[1-\mathrm{e}^{t/2-1/2}] \mathrm{e}^{(t/D-1/D)}
 ```
 
-8)	```LFO_EXTERNAL```. External signal from potentiometer (volume pedal).
+8)	```LFO_EXTERNAL```. External signal from potentiometer (volume pedal). Needs to attach the pedal to a channel .
  
 9)	```LFO_LEVEL```. Power amplitude of input signal, coming from the Level Detector (lvd) procedure.
 
