@@ -40,7 +40,7 @@ The *s* Switch parameter indicates the activation or deactivation (by-pass) of t
 
 ## Parameter range
 
-Each parameter *p*<sub>*n*</sub> of any effect has its own maximum and minimum allowable values. Sending a command with no parameters, like ```ovd```, produces a printout of the current effect parameters as well as the maximum and minimum allowable values. Any parameter above the maximum or below the minimum allowable values will be internally clipped respectively to maximum or minimum. 
+Each parameter *p*<sub>*n*</sub> of any effect has its own maximum and minimum allowable values. Sending a command with no parameters, like ```ovd```, produces a printout of the current effect parameters as well as the maximum and minimum allowable values. Any parameter above the maximum or below the minimum will be internally clipped respectively to maximum or minimum. 
 
 ## Configuration Commands
 
