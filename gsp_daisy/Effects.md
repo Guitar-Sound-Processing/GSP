@@ -32,7 +32,7 @@ since ```“ovf”``` isn’t a valid command.
 2. If the effect isn’t already in chain, the (*c*) parameter inserts the effect on the slot pointed by *c*, and shifts the remaining effects to right. 
 3. If *c* is greater than the position of the last effect in chain, the effect will be appended at the chain output. 
 4. If *c* is negative then the absolute value is disregarded and the effect will be removed from chain. The remaining effects in chain are shifted to left to fulfill the blank position.
-5. if *c* is ommited (but not the parenthesis) or it is just a plus sign ```(+)``` the effect will be positioned at entrance. 
+5. if *c* is ommited (but not the parenthesis) or if it is just a plus sign ```(+)``` the effect will be positioned at entrance. 
 
 ## Switch parameter
 
