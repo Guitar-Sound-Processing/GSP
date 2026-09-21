@@ -4,7 +4,7 @@ GSP can handle up to 8 expression pedals, to drive effects like Volume, Wah-Wah 
 
 ## Important Note
 
-GPS was designed to communicate to External Device through 2 serial lines:
+GSP was designed to communicate to External Device through 2 serial lines:
 
 - a serial line dedicated to receive effect commands and to send replies, and
 - a second serial line to send Expression Pedal commands and to receive potentiometer data
