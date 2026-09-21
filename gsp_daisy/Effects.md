@@ -1,6 +1,8 @@
 
 # Effect Commands
 
+Effect Commands are the way GSP uses to change the configuration parameters of any effect.
+
 ## Effect Command format
 
 Any Effect Command must obey the following format:
