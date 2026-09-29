@@ -28,7 +28,7 @@ and effect switching values:
 ```
 #### Audio resolution
 
-The ADC and DAC resolution of Daisy Seed is 24 bits for Seed and 32 bits for Seed3 new generation. libDaisy delivers samples in 32 bits floating point at 198 kHz maximum. However GSP converts the floating point to 32 bits integer since computations are significantly faster with integer operations, although sometimes scaling numbers are needed. This strategy also gives flexibility do add new effects provided there are processing time still available. To increase real time performance, the sampling rate was choosen to 48 kHz.
+The ADC and DAC resolution of Daisy Seed is 24 bits for Seed and 32 bits for Seed3 new generation. libDaisy delivers samples in 32 bits floating point at 198 kHz maximum. However GSP converts the floating point to 32 bits integer since computations are significantly faster with integer operations (see Table below), although sometimes scaling numbers are needed. This strategy also gives flexibility do add new effects provided there are processing time still available. To increase real time performance, the sampling rate was choosen to 48 kHz.
 
 <div align="center">
 	
@@ -39,6 +39,7 @@ The ADC and DAC resolution of Daisy Seed is 24 bits for Seed and 32 bits for See
 | uint16_t | 3126 (3) | 3750 (3) | 23757 (20) | 
 | int16_t | 5626 (5) | 3751 (3) | 28758 (12) | 
 | float | 5627 (5) | 3750 (3) | 41270 (35) |
+Daisy Seed processing times (10^6 operations)
 
 </div>
 
