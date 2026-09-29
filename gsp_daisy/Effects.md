@@ -4,7 +4,7 @@
 Effect Commands are the way GSP uses to change the configuration parameters of any effect.
 
 | Effect	| Parameter | Minimum | Maximum | Units | Default | Type |
-| --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | :---: | :---: | :---: | :---: | :---: |
 | LVD | Attack | 0.2 | - | ms | 1.0 | float | 
 | | Release | 0.2 | - | ms | 1000.0 | float |
 | CHS (8): | Depth | 0.1 | 100 | ms | 5.0 | float |
