@@ -25,6 +25,10 @@ and effect switching values:
 #define GSP_ON 		1
 #define GSP_OFF 	0
 ```
+#### Audio resolution
+
+The ADC and DAC resolution of Daisy Seed is 24 bits for Seed and 32 bits for Seed3 new generation. libDaisy delivers samples in 32 bits floating point at 198 kHz maximum. However GSP converts the floating point to 32 bits integer since computations are significantly faster with integer operations, although sometimes scaling numbers are needed. This strategy also gives flexibility do add new effects provided there are processing time still available. To increase real time performance, the sampling rate was choosen to 48 kHz.
+
 ## Standard effect names
 	
 The GSP effect class shall be addressed by 
@@ -40,10 +44,6 @@ Each effect class shall have standard methods to process the audio signal. Only 
 - [Init](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/SWDirectives.md#init-methods)
 - [Process](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/SWDirectives.md#process-methods)
 - [Switch](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/SWDirectives.md#switch-method)
-
-#### Audio resolution
-
-The ADC and DAC resolution of Daisy Seed is 24 bits for Seed and 32 bits for Seed3 new generation. libDaisy delivers samples in 32 bits floating point at 198 kHz maximum. However GSP converts the floating point to 32 bits integer since computations are significantly faster with integer operations, although sometimes scaling numbers are needed. This strategy also gives flexibility do add new effects provided there are processing time still available. To increase real time performance, the sampling rate was choosen to 48 kHz.
 
 #### Init methods
 
