@@ -33,7 +33,7 @@ The ADC and DAC resolution of Daisy Seed is 24 bits for Seed and 32 bits for See
 <center>
 	
 | Type | Sum ( $\mu$ s) | Product ( $\mu$ s) | Division ( $\mu$ s) |
-| --- | -:- | -:- | -:- | 
+| --- | --- | --- | --- | 
 | uint32_t | 1250 (1) | 1258 (1) | 38770 (30) | 
 | int32_t | 1253 (1) | 1250 (1) | 41263 (35) |
 | uint16_t | 3126 (3) | 3750 (3) | 23757 (20) | 
