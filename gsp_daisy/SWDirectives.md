@@ -10,7 +10,8 @@ There are standard headers available in GSP that are accessible by any effect:
  
 This header defines numerical parameters for unit conversion and integer ranges:
 
-```#define GDSP_PI 		3.14159265358979323846f 	/* pi */
+```
+#define GDSP_PI 		3.14159265358979323846f 	/* pi */
 #define GDSP_2PI 		6.283185307179586476925f 	/* 2 pi */
 #define ADC_RES 		65536				/* ADC 16 bits */
 #define ADC_HALFRES 	32768				/* ADC 16 bits/2 */
