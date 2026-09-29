@@ -7,6 +7,7 @@ Effect Commands are the way GSP uses to change the configuration parameters of a
 | --- | --- | --- | --- | --- | --- | --- |
 | LVD | Attack | 0.2 | - | ms | 1.0 | float | 
 | | Release | 0.2 | - | ms | 1000.0 | float |
+| --- | --- | --- | --- | --- | --- | --- |
 | CHS (8): | Depth | 0.1 | 100 | ms | 5.0 | float |
 | | Delay | 0.0 | 1000.0 | ms | 1.0 | float |
 | | Mixer | 0.0 | 1.0 | - | 0.5 | float | 
