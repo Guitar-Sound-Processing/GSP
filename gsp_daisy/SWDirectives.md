@@ -41,10 +41,11 @@ The ADC and DAC resolution of Daisy Seed is 24 bits for Seed and 32 bits for See
 | float | 5627 (5) | 3750 (3) | 41270 (35) |
 
 </div>
+<div align="center">
 
-Daisy Seed processing times ( $10^6$ operations)
+Daisy Seed processing times ($10^6$ operations)
 
-times $10^6$
+</div>
 
 ## Standard effect names
 	
