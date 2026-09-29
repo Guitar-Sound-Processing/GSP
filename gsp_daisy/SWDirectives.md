@@ -38,6 +38,8 @@ The ADC and DAC resolution of Daisy Seed is 24 bits for Seed and 32 bits for See
 | int16_t | 5626 (5) | 3751 (3) | 28758 (12) | 
 | float | 5627 (5) | 3750 (3) | 41270 (35) | 
 
+$\mu$
+
 ## Standard effect names
 	
 The GSP effect class shall be addressed by 
