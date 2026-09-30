@@ -30,7 +30,7 @@ Table below shows the processing time for all effects in default configuration, 
 | WAH | 6.72 | 1.58 |
 | Total  | 28.70 | 31.53 |
 
-<\div>
+</div>
 
 Main loop interfaces to the External Device (ED) by UART Serial or to any computer by virtual COM port through USB. Presentely the UART Serial shares both Effect Commands and Expression Pedal data coming from ED in the same serial line. They differentiate by a preceeding 
 opening brace (```{```) for Effect Command and a closing brace (```}```) for Expression Pedal. They shall utilize two serial lines in future GSP versions.
