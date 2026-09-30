@@ -6,7 +6,7 @@ Table below shows the processing time for all effects in default configuration, 
 
 <div align="center">
 
-Effect duty cycle
+**Effect duty cycle**
 
 </div>
 
