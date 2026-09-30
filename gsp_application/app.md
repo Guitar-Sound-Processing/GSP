@@ -11,6 +11,7 @@ The application software is organized in 4 levels (see figure below):
 - Song Editor
 - Playlist Editor and on stage performance
 
+<p align="center"><img src="https://raw.githubusercontent.com/Guitar-Sound-Processing/GSP/master/resources/ds_interfaces.jpg" alt="DS Interfaces" width="500"></p>
 
 ## Effect and Preset Editor
 
