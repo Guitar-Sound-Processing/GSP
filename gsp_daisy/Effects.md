@@ -371,7 +371,8 @@ Default:
 ```vbt 1 10 1 5```
 > ->VBT (9): OFF(0)|ON(1) 1 | Depth (0.1-100)(ms): 10.0 | Delay (0-1000)(ms): 1.0 | Profile: (0-10) 5 | Frequency (0.2-5)(Hz): 0.500 | Duty Cycle (0-100)(): 50.0 | Gain (0-1): 1.000
 
-##  <h3 id="efqrt">Quick Reference Table: </h3>
+##  <h3 id="efqrt">Quick Reference Table </h3>
+
 
 | Effect	| Parameter | Minimum | Maximum | Units | Default | Type |
 | --- | --- | :---: | :---: | :---: | :---: | :---: |
@@ -451,6 +452,4 @@ Default:
 | | Frequency | 0.2 | 5.0 | Hz | 2.000 | float |
 | | Duty Cycle | 0.0 | 100.0 | % | 50.0 | float |
 | | Gain | 0.0 | 1.0 | - | 1.000 | float |
-
-
 
