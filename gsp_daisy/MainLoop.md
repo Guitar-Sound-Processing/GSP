@@ -5,6 +5,12 @@ GSP main code is responsible to provide all interfaces to libDaisy, as well as t
 Table below shows the processing time for all effects in default configuration, in percentage of the available duty cycle, provided by the ```out``` command in [Interfaces Commands](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Interfaces.md). First row shows the idle time, which is composed by the LVD (Level Detector) duty cycle, which is allways active, together the necessary time to libDaisy to provide audio samples, which takes around 5.2% of the processing time. The following rows of the second column are the measured duty cycle of isolated effects, added to the idle time. Third column presents the difference between the isolated effect and the idle times, i.e., the duty cycle of each effect alone. Last row presents the total time of all effects together in default configuration as measured (second colunm) and computed by adding all the rows in third column. The available processing time to include new effects are still large, around 70%.
 
 <div align="center">
+
+Effect duty cycle
+
+</div>
+
+<div align="center">
   
 | Effect | efc + LVD (%) | efc (%) |
 | --- | :---: | :---: |
@@ -29,12 +35,6 @@ Table below shows the processing time for all effects in default configuration, 
 | VOL | 6.03 | 0.89 |
 | WAH | 6.72 | 1.58 |
 | Total  | 28.70 | 31.53 |
-
-</div>
-
-<div align="center">
-
-Effect duty cycle
 
 </div>
 
