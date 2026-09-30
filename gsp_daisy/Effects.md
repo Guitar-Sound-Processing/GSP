@@ -67,7 +67,7 @@ Any effect can be configured by a three-character command and their parameters. 
 - [Volume (vol)](#efcvol)
 - [Wah Wah (wah)](#efcwah)
 
-See also [Command Examples](#efcexp) section
+See also [Command Examples](#efcexp) section and the [Quick Reference Table](#efqrt)
 
 ### <h3 id="efclvd">Level Detector:</h3>
 
@@ -371,7 +371,7 @@ Default:
 ```vbt 1 10 1 5```
 > ->VBT (9): OFF(0)|ON(1) 1 | Depth (0.1-100)(ms): 10.0 | Delay (0-1000)(ms): 1.0 | Profile: (0-10) 5 | Frequency (0.2-5)(Hz): 0.500 | Duty Cycle (0-100)(): 50.0 | Gain (0-1): 1.000
 
-## Quick Reference Table
+##  <h3 id="efqrt">Quick Reference Table: </h3>
 
 | Effect	| Parameter | Minimum | Maximum | Units | Default | Type |
 | --- | --- | :---: | :---: | :---: | :---: | :---: |
