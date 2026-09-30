@@ -3,6 +3,41 @@
 
 Effect Commands are the way GSP uses to change the configuration parameters of any effect.
 
+| Effect	| Parameter | Minimum | Maximum | Units | Default | Type |
+| --- | --- | :---: | :---: | :---: | :---: | :---: |
+| LVD | Attack | 0.2 | - | ms | 1.0 | float | 
+| | Release | 0.2 | - | ms | 1000.0 | float |
+| CHS (8): | Depth | 0.1 | 100 | ms | 5.0 | float |
+| | Delay | 0.0 | 1000.0 | ms | 1.0 | float |
+| | Mixer | 0.0 | 1.0 | - | 0.5 | float | 
+| | Profile | 0 | 10 | - | 0 | int |
+| | Frequency | 0.2 | 5.0 | Hz | 0.500 | float |
+| | Duty Cycle | 0.0 | 100.0 | % | 50.0 | float |
+| | Gain | 0.0 | 1.0 | - | 1.000 | float |
+| CMP (0): | Attack | 20.0 | 2000.0 | ms | 10.0 | float |
+| |Release | 20.0 | 2000.0 | ms | 1000.0 | float |
+| | Gain | 0 | 80 | dB | 20 | int |
+| | Threshold | 0 | 80 | dB | 40 | int |
+| DFB (11): | Delay Time | 0.2 | 100 | ms | 31.0 | float |
+| | Decay rate | 0.0 | 0.95 | - | 0.700 | float |
+| | Gain | 0.0 | 1.0 | - | 1.000 | float |
+| DFF (13): | Delay Time | 0.2 | 100 | ms | 31.0 | float |
+| | Decay rate | 0.0 | 1.0 | - | 0.900 | float |
+| | Number of repeats | 1 | 8 | - | 4 | int |
+| | Gain | 0.0 | 1.0 | - | 1.000 | float |
+| DTN (5): | Detune (down) | 0.0 | 12 | interval | 5.000 | float |
+| | Mixer | 0.0 | 1.0 | - | 0.500 | float |
+| | Gain | 0.0 | 1.0 | - | 1.000 | float |
+| EFB (12): | Delay Time | 50 | - | ms | 1000.0 | float |
+| | Decay rate | 0.0 | 0.95 | - | 0.700 | float |
+| | Gain | 0.0 | 1.0 | - | 1.000 | float |
+| EFF (14): | Delay Time | 50.0 | - | ms | 1000.0 | float |
+| | Decay rate | 0.0 | 1.0 | - | 0.900 | float |
+| | Number of repeats | 1 | 8 | - | 4 | int |
+| | Gain | 0.0 | 1.0 | - | 1.000 | float |
+
+
+
 ## Effect Command format
 
 Any Effect Command must obey the following format:
@@ -372,29 +407,6 @@ Default:
 > ->VBT (9): OFF(0)|ON(1) 1 | Depth (0.1-100)(ms): 10.0 | Delay (0-1000)(ms): 1.0 | Profile: (0-10) 5 | Frequency (0.2-5)(Hz): 0.500 | Duty Cycle (0-100)(): 50.0 | Gain (0-1): 1.000
 
 ## Quick Reference Table of Commands
-
-| Effect	| Parameter | Minimum | Maximum | Units | Default | Type |
-| --- | --- | :---: | :---: | :---: | :---: | :---: |
-| LVD | Attack | 0.2 | - | ms | 1.0 | float | 
-| | Release | 0.2 | - | ms | 1000.0 | float |
-| CHS (8): | Depth | 0.1 | 100 | ms | 5.0 | float |
-| | Delay | 0.0 | 1000.0 | ms | 1.0 | float |
-| | Mixer | 0.0 | 1.0 | - | 0.5 | float | 
-| | Profile | 0 | 10 | - | 0 | int |
-| | Frequency | 0.2 | 5.0 | Hz | 0.500 | float |
-| | Duty Cycle | 0.0 | 100.0 | % | 50.0 | float |
-| | Gain | 0.0 | 1.0 | - | 1.000 | float |
-| CMP (0): | Attack | 20.0 | 2000.0 | ms | 10.0 | float |
-| |Release | 20.0 | 2000.0 | ms | 1000.0 | float |
-| | Gain	0 | 80 | dB | 20 | int |
-| | Threshold | 0 | 80 | dB | 40 | int |
-| DFB (11): | Delay Time | 0.2 | 100 | ms | 31.0 | float |
-| | Decay rate | 0.0 | 0.95 | - | 0.700 | float |
-| | Gain	0.0 | 1.0 | - | 1.000 | float |
-| DFF (13): | Delay Time | 0.2 | 100 | ms | 31.0 | float |
-| | Decay rate | 0.0 | 1.0 | - | 0.900 | float |
-| | Number of repeats | 1 | 8 | - | 4 | int |
-| | Gain | 0.0 | 1.0 | - | 1.000 | float |
 
 
 
