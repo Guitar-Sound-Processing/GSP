@@ -1,6 +1,9 @@
 # External Device
 
-Although any microprocessor module can be used to bypass the effect commands to Daisy Seed, a ESP32 WROVER module was chosen by its capability to provide wifi and bluetooth support. Therefore GSP can be potentially configured by any smartphone or computer connected to ESP32.
+Although any microprocessor module can be used to bypass the effect commands to Daisy Seed, a ESP32 WROVER module was chosen by its capability to provide wifi 
+and bluetooth support. Therefore GSP can be potentially configured by any smartphone or computer connected to ESP32.
+
+<p align="center"><img src="https://raw.githubusercontent.com/Guitar-Sound-Processing/GSP/master/resources/esp32_ttgo.png" width="588" height="459" alt="ESP32 LILYGO"></p>
 
 ## ESP32 tasks
 
