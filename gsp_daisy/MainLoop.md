@@ -10,7 +10,7 @@ However, it is also required to change the normal bootloader of DS with the Dais
 
 <div align="center">
   
-| Effect | Eff + LVD (%) | Eff (%) |
+| Effect | efc + LVD (%) | efc (%) |
 | --- | :---: | :---: |
 | LVD | 5.14 | 5.14 |
 | CHS | 6.40 | 1.26 |
