@@ -6,7 +6,6 @@ and bluetooth support. Therefore GSP can be potentially configured by any smartp
 <div align="center">
 
 **LILYGO ESP32 WROVER Module**
-
 </div>
 
 <p align="center">
