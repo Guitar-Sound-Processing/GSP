@@ -7,7 +7,6 @@ and bluetooth support. Therefore GSP can be potentially configured by any smartp
 
 **LILYGO ESP32 WROVER Module**
 </div>
-
 <p align="center">
   <img src="https://raw.githubusercontent.com/Guitar-Sound-Processing/GSP/master/resources/esp32_ttgo.png" width="588" height="459" alt="ESP32 LILYGO">
 </p>
