@@ -7,3 +7,28 @@ opening brace (```{```) for Effect Command and a closing brace (```}```) for Exp
 
 Since GSP is a large program, it can't fit in the internal flash memory of the STM32H750IB processor. So it is necessary to store the program in the SDRAM external memory of Daisy Seed. The provided Makefile is already configured to do this, by using Visual Studio Code.
 However, it is also required to change the normal bootloader of DS with the Daisy Bootloader, explained in the [Daisy Seed](https://daisy.audio/tutorials/_a7_Getting-Started-Daisy-Bootloader/) page.
+
+
+| Effect | Eff + LD (%) | Eff (%) |
+| --- | :---: | :---: |
+| LVD | 5.14 | 5.14 |
+| CHS | 6.40 | 1.26 |
+| CMP | 6.56 | 1.42 |
+| DFB | 5.86 | 0.72 |
+| DFF | 6.53 | 1.39 |
+| DTN | 6.12 | 0.98 |
+| EFB | 5.93 | 0.79 |
+| EFF  | 6.85 | 1.71 |
+| EQZ | 6.39 | 1.25 |
+| LIM | 6.35 | 1.21 |
+| NGT | 6.33 | 1.19 |
+| OCT  | 6.16 | 1.02 |
+| OVD  | 7.80 | 2.66 |
+| PHR  | 7.94 | 2.80 |
+| SFT | 5.99 | 0.85 |
+| RVB  | 7.65 | 2.51 |
+| TML | 5.95 | 0.81 |
+| VBT | 6.49 | 1.35 |
+| VOL | 6.03 | 0.89 |
+| WAH | 6.72 | 1.58 |
+| Total  | 28.70 | 31.53 |
