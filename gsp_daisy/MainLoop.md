@@ -4,12 +4,6 @@ GSP main code is responsible to provide all interfaces to libDaisy, as well as t
 
 Table below shows the processing time for all effects in default configuration, in percentage of the available duty cycle, provided by the ```out``` command in [Interfaces Commands](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Interfaces.md). First row shows the idle time, which is composed by the LVD (Level Detector) duty cycle, which is allways active, together the necessary time to libDaisy to provide audio samples, which takes around 5.2% of the processing time. The following rows of the second column are the measured duty cycle of isolated effects, added to the idle time. Third column presents the difference between the isolated effect and the idle times, i.e., the duty cycle of each effect alone. Last row presents the total time of all effects together in default configuration as measured (second colunm) and computed by adding all the rows in third column. The available processing time to include new effects are still large, around 70%.
 
-Main loop interfaces to the External Device (ED) by UART Serial or to any computer by virtual COM port through USB. Presentely the UART Serial shares both Effect Commands and Expression Pedal data coming from ED in the same serial line. They differentiate by a preceeding 
-opening brace (```{```) for Effect Command and a closing brace (```}```) for Expression Pedal. They shall utilize two serial lines in future GSP versions.
-
-Since GSP is a large program, it can't fit in the internal flash memory of the STM32H750IB processor. So it is necessary to store the program in the SDRAM external memory of Daisy Seed. The provided Makefile is already configured to do this, by using Visual Studio Code.
-However, it is also required to change the normal bootloader of DS with the Daisy Bootloader, explained in the [Daisy Seed](https://daisy.audio/tutorials/_a7_Getting-Started-Daisy-Bootloader/) page.
-
 <div align="center">
   
 | Effect | efc + LVD (%) | efc (%) |
@@ -37,3 +31,10 @@ However, it is also required to change the normal bootloader of DS with the Dais
 | Total  | 28.70 | 31.53 |
 
 <\div>
+
+Main loop interfaces to the External Device (ED) by UART Serial or to any computer by virtual COM port through USB. Presentely the UART Serial shares both Effect Commands and Expression Pedal data coming from ED in the same serial line. They differentiate by a preceeding 
+opening brace (```{```) for Effect Command and a closing brace (```}```) for Expression Pedal. They shall utilize two serial lines in future GSP versions.
+
+Since GSP is a large program, it can't fit in the internal flash memory of the STM32H750IB processor. So it is necessary to store the program in the SDRAM external memory of Daisy Seed. The provided Makefile is already configured to do this, by using Visual Studio Code.
+However, it is also required to change the normal bootloader of DS with the Daisy Bootloader, explained in the [Daisy Seed](https://daisy.audio/tutorials/_a7_Getting-Started-Daisy-Bootloader/) page.
+
