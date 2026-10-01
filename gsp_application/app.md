@@ -13,11 +13,11 @@ The application software is organized in 4 levels (see figure below):
 - Song Editor
 - Playlist Editor and on stage performance
 
-<p align="center"><img src="https://raw.githubusercontent.com/Guitar-Sound-Processing/GSP/master/resources/topbar.png" alt="GSP Main Menu"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/Guitar-Sound-Processing/GSP/master/resources/topbar.png" width="270" height="109" alt="GSP Main Menu"></p>
 
 ## Effect and Preset Editor
 
 The Effect and Preset Editor can modify any effect of GSP, including the Level Detector. As can be seen in picture below, the parameters can be adjusted through slider rulers, buttons and dropdown lists.
 
-<p align="center"><img src="https://raw.githubusercontent.com/Guitar-Sound-Processing/GSP/master/resources/presets.png" alt="Preset Editor"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/Guitar-Sound-Processing/GSP/master/resources/presets.png" width="270" alt="Preset Editor"></p>
 
