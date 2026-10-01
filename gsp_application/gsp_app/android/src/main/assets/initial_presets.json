@@ -1,0 +1,11 @@
+{
+  	"phr": [
+ 		{"command":"phr 0 0.500 302.500 6.000 1.015 50.000 1.000","effectId":"phr","name":"Phaser a"}
+	],
+	"ovd": [
+		{"command":"ovd 1 0.803 0.904 1.000 1.000","effectId":"ovd","name":"overdrive 1"}
+	],
+	"chs": [
+		{"command":"chs 0 38.100 101.900 0.500 1.000 0.500 50.000 1.000","effectId":"chs","name":"Chorus 1"}
+	]
+}

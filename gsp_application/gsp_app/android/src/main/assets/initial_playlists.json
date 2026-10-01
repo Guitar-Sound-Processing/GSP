@@ -1,0 +1,5 @@
+[
+	{"id":1,"name":"Default Setlist","songIds":[1,2]},
+	{"id":2,"name":"playlist 1","songIds":[1,2]},
+	{"id":3,"name":"playlist 2","songIds":[2,1]}
+]
