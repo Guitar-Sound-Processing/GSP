@@ -13,7 +13,7 @@ The application software is organized in 4 levels (see figure below):
 - Chain (Rig) Editor (Chain)
 - Effect and Preset Editor (Preset)
 
-Each level is selected by the buttons on the top bar menu, as shown in picture. Just below these buttons are the Bluetooth state "led", that indicates that the GPS application stablished succesfully contact to Daisy Seed, if green, or not, if red. Although the application still can be used without connection with Bluetooth, the effect parameters shown in the Preset Editor are random. At right side of the screen, a debug switch can be enabled to print on screen the commands sent to and received from Daisy Seed.
+Each level is selected by buttons on the top bar menu, as shown in picture. Just below these buttons are the Bluetooth state "led", that indicates that the GSP application succesfully stablished contact with Daisy Seed, if green, or red, if has not. Although the application still can be used without connection with Bluetooth, the effect parameters shown in the Preset Editor are random. At right side of the screen, a debug switch can be enabled to print on screen the commands sent to and received from Daisy Seed.
 
 <p align="center"><img src="https://raw.githubusercontent.com/Guitar-Sound-Processing/GSP/master/resources/topbar.png" width="270" height="109" alt="GSP Main Menu"></p>
 
