@@ -3,7 +3,7 @@
 
 ## Description 
 
-The Guitar Sound Processing can be remotely operated using an Android application software freely available. It runs on Android 10 and above, but it is expected that it can also work on older versions. The software was generated with help from Gemini's AI, to provide basic kotlin coding. The software is still in progress, but version 1.0 is already working with minor bugs. Some new improvements may be soon available, mainly in the Expression Pedal algorithm. Currently the app software is available for download only at github's GSP page, although in future versions it can be also available in the Google Play Store. Wifi support for both Windows and Android is still being considered as future improvements.
+The Guitar Sound Processing can be remotely operated using an Android application software freely available. It runs on Android 10 and above, but it is expected that it can also work on older versions. The software was generated with help from Gemini's AI, to provide basic kotlin coding. The software is still in progress, but version 1.0 is already working with minor bugs. Some new improvements may be soon available, mainly in the Expression Pedal algorithm. Currently the compiled apk is too large to be stored in github's page. If you need the apk file, please send an email to guitar.sound.processing@gmail.com asking for it. Probably this app will be also available in the Google Play Store soon. Wifi support for both Windows and Android is still being considered as future improvements.
 
 <p align="center"><img src="https://raw.githubusercontent.com/Guitar-Sound-Processing/GSP/master/resources/gsp_arquit.png" alt="GSP Architecture"></p>
 
