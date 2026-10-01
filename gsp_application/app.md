@@ -24,3 +24,22 @@ The Effect and Preset Editor can modify any effect of GSP, including the Level D
 <p align="center"><img src="https://raw.githubusercontent.com/Guitar-Sound-Processing/GSP/master/resources/presets.png" width="270" alt="Preset Editor"></p>
 
 All effects have a standard botton menu, to create (Add), to Save, to Load and to delete (Del) a preset in permanent memory, stored in the phone or tablet internal flash. These presets are individualized, i. e. they are stored separatedly for each effect.
+
+## Chain Editor
+
+The Effect and Preset Editor can modify any effect of GSP, including the Level Detector. As can be seen in picture below, the parameters 
+
+<p align="center"><img src="https://raw.githubusercontent.com/Guitar-Sound-Processing/GSP/master/resources/chains.png" width="270" alt="Preset Editor"></p>
+
+## Effect and Preset Editor
+
+The Effect and Preset Editor can modify any effect of GSP, including the Level Detector. As can be seen in picture below, the parameters 
+
+<p align="center"><img src="https://raw.githubusercontent.com/Guitar-Sound-Processing/GSP/master/resources/songs.png" width="270" alt="Preset Editor"></p>
+
+## Effect and Preset Editor
+
+The Effect and Preset Editor can modify any effect of GSP, including the Level Detector. As can be seen in picture below, the parameters 
+
+<p align="center"><img src="https://raw.githubusercontent.com/Guitar-Sound-Processing/GSP/master/resources/playlists.png" width="270" alt="Preset Editor"></p>
+
