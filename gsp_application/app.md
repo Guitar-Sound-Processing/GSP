@@ -8,12 +8,13 @@ The Guitar Sound Processing can be remotely operated using an Android applicatio
 <p align="center"><img src="https://raw.githubusercontent.com/Guitar-Sound-Processing/GSP/master/resources/gsp_arquit.png" alt="GSP Architecture"></p>
 
 The application software is organized in 4 levels (see figure below):
-- Effect and Preset Editor (Preset)
-- Chain (Rig) Editor (Chain)
-- Song Editor (Song)
 - Playlist Editor and on stage performance (Play)
+- Song Editor (Song)
+- Chain (Rig) Editor (Chain)
+- Effect and Preset Editor (Preset)
 
-Each level is selected by the top bar menu
+Each level is selected by the buttons on the top bar menu, as shown in picture. Just below these buttons are the Bluetooth state "led", that indicates that the GPS application stablished succesfully contact to Daisy Seed, if green, or not, if red. Although the application still can be used without connection with Bluetooth, the effect parameters shown in the Preset Editor are random. At right side of the screen, a debug switch can be enabled to print on screen the commands sent to and received from Daisy Seed.
+
 <p align="center"><img src="https://raw.githubusercontent.com/Guitar-Sound-Processing/GSP/master/resources/topbar.png" width="270" height="109" alt="GSP Main Menu"></p>
 
 ## Effect and Preset Editor
