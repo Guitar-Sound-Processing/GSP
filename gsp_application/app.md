@@ -15,5 +15,7 @@ The application software is organized in 4 levels (see figure below):
 
 ## Effect and Preset Editor
 
-The Effect and Preset Editor can modify any effect of GSP, including the Level Detector. As can be seen in picture below, the parameters can be adjusted by the
+The Effect and Preset Editor can modify any effect of GSP, including the Level Detector. As can be seen in picture below, the parameters can be adjusted through slider rulers, buttons and dropdown lists.
+
+<p align="center"><img src="https://raw.githubusercontent.com/Guitar-Sound-Processing/GSP/master/resources/presets.png" alt="Preset Editor"></p>
 
