@@ -7,7 +7,7 @@ This board was designed so as to provide interface between the Daisy Seed module
 <p align="center"><img src="https://raw.githubusercontent.com/Guitar-Sound-Processing/GSP/master/resources/dcdc_module.png" width="216" height="162" alt="DCDC Module"></p>
 
 - An operation amplifier LM358 to generate 9V/2 (4.5V) to biase input audio signal.
-- 3 JST PH headers for any GPIO peripheral with pin headers for air wiring connection. It can be used to Expression Pedal interface, but the current GSP version of DS sofware does not have support to them.
+- 3 JST PH headers for any GPIO peripheral with pin headers for air wiring connection. It can be used to Expression Pedal interface, but the current GSP version of DS sofware does not have support to it.
 - A JST PH headers for 9V-Gnd power input, 9V-Gnd output and 9V-4.5V-Gnd Power output to Audio Driver Board.
 - 3 JST PH headers with additional pin headers for air wiring connection with DS for UART Serial lines.
 - 2 JST PH headers with additional pin headers for air wiring connection with DS for ADC and DAC signals coming from and going to the Audio Driver Board.
