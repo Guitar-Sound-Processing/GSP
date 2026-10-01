@@ -8,11 +8,12 @@ The Guitar Sound Processing can be remotely operated using an Android applicatio
 <p align="center"><img src="https://raw.githubusercontent.com/Guitar-Sound-Processing/GSP/master/resources/gsp_arquit.png" alt="GSP Architecture"></p>
 
 The application software is organized in 4 levels (see figure below):
-- Effect and Preset Editor
-- Chain (Rig) Editor
-- Song Editor
-- Playlist Editor and on stage performance
+- Effect and Preset Editor (Preset)
+- Chain (Rig) Editor (Chain)
+- Song Editor (Song)
+- Playlist Editor and on stage performance (Play)
 
+Each level is selected by the top bar menu
 <p align="center"><img src="https://raw.githubusercontent.com/Guitar-Sound-Processing/GSP/master/resources/topbar.png" width="270" height="109" alt="GSP Main Menu"></p>
 
 ## Effect and Preset Editor
