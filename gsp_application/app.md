@@ -45,7 +45,7 @@ The Song Editor makes the required link between a given song and a previously cr
 
 ## Playlist Editor
 
-It is in the Playlist Editor that GSP shows its power. The Playlist Editor has two functions: to create and edit new playlists, and to select a given song to be "played", i. e., to change Daisy Seed configuration to the desired effects. The Plus (+) button aside the dropdown of playlists allows creating a new playlist, which is a collection of songs to be played on a performance show. Of course the trash can icon removes the selected playlist from stored playlist data. The songs to be performed are then selected by the dropdown menu "+ Add Song to Playlist". Daisy's configuration is changed by selecting one of the selected songs, or sequently by clicking in the "Next Song ->" button, as can be seen in picture. 
+It is in the Playlist Editor that GSP shows its power. The Playlist Editor has two functions: to create and edit new playlists, and to select a given song to be "played", i. e., to change Daisy Seed configuration to the desired effects. The Plus (+) button aside the dropdown of playlists allows creating a new playlist, which is a collection of songs to be played on a performance show. Of course the trash can icon removes the selected playlist from stored playlist data. The songs to be performed are then selected by the dropdown menu "+ Add Song to Playlist". Daisy's configuration is changed by selecting one of the songs, or sequently by clicking in the "Next Song ->" button, as can be seen in picture. 
 
 <p align="center"><img src="https://raw.githubusercontent.com/Guitar-Sound-Processing/GSP/master/resources/playlists.png" width="270" alt="Preset Editor"></p>
 
