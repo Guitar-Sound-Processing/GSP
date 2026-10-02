@@ -29,7 +29,7 @@ All these effects are processed and interpreted by the Daisy Seed board. The Ext
 
 ## GSP Programming 
 
-GSP is programmable through ASCII commands from available serial lines. Presently GSP monitors the USB (serial) and UART_1 serial lines. Input commands from serial lines are interpreted and executed by internal GSP procedures. The command string shall terminate with standard ASCII control characters Carriage Return (CR - D13) or Line Feed (LF - D10). After receiving a command, the interpreter answers with knowledge prompt to the specific input device (USB or UART Serial). For instance, the input command:
+GSP is programmable through ASCII commands from available serial lines. Presently GSP monitors the USB (serial) and UART_1 serial line. Input commands from serial lines are interpreted and executed by internal GSP procedures. Commands to Daisy Seed shall terminate with standard ASCII control characters Carriage Return (CR - D13) or Line Feed (LF - D10). After receiving a command, the interpreter answers with knowledge prompt to the specific input device (USB or UART Serial). For instance, the input command:
 
 ```OVD```
 
