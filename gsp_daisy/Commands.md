@@ -23,7 +23,7 @@ The complete list of configuration commands to GSP comprises
 - [Interface commands](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Interfaces.md)
 - [Expression Pedal commands](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/ExprPedal.md)
 
-All these effects are processed and interpreted by the Daisy Seed board. The External Device, like ESP32, acts also as passthrough device to send commands to DS through USB or Bluetooth. The effect modules are codified in classes of C++, and obey some guidelines described in
+All these effects are processed and interpreted by the Daisy Seed board. The External Device, like ESP32, acts also as passthrough device to send commands to DS through USB or Bluetooth. The effect modules are codified in C++ classes, and obey some guidelines described in
 
 - [Effect Software Directives](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/SWDirectives.md#effect-software-directives)
 
