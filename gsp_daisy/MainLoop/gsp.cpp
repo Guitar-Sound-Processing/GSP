@@ -4,6 +4,9 @@
 // Author: Valdemir Carrara
 // main gsp
 
+//  Daisy Examples: ?
+//  libdaisy:       8.1.0
+
 // Guitar Sound Processing
 // ****************************************************************************
 #include "daisy_seed.h"
@@ -13,12 +16,15 @@ using namespace daisy;
 
 #define   BUFFER_SIZE   262144  
 #define   REV_BUFSIZE   8192
+#define   UART_BUFFER_SIZE  512
 
 // ****************************************************************************
 static    DaisySeed   hw;
 
 //HardwareSerial  SerialCom(14UL, 13UL); // USART1  Pins 14 (Rx) and 13 (Tx)
 //>>>HardwareSerial  SerialPot(11UL, 12UL); // UART4  Pins 11 (Rx) and 12 (Tx)
+
+uint32_t    icon;
 
 // Delay and Echo memory
 int16_t     DSY_SDRAM_BSS adc_buffer[BUFFER_SIZE];   // chorus, delay
@@ -52,14 +58,20 @@ char        usb_buff[256];
 static uint32_t   usb_buf_ready = 0;
 char        st[64];
 
-// UART     Communicate to ESP32
-UartHandler         uart;
-UartHandler::Config uart_config;
-char                uart_buff[256];
-uint8_t             uart_ready = 0, uart_len = 0;
-uint8_t             uart_cs, uart_comm = 0;
-uint8_t             *u_st;
-uint8_t             uart_com[4] = {123, 10, 13, 0}; // {'{', '\r', '\n', '\0'}} 
+char        uart_cs;
+uint8_t     *u_st;
+uint8_t     uart_com[4] = {123, 10, 13, 0}; // {'{', '\r', '\n', '\0'}} 
+
+// USART_1:
+UartHandler         uart1;
+UartHandler::Config     uart_config;
+uint8_t             DMA_BUFFER_MEM_SECTION uart1_buffer[UART_BUFFER_SIZE];
+char                uart1_str[UART_BUFFER_SIZE];
+uint8_t             uart1_last;
+size_t              uart1_length, uart1_start;
+bool                uart1_ready;
+
+// UART_4:
 
 // Potentiometers
 char                nb_pot = 0;
@@ -68,18 +80,11 @@ uint8_t             ipot = 0, pot_aux, pot_data[20];
 uint32_t            pot_effect, pot_fr = 0;
 uint8_t             pot_start[]     = "}S\n";
 uint8_t             pot_clear[]     = "}C\n";
+uint16_t            pot;
+uint8_t             pot_2bytes[2];
 
 //uint8_t             u_presult[64], icon;
 //char                presult[64];
-
-union     TwoBytes 
-{
-  uint16_t full;
-  struct 
-  {
-    uint8_t low, high;
-  };
-} pot;
 
 // Effects:
 GSP_Compressor    cps;
@@ -108,6 +113,7 @@ LowFreqOsc        lffg;
 
 void    loop() ;
 void    _Setcommand(char ct[], uint8_t source);
+void    _SetPotGain(char ct[], uint8_t source);
 char    *CommandName(char ct[], char cmd[]);
 int32_t CommandDecoder(char ct[], int32_t *chn_chg, 
         int32_t *chn_code, float fl[], int32_t *fl_nb);
@@ -115,6 +121,7 @@ int8_t  PotDecoder(GSP_SignalChain *chain_, char ct[],
         int32_t* effect_number, int32_t* pot_number);
 void    ChangeEffectParams(float fl[], float fn[], int32_t nb);
 void    SendPotStruct(GSP_Pots *pots_);
+uint16_t convert_from_2bytes(uint8_t lsb_msb[]);
 
 // ****************************************************************************
 // Code
@@ -244,6 +251,34 @@ void UsbCallback(uint8_t* buf, uint32_t* len)
 
 // ****************************************************************************
 
+void uart1Callback(uint8_t* data, size_t size, void* context, UartHandler::Result res)
+{
+    // some messages come truncated due to buffer size limitation. Therefore a terminator 
+    // chacacter code (<32) had to be set to identify message ending.
+
+    if (size > 0)
+    {
+        uart1_last  = data[size - 1];
+        std::copy(&data[0], &data[size], &uart1_str[uart1_start]);
+        if (uart1_last == 13 || uart1_last == 10)
+        {
+            uart1_length    = size + uart1_start;
+            uart1_start     = 0;
+            uart1_ready     = true;
+            uart1_str[uart1_length - 1]   = 0;
+        }
+        else
+        {
+            uart1_length    = size;
+            uart1_start     = size;
+        }
+    }
+    //hw.PrintLine("received");
+    return;
+}
+
+// ****************************************************************************
+
 int main(void)
 {
 
@@ -276,9 +311,12 @@ int main(void)
     uart_config.parity          = UartHandler::Config::Parity::NONE;
     uart_config.mode            = UartHandler::Config::Mode::TX_RX;
     uart_config.wordlength      = UartHandler::Config::WordLength::BITS_8;
-    uart.Init(uart_config);
-    uart.DmaReceiveFifo();      // 2026
+    uart1.Init(uart_config);
+    uart1.DmaListenStart(uart1_buffer, UART_BUFFER_SIZE, uart1Callback, nullptr);
     
+    uart1_ready     = false;
+    uart1_start     = 0;
+
     //System::Delay(5000);
 
     // ============================================================================
@@ -339,14 +377,14 @@ void loop()
         duty        = (float)tend/2.0e6;    // in percent of total time
         if (poutFlag)
         {
-            sprintf(st, "%f\r\n", duty);
+            sprintf(st, "%f\n", duty);
             if (inp_source == 0) hw.PrintLine(st);
             if (inp_source == 1) 
             {
                 //uart.PollTx(uart_com, 1);
                 //uart.PollTx(u_st, strlen(st));
-                uart.BlockingTransmit(uart_com, 1);
-                uart.BlockingTransmit(u_st, strlen(st));
+                uart1.BlockingTransmit(uart_com, 1);
+                uart1.BlockingTransmit(u_st, strlen(st));
             }
             // Print the maximum and minimum ADC sampled value
             //hw.PrintLine("Max %ld,  Min %ld", smp_max, smp_min);
@@ -369,109 +407,36 @@ void loop()
         // Send request for potentimeter data
         if (send_pot_data)
         {
-            uart.BlockingTransmit(pot_start, 3);
+            uart1.BlockingTransmit(pot_start, 3);
             System::Delay(1);
             ipot = 0;
             send_pot_data   = false;
         }
-
     }
-
     // ----------------------------------------------------------------------
     //          Data from ESP32 UART
 
-    if (uart.ReadableFifo())
+    if (uart1_ready)
     {
         // Character to choose among Effect Command (123 {) and Potentiometer (125 })
         // Get data coming from ESP32 
-        //uart_cs = uart.PopRx();
-		uart_cs = uart.PopFifo();
-        if (uart_ready == 0)
+
+        uart1_ready     = false;
+
+        uart_cs = uart1_str[0];
+        for (icon = 0; icon < uart1_length-1; icon++) 
         {
-            if (uart_cs == 123)
-            {
-                uart_comm   = 1; // eff command
-                uart_ready  = 1;
-            } 
-            if (uart_cs == 125) 
-            {
-                uart_comm   = 2; // pot command
-                uart_ready  = 1;
-            }
+            uart1_str[icon] = uart1_str[icon+1];
+            if (uart1_str[icon] < 30) uart1_str[icon] = 0;
         }
-        else
+
+        if (uart_cs == 123)
         {
-            //hw.PrintLine("-> Received 1: %c %d", (char)uart_cs, uart_cs);
-            if (uart_comm == 1)
-            {
-                if (uart_cs == 10 || uart_cs == 13)
-                {
-                    uart_buff[uart_len]     = 0;
-                    uart_ready  = 0;
-                    uart_len    = 0;
-                    uart_comm   = 0;
-                    inp_source  = 1;
-                    _Setcommand(uart_buff, 1);
-                }
-                else
-                {
-                    uart_buff[uart_len]     = uart_cs;
-                    uart_len++;
-                    if (uart_len > 128) uart_comm = 0;
-                }
-            }
-            if (uart_comm == 2)
-            {
-                // Potentiometer data - P
-                if (uart_cs == 'P')
-                {
-                    uart_comm   = 3;
-                }
-                else uart_ready = 0;
-            }
-            else 
-            {
-                if (uart_comm == 3)
-                {
-                    // Potentiometer data - number_pot
-                    if (uart_cs == nb_pot)
-                    {
-                        uart_comm   = 4;
-                    }
-                    else uart_ready = 0;
-                }
-                else
-                {
-                    if (uart_comm == 4)
-                    {
-                        pot_data[ipot]  = uart_cs;
-                        ipot++;
-                        if (ipot >= 2*nb_pot && uart_cs == 13)
-                        {
-                            //hw.Print("Pot data: ");
-                            for (ipot = 0; ipot < nb_pot; ipot++)
-                            {
-                                pot_fr++;
-                                pot_aux   = 2*ipot;
-                                pot.low   = pot_data[pot_aux];
-                                pot.high  = pot_data[pot_aux + 1];
-                                pot_effect      = expot.effect_id[ipot];
-                                if (pot_effect == GSP_PHR)  phr.lfo.SetGain((uint32_t)pot.full);
-                                if (pot_effect == GSP_WAH)  wah.lfo.SetGain((uint32_t)pot.full);
-                                if (pot_effect == GSP_CHS)  chs.lfo.SetGain((uint32_t)pot.full);
-                                if (pot_effect == GSP_VBT)  vbt.lfo.SetGain((uint32_t)pot.full);
-                                if (pot_effect == GSP_TML)  tml.lfo.SetGain((uint32_t)pot.full);
-                                if (pot_effect == GSP_VOL)  vol.lfo.SetGain((uint32_t)pot.full);
-                                //hw.Print(" eff: %ld  value: %d ", pot_effect, pot.full);
-                            }
-                            ipot  = 0;
-                            uart_ready      = 0;
-                            //hw.PrintLine(" ");
-                            //uart.PollTx("S", 2);
-                        }
-                    }
-                }
-            }
+            _Setcommand(uart1_str, 1);
+        } 
+        if (uart_cs == 125) 
+        {
+            _SetPotGain(uart1_str, uart1_length);
         }
     }
 
@@ -483,15 +448,6 @@ void loop()
         _Setcommand(usb_buff, 0);
         usb_buf_ready = 0;
     }
-
-/*
-    if(!uart.RxActive())
-    {
-        hw.PrintLine("UART reset");
-        uart.FlushRx();
-        uart.StartRx();
-    }
-*/
 
     return;
 }
@@ -536,13 +492,13 @@ void _Setcommand(char ct[], uint8_t source)
         {
             pot_com[0]  = '<';
             pot_com[1]  = '-';
-            uart.BlockingTransmit(uart_com, 1);
-            uart.BlockingTransmit(pot_com, 2);
-            uart.BlockingTransmit(u_ct, strlen(ct));
-            uart.BlockingTransmit(uart_com+1, 1);
+            uart1.BlockingTransmit(uart_com, 1);
+            uart1.BlockingTransmit(pot_com, 2);
+            uart1.BlockingTransmit(u_ct, strlen(ct));
+            uart1.BlockingTransmit(uart_com+1, 1);
             System::Delay(1);
         }
-        hw.PrintLine("---> %s", ct);
+        //hw.PrintLine("---> %s", ct);
     }
 
     stc     = CommandName(ct, cmd);
@@ -853,12 +809,20 @@ void _Setcommand(char ct[], uint8_t source)
                         nb_pot      = expot.number_pots;
 			    		send_pot_data   = true;
                         decoded     = 2;
-                    
+                        gpot        = 1;    // print all assingned pots
+                        /*
                         if (!muted)
                         {
                             chain.Name(effect_n, pname);
-                            sprintf(pout, "->POT: Effect: %s | Potentiometer ID: %ld\r\n",
+                            if (out_list == 0)
+                            {
+                                sprintf(pout, "->POT: Effect: %s | Potentiometer ID: %ld\r\n",
                                 pname, pot_id);
+                            }
+                            if (out_list == 1)
+                            {
+                                sprintf(pout, "->POT %s %ld\r\n", pname, pot_id);
+                            }
 
                             if (source == 0) hw.PrintLine(pout);
                             if (source == 1) 
@@ -869,6 +833,7 @@ void _Setcommand(char ct[], uint8_t source)
                             decoded = 2; // no error
                             gpot    = 0; // no pot printing
                         }
+                        */
                     }
                     else
  		    		{
@@ -914,29 +879,39 @@ void _Setcommand(char ct[], uint8_t source)
 
             if (gpot > 0 && !muted)
             {
-                if (expot.number_pots == 0)
+                if (out_list == 0)
                 {
-                    sprintf(pout, "->POT <none>");
-                    if (source == 0) hw.PrintLine(pout);
-                    if (source == 1) 
+                    for (i = 0; i < expot.number_lfo; i++)
                     {
-                        uart.BlockingTransmit(uart_com, 1);
-                        uart.BlockingTransmit(u_pout, strlen(pout));
-                    }
-                }
-                else
-                {
-                    for (i = 0; i < expot.number_pots; i++)
-                    {
-                        chain.Name(expot.effect_id[i], pname);
-                        sprintf(pout, "->POT: Effect: %s | Potentiometer ID: %ld\r\n",
-                                pname, expot.pot_id[i]);
+                        chain.Name(expot.effect_lfo[i], pname);
+                        sprintf(pout, "->POT Effect: %s | Potentiometer ID: %ld\r\n",
+                            pname, expot.link_id[i]);
                         if (source == 0) hw.PrintLine(pout);
                         if (source == 1) 
                         {
-                            uart.BlockingTransmit(uart_com, 1);
-                            uart.BlockingTransmit(u_pout, strlen(pout));
+                            uart1.BlockingTransmit(uart_com, 1);
+                            uart1.BlockingTransmit(u_pout, strlen(pout));
                         }
+                    }
+                }
+                if (out_list == 1)
+                {
+                    sprintf(pout, "->POT ");
+                    for (i = 0; i < expot.number_lfo; i++)
+                    {
+                        chain.Name(expot.effect_lfo[i], pname);
+                        strcat(pout, pname);
+                        sprintf(pname, " %ld ", expot.link_id[i]);
+                        strcat(pout, pname);
+                    }
+                    sprintf(pname, "\n");
+                    strcat(pout, pname);
+
+                    if (source == 0) hw.PrintLine(pout);
+                    if (source == 1) 
+                    {
+                        uart1.BlockingTransmit(uart_com, 1);
+                        uart1.BlockingTransmit(u_pout, strlen(pout));
                     }
                 }
                 decoded = 2;
@@ -967,16 +942,16 @@ void _Setcommand(char ct[], uint8_t source)
             if (source == 0) hw.Print(pout);
             if (source == 1) 
             {
-                uart.BlockingTransmit(uart_com, 1);
-                uart.BlockingTransmit(u_pout, strlen(pout));
+                uart1.BlockingTransmit(uart_com, 1);
+                uart1.BlockingTransmit(u_pout, strlen(pout));
             }
 
             chain.Effect_Name(-1, pout);
             if (source == 0) hw.Print(pout);
             if (source == 1) 
             {
-                uart.BlockingTransmit(uart_com, 1);
-                uart.BlockingTransmit(u_pout, strlen(pout));
+                uart1.BlockingTransmit(uart_com, 1);
+                uart1.BlockingTransmit(u_pout, strlen(pout));
             }
 
             for (i = 1; i < chain.max_effect_number; i++)
@@ -985,8 +960,8 @@ void _Setcommand(char ct[], uint8_t source)
                 if (source == 0) hw.Print(pout);
                 if (source == 1) 
                 {
-                    uart.BlockingTransmit(uart_com, 1);
-                    uart.BlockingTransmit(u_pout, strlen(pout));
+                    uart1.BlockingTransmit(uart_com, 1);
+                    uart1.BlockingTransmit(u_pout, strlen(pout));
                 }
             }
             decoded     = 2;
@@ -998,8 +973,8 @@ void _Setcommand(char ct[], uint8_t source)
             if (source == 0) hw.Print(pout);
             if (source == 1) 
             {
-                uart.BlockingTransmit(uart_com, 1);
-                uart.BlockingTransmit(u_pout, strlen(pout));
+                uart1.BlockingTransmit(uart_com, 1);
+                uart1.BlockingTransmit(u_pout, strlen(pout));
             }
 
             for (i = 0; i < lffg.profiles_number; i++)
@@ -1008,8 +983,8 @@ void _Setcommand(char ct[], uint8_t source)
                 if (source == 0) hw.Print(pout);
                 if (source == 1) 
                 {
-                    uart.BlockingTransmit(uart_com, 1);
-                    uart.BlockingTransmit(u_pout, strlen(pout));
+                    uart1.BlockingTransmit(uart_com, 1);
+                    uart1.BlockingTransmit(u_pout, strlen(pout));
                 }
             }
             decoded     = 2;
@@ -1060,7 +1035,44 @@ void _Setcommand(char ct[], uint8_t source)
  		// #*********************************************** Output
 		if (decoded == 1)
 		{
-            //hw.PrintLine(">> %d  %d", muted, out_list);
+            if (source == 0)
+            {
+                // Maximum hw.Print string length is 126 characters, no matter pout's size
+                // but first line is shorter: 92 characters.
+                if (strlen(pout) > 90)
+                {
+                    phal = pout[90];
+                    pout[90] = 0;
+                    hw.Print(pout);
+                    if (strlen(pout) > 180)
+                    {
+                        pout[90] = phal;
+                        phal = pout[180];
+                        pout[180] = 0;
+                        hw.Print(pout+90);
+                        pout[180] = phal;
+                        hw.Print(pout+180);
+                    }
+                    else
+                    {
+                        pout[90] = phal;
+                        hw.Print(pout+90);
+                    }
+                }
+                else
+                {
+                    hw.Print(pout);
+                }
+            }
+            if (source == 1)
+            {
+                // question: does uart has also buffer size restriction?
+                uart1.BlockingTransmit(uart_com, 1);
+                uart1.BlockingTransmit(u_pout, strlen(pout));
+            }
+
+            /*
+            // Maximum hw.Print string length is 126 characters, no matter pout's size
             if (strlen(pout) > 120)
             {
                 phal = pout[120];
@@ -1068,12 +1080,12 @@ void _Setcommand(char ct[], uint8_t source)
                 if (source == 0) hw.Print(pout);
                 if (source == 1) 
                 {
-                    uart.BlockingTransmit(uart_com, 1);
-                    uart.BlockingTransmit(u_pout, strlen(pout));
+                    uart1.BlockingTransmit(uart_com, 1);
+                    uart1.BlockingTransmit(u_pout, strlen(pout));
                 }
                 pout[120] = phal;
                 if (source == 0) hw.PrintLine(pout+120);
-                if (source == 1) uart.BlockingTransmit(u_pout+120, strlen(pout)-120);
+                if (source == 1) uart1.BlockingTransmit(u_pout+120, strlen(pout)-120);
             }
             else
             {
@@ -1081,11 +1093,12 @@ void _Setcommand(char ct[], uint8_t source)
                 if (source == 1) 
                 {
                     //hw.PrintLine("send echo: %s", pout);
-                    uart.BlockingTransmit(uart_com, 1);
-                    uart.BlockingTransmit(u_pout, strlen(pout));
+                    uart1.BlockingTransmit(uart_com, 1);
+                    uart1.BlockingTransmit(u_pout, strlen(pout));
                     //hw.PrintLine("send echo 0: %s", pout);
                 }
             }
+            */
 		}
 		//********************************************** Unknown command
 		if (decoded == 0)
@@ -1094,8 +1107,8 @@ void _Setcommand(char ct[], uint8_t source)
             if (source == 1) 
             {
                 sprintf(pout, "-> ?\n");
-                uart.BlockingTransmit(uart_com, 1);
-                uart.BlockingTransmit(u_pout, strlen(pout));
+                uart1.BlockingTransmit(uart_com, 1);
+                uart1.BlockingTransmit(u_pout, strlen(pout));
             }
 //>>>			Serial1.println("-> ?");
 		}
@@ -1105,15 +1118,48 @@ void _Setcommand(char ct[], uint8_t source)
         if (source == 0) hw.PrintLine("->Unknown");
         if (source == 1) 
         {
+            stc[8]  = 0;        // remove
+            hw.PrintLine(stc);  // remove
+            hw.PrintLine("%d %d %d %d", stc[0], stc[1], stc[2], stc[3]);    // remove
             sprintf(pout, "->Unknown\n");
-            uart.BlockingTransmit(uart_com, 1);
-            uart.BlockingTransmit(u_pout, strlen(pout));
+            uart1.BlockingTransmit(uart_com, 1);
+            uart1.BlockingTransmit(u_pout, strlen(pout));
         }
 //>>>   Serial1.println("-> ?");
     }
 
     //hw.PrintLine("send echo 1: %s", pout);
 
+    return;
+}
+
+// ****************************************************************************
+void _SetPotGain(char ct[], uint8_t ct_length)
+{
+    // Potentiometer data - P
+    if (ct[0] == 'P' && ct[1] == nb_pot && ct_length == 2*nb_pot + 2)
+    {
+        for (ipot = 0; ipot < nb_pot; ipot++)
+        {
+            pot_2bytes[0]   = ct[2*ipot+2];
+            pot_2bytes[1]   = ct[2*ipot+3];
+            pot             = convert_from_2bytes(pot_2bytes);
+            pot             = pot*4;        // convert to 16 bits
+            pot_effect      = expot.effect_id[ipot];
+
+            if (pot_effect == GSP_PHR)  phr.lfo.SetGain((uint32_t)pot);
+            if (pot_effect == GSP_WAH)  wah.lfo.SetGain((uint32_t)pot);
+            if (pot_effect == GSP_CHS)  chs.lfo.SetGain((uint32_t)pot);
+            if (pot_effect == GSP_VBT)  vbt.lfo.SetGain((uint32_t)pot);
+            if (pot_effect == GSP_TML)  tml.lfo.SetGain((uint32_t)pot);
+            if (pot_effect == GSP_VOL)  vol.lfo.SetGain((uint32_t)pot);
+            //hw.Print(" eff: %ld  value: %d ", pot_effect, pot.full);
+        }
+    }
+    else 
+    {
+        // Potentiometer data error
+    }
     return;
 }
 
@@ -1142,7 +1188,7 @@ char *CommandName(char ct[], char cmd[])
     {
         strcpy(cmd, st);
         k     = 0;
-        while (cmd[k] != 0 && (size_t)k < strlen(st))   // change token to lowcase
+        while (cmd[k] != 0 && (size_t)k < strlen(st))   // change token to lowercase
         {
             if (cmd[k] < 91 && cmd[k] > 64)   cmd[k] += 32;
             k++;
@@ -1176,6 +1222,7 @@ int32_t CommandDecoder(char ct[], int32_t *chn_change, int32_t *chn_code,
         Pointer to the number of readen parameters in command.
       Example: "ovd (4) 1 0.95 0.72"
         cmd -> "ovd"
+        chn_change -> 1
         chn_code -> 4 (position in chain)
         fl[0] -> 1  (switch)
         fl[1] -> 0.95 (parameter 1)
@@ -1233,7 +1280,6 @@ int32_t CommandDecoder(char ct[], int32_t *chn_change, int32_t *chn_code,
 }
 
 // ****************************************************************************
-
 void ChangeEffectParams(float fl[], float fn[], int32_t nb)
 {
     int32_t     i;
@@ -1297,7 +1343,7 @@ void    SendPotStruct(GSP_Pots *pots_)
 
     // sending A command to ESP32 ...
 
-    uart.PollTx(pot_clear, 3);
+    uart1.BlockingTransmit(pot_clear, 3);
     System::Delay(1);
    
     pot_com[0]  = '}';
@@ -1312,11 +1358,23 @@ void    SendPotStruct(GSP_Pots *pots_)
 		//SerialPot.write(chain.seq_to_pot_id[i]+48);
 	}
     pot_com[i+2] = '\n';
-    uart.BlockingTransmit(pot_com, i+3);
+    uart1.BlockingTransmit(pot_com, i+3);
     System::Delay(1);
     //hw.PrintLine("Sent pot A command to ESP");
     //hw.PrintLine("Command A to ESP: %s", pot_com);  // to be removed
 	//SerialPot.write('\n');
 
     return;
+}
+
+uint16_t convert_from_2bytes(uint8_t lsb_msb[])
+{
+  /*
+    Function to convert two unsigned bytes with 7 significant 
+    bits each stored in lsb_msb[2] (less significant byte and 
+    most significant byte) to a 14 bit unsigned integer number. 
+    The left most bit (8th) of both bytes in lsb_msb will be
+    disregarded.
+  */
+  return ((127 & lsb_msb[1]) << 7) | (127 & lsb_msb[0]);
 }
