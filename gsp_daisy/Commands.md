@@ -11,9 +11,7 @@ The Guitar Sound Processing is configured by interpreted commands by [Daisy Seed
 
 On the other hand, the ED will be in charge to
 
-- select pre-recorded chain and effect settings,
-- store chains and effect setups on SSD memory,
-- communicate with the application software to receive and retransmit commands,
+- communicate with the application software to receive and retransmit commands through USB, Bluetooth or Wifi,
 - read Volume or Expression pedals and send these data to DS
 
 Therefore, from the Application point of view, some of the commands are interpreted by the Daisy Seed, while others are interpreted by the External Device, aiming to let the DS to process the effect algorithms instead to interpret all commands. DS is then responsible to interpret a minimum set of commands, while the External Device provides interface with potentiometers of Expression Pedals. 
