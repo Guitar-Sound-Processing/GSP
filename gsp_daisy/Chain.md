@@ -2,8 +2,6 @@
 
 ## Definition
 
-$$\text{VSI}{\text{filtrada}} = \text{VSI}{\text{anterior}} + \alpha \cdot (\text{VSI}{\text{raw}} - \text{VSI}{\text{anterior}})$$ α = (Δ t)/(τ + Δ t) (onde τ é a constante de tempo do filtro).
-
 A Chain (or a pedal board, or rig) is a sequence of effects such that the output of a given effect is the input of the next one in the Chain. GSP 1.0.0 supports only a configurable single Chain (SISO – single input, single output), with some or all available effects included. A possible chain configuration could be something like:
 
 Input $\rightarrow$ Compressor $\rightarrow$ Overdrive $\rightarrow$ Equalizer $\rightarrow$ Delay $\rightarrow$ Output
