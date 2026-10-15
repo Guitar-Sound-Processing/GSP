@@ -14,7 +14,7 @@ Therefore the IO Board has the following connectors:
 
 Expression Pedals comes in two different polarities, depending on the manufacturer. Moog, Roland, M-audio and Hammond, among others, adopt the RTS (Ring, Tip, Sleeve) configuration, and Yamaha, Korg and Behringer use the TRS (Tip, Ring and Sleeve). The order of RTS or TRS corresponds to the Wiper-CW-CCW of the potentiometer. So the Wiper can be attached to the Ring or the Tip, depending on the pedal. On the other hand, the power line (in this case, the 3.3V line can be connected to the Tip or the Ring. Sleeve always gets the Ground line. The IO Board can be configured to support both arquitectures with jumpers in the R-P-T and T-VC-R headers. When R-P and T-VC are jumped (RTS), Wiper goes to Ring and 3V3 goes to Tip. If P-T and VC-R are jumped (TRS) then Wiper will be attached to Tip and 3V3 to Ring. 
 
-<p align="center"><img src="https://raw.githubusercontent.com/Guitar-Sound-Processing/GSP/master/resources/TRS.png" width="578" height="294" alt="Jack 6.35 mm stereo"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/Guitar-Sound-Processing/GSP/master/resources/TRS.png" width="289" height="147" alt="Jack 6.35 mm stereo"></p>
 
 The Input and Output Board was designed with Autodesk Eagle, but new versions will be based on Kicad. The Eagle files for schematics and boards are available [here](https://raw.githubusercontent.com/Guitar-Sound-Processing/GSP/master/resources/IO_board.zip).
 
