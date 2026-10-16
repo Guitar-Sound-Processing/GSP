@@ -32,7 +32,7 @@ The GSP software on DS exchanges data with the External Device processor (ESP32,
 
 If ```rid``` is negative, disregarding its value, the effect will be unassigned from its previously attached pot. However, one has to take care to avoid sending something like -0, since negative zero has no useful meaning. If ```rid``` is absent the command is disregarded.  A given potentiometer identifier can be assigned to more than one effect on the chain, although the inverse isn’t valid.
 
-When receiving a ```pot``` request, GSP lists all the effects using [LFFG](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/LFFG.md) and their associated potentiometer identifier in the format:
+When receiving a ```pot``` request with no parameters, GSP lists all the effects using [LFFG](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/LFFG.md) and their associated potentiometer identifier in the format:
 
 > ->POT Effect: *efc* | Pot ID: *k*
 
