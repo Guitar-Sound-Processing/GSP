@@ -82,13 +82,16 @@ The ```S``` command states that the External Device shall start sending potentio
 
 After reading the potentiometer voltages and receiving the ```S``` command, ED sends the data to DS by serial line in following binary format:
 
-	P<m><P1><P2><P3>…<Pm>\n
+	P<m><P1_lsb><P1_msb><P2_lsb><P2_msb><P3_lsb><P3_msb>…<Pm_lsb><Pm_msb>\n
 
 in which 
-- ```m``` is  the number of expression pedals data contained in the message, in binary format, one byte, and 
-- ```P1…Pm``` are the potentiometer data, scaled from 0 up to 65535 (two bytes), less significant byte first.
+- ```m``` is  the number of expression pedals data contained in the message, in binary format, one byte,  
+- ```P1…Pm``` are the potentiometer data, scaled from 0 up to 16383 (14 bits).
+- ```_lsb``` and ```_msb``` are the least and most significant byte of potentiometer data.
 
-As an example, let us assume 3 expression pedals connected to pot identifiers 0, 2, and 5, where ID 0 is shared between two effects. Daisy Seed then sends to ED the command ```A0205\n```, followed by the ```S``` command. ED then starts sending the expression pedal data at 10 Hz with messages in the format ```P<4><P0><P2><P0><P5>\n```. One may note that only the characters ```P``` and the terminator ```\n``` are mapped to ASCII table. ```m``` and ```Pi``` (```i``` = 1, …, ```m```) are all sent in binary format. Of course ```m``` defines the number of binary data received from the DS side.
+GSP on Daisy Seed operates with the potentiometer data in 16 bits. However, sending data in 16 bits could cause message truncations since the least or most significant byte could lie in the non printing range of ASCII table. Data is then converted to two bytes with 7 bits each (ESP32 ADC has 12 bits) by ESP32 and both most significant bit are set to 1, assuring the bytes aren't on printing range.
+
+As an example, let us assume 3 expression pedals connected to pot identifiers 0, 2, and 5, where ID 0 is shared between two effects. Daisy Seed then sends to ED the command ```A0205\n```, followed by the ```S``` command. ED then starts sending the expression pedal data at 10 Hz with messages in the format ```P<4><P0_lsb><P0_msb><P2_lsb><P2_msb><P0_lsb><P0_msb><P5_lsb><P5_msb>\n```. One may note that all bytes are sent in ASCII. Of course ```m``` defines the number of data received from the DS side.
 
 Nor Daisy Seed nor the External Device can identify if there really is an expression pedal attached to a given pedal input. So the user has to take care in order to select the appropriate identifier when linking it to a given effect.
 
@@ -103,6 +106,6 @@ then DS will send this request command to ED
 
 in which 51 = 3 + 48 and 53 = 5 + 48. After receiving the enable command ```S``` to send data, ED answers with the potentiometer data sent at 10 Hz frequency:
 
-	P<2><P3><P5>\n
+	P<2><P3_lsb><P3_msb><P5_lsb><P5_msb>\n
 
 
