@@ -91,7 +91,7 @@ in which
 
 GSP on Daisy Seed operates with the potentiometer data in 16 bits. However, sending data in 16 bits could cause message truncations since the least or most significant byte could lie in the non printing range of ASCII table. Data is then converted to two bytes with 7 bits each (ESP32 ADC has 12 bits) by ESP32 and both most significant bit are set to 1, assuring the bytes aren't on printing range. For instance, let's say that data read in 14 bits was 12557 (0x310D), which corresponds to decimal 13 (Carriage Return, binary = 0000 1101) for the least significant byte and 49 (binary = 0011 0001) for the most significant byte. These bytes are then converted to 7 bit bytes, by left shifting one digit the most significant byte, and placing the most significant bit of the least significant byte (0, in this case) at right of it. The next figure explains how convertion of a 14 bit data into two bytes are done.
 
-<p align="center"><img src="https://raw.githubusercontent.com/Guitar-Sound-Processing/GSP/master/resources/pot_data.png" alt="Potentiometer data convertion"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/Guitar-Sound-Processing/GSP/master/resources/pot_data.png" width = "413", alt="Potentiometer data convertion"></p>
 
 
 As an example, let us assume 3 expression pedals connected to pot identifiers 0, 2, and 5, where ID 0 is shared between two effects. Daisy Seed then sends to ED the command ```A0205\n```, followed by the ```S``` command. ED then starts sending the expression pedal data at 10 Hz with messages in the format ```P<4><P0_lsb><P0_msb><P2_lsb><P2_msb><P0_lsb><P0_msb><P5_lsb><P5_msb>\n```. One may note that all bytes are sent in ASCII. Of course ```m``` defines the number of data received from the DS side.
