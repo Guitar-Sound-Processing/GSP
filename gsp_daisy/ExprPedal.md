@@ -70,15 +70,19 @@ The answer to the ```pot``` command is affected by the Standard Reply ```fmt``` 
 
 ## Potentiometer data 
 
+There are three potentiometer commands to control the data sent to Daisy Seed: the ```A```, ```S``` and ```C``` commands. These are internal commands between Daisy Seed and ESP32, without direct user interference.
+
+### Command A
+
 After receiving the Expression Pedal command, GSP running in Daisy Seed sends an assign command to the External Device (ED) with the sequence of required potentiometer data that ED shall send to Daisy Seed. This command has the following format
 
 	A{r1}{r2}…{rm}\n
 
 It starts with ASCII A, with one or more ```rid``` identifiers in sequence. The ```rn``` (n = 1, 2, ..., m) is not a true ASCII number, but, instead, it is the potentiometer identifier number plus 48, which means that the sequence matches the ASCII table characters for identifiers from 0 to 9, but identifier 10 is, therefore, 58 (“:”) and so on. This strategy allows GSP to have more than 9 identifiers (up to 207) with only one byte and avoids having problems with characters in the non-printing range of ASCII table. The carriage return terminator ```(\n)``` indicates the command has finished. The number of potentiometer data to be sent to DS is, therefore, given by the number of identifiers present in this command. Two or more ```rn``` may refer to the same potentiometer identifier, since two or more effects can share the same potentiometer, like ```A0323```, for instance.
 
-Besides the ```A``` command, DS can send also two other commands: ```S``` and ```C```. Both are internal commands, without direct user interference.
+### Command S
 
-The ```S``` command states that the External Device shall start sending potentiometer data, at a rate of 10 Hz, with two bytes (one word) each, in the format specified bellow. The ```C``` command orders the ED to stop sending data and to clear the potentiometers field (number of pot data is zero).
+The ```S``` command states that the External Device shall start sending potentiometer data, at a rate of 10 Hz, with two bytes (one word) each, in the format specified bellow. 
 
 After reading the potentiometer voltages and receiving the ```S``` command, ED sends the data to DS by serial line in following binary format:
 
@@ -110,4 +114,6 @@ in which 51 = 3 + 48 and 53 = 5 + 48. After receiving the enable command ```S```
 
 	P<2><P3_lsb><P3_msb><P5_lsb><P5_msb>\n
 
+### Command C
 
+The ```C``` command orders the ED to stop sending data and to clear the potentiometers field (number of pot data is zero).
