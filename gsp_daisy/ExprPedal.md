@@ -74,7 +74,7 @@ There are three potentiometer commands to control the data sent to Daisy Seed: t
 
 ### Command A
 
-After receiving the Expression Pedal command, GSP running in Daisy Seed sends an assign command to the External Device (ED) with the sequence of required potentiometer data that ED shall send to Daisy Seed. This command has the following format
+After receiving the Expression Pedal ```pot``` command, GSP running in Daisy Seed sends an assign command to the External Device (ED) with the sequence of required potentiometer data that ED shall send to Daisy Seed. This command has the following format
 
 	A{r1}{r2}…{rm}\n
 
