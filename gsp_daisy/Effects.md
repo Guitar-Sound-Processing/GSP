@@ -382,8 +382,8 @@ Default:
 | | Delay | 0.0 | 1000.0 | ms | 1.0 | float |
 | | Mixer | 0.0 | 1.0 | - | 0.5 | float | 
 | | Profile | 0 | 10 | - | 0 | int |
-| | Frequency | 0.2 | 5.0 | Hz | 0.500 | float |
-| | Duty Cycle | 0.0 | 100.0 | % | 50.0 | float |
+| | Frequency/Channel | 0.2 | 5.0 | Hz | 0.500 | float |
+| | Duty Cycle/Threshold | 0.0 | 100.0 | % | 50.0 | float |
 | | Gain | 0.0 | 1.0 | - | 1.000 | float |
 | CMP (0): | Attack | 20.0 | 2000.0 | ms | 10.0 | float |
 | |Release | 20.0 | 2000.0 | ms | 1000.0 | float |
@@ -426,8 +426,8 @@ Default:
 | PHR (2):  | Depth | 0.0 | 1.0 | - | 0.500 | float |
 | | Level | 0.0 | 1000.0 | - | 10.0 | float |
 | | Profile | 0 | 10 | - | 0 | int |
-| | Frequency | 0.2 | 5.0 | Hz | 0.250 | float |
-| | Duty Cycle | 0.0 | 100.0 | % | 50.0 | float |
+| | Frequency/Channel | 0.2 | 5.0 | Hz | 0.500 | float |
+| | Duty Cycle/Threshold | 0.0 | 100.0 | % | 50.0 | float |
 | | Gain | 0.0 | 1.0 | - | 1.000 | float |
 | SFT (4):  | Shift (up) | 0.0 | 12 | interval | 5.000 | float |
 | | Mixer | 0.0 | 1.0 | - | 0.500 | float |
@@ -435,21 +435,21 @@ Default:
 | RVB (10):  | Reverber Time | 0.0 | 20000.0 | ms | 1000.0 | float |
 | | Gain | 0.0 | 1.0 | - | 1.000 | float |
 | TML (15): | Profile | 0 | 10 | - | 1 | int |
-| | Frequency | 0.2 | 5.0 | Hz | 2.000 | float |
-| | Duty Cycle | 0.0 | 100.0 | % | 50.0 | float |
+| | Frequency/Channel | 0.2 | 5.0 | Hz | 0.500 | float |
+| | Duty Cycle/Threshold | 0.0 | 100.0 | % | 50.0 | float |
 | | Gain | 0.0 | 1.0 | - | 1.000 | float |
 | VBT (9): | Depth | 0.1 | 100.0 | ms | 5.0 | float |
 | | Delay | 0.0 | 1000.0 | ms | 1.0 | float |
 | | Profile | 0 | 10 | - | 0 | int |
-| | Frequency | 0.2 | 5.0 | Hz | 0.500 | float |
-| | Duty Cycle | 0.0 | 100.0 | % | 50.0 | float |
+| | Frequency/Channel | 0.2 | 5.0 | Hz | 0.500 | float |
+| | Duty Cycle/Threshold | 0.0 | 100.0 | % | 50.0 | float |
 | | Gain | 0.0 | 1.0 | - | 1.000 | float |
 | VOL (16): | Profile | 0 | 10 | - | 1 | int |
-| | Frequency | 0.2 | 5.0 | Hz | 2.000 | float |
-| | Duty Cycle | 0.0 | 100.0 | % | 50.0 | float |
+| | Frequency/Channel | 0.2 | 5.0 | Hz | 0.500 | float |
+| | Duty Cycle/Threshold | 0.0 | 100.0 | % | 50.0 | float |
 | | Gain | 0.0 | 1.0 | - | 1.000 | float |
 | WAH (6):  | Profile | 0 | 10 | - | 1 | int |
-| | Frequency | 0.2 | 5.0 | Hz | 2.000 | float |
-| | Duty Cycle | 0.0 | 100.0 | % | 50.0 | float |
+| | Frequency/Channel | 0.2 | 5.0 | Hz | 0.500 | float |
+| | Duty Cycle/Threshold | 0.0 | 100.0 | % | 50.0 | float |
 | | Gain | 0.0 | 1.0 | - | 1.000 | float |
 
