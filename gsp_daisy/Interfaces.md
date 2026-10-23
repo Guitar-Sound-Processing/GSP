@@ -50,7 +50,7 @@ The command ```pfl``` shows the available Low Frequency Function Generator profi
 
 ### Verbose
 
-Toggle the verbose (command echoes) on and off (off is default). When verbose is on, GSP echoes any command to serial line with leading “<-” string. 
+Toggle the verbose (command echoes) on and off (off is default). When verbose is on, GSP echoes any command with leading “<-” string. 
 
 	vbs
 
