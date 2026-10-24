@@ -118,7 +118,7 @@ The configuration parameters are dependent of the effect and may change between 
 - Treble
 - Volume, etc.
 
-However the ```state```<h3 id="efclvd"> parameter shall be included in any effect to store the Switch status (```GSP_ON``` or ```GSP_OFF```). GSP gets this parameter in main loop to call or to by-pass each effect according to its Switch state.
+However the [```state```](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/Effects.md#"efclvd") parameter shall be included in any effect to store the Switch status (```GSP_ON``` or ```GSP_OFF```). GSP gets this parameter in main loop to call or to by-pass each effect according to its Switch state.
 
 #### Multiple parameter config
 
