@@ -394,7 +394,7 @@ Default:
 | | Delay | 0.0 | 1000.0 | ms | 1.0 | float |
 | | Mixer | 0.0 | 1.0 | - | 0.5 | float | 
 | | Profile | 0 | 10 | - | 0 | int |
-| | Frequency/Channel | 0.2 | 5.0 | Hz | 0.500 | float |
+| | Frequency/Channel | 0.2/0 | 5.0/8 | Hz/ | 0.500/ | float/int |
 | | Duty Cycle/Threshold | 0.0 | 100.0 | % | 50.0 | float |
 | | Gain | 0.0 | 1.0 | - | 1.000 | float |
 | CMP (0): | Attack | 20.0 | 2000.0 | ms | 10.0 | float |
