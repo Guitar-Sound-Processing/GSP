@@ -2,8 +2,7 @@
 #ifndef GSP_WAHWAH
 #define GSP_WAHWAH
 
-#include "../guitar_dsp.h"
-#include "../LFFG/lfo.h"
+#include "lfo.h"
 
 class GSP_WahWah
 {
