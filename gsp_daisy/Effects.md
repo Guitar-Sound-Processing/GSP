@@ -350,13 +350,25 @@ Default:
 ```ovd```
 > ->OVD (1): OFF(0)|ON(1) 0 | Sustain (0.1-1): 0.500 | Tone (0-1): 0.800 | Mixer (0-1): 1.000 | Gain (0-1): 1.000
 
+```all```
+> ->Inp->(LVD)->CMP->OVD->PHR->OCT->SFT->DTN->WAH->EQZ->CHS->VBT->RVB->DFB->EFB->DFF->EFF->TML->VOL->LIM->NGT->Out->
+
 ```phr (5)```
-> ->Inp->CMP->OVD->OCT->SFT->DTN->PHR->WAH->EQZ->CHS->VBT->RVB->DFB->EFB->DFF->EFF->TML->VOL->LIM->NGT->Out->
+> ->PHR (5): OFF(0)|ON(1) 0 | Depth (0-1): 0.500 | Level (0-1000): 10.0 | Profile: (0-10) 0 | Frequency (0.2-5)(Hz): 0.250 | Duty Cycle (0-100)(): 50.0 | Gain (0-1): 1.000
+
+```all```
+> ->Inp->(LVD)->CMP->OVD->OCT->SFT->DTN->PHR->WAH->EQZ->CHS->VBT->RVB->DFB->EFB->DFF->EFF->TML->VOL->LIM->NGT->Out->
 
 ```tml (-1)```
-> ->Inp->CMP->OVD->OCT->SFT->DTN->PHR->WAH->EQZ->CHS->VBT->RVB->DFB->EFB->DFF->EFF->VOL->LIM->NGT->Out->
+> ->TML (-1): OFF(0)|ON(1) 0 | Profile: (0-10) 1 | Frequency (0.2-5)(Hz): 2.000 | Duty Cycle (0-100)(): 50.0 | Gain (0-1): 1.000
 
+```all```
+> ->Inp->(LVD)->CMP->OVD->OCT->SFT->DTN->PHR->WAH->EQZ->CHS->VBT->RVB->DFB->EFB->DFF->EFF->VOL->LIM->NGT->Out->
+ 
 ```eqz (+)```
+> ->EQZ (0): OFF(0)|ON(1) 0 | Gains (0-1): Low 1.000 , Medium  1.000 , High 1.000 | Cutoff frequencies (Hz): Low (200-) 200.000 , High (-2000) 800.0
+
+```all```
 > ->Inp->EQZ->CMP->OVD->OCT->SFT->DTN->PHR->WAH->CHS->VBT->RVB->DFB->EFB->DFF->EFF->VOL->LIM->NGT->Out->
 
 ```dfb```
