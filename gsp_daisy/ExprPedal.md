@@ -22,7 +22,12 @@ On the description of the commands, the following rules apply to the parameters:
 
 ## Expression Pedal Command
 
-The Expression Pedal can be selected by the External profile as 8 in the LFFG (LFO_EXTERNAL). The effects that requires the LFFG are Chorus (chs), Phaser (phr), Tremolo (tml), Vibrato (vbt), Volume (vol) and Wahwah (wah). Note, however, that the output level of any GSP effect can be controlled by the Volume effect on the chain's output (```>Inp->(LVD)->CMP->OVD->EQZ->VOL->Out```) which allows controling the output level of the chain, provided the Volume has been appropriated configured with External profile.
+The Expression Pedal can be selected by the External profile as 8 in the LFFG (LFO_EXTERNAL). The effects that requires the LFFG are Chorus (chs), Phaser (phr), Tremolo (tml), Vibrato (vbt), Volume (vol) and Wahwah (wah). For instance,
+
+```tml 1 8 0 80```
+> ->TML (4): OFF(0)|ON(1) 1 | Profile: (0-10) 8 | Channel (0-100): 0 | Threshold (0-100)(): 80.0 | Gain (0-1): 1.000
+
+Note, however, that the output level of any GSP effect can be controlled by the Volume effect on the chain's output (```>Inp->(LVD)->CMP->OVD->EQZ->VOL->Out```) which allows controling the output level of the chain, provided the Volume has been appropriated configured with External profile.
 
 ## Potentiometer data 
 
