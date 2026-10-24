@@ -63,7 +63,7 @@ Each effect class shall have standard methods to process the audio signal. Only 
 - [Process](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/SWDirectives.md#process-methods)
 - [Switch](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/SWDirectives.md#switch-method)
 
-#### Init methods
+#### Init method
 
 There are two versions of Init method:
 
@@ -72,7 +72,7 @@ There are two versions of Init method:
 
 The first one can be employed in effects that do not require buffers to store audio samples, like Overdrive, for instance. The second one provides pointers to access the buffer and its size, like the Delay effects. Caution must be taken, since the buffer is for read-only purposes. The audio samples are store in the buffer by the GSP effects loop.
 
-#### Process methods
+#### Process method
 
 Similarly, there are two Process methods: 
 
