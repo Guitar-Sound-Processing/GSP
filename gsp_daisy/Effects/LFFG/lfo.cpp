@@ -21,7 +21,8 @@ void LowFreqOsc::Init(uint32_t sampling_rate)
 
 	SetProfile(LFO_HALFSINE);
 	SetPeriod(500);
-
+    channel     = -1;
+    
 	SetDutyCycle(50.f);
 	phase_  	= 0.;
 
@@ -46,13 +47,37 @@ void LowFreqOsc::SetPeriod(uint32_t prd)
 void LowFreqOsc::SetFrequency(float freq)
 {
 	/*
-    To set the frequency of the Low Frequency Oscilator.
+    To set the frequency of the Low Frequency Oscilator, or the channel
+    of the Expression Pedal, depending on the selected profile.
 		freq
-			frequency of LFO in Hz
-			(0.2 <= freq <= 10) Hz
+			frequency of LFO in Hz (0.2 <= freq <= 10) Hz
+            or
+            channel (0 to 100, converted to integer)
 	*/
 
-	SetPeriod(fmax(fmin(1000./freq, 5000), 100));
+    if (profile == LFO_EXTERNAL)  
+    {
+        SetExtChannel(freq);
+    }
+	else 
+    {
+        channel     = -1;
+        SetPeriod(fmax(fmin(1000./freq, 5000), 100));
+    }
+
+	return;
+}
+
+void LowFreqOsc::SetExtChannel(float chn)
+{
+	/*
+    To set the Expression Pedal channel to receive potentiometer data.
+		channel
+			Channel to receive the potentiometer data through the
+            Extenal Device (0 to 100)
+	*/
+
+    channel     = (int16_t)fmax(fmin(chn + 0.5, 100), 0);
 
 	return;
 }
@@ -66,8 +91,9 @@ void LowFreqOsc::SetDutyCycle(float duty_cycle)
 			duty cycle in fraction of the Period (percent) (0 to 100)
 	*/
 
-	duty 		= duty_cycle;
-	duty_ 		= (uint32_t)fmax(fmin(duty_cycle*5.12, 512), 0);
+    duty 		= fmax(fmin(duty_cycle, 100.), 0.);     // 0 to 100
+	thres_      = duty/100.;                            // 0 to 1
+	duty_ 		= (uint32_t)(duty*5.12);                // 0 to 512
 
 	SetProfile(profile);
 	
@@ -90,7 +116,7 @@ void LowFreqOsc::SetProfile(uint8_t prof)
 			LFO_SQUARE			Square |-|_|-|_|
 			LFO_EXPDECREASE 	Decreasing exponential |\_
 			LFO_EXPINCREASE 	Increasing exponential _/|
-			LFO_EXTERNAL 		External signal
+			LFO_EXTERNAL 		External signal (Expression Pedal)
 			LFO_LEVEL 			Power amplitude of input signal
 	        LFO_REVERSE_LEVEL	Reversed power amplitude of input signal
 			LFO_LAST			None
@@ -99,8 +125,10 @@ void LowFreqOsc::SetProfile(uint8_t prof)
 	decay time of the exponential profiles (SetDutyCycle(.))
 	The amplitude of LFO_EXTERNAL is set by SetExternal(.) method. This
 	allows the amplitude to be adjusted by a potentiometer acting
-	as volume pedal, for example.
-	
+	as volume pedal, for example. LFO_EXTERNAL requires also the channel
+    for ADC reading of the potentiometer data in the Extenal Device and
+    the threshold for the potentiometer.
+
 	The amplitude is function of time, but since time depends on
 	the hardware or, sometimes, also on the compiler, the LFO amplitude
 	is computed at sample rate frequency. In other words, each time the
@@ -113,7 +141,7 @@ void LowFreqOsc::SetProfile(uint8_t prof)
 	uint32_t i;
 
 	profile 	= prof;
-	
+
 	switch (profile)
 	{
 		case LFO_SIN:    // sin (0-2pi) -> (0:65535)
@@ -174,7 +202,7 @@ void LowFreqOsc::SetProfile(uint8_t prof)
 			break;
 		case LFO_EXTERNAL:  // External source (volume pedal)
 
-			break;
+            break;
 		case LFO_LEVEL:  // Volume amplitude of input signal
 
 			break;
@@ -194,12 +222,12 @@ void LowFreqOsc::SetGain(uint32_t gain)
 	/*
     To set the LFO gain for LFO_EXTERNAL profile
 		gain
-			Gain for the Low Frequency Oscilator (0 to 65531)
+			Gain for the Low Frequency Oscilator (0 to 65535)
 	*/
 
-    gain_	= gain;
+    gain_	= gain + (float)(MAX_16 - gain)*thres_;
     if (gain_ < 0) gain_ = 0;
-    if (gain_ > ADC_RES) gain_ = ADC_RES;
+    if (gain_ > MAX_16) gain_ = MAX_16;
     
 	return;
 }
