@@ -98,7 +98,7 @@ Default*:
 
 > ->CHS (8): OFF(0)|ON(1) 0 | Depth (0.1-100)(ms): 5.0 | Delay (0-1000)(ms): 1.0 | Mixer (0-1): 0.500 | Profile: (0-10) 0 | Frequency (0.2-5)(Hz): 0.500 | Duty Cycle (0-100)(%): 50.0 | Gain (0-1): 1.000
 
-Note: The current version of libDaisy does not print the character "%" through USB, as signaled in Duty Cycle, although it is correctly sent by serial lines.
+*Note: The current version of libDaisy does not print the character "%" through USB, as signaled in Duty Cycle, although it is correctly sent by UART serial lines.
 
 ### <h3 id="efccmp">Compressor:</h3>
 
@@ -260,9 +260,11 @@ Mixes the signal with an out of phase copy drove by a [LFFG](https://github.com/
 		lfo.duty	– LFFG Duty cycle
 		gain 		– Gain
 
-Default:
+Default*:
 
-> ->PHR (2): OFF(0)|ON(1) 0 | Depth (0-1): 0.500 | Level (0-1000): 10.0 | Profile: (0-10) 0 | Frequency (0.2-5)(Hz): 0.250 | Duty Cycle (0-100)(): 50.0 | Gain (0-1): 1.000
+> ->PHR (2): OFF(0)|ON(1) 0 | Depth (0-1): 0.500 | Level (0-1000): 10.0 | Profile: (0-10) 0 | Frequency (0.2-5)(Hz): 0.250 | Duty Cycle (0-100)(%): 50.0 | Gain (0-1): 1.000
+
+Note: The current version of libDaisy does not print the character "%" through USB, as signaled in Duty Cycle, although it is correctly sent by UART serial lines.
 
 ### <h3 id="efcsft">Pitch Shifter:</h3>
 
@@ -299,9 +301,11 @@ Changes the input amplitude with a [LFFG](https://github.com/Guitar-Sound-Proces
 		lfo.duty	– LFFG Duty cycle or Expression Pedal Threshold for lfo.profile = 8 (LFO_EXTERNAL)
 		gain 		– Gain
 
-Default:
+Default*:
 
-> ->TML (15): OFF(0)|ON(1) 0 | Profile: (0-10) 1 | Frequency (0.2-5)(Hz): 2.000 | Duty Cycle (0-100)(): 50.0 | Gain (0-1): 1.000
+> ->TML (15): OFF(0)|ON(1) 0 | Profile: (0-10) 1 | Frequency (0.2-5)(Hz): 2.000 | Duty Cycle (0-100)(%): 50.0 | Gain (0-1): 1.000
+
+*Note: The current version of libDaisy does not print the character "%" through USB, as signaled in Duty Cycle, although it is correctly sent by UART serial lines.
 
 ### <h3 id="efcvbt">Vibrato:</h3>
 
@@ -317,7 +321,9 @@ Changes the input frequency with a [LFFG](https://github.com/Guitar-Sound-Proces
 
 Default:
 
-> ->VBT (9): OFF(0)|ON(1) 0 | Depth (0.1-100)(ms): 5.0 | Delay (0-1000)(ms): 1.0 | Profile: (0-10) 0 | Frequency (0.2-5)(Hz): 0.500 | Duty Cycle (0-100)(): 50.0 | Gain (0-1): 1.000
+> ->VBT (9): OFF(0)|ON(1) 0 | Depth (0.1-100)(ms): 5.0 | Delay (0-1000)(ms): 1.0 | Profile: (0-10) 0 | Frequency (0.2-5)(Hz): 0.500 | Duty Cycle (0-100)(%): 50.0 | Gain (0-1): 1.000
+
+*Note: The current version of libDaisy does not print the character "%" through USB, as signaled in Duty Cycle, although it is correctly sent by UART serial lines.
 
 ### <h3 id="efcvol">Volume:</h3>
 
@@ -329,9 +335,11 @@ Changes the input level based on a [LFFG](https://github.com/Guitar-Sound-Proces
 		lfo.duty	– LFFG Duty cycle or Expression Pedal Threshold for lfo.profile = 8 (LFO_EXTERNAL)
 		gain 		– Gain
 
-Default:
+Default*:
 
-> ->VOL (16): OFF(0)|ON(1) 0 | Profile: (0-10) 1 | Frequency (0.2-5)(Hz): 2.000 | Duty Cycle (0-100)(): 50.0 | Gain (0-1): 1.000
+> ->VOL (16): OFF(0)|ON(1) 0 | Profile: (0-10) 1 | Frequency (0.2-5)(Hz): 2.000 | Duty Cycle (0-100)(%): 50.0 | Gain (0-1): 1.000
+
+*Note: The current version of libDaisy does not print the character "%" through USB, as signaled in Duty Cycle, although it is correctly sent by UART serial lines.
 
 ### <h3 id="efcwah">Wah Wha:</h3>
 
@@ -343,9 +351,11 @@ Modifies the tone of the input signal driven by a [LFFG](https://github.com/Guit
 		lfo.duty	– LFFG Duty cycle or Expression Pedal Threshold for lfo.profile = 8 (LFO_EXTERNAL)
 		gain 		– Gain 
 
-Default:
+Default*:
 
-> ->WAH (6): OFF(0)|ON(1) 0 | Profile: (0-10) 1 | Frequency (0.2-5)(Hz): 2.000 | Duty Cycle (0-100)(): 50.0 | Gain (0-1): 1.000
+> ->WAH (6): OFF(0)|ON(1) 0 | Profile: (0-10) 1 | Frequency (0.2-5)(Hz): 2.000 | Duty Cycle (0-100)(%): 50.0 | Gain (0-1): 1.000
+
+*Note: The current version of libDaisy does not print the character "%" through USB, as signaled in Duty Cycle, although it is correctly sent by UART serial lines.
 
 ## <h3 id="efcexp">Effect Command Examples</h3>
 
