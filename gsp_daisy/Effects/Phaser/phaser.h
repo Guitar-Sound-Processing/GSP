@@ -2,8 +2,7 @@
 #ifndef GSP_PHASER
 #define GSP_PHASER
 
-#include "../guitar_dsp.h"
-#include "../LFFG/lfo.h"
+#include "lfo.h"
 
 class GSP_Phaser
 {

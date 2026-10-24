@@ -1,7 +1,9 @@
 #include <math.h>
 #include <stdio.h>
 
+#include "guitar_dsp.h"
 #include "phaser.h"
+#include "lfo.h"
 
 // *****************************************************************************
 
@@ -145,25 +147,51 @@ int32_t GSP_Phaser::Process(int32_t sampl)
 
 void GSP_Phaser::Printout(uint8_t out_list, int32_t chn_pos, char *printout)
 {
-    if (out_list == 0)
+    if (lfo.profile == LFO_EXTERNAL)
     {
-        sprintf(printout, 
-        "->PHR (%ld): OFF(0)|ON(1) %d "
-        "| Depth (0-1): %-.3f "
-        "| Level (0-1000): %-.1f "
-        "| Profile: (0-10) %d "
-        "| Frequency (0.2-5)(Hz): %-.3f "
-        "| Duty Cycle (0-100)(%%): %-.1f "
-        "| Gain (0-1): %-.3f\n", 
-        chn_pos, state, depth, level, lfo.profile,
-        1000./(float)lfo.period, lfo.duty, gain);
+        if (out_list == 0)
+        {
+            sprintf(printout, 
+            "->PHR (%ld): OFF(0)|ON(1) %d "
+            "| Depth (0-1): %-.3f "
+            "| Level (0-1000): %-.1f "
+            "| Profile: (0-10) %d "
+            "| Channel (0-100): %d "
+            "| Threshold (0-100)(%%): %-.1f "
+            "| Gain (0-1): %-.3f\n", 
+            chn_pos, state, depth, level, lfo.profile,
+            lfo.channel, lfo.duty, gain);
+        }
+        if (out_list == 1)
+        {
+            sprintf(printout, 
+            "->PHR (%ld) %d %-.3f %-.1f %d %d %-.1f %-.3f\n", 
+            chn_pos, state, depth, level, lfo.profile,
+            lfo.channel, lfo.duty, gain);
+        }
     }
-    if (out_list == 1)
+    else
     {
-        sprintf(printout, 
-        "->PHR (%ld) %d %-.3f %-.1f %d %-.3f %-.1f %-.3f\n", 
-        chn_pos, state, depth, level, lfo.profile,
-        1000./(float)lfo.period, lfo.duty, gain);
+        if (out_list == 0)
+        {
+            sprintf(printout, 
+            "->PHR (%ld): OFF(0)|ON(1) %d "
+            "| Depth (0-1): %-.3f "
+            "| Level (0-1000): %-.1f "
+            "| Profile: (0-10) %d "
+            "| Frequency (0.2-5)(Hz): %-.3f "
+            "| Duty Cycle (0-100)(%%): %-.1f "
+            "| Gain (0-1): %-.3f\n", 
+            chn_pos, state, depth, level, lfo.profile,
+            1000./(float)lfo.period, lfo.duty, gain);
+        }
+        if (out_list == 1)
+        {
+            sprintf(printout, 
+            "->PHR (%ld) %d %-.3f %-.1f %d %-.3f %-.1f %-.3f\n", 
+            chn_pos, state, depth, level, lfo.profile,
+            1000./(float)lfo.period, lfo.duty, gain);
+        }
     }
 	
 	return;
@@ -171,14 +199,26 @@ void GSP_Phaser::Printout(uint8_t out_list, int32_t chn_pos, char *printout)
 
 void GSP_Phaser::GetParams(float fn[])
 {
-	
-	fn[0]   = state;
-	fn[1]   = depth;
-	fn[2]   = level;
-	fn[3]   = lfo.profile;
-	fn[4]   = 1000./(float)lfo.period;
-	fn[5]   = lfo.duty;
-	fn[6]   = gain;
+	if (lfo.profile == LFO_EXTERNAL)
+    {
+	    fn[0]   = state;
+	    fn[1]   = depth;
+    	fn[2]   = level;
+    	fn[3]   = lfo.profile;
+	    fn[4]   = lfo.channel;
+    	fn[5]   = lfo.duty;
+	    fn[6]   = gain;
+    }
+    else
+    {
+	    fn[0]   = state;
+	    fn[1]   = depth;
+    	fn[2]   = level;
+    	fn[3]   = lfo.profile;
+	    fn[4]   = 1000./(float)lfo.period;
+    	fn[5]   = lfo.duty;
+	    fn[6]   = gain;
+    }
 	
 	return;
 }
@@ -196,5 +236,3 @@ void GSP_Phaser::SetParams(float fn[])
 
 	return;
 }
-
-
