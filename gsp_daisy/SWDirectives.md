@@ -129,6 +129,7 @@ There are three methods to store and to retrieve several effect parameters at on
 	void GSP_\EffectName\::SetParams(float fn[])
 
 Example:
+
 ```void GSP_Equalizer::GetParams(float fn[])```
 
 The Printout method writes all the effect parameters in the output buffer ```*printout``` in ASCII format (maximum 250 characters), according to the standard output format, like the normal (long) form :
