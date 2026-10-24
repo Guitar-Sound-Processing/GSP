@@ -99,10 +99,16 @@ The methods usually employed for effect configuration can be classified in two c
 
 #### Single parameter config
 
-The Single parameter configurations are methods required to set and to retrieve a single parameter. Methods to set a given parameter are usually named as SetParameter whereas methods to retrieve its value shall be named GetParameter. Both methods shall address one and only one parameter. Obviously the heading of these methods are:
+The Single parameter configurations are methods required to set and to retrieve a single parameter. Methods to set a given parameter are usually named as Set\Parameter\ whereas methods to retrieve its value shall be named Get\Parameter\. Both methods shall address one and only one parameter. Obviously the heading of these methods are:
 
-	void GSP_\EffectName\::SetParameter(\type\ NewValue)
-	\type\ GSP_\EffectName\::GetParameter()
+	void GSP_\EffectName\::Set\Parameter\(\type\ NewValue)
+	\type\ GSP_\EffectName\::Get\Parameter\()
+
+Some examples of parameter configuration are:
+
+```void GSP_Chorus::SetGain(float output_gain)```
+```void GSP_NoiseGate::SetAttackMilliSeconds(float atk_ms)```
+```void  GSP_Overdrive::SetSustain(float sustn)```
 
 The configuration parameters are dependent of the effect and may change between them. Common parameters are, for instance:
 
