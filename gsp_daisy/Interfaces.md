@@ -10,6 +10,7 @@ The command ```cid``` (command id) tells GSP to show the number of available eff
 	
 > ->19<br>
 > ->(LevelDetector LVD)<br>
+> ->Chorus (CHS)<br>
 > ->Compressor CMP<br>
 > ->Detune DTN<br>
 > ->Equalizer EQZ<br>
