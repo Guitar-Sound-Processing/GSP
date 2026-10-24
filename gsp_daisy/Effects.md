@@ -90,8 +90,8 @@ Duplicates the signal with changes in pitch drove by a [LFFG](https://github.com
 		delay_ms 	– Delay (milliseconds)
 		mixer 		– Mixer
 		lfo.profile 	– LFFG Profile
-		lfo.freq 	– LFFG Frequency (Hz) or Expression Pedal channel for lfo.profile = 8 (LFO_EXTERNAL)
-		lfo.duty	– LFFG Duty cycle or Expression Pedal threshold for lfo.profile = 8 (LFO_EXTERNAL)
+		lfo.freq 	– LFFG Frequency (Hz) or Expression Pedal Channel for lfo.profile = 8 (LFO_EXTERNAL)
+		lfo.duty	– LFFG Duty cycle or Expression Pedal Threshold for lfo.profile = 8 (LFO_EXTERNAL)
 		gain 		– Gain
 
 Default:
@@ -253,8 +253,8 @@ Mixes the signal with an out of phase copy drove by a [LFFG](https://github.com/
 	phr [([+][-]c)] s depth level lfo.profile lfo.freq lfo.duty gain
 		depth 		– Depth
 		level 		– Level
-		lfo.freq 	– LFFG Frequency (Hz) or Expression Pedal channel
-		lfo.duty	– LFFG Duty cycle or Expression Pedal threshold
+		lfo.freq 	– LFFG Frequency (Hz) or Expression Pedal Channel for lfo.profile = 8 (LFO_EXTERNAL)
+		lfo.duty	– LFFG Duty cycle or Expression Pedal Threshold for lfo.profile = 8 (LFO_EXTERNAL)
 		lfo.duty	– LFFG Duty cycle
 		gain 		– Gain
 
@@ -293,8 +293,8 @@ Changes the input amplitude with a [LFFG](https://github.com/Guitar-Sound-Proces
 
 	tml [([+][-]c)] s lfo.profile lfo.freq lfo.duty gain
 		lfo.profile 	– LFFG Profile
-		lfo.freq 	– LFFG Frequency (Hz) or Expression Pedal channel
-		lfo.duty	– LFFG Duty cycle or Expression Pedal threshold
+		lfo.freq 	– LFFG Frequency (Hz) or Expression Pedal Channel for lfo.profile = 8 (LFO_EXTERNAL)
+		lfo.duty	– LFFG Duty cycle or Expression Pedal Threshold for lfo.profile = 8 (LFO_EXTERNAL)
 		gain 		– Gain
 
 Default:
@@ -309,8 +309,8 @@ Changes the input frequency with a [LFFG](https://github.com/Guitar-Sound-Proces
 		depth 		– Depth
 		delay_ms 	– Delay (milliseconds)
 		lfo.profile 	– LFFG Profile
-		lfo.freq 	– LFFG Frequency (Hz) or Expression Pedal channel
-		lfo.duty	– LFFG Duty cycle or Expression Pedal threshold
+		lfo.freq 	– LFFG Frequency (Hz) or Expression Pedal Channel for lfo.profile = 8 (LFO_EXTERNAL)
+		lfo.duty	– LFFG Duty cycle or Expression Pedal Threshold for lfo.profile = 8 (LFO_EXTERNAL)
 		gain 		– Gain
 
 Default:
@@ -337,8 +337,8 @@ Modifies the tone of the input signal driven by a [LFFG](https://github.com/Guit
 
 	wah [([+][-]c)] s lfo.profile lfo.freq lfo.duty gain
 		lfo.profile 	– LFFG Profile
-		lfo.freq 	– LFFG Frequency (Hz) or Expression Pedal channel
-		lfo.duty	– LFFG Duty cycle or Expression Pedal threshold
+		lfo.freq 	– LFFG Frequency (Hz) or Expression Pedal Channel for lfo.profile = 8 (LFO_EXTERNAL)
+		lfo.duty	– LFFG Duty cycle or Expression Pedal Threshold for lfo.profile = 8 (LFO_EXTERNAL)
 		gain 		– Gain 
 
 Default:
