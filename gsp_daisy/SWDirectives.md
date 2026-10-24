@@ -107,7 +107,7 @@ The Single parameter configurations are methods required to set and to retrieve 
 Some examples of parameter configuration are:
 
 ```void GSP_Chorus::SetGain(float output_gain)```<br></br>
-```void GSP_NoiseGate::SetAttackMilliSeconds(float atk_ms)```
+```void GSP_NoiseGate::SetAttackMilliSeconds(float atk_ms)```<br></br>
 ```void  GSP_Overdrive::SetSustain(float sustn)```
 
 The configuration parameters are dependent of the effect and may change between them. Common parameters are, for instance:
