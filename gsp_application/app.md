@@ -19,7 +19,7 @@ Each level is selected by buttons on the top bar menu, as shown in the picture. 
 
 ## Effect and Preset Editor
 
-The Effect and Preset Editor can modify any effect of GSP, including the Level Detector. As can be seen in the picture below, the parameters can be adjusted through slider rulers, buttons, and dropdown lists. The right and left arrows change the selected Effect in alphabetic order, in spite of the Effects ordering in the current Chain. Note that the bypass switch is off (no effect on output) by default. In order to have the effect on output, the bypass switch must be turned on. Of course this is a bit confusing and probably will be changed in future GSP versions.
+The Effect and Preset Editor can modify any effect of GSP, including the Level Detector. As can be seen in the picture below, the parameters can be adjusted through slider rulers, buttons, and dropdown lists. The right and left arrows change the selected Effect present in current Chain. Note that the bypass switch is off (no effect on output) by default. In order to have the effect on output, the bypass switch must be turned on. Of course this is a bit confusing and probably will be changed in future GSP versions.
 
 <p align="center"><img src="https://raw.githubusercontent.com/Guitar-Sound-Processing/GSP/master/resources/presets.png" width="270" alt="Preset Editor"></p>
 
