@@ -22,51 +22,7 @@ On the description of the commands, the following rules apply to the parameters:
 
 ## Expression Pedal Command
 
-The Expression Pedal can be selected by the External profile in the LFFG (LFO_EXTERNAL). The effects that requires the LFFO are Chorus (chs), Phaser (phr), Tremolo (tml), Vibrato (vbt), Volume (vol) and Wahwah (wah). Note, however, that any GSP effect can be attached in chain with the Volume at its output (```>Inp->(LVD)->CMP->OVD->EQZ->VOL->Out```):is The command ```pot``` links a given effect configured with LFO_EXTERNAL profile in the [LFFG](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/LFFG.md) to an expression pedal.
-
-	pot /efc\ {rid}
-		efc 	– Effect name (wah, phr, tml, chs, vbt or vol)
-		rid 	– Potentiometer identifier number
-
-The GSP software on DS exchanges data with the External Device processor (ESP32, for instance) through serial interface using predefined commands to request and to deliver potentiometer data. Each potentiometer attached to the external processor will receive a numeric identifier based on its connection interface (GPIO). The interface identifiers are predefined by software and can’t be changed. Up to 8 identifiers can be used, numbered from 0 to 7. The link between the potentiometer identifier and the associated effect is done by the Expression Pedal ```pot``` command. 
-
-If ```rid``` is negative, disregarding its value, the effect will be unassigned from its previously attached pot. However, one has to take care to avoid sending something like -0, since negative zero has no useful meaning. If ```rid``` is absent the command is disregarded.  A given potentiometer identifier can be assigned to more than one effect on the chain, although the inverse isn’t valid.
-
-When receiving a ```pot``` request, GSP lists all the effects using [LFFG](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/LFFG.md) and their associated potentiometer identifier in the format:
-
-> ->POT Effect: *efc* | Pot ID: *k*
-
-where *efc* is the effect acronym and *k* is the associated potenciometer ID. To attach Volume in channel 5 and Wah-Wah on channel 3, the following commands must be sent:
-
-```pot vol 5```
-> ->POT Effect: PHR | Potentiometer ID: -1 <br>
-> ->POT Effect: WAH | Potentiometer ID: -1 <br>
-> ->POT Effect: CHS | Potentiometer ID: -1 <br>
-> ->POT Effect: VBT | Potentiometer ID: -1 <br>
-> ->POT Effect: TML | Potentiometer ID: -1 <br>
-> ->POT Effect: VOL | Potentiometer ID: 5 </br>
-
-```pot wah 3```
-> ->POT Effect: PHR | Potentiometer ID: -1 <br>
-> ->POT Effect: WAH | Potentiometer ID: 3 <br>
-> ->POT Effect: CHS | Potentiometer ID: -1 <br>
-> ->POT Effect: VBT | Potentiometer ID: -1 <br>
-> ->POT Effect: TML | Potentiometer ID: -1 <br>
-> ->POT Effect: VOL | Potentiometer ID: 5 </br>
-
-GSP answers to the ```pot``` command without parameters with the current list of all the effects which use LFFG with their associated potentiometer identifier:
-
-```pot```
-> ->POT Effect: PHR | Potentiometer ID: -1 <br>
-> ->POT Effect: WAH | Potentiometer ID: 3 <br>
-> ->POT Effect: CHS | Potentiometer ID: -1 <br>
-> ->POT Effect: VBT | Potentiometer ID: -1 <br>
-> ->POT Effect: TML | Potentiometer ID: -1 <br>
-> ->POT Effect: VOL | Potentiometer ID: 5 </br>
-
-The answer to the ```pot``` command is affected by the Standard Reply ```fmt``` command. If the short answer is selected, then GSP replies to any ```pot``` command by printing a single line with the current configuration
-
-> ->POT PHR -1 WAH 3 CHS -1 VBT -1 TML -1 VOL 5 
+The Expression Pedal can be selected by the External profile as 8 in the LFFG (LFO_EXTERNAL). The effects that requires the LFFG are Chorus (chs), Phaser (phr), Tremolo (tml), Vibrato (vbt), Volume (vol) and Wahwah (wah). Note, however, that the output level of any GSP effect can be controlled by the Volume effect on the chain's output (```>Inp->(LVD)->CMP->OVD->EQZ->VOL->Out```) which allows controling the output level of the chain, provided the Volume has been appropriated configured with External profile.
 
 ## Potentiometer data 
 
