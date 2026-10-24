@@ -108,7 +108,9 @@ Some examples of parameter configuration are:
 
 ```void GSP_Chorus::SetGain(float output_gain)```<br></br>
 ```void GSP_NoiseGate::SetAttackMilliSeconds(float atk_ms)```<br></br>
-```void  GSP_Overdrive::SetSustain(float sustn)```
+```void  GSP_Overdrive::SetSustain(float sustn)```<br></br>
+```void GSP_Equalizer::GetParams(float fn[])```
+
 
 The configuration parameters are dependent of the effect and may change between them. Common parameters are, for instance:
 
