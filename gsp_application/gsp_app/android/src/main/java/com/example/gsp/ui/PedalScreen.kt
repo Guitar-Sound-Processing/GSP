@@ -51,10 +51,6 @@ fun PedalScreen(
         onSendEffect(effect, false, ExpectedResponse.EFFECT) // 🔥 READ
     }
 
-    LaunchedEffect(Unit) {
-        onSendCommand("pot", ExpectedResponse.POT)
-    }
-
 //    val presets = remember(effect.id, refreshKey) {
 //        getPresets(effect.id)
 //    }

@@ -87,6 +87,16 @@ class PresetManager(private val context: Context) {
         prefs.edit { putString("chains", json) }
     }
 
+    fun savePresetsDirectly(effectId: String, presets: List<EffectPreset>) {
+        val json = formatPresetsListJson(presets)
+        prefs.edit { putString(effectId, json) }
+    }
+
+    fun saveChainsDirectly(chains: List<ChainPreset>) {
+        val json = formatChainsJson(chains)
+        prefs.edit { putString("chains", json) }
+    }
+
     fun findChain(name: String): ChainPreset? {
         return loadChains().firstOrNull { it.name == name }
     }

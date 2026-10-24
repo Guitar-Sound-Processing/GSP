@@ -47,7 +47,6 @@ fun ChainScreen(
 
     LaunchedEffect(Unit) {
         sendCommand("all", ExpectedResponse.CHAIN)
-        sendCommand("pot", ExpectedResponse.POT)
     }
 
     Column(
@@ -114,6 +113,10 @@ fun ChainScreen(
                 currentEffect?.let {
                     sendCommand("$it (-1)", ExpectedResponse.EFFECT)
                     sendCommand("all", ExpectedResponse.CHAIN)
+                    // Se estiver removendo o último efeito da cadeia, ajusta o ponteiro para o item anterior
+                    if (currentIndex >= chain.size - 1 && currentIndex > 0) {
+                        onCurrentIndexChange(currentIndex - 1)
+                    }
                 }
             },
             onInsert = { id, insertPosition ->
@@ -131,6 +134,11 @@ fun ChainScreen(
 
                 sendCommand("$id ($pos)", ExpectedResponse.EFFECT)
                 sendCommand("all", ExpectedResponse.CHAIN)
+
+                // Se inserido à direita do item atual, incrementa o ponteiro para focar no novo efeito
+                if (insertPosition > currentIndex) {
+                    onCurrentIndexChange(currentIndex + 1)
+                }
             },
             onNew = {
                 sendCommand("new", ExpectedResponse.CHAIN)
@@ -156,12 +164,7 @@ fun ChainScreen(
                 val loaded = loadChain(it)
                 if (loaded != null) {
                     loaded.forEach { cmd ->
-                        val expected = if (cmd.startsWith("pot")) {
-                            ExpectedResponse.POT
-                        } else {
-                            ExpectedResponse.EFFECT
-                        }
-                        sendCommand(cmd, expected)
+                        sendCommand(cmd, ExpectedResponse.EFFECT)
                     }
                     sendCommand("all", ExpectedResponse.CHAIN)
                     onChainNameChange(it)

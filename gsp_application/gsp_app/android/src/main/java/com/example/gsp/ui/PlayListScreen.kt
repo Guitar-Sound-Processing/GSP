@@ -201,7 +201,6 @@ fun PlayListScreen(
         ) {
             itemsIndexed(playlistSongs) { index, song ->
                 val isActive = index == activeIndex
-                val chainName = getChainName(song.chainId)
 
                 Card(
                     modifier = Modifier
@@ -241,7 +240,7 @@ fun PlayListScreen(
                                 style = MaterialTheme.typography.bodyLarge
                             )
                             Text(
-                                text = "Chain: $chainName",
+                                text = if (song.notes.isNotBlank()) "Notes: ${song.notes}" else "Notes: ---",
                                 fontSize = 13.sp,
                                 color = if (isActive) MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.75f)
                                         else Color.Gray,

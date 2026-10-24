@@ -100,6 +100,7 @@ fun ChainEditor(
             ) { Text("<") }
             EffectBox(
                 id = currentEffect,
+                positionNumber = currentIndex + 1,
                 onEditEffect = onEditEffect
             )
             Button(
@@ -220,21 +221,24 @@ fun ChainEditor(
 @Composable
 fun EffectBox(
     id: String?,
+    positionNumber: Int,
     onEditEffect: (String) -> Unit
 ) {
 
     val effect =
         getAllEffects().firstOrNull { it.id == id }
 
-    val label = when (id) {
+    val name = when (id) {
         null -> "---"
         "lvd" -> "Level Detector"
         else -> effect?.name ?: id.uppercase()
     }
 
+    val displayLabel = if (id == null) "---" else "($positionNumber) $name"
+
     Box(
         modifier = Modifier
-            .size(120.dp, 80.dp)
+            .size(130.dp, 80.dp)
             .padding(4.dp),
         contentAlignment = Alignment.Center
     ) {
@@ -249,8 +253,10 @@ fun EffectBox(
                 contentAlignment = Alignment.Center
             ) {
                 Text(
-                    text = label,
+                    text = displayLabel,
                     textAlign = TextAlign.Center,
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 15.sp,
                     modifier = Modifier.fillMaxWidth()
                 )
             }

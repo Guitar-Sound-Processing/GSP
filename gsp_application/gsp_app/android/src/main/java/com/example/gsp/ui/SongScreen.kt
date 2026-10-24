@@ -30,7 +30,7 @@ fun SongScreen(
     currentSongId: Long,
     getChainName: (Long) -> String,
     onSelectSong: (Song) -> Unit,
-    onSaveSong: (Long, String, String) -> Unit,
+    onSaveSong: (Long, String, String, String) -> Unit,
     onDeleteSong: (Long) -> Unit,
     isConnected: Boolean,
     onNavigate: (Screen) -> Unit
@@ -42,6 +42,7 @@ fun SongScreen(
     var showDialog by remember { mutableStateOf(false) }
     var editingSongId by remember { mutableStateOf(0L) }
     var inputTitle by remember { mutableStateOf("") }
+    var inputNotes by remember { mutableStateOf("") }
     var selectedChainName by remember { mutableStateOf("") }
     var dropdownExpanded by remember { mutableStateOf(false) }
 
@@ -115,6 +116,7 @@ fun SongScreen(
             onClick = {
                 editingSongId = 0L
                 inputTitle = ""
+                inputNotes = ""
                 selectedChainName = availableChains.firstOrNull() ?: ""
                 showDialog = true
             },
@@ -180,11 +182,12 @@ fun SongScreen(
                                 onClick = {
                                     editingSongId = song.id
                                     inputTitle = song.title
+                                    inputNotes = song.notes
                                     selectedChainName = linkedChainName
                                     showDialog = true
                                 },
                                 modifier = Modifier.size(36.dp)
-                                ) {
+                            ) {
                                 Icon(Icons.Default.Edit, contentDescription = "Edit", tint = MaterialTheme.colorScheme.primary, modifier = Modifier.size(20.dp))
                             }
                             IconButton(
@@ -213,14 +216,21 @@ fun SongScreen(
             },
             text = {
                 Column(
-                    modifier = Modifier
-                        .fillMaxWidth(),
+                    modifier = Modifier.fillMaxWidth(),
                     verticalArrangement = Arrangement.spacedBy(10.dp)
                 ) {
                     OutlinedTextField(
                         value = inputTitle,
                         onValueChange = { inputTitle = it },
                         label = { Text("Song Title") },
+                        modifier = Modifier.fillMaxWidth(),
+                        singleLine = true
+                    )
+
+                    OutlinedTextField(
+                        value = inputNotes,
+                        onValueChange = { inputNotes = it },
+                        label = { Text("Notes") },
                         modifier = Modifier.fillMaxWidth(),
                         singleLine = true
                     )
@@ -258,7 +268,7 @@ fun SongScreen(
                 Button(
                     onClick = {
                         if (inputTitle.isNotBlank()) {
-                            onSaveSong(editingSongId, inputTitle, selectedChainName)
+                            onSaveSong(editingSongId, inputTitle, selectedChainName, inputNotes)
                             showDialog = false
                         }
                     }

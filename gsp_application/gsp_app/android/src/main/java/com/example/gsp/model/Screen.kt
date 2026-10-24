@@ -5,5 +5,6 @@ enum class Screen {
     CHAINS,
     SONGS,
     PLAYLISTS,
-    EXPEDALS
+    EXPEDALS,
+    BACKUP
 }

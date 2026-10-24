@@ -2,15 +2,22 @@ package com.example.gsp
 
 import android.annotation.SuppressLint
 import android.bluetooth.BluetoothManager
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
-import androidx.compose.runtime.*
 import androidx.compose.foundation.layout.Column
-import com.example.gsp.model.Screen
+import androidx.compose.runtime.*
+import androidx.core.content.FileProvider
 import com.example.gsp.bluetooth.BluetoothService
 import com.example.gsp.model.ExpectedResponse
+import com.example.gsp.model.Screen
+import com.example.gsp.storage.BackupManager
+import com.example.gsp.storage.GspBackupData
+import com.example.gsp.ui.BackupScreen
 import com.example.gsp.ui.ChainScreen
 import com.example.gsp.ui.ExpPedalScreen
 import com.example.gsp.ui.PedalScreen
@@ -18,11 +25,89 @@ import com.example.gsp.ui.PlayListScreen
 import com.example.gsp.ui.SongScreen
 import com.example.gsp.ui.TopBar
 import com.example.gsp.viewmodel.MainViewModel
+import java.io.File
 
 class MainActivity : ComponentActivity() {
 
     private lateinit var bluetoothService: BluetoothService
     private val viewModel: MainViewModel by viewModels()
+
+    private var pendingImportData by mutableStateOf<GspBackupData?>(null)
+    private var importErrorMessage by mutableStateOf<String?>(null)
+
+    // Launcher 1: Export Backup File (CreateDocument)
+    private val exportFileLauncher = registerForActivityResult(
+        ActivityResultContracts.CreateDocument("application/json")
+    ) { uri: Uri? ->
+        if (uri != null) {
+            try {
+                val backupManager = BackupManager(this)
+                val jsonString = backupManager.createBackupJson()
+                contentResolver.openOutputStream(uri)?.use { os ->
+                    os.write(jsonString.toByteArray())
+                }
+                viewModel.addLog("Backup saved successfully")
+            } catch (e: Exception) {
+                e.printStackTrace()
+                viewModel.addLog("Error saving backup: ${e.message}")
+            }
+        }
+    }
+
+    // Launcher 2: Select Import File (GetContent)
+    private val importFileLauncher = registerForActivityResult(
+        ActivityResultContracts.GetContent()
+    ) { uri: Uri? ->
+        if (uri != null) {
+            try {
+                val jsonString = contentResolver.openInputStream(uri)?.bufferedReader()?.use { it.readText() } ?: ""
+                val backupManager = BackupManager(this)
+                val parseResult = backupManager.parseBackupJson(jsonString)
+                if (parseResult.data != null) {
+                    pendingImportData = parseResult.data
+                    importErrorMessage = null
+                    viewModel.addLog("Backup file read successfully")
+                } else {
+                    pendingImportData = null
+                    importErrorMessage = parseResult.errorMessage ?: "Failed to parse JSON file"
+                    viewModel.addLog("Import error: $importErrorMessage")
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+                pendingImportData = null
+                importErrorMessage = "Error reading file: ${e.localizedMessage ?: e.message}"
+                viewModel.addLog("Error reading import file: ${e.message}")
+            }
+        }
+    }
+
+    private fun shareBackupFile() {
+        try {
+            val backupManager = BackupManager(this)
+            val jsonString = backupManager.createBackupJson()
+            val cacheFile = File(cacheDir, "gsp_backup.json")
+            cacheFile.writeText(jsonString)
+
+            val fileUri: Uri = FileProvider.getUriForFile(
+                this,
+                "$packageName.provider",
+                cacheFile
+            )
+
+            val sendIntent = Intent(Intent.ACTION_SEND).apply {
+                type = "application/json"
+                putExtra(Intent.EXTRA_STREAM, fileUri)
+                addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            }
+            val shareIntent = Intent.createChooser(sendIntent, "Share GSP Backup").apply {
+                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            }
+            startActivity(shareIntent)
+        } catch (e: Exception) {
+            e.printStackTrace()
+            viewModel.addLog("Error sharing backup: ${e.message}")
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,15 +146,19 @@ class MainActivity : ComponentActivity() {
             // 🎛️ Main UI
             Column {
 
-                // 🔝 TopBar
+                // 🔝 TopBar (5 ícones com destaque do item ativo)
                 TopBar(
                     isConnected = isConnected,
+                    currentScreen = currentScreen,
                     onPresets = { currentScreen = Screen.PRESETS },
                     onChains = { currentScreen = Screen.CHAINS },
                     onSongs = { currentScreen = Screen.SONGS },
                     onPlaylists = {
                         viewModel.loadActivePlaylistFromStorage()
                         currentScreen = Screen.PLAYLISTS
+                    },
+                    onBackup = {
+                        currentScreen = Screen.BACKUP
                     }
                 )
 
@@ -109,7 +198,7 @@ class MainActivity : ComponentActivity() {
                         currentSongId = viewModel.currentSongId,
                         getChainName = { id -> viewModel.getChainNameById(id) },
                         onSelectSong = { song -> viewModel.selectAndTransmitSong(song) },
-                        onSaveSong = { id, title, chainName -> viewModel.saveSong(id, title, chainName) },
+                        onSaveSong = { id, title, chainName, notes -> viewModel.saveSong(id, title, chainName, notes) },
                         onDeleteSong = { id -> viewModel.deleteSong(id) },
                         isConnected = isConnected,
                         onNavigate = { currentScreen = it }
@@ -144,7 +233,7 @@ class MainActivity : ComponentActivity() {
                     )
 
                     Screen.PRESETS -> PedalScreen(
-                        effects = viewModel.effects,
+                        effects = viewModel.getActiveChainEffects(),
                         currentIndex = viewModel.currentEffectIndex,
                         onNext = { viewModel.nextEffect() },
                         onPrev = { viewModel.prevEffect() },
@@ -152,10 +241,6 @@ class MainActivity : ComponentActivity() {
                         onSendEffect = { effect, write, expected ->
                             val cmd = viewModel.buildCommand(effect, write)
                             viewModel.sendCommand(cmd, expected)
-                            val potCmd = viewModel.buildPotCommand(effect)
-                            if (potCmd != null) {
-                                viewModel.sendCommand(potCmd, ExpectedResponse.POT)
-                            }
                         },
                         onSendCommand = { cmd, expected ->
                             viewModel.sendCommand(cmd, expected)
@@ -193,6 +278,29 @@ class MainActivity : ComponentActivity() {
                             viewModel.sendCommand(cmd, expected)
                         },
                         isConnected = isConnected,
+                        onNavigate = { currentScreen = it }
+                    )
+
+                    Screen.BACKUP -> BackupScreen(
+                        isConnected = isConnected,
+                        onExportFile = { exportFileLauncher.launch("gsp_backup.json") },
+                        onShareBackup = { shareBackupFile() },
+                        onPickImportFile = { importFileLauncher.launch("application/json") },
+                        pendingImportData = pendingImportData,
+                        importErrorMessage = importErrorMessage,
+                        onConfirmImport = { data, mode ->
+                            val backupManager = BackupManager(this@MainActivity)
+                            backupManager.restoreBackup(data, mode)
+                            viewModel.refreshAllDataFromStorage()
+                            pendingImportData = null
+                            importErrorMessage = null
+                            viewModel.addLog("Backup imported successfully")
+                        },
+                        onCancelImport = {
+                            pendingImportData = null
+                            importErrorMessage = null
+                        },
+                        logText = viewModel.logText,
                         onNavigate = { currentScreen = it }
                     )
                 }

@@ -31,7 +31,7 @@ data class LfoParameter(
             true,  // Square
             true,  // Exp Desc
             true,  // Exp Asc
-            false, // Expression Pedal 🔥
+            true,  // Expression Pedal
             false, // Power Level
             false  // Reverse Power Level
         )
@@ -42,10 +42,10 @@ data class LfoParameter(
             false, // Ramp
             false, // Saw
             false, // Triangle
-            true,  // Square 🔥
+            true,  // Square
             true,  // Exp Desc
             true,  // Exp Asc
-            false, // Expression Pedal 🔥
+            true,  // Expression Pedal
             false, // Power Level
             false  // Reverse Power Level
         )

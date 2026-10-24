@@ -11,6 +11,7 @@ import com.example.gsp.model.Effect
 import com.example.gsp.model.EffectParameter
 import com.example.gsp.model.LfoParameter
 import com.example.gsp.storage.EffectPreset
+import java.util.Locale
 import kotlin.math.roundToInt
 
 @Composable
@@ -212,16 +213,18 @@ fun EffectEditor(
                                     ) {
                                         (0..7).forEach { ch ->
                                             DropdownMenuItem(
-                                                text = { Text(ch.toString()) },
+                                                text = { Text("Channel $ch") },
                                                 onClick = {
-                                                    println("PEDAL SELECTED = $ch")
                                                     pedalExpanded = false
+                                                    val freqParam = lfo.frequency.copy(
+                                                        value = lfo.frequency.fromMappedValue(ch.toFloat())
+                                                    )
                                                     val updated = param.copy(
                                                         lfo = lfo.copy(
-                                                            pedalChannel = ch
+                                                            pedalChannel = ch,
+                                                            frequency = freqParam
                                                         )
                                                     )
-                                                    println("pedalChannel = ${updated.lfo?.pedalChannel}")
                                                     onParamChange(index, updated, true)
                                                 }
                                             )
@@ -232,13 +235,13 @@ fun EffectEditor(
 
                             Spacer(modifier = Modifier.height(8.dp))
                             val waveform = lfo.waveform
-                            val showFrequency = LfoParameter.hasFrequency[waveform]
-                            val showDuty = LfoParameter.hasDuty[waveform]
+                            val isExpPedal = lfo.waveformName() == "Express Pedal"
+                            val showFrequency = LfoParameter.hasFrequency.getOrElse(waveform) { false } && !isExpPedal
+                            val showDuty = LfoParameter.hasDuty.getOrElse(waveform) { false } && !isExpPedal
 
-                            // 🎚️ FREQUENCY
-                            if(showFrequency) {
-                                Text("Frequency: ${"%.2f".format(lfo.frequency.toSliderValue())} Hz")
-                                //Text("Frequency: ${"%.2f".format(lfo.frequency)} Hz")
+                            // 🎚️ FREQUENCY (Apenas para waveforms normais)
+                            if (showFrequency) {
+                                Text("Frequency: ${String.format(Locale.US, "%.2f", lfo.frequency.toSliderValue())} Hz")
                                 Slider(
                                     value = lfo.frequency.value,
                                     onValueChange = { newValue ->
@@ -266,9 +269,41 @@ fun EffectEditor(
                                     valueRange = 0f..1f
                                 )
                             }
-                            // 🎚️ DUTY
-                            if(showDuty) {
+
+                            // 🎚️ DUTY (Apenas para waveforms normais)
+                            if (showDuty) {
                                 Text("Duty: ${(lfo.dutyCycle.value * 100).toInt()} %")
+                                Slider(
+                                    value = lfo.dutyCycle.value,
+                                    onValueChange = { newValue ->
+                                        val updated = param.copy(
+                                            lfo = LfoParameter(
+                                                waveform = lfo.waveform,
+                                                frequency = lfo.frequency,
+                                                dutyCycle = lfo.dutyCycle.copy(value = newValue),
+                                                pedalChannel = lfo.pedalChannel
+                                            )
+                                        )
+                                        onParamChange(index, updated, false)
+                                    },
+                                    onValueChangeFinished = {
+                                        val updated = param.copy(
+                                            lfo = LfoParameter(
+                                                waveform = lfo.waveform,
+                                                frequency = lfo.frequency,
+                                                dutyCycle = lfo.dutyCycle,
+                                                pedalChannel = lfo.pedalChannel
+                                            )
+                                        )
+                                        onParamChange(index, updated, true)
+                                    },
+                                    valueRange = 0f..1f
+                                )
+                            }
+
+                            // 🎚️ THRESHOLD (Apenas para Express Pedal)
+                            if (isExpPedal) {
+                                Text("Threshold: ${(lfo.dutyCycle.value * 100).toInt()} %")
                                 Slider(
                                     value = lfo.dutyCycle.value,
                                     onValueChange = { newValue ->

@@ -2,17 +2,14 @@ package com.example.gsp.viewmodel
 
 import com.example.gsp.model.Effect
 import com.example.gsp.model.EffectParameter
-import com.example.gsp.model.LfoParameter
 import java.util.Locale
 
 object DaisyProtocolHandler {
 
     // Constantes do Protocolo de Comunicação
-    const val PREFIX_POT = "->POT"
     const val PREFIX_INBOUND = "->"
     const val CMD_CLEAR = "clr"
     const val CMD_LVD = "lvd"
-    const val CMD_POT = "pot"
     const val DEFAULT_CHAIN_NAME = "No Chain"
 
     /**
@@ -55,53 +52,10 @@ object DaisyProtocolHandler {
     }
 
     /**
-     * Constrói o comando para o pedal de expressão (POT).
-     */
-    fun buildPotCommand(effect: Effect): String? {
-        val lfo = effect.parameters
-            .firstOrNull { it.lfo != null }
-            ?.lfo ?: return null
-
-        if (lfo.waveformName() != "Express Pedal" || lfo.pedalChannel < 0) {
-            return null
-        }
-        return "$CMD_POT ${effect.id} ${lfo.pedalChannel}"
-    }
-
-    /**
-     * Decodifica mensagens do tipo POT recebidas do Daisy Seed.
-     */
-    fun parsePot(msg: String): Map<String, Int>? {
-        if (!msg.startsWith(PREFIX_POT)) {
-            return null
-        }
-        val parts = msg
-            .removePrefix(PREFIX_POT)
-            .trim()
-            .split(" ")
-            .filter { it.isNotBlank() }
-
-        if (parts.isEmpty()) {
-            return emptyMap()
-        }
-        val result = mutableMapOf<String, Int>()
-        var i = 0
-        while (i + 1 < parts.size) {
-            val id = parts[i].lowercase()
-            val channel = parts[i + 1].toIntOrNull()
-            if (channel != null) {
-                result[id] = channel
-            }
-            i += 2
-        }
-        return result
-    }
-
-    /**
      * Decodifica mensagens de atualização de parâmetros de efeitos enviadas pelo Daisy Seed.
      */
     fun parseMessage(msg: String): Triple<String, Pair<Int, Boolean>, List<Float>>? {
-        if (!msg.startsWith(PREFIX_INBOUND) || msg.startsWith(PREFIX_POT)) {
+        if (!msg.startsWith(PREFIX_INBOUND)) {
             return null
         }
         val clean = msg

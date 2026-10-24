@@ -139,12 +139,25 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     // =====================================================================
     // EFFECT NAVIGATION
     // =====================================================================
+    fun getActiveChainEffects(): List<Effect> {
+        val filtered = chainState.mapNotNull { id ->
+            effects.firstOrNull { it.id.equals(id, ignoreCase = true) }
+        }
+        return if (filtered.isNotEmpty()) filtered else effects
+    }
+
     fun nextEffect() {
-        currentEffectIndex = (currentEffectIndex + 1) % effects.size
+        val activeList = getActiveChainEffects()
+        if (activeList.isNotEmpty()) {
+            currentEffectIndex = (currentEffectIndex + 1) % activeList.size
+        }
     }
 
     fun prevEffect() {
-        currentEffectIndex = (currentEffectIndex - 1 + effects.size) % effects.size
+        val activeList = getActiveChainEffects()
+        if (activeList.isNotEmpty()) {
+            currentEffectIndex = if (currentEffectIndex <= 0) activeList.size - 1 else currentEffectIndex - 1
+        }
     }
 
     fun updateEffect(updated: Effect) {
@@ -216,28 +229,10 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     // =====================================================================
-    // EXPRESSION PEDAL
+    // EXPRESSION PEDAL / COMMAND BUILDING
     // =====================================================================
     fun buildCommand(effect: Effect, write: Boolean): String {
         return DaisyProtocolHandler.buildCommand(effect, write)
-    }
-
-    fun buildPotCommand(effect: Effect): String? {
-        return DaisyProtocolHandler.buildPotCommand(effect)
-    }
-
-    fun updatePedalChannels(channels: Map<String, Int>) {
-        effects = effects.map { effect ->
-            val channel = channels[effect.id] ?: return@map effect
-            val updatedParams = effect.parameters.map { param ->
-                if (param.type == EffectParameter.ParamType.LFO && param.lfo != null) {
-                    param.copy(lfo = param.lfo.copy(pedalChannel = channel))
-                } else {
-                    param
-                }
-            }
-            effect.copy(parameters = updatedParams)
-        }
     }
 
     // =====================================================================
@@ -313,10 +308,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             }
         }
         
-        effectsInChain.forEach { effect ->
-            DaisyProtocolHandler.buildPotCommand(effect)?.let { commands.add(it) }
-        }
-
         val preset = chainManager.saveChain(name = name, commands = commands)
         currentChainId = preset.id
         currentChainName = preset.name
@@ -360,13 +351,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                     )
                 }
             }
-            ExpectedResponse.POT -> {
-                val channels = DaisyProtocolHandler.parsePot(msg)
-                if (channels != null) {
-                    updatePedalChannels(channels)
-                    println("POT PARSED = $channels")
-                }
-            }
             ExpectedResponse.NONE -> return
             null -> println("Unknown DS reply: $msg")
             else -> println("Unknown DS reply: $msg")
@@ -377,10 +361,9 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     // SELECT EFFECT
     // =====================================================================
     fun selectEffectById(id: String) {
-        val idx = effects.indexOfFirst { it.id == id }
-        if (idx >= 0) {
-            currentEffectIndex = idx
-        }
+        val activeList = getActiveChainEffects()
+        val idx = activeList.indexOfFirst { it.id.equals(id, ignoreCase = true) }
+        currentEffectIndex = if (idx >= 0) idx else 0
     }
 
     // =====================================================================
@@ -390,7 +373,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         songsList = songManager.loadSongs()
     }
 
-    fun saveSong(id: Long, title: String, chainName: String) {
+    fun saveSong(id: Long, title: String, chainName: String, notes: String = "") {
         val songId = if (id == 0L) {
             (songsList.maxOfOrNull { it.id } ?: 0L) + 1L
         } else {
@@ -400,7 +383,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         // Busca o ID da cadeia pelo nome fornecido
         val chainId = chainManager.findByName(chainName)?.id ?: -1L
         
-        val song = Song(id = songId, title = title, chainId = chainId)
+        val song = Song(title = title, notes = notes, id = songId, chainId = chainId)
         songManager.saveSong(song)
         loadSongsFromStorage() // Atualiza a lista de músicas
         loadActivePlaylistFromStorage() // Atualiza os títulos e dados das músicas na playlist ativa
@@ -429,12 +412,16 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             
             // Transmite todos os comandos gravados da cadeia sequencialmente
             chainPreset.commands.forEach { cmd ->
-                val expected = if (cmd.startsWith("pot")) ExpectedResponse.POT else ExpectedResponse.EFFECT
-                sendCommand(cmd, expected)
+                sendCommand(cmd, ExpectedResponse.EFFECT)
             }
             // Solicita a confirmação do estado atual da cadeia ao Daisy Seed
             sendCommand("all", ExpectedResponse.CHAIN)
         }
+    }
+
+    fun refreshAllDataFromStorage() {
+        loadSongsFromStorage()
+        loadActivePlaylistFromStorage()
     }
 
     // =====================================================================

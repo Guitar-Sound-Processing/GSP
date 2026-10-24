@@ -65,6 +65,15 @@ class SongManager(
     }
 
     /*
+     * Salva uma lista completa de músicas diretamente.
+     */
+    fun saveSongsDirectly(songs: List<Song>) {
+        prefs.edit {
+            putString("songs", formatSongsJson(songs))
+        }
+    }
+
+    /*
      * Procura uma música pelo ID.
      */
     fun findSong(id: Long): Song? {
