@@ -168,55 +168,114 @@ int32_t GSP_Chorus::Process(int32_t sampl, uint32_t buffer_pointer)
 void GSP_Chorus::Printout(uint8_t out_list, int32_t chn_pos, char *printout)
 {
 
+    //char *  percent;
+
 	if (type_ == CHORUS)
 	{
         if (out_list == 0)
         {
-		    sprintf(printout, 
-    		"->CHS (%ld): OFF(0)|ON(1) %d "
-	    	"| Depth (0.1-100)(ms): %-.1f "
-		    "| Delay (0-1000)(ms): %-.1f "
-    		"| Mixer (0-1): %-.3f "
-        	"| Profile: (0-10) %d "
-    	    "| Frequency (0.2-5)(Hz): %-.3f "
-        	"| Duty Cycle (0-100)(%%): %-.1f "
-	    	"| Gain (0-1): %-4.3f\n", 
-		    chn_pos, state, depth, delay_ms, mixer,
-    		lfo.profile, 1000./(float)lfo.period, lfo.duty, 
-	    	gain);
+            if (lfo.profile == LFO_EXTERNAL)
+            {
+    		    sprintf(printout, 
+        		"->CHS (%ld): OFF(0)|ON(1) %d "
+	        	"| Depth (0.1-100)(ms): %-.1f "
+		        "| Delay (0-1000)(ms): %-.1f "
+        		"| Mixer (0-1): %-.3f "
+            	"| Profile: (0-10) %d "
+    	        "| Channel (0-100): %d "
+            	"| Threshold (0-100)(%%): %-.1f "
+	        	"| Gain (0-1): %-4.3f\n", 
+		        chn_pos, state, depth, delay_ms, mixer,
+    		    lfo.profile, lfo.channel, lfo.duty, 
+	    	    gain);
+            }
+            else
+            {
+    		    sprintf(printout, 
+        		"->CHS (%ld): OFF(0)|ON(1) %d "
+	        	"| Depth (0.1-100)(ms): %-.1f "
+		        "| Delay (0-1000)(ms): %-.1f "
+        		"| Mixer (0-1): %-.3f "
+            	"| Profile: (0-10) %d "
+    	        "| Frequency (0.2-5)(Hz): %-.3f "
+        	    "| Duty Cycle (0-100)(%%): %-.1f "
+    	    	"| Gain (0-1): %-4.3f\n", 
+	    	    chn_pos, state, depth, delay_ms, mixer,
+    	    	lfo.profile, 1000./(float)lfo.period, lfo.duty, 
+	    	    gain);
+            }
         }
         if (out_list == 1)
         {
-		    sprintf(printout, 
-    		"->CHS (%ld) %d %-.1f %-.1f %-.3f %d %-.3f %-.1f %-4.3f\n", 
-		    chn_pos, state, depth, delay_ms, mixer,
-    		lfo.profile, 1000./(float)lfo.period, lfo.duty, 
-	    	gain);
+            if (lfo.profile == LFO_EXTERNAL)
+            {
+		        sprintf(printout, 
+    		    "->CHS (%ld) %d %-.1f %-.1f %-.3f %d %d %-.1f %-4.3f\n", 
+		        chn_pos, state, depth, delay_ms, mixer,
+    		    lfo.profile, lfo.channel, lfo.duty, 
+	    	    gain);
+            }
+            else
+            {
+		        sprintf(printout, 
+    		    "->CHS (%ld) %d %-.1f %-.1f %-.3f %d %-.3f %-.1f %-4.3f\n", 
+		        chn_pos, state, depth, delay_ms, mixer,
+    		    lfo.profile, 1000./(float)lfo.period, lfo.duty, 
+	    	    gain);
+            }
         }
 	}
 	if (type_ == VIBRATO)
 	{
         if (out_list == 0)
         {
-		    sprintf(printout, 
-    		"->VBT (%ld): OFF(0)|ON(1) %d "
-	    	"| Depth (0.1-100)(ms): %-.1f "
-		    "| Delay (0-1000)(ms): %-.1f "
-        	"| Profile: (0-10) %d "
-        	"| Frequency (0.2-5)(Hz): %-.3f "
-    	    "| Duty Cycle (0-100)(%%): %-.1f "
-    		"| Gain (0-1): %-.3f\n", 
-	    	chn_pos, state, depth, delay_ms,
-		    lfo.profile, 1000./(float)lfo.period, lfo.duty, 
-    		gain);
+            if (lfo.profile == LFO_EXTERNAL)
+            {
+    		    sprintf(printout, 
+        		"->VBT (%ld): OFF(0)|ON(1) %d "
+	        	"| Depth (0.1-100)(ms): %-.1f "
+		        "| Delay (0-1000)(ms): %-.1f "
+            	"| Profile: (0-10) %d "
+    	        "| Channel (0-100): %d "
+            	"| Threshold (0-100)(%%): %-.1f "
+	        	"| Gain (0-1): %-4.3f\n", 
+		        chn_pos, state, depth, delay_ms,
+    		    lfo.profile, lfo.channel, lfo.duty, 
+	    	    gain);
+            }
+            else
+            {
+		        sprintf(printout, 
+    		    "->VBT (%ld): OFF(0)|ON(1) %d "
+    	    	"| Depth (0.1-100)(ms): %-.1f "
+	    	    "| Delay (0-1000)(ms): %-.1f "
+            	"| Profile: (0-10) %d "
+              	"| Frequency (0.2-5)(Hz): %-.3f "
+    	        "| Duty Cycle (0-100)(%%): %-.1f "
+        		"| Gain (0-1): %-.3f\n", 
+	        	chn_pos, state, depth, delay_ms,
+		        lfo.profile, 1000./(float)lfo.period, lfo.duty, 
+        		gain);
+            }
         }
         if (out_list == 1)
         {
-		    sprintf(printout, 
-    		"->VBT (%ld) %d %-.1f %-.1f %d %-.3f %-.1f %-.3f\n", 
-	    	chn_pos, state, depth, delay_ms,
-		    lfo.profile, 1000./(float)lfo.period, lfo.duty, 
-    		gain);
+            if (lfo.profile == LFO_EXTERNAL)
+            {
+		        sprintf(printout, 
+    		    "->VBT (%ld) %d %-.1f %-.1f %d %d %-.1f %-4.3f\n", 
+		        chn_pos, state, depth, delay_ms,
+    		    lfo.profile, lfo.channel, lfo.duty, 
+	    	    gain);
+             }
+             else
+             {
+    		    sprintf(printout, 
+        		"->VBT (%ld) %d %-.1f %-.1f %d %-.3f %-.1f %-.3f\n", 
+	        	chn_pos, state, depth, delay_ms,
+		        lfo.profile, 1000./(float)lfo.period, lfo.duty, 
+        		gain);
+            }
         }
 	}
 	
@@ -229,21 +288,43 @@ void GSP_Chorus::GetParams(float fn[])
 	fn[0]   = state;
 	fn[1]   = depth;
 	fn[2]   = delay_ms;
-	if(type_ == CHORUS)
-	{
-		fn[3]   = mixer;
-		fn[4]   = lfo.profile;
-		fn[5]   = 1000./(float)lfo.period;
-		fn[6]   = lfo.duty;
-		fn[7]   = gain;
-	}
-	if (type_ == VIBRATO)
-	{
-		fn[3]   = lfo.profile;
-		fn[4]   = 1000./(float)lfo.period;
-		fn[5]   = lfo.duty;
-		fn[6]   = gain;
-	}
+    if (lfo.profile == LFO_EXTERNAL)
+    {
+	    if(type_ == CHORUS)
+	    {
+            fn[3]   = mixer;
+    		fn[4]   = lfo.profile;
+	    	fn[5]   = lfo.channel;
+		    fn[6]   = lfo.duty;
+    		fn[7]   = gain;
+	    }
+    	if (type_ == VIBRATO)
+	    {
+		    fn[3]   = lfo.profile;
+	    	fn[4]   = lfo.channel;
+	    	fn[5]   = lfo.duty;
+		    fn[6]   = gain;
+    	}
+    }
+    else
+    {
+	    if(type_ == CHORUS)
+	    {
+            fn[3]   = mixer;
+    		fn[4]   = lfo.profile;
+	    	fn[5]   = 1000./(float)lfo.period;
+		    fn[6]   = lfo.duty;
+    		fn[7]   = gain;
+	    }
+    	if (type_ == VIBRATO)
+	    {
+		    fn[3]   = lfo.profile;
+    		fn[4]   = 1000./(float)lfo.period;
+	    	fn[5]   = lfo.duty;
+		    fn[6]   = gain;
+    	}
+    }
+
 	
 	return;
 }
