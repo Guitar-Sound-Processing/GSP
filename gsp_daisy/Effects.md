@@ -94,9 +94,11 @@ Duplicates the signal with changes in pitch drove by a [LFFG](https://github.com
 		lfo.duty	– LFFG Duty cycle or Expression Pedal Threshold for lfo.profile = 8 (LFO_EXTERNAL)
 		gain 		– Gain
 
-Default:
+Default*:
 
-> ->CHS (8): OFF(0)|ON(1) 0 | Depth (0.1-100)(ms): 5.0 | Delay (0-1000)(ms): 1.0 | Mixer (0-1): 0.500 | Profile: (0-10) 0 | Frequency (0.2-5)(Hz): 0.500 | Duty Cycle (0-100)(): 50.0 | Gain (0-1): 1.000
+> ->CHS (8): OFF(0)|ON(1) 0 | Depth (0.1-100)(ms): 5.0 | Delay (0-1000)(ms): 1.0 | Mixer (0-1): 0.500 | Profile: (0-10) 0 | Frequency (0.2-5)(Hz): 0.500 | Duty Cycle (0-100)(%): 50.0 | Gain (0-1): 1.000
+
+*Note: Current version of libDaisy does not print the character "%" through USB, as signilized in Duty Cycle, although it is correctly sent by serial lines.
 
 ### <h3 id="efccmp">Compressor:</h3>
 
