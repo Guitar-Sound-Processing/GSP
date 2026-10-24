@@ -22,7 +22,7 @@ On the description of the commands, the following rules apply to the parameters:
 
 ## Expression Pedal Command
 
-The command ```pot``` links a given effect configured with LFO_EXTERNAL profile in the [LFFG](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/LFFG.md) to an expression pedal.
+The Expression Pedal can be selected by the External profile in the LFFG (LFO_EXTERNAL). The effects that requires the LFFO are Chorus (chs), Phaser (phr), Tremolo (tml), Vibrato (vbt), Volume (vol) and Wahwah (wah). Note, however, that any GSP effect can be attached in chain with the Volume at its output (```>Inp->(LVD)->CMP->OVD->EQZ->VOL->Out```):is The command ```pot``` links a given effect configured with LFO_EXTERNAL profile in the [LFFG](https://github.com/Guitar-Sound-Processing/GSP/blob/main/gsp_daisy/LFFG.md) to an expression pedal.
 
 	pot /efc\ {rid}
 		efc 	– Effect name (wah, phr, tml, chs, vbt or vol)
