@@ -108,9 +108,7 @@ Some examples of parameter configuration are:
 
 ```void GSP_Chorus::SetGain(float output_gain)```<br></br>
 ```void GSP_NoiseGate::SetAttackMilliSeconds(float atk_ms)```<br></br>
-```void  GSP_Overdrive::SetSustain(float sustn)```<br></br>
-```void GSP_Equalizer::GetParams(float fn[])```
-
+```void  GSP_Overdrive::SetSustain(float sustn)```
 
 The configuration parameters are dependent of the effect and may change between them. Common parameters are, for instance:
 
@@ -129,6 +127,9 @@ There are three methods to store and to retrieve several effect parameters at on
 	void GSP_\EffectName\::Printout(uint8_t out_list, int32_t chn_pos, char *printout)
 	void GSP_\EffectName\::GetParams(float fn[])
 	void GSP_\EffectName\::SetParams(float fn[])
+
+Example:
+```void GSP_Equalizer::GetParams(float fn[])```
 
 The Printout method writes all the effect parameters in the output buffer ```*printout``` in ASCII format (maximum 250 characters), according to the standard output format, like the normal (long) form :
 
