@@ -90,8 +90,8 @@ Duplicates the signal with changes in pitch drove by a [LFFG](https://github.com
 		delay_ms 	– Delay (milliseconds)
 		mixer 		– Mixer
 		lfo.profile 	– LFFG Profile
-		lfo.freq 	– LFFG Frequency (Hz) or Expression Pedal channel
-		lfo.duty	– LFFG Duty cycle or Expression Pedal threshold
+		lfo.freq 	– LFFG Frequency (Hz) or Expression Pedal channel for lfo.profile = 8 (LFO_EXTERNAL)
+		lfo.duty	– LFFG Duty cycle or Expression Pedal threshold for lfo.profile = 8 (LFO_EXTERNAL)
 		gain 		– Gain
 
 Default:
