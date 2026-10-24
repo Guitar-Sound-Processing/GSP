@@ -2,8 +2,7 @@
 #ifndef GSP_TREMOLO
 #define GSP_TREMOLO
 
-#include "../guitar_dsp.h"
-#include "../LFFG/lfo.h"
+#include "lfo.h"
 
 class GSP_Tremolo
 {
