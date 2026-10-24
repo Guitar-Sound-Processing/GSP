@@ -35,7 +35,7 @@ As in the Preset Editor, the buttons Add, Save, Load and Delete (Del) buttons re
 
 ### Important note
 
-Although GSP can store Presets for any effect, the Chain sequence to be sent to Daisy Seed does not use any stored Preset. That does not mean that the stored presets are useless. For instance, if a hard distortion is stored in the preset HardOverdrive, and this preset has to be included in chain MyChainA, then one must select the Distortion effect on the central box on the Chain Editor, and select (click over) the central box to go to the Preset Editor. After that, load the HardOverdrive preset, then return to Chain Editor and save it. The Chain Editor always saves the current configuration of any effect present in Chain.
+Although GSP can store Presets for any effect, the Chain sequence to be sent to Daisy Seed does not use any stored Preset. That does not mean that the stored presets are useless. For instance, if a hard distortion is stored in the preset HardOverdrive, and this preset has to be included in chain MyChainA, then one must select the Overdrive effect on the central box on the Chain Editor, and select (click over) the central box to go to the Preset Editor. After that, load the HardOverdrive preset, then return to Chain Editor and save it. The Chain Editor always saves the current configuration of any effect present in Chain.
 
 ## Song Editor
 
