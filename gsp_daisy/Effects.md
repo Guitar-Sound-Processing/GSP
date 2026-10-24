@@ -34,7 +34,7 @@ since ```“ovf”``` isn’t a valid command.
 4. If *c* is negative then the absolute value is disregarded and the effect will be removed from chain. The remaining effects in chain are shifted to left to fulfill the blank position.
 5. if *c* is ommited (but not the parenthesis) or if it is just a plus sign ```(+)``` the effect will be positioned at entrance. 
 
-## Switch parameter
+## <h2 id="efcswitch">Switch parameter
 
 The *s* Switch parameter indicates the activation or deactivation (by-pass) of the selected effect, such that 0 (zero) means by-pass and 1 (one) means effect activation. The by-pass switch does not remove the effect from chain, but it remains disabled at the same chain position.
 
