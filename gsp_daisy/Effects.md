@@ -323,8 +323,8 @@ Changes the input level based on a [LFFG](https://github.com/Guitar-Sound-Proces
 
 	vol [([+][-]c)] s lfo.profile lfo.freq lfo.duty gain
 		lfo.profile 	– LFFG Profile
-		lfo.freq 	– LFFG Frequency (Hz) or Expression Pedal channel
-		lfo.duty	– LFFG Duty cycle or Expression Pedal threshold
+		lfo.freq 	– LFFG Frequency (Hz) or Expression Pedal Channel for lfo.profile = 8 (LFO_EXTERNAL)
+		lfo.duty	– LFFG Duty cycle or Expression Pedal Threshold for lfo.profile = 8 (LFO_EXTERNAL)
 		gain 		– Gain
 
 Default:
