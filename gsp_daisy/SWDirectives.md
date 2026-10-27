@@ -1,5 +1,5 @@
 # Effect Software Directives
-
+$$ \int D(x, x') \psi(x') dx' = \frac{d\psi}{dx} $$
 There are a small set of rules regarding software coding for effect support. All effects shall be coded in C++ classes. 
 
 ## Standard headers
