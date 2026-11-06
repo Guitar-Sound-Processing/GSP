@@ -75,7 +75,7 @@ in which 51 = 3 + 48 and 53 = 5 + 48. After receiving the enable command ```S```
 
 	P<50><P3_lsb><P3_msb><P5_lsb><P5_msb>\n
 
-such that 50 = 2 data field + 48
+such that 50 = 2 data field + 48.
 
 ### Command C
 
