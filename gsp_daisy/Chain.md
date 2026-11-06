@@ -19,8 +19,10 @@ To include, delete, or change the effect position in the current chain, please r
 
 Here are some examples of chain shown by the ```all``` command:
 
-> ->Inp->CMP->OVD->WAH->EQZ->DFB->NGT->Out-> <br>
-> ->Inp->OCT->EQZ->CHS->RVB->LIM->Out-></br>
+> ->Inp->(LVD)->CMP->OVD->WAH->EQZ->DFB->NGT->Out-> <br>
+> ->Inp->(LVD)->OCT->EQZ->CHS->RVB->LIM->Out-></br>
+
+The Level Detector (```LVD```) is always in the Chain, even when it is empty.
 
 ## Chain Commands:
 
@@ -36,7 +38,7 @@ Erase the current chain and start a new one with the complete set of effects. Al
 
 	new
 
-> ->Inp->CMP->OVD->PHR->OCT->SFT->DTN->WAH->EQZ->CHS->VBT->RVB->DFB->EFB->DFF->EFF->TML->VOL->LIM->NGT->Out->
+> ->Inp->(LVD)->CMP->OVD->PHR->OCT->SFT->DTN->WAH->EQZ->CHS->VBT->RVB->DFB->EFB->DFF->EFF->TML->VOL->LIM->NGT->Out->
 
 
 ### Show Chain
@@ -45,7 +47,7 @@ Prints the current chain sequence.
 
 	all
 
-> ->Inp->CMP->OVD->RVB->Out->
+> ->Inp->(LVD)->CMP->OVD->RVB->Out->
 
 ### Clear Chain
 
@@ -53,5 +55,5 @@ Clear the whole chain sequence (no effects left on chain)
 
 	clr
 
-> ->Inp->Out->
+> ->Inp->(LVD)->Out->
 
