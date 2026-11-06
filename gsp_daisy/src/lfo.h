@@ -28,6 +28,7 @@ class LowFreqOsc
 		void 		Init(uint32_t sampling_rate);
 		void 		SetPeriod(uint32_t prd);
 		void 		SetFrequency(float freq);
+        void        SetExtChannel(float channel);        
 		void 		SetDutyCycle(float duty_cycle);
 		void 		SetProfile(uint8_t prof);
 		void 		SetGain(uint32_t gain);
@@ -40,6 +41,7 @@ class LowFreqOsc
 		uint32_t  	period;  		// period of LFO in milliseconds
 		float   	duty;     		// duty cycle (on) for some profiles, in percentile of period
 		uint32_t 	max_gain; 		// LFO Amplitude
+        int16_t     channel;        // External Pedal channel (0 to 100)
 		
 	private:
 		uint32_t  	ampl_[512]; 	// lookup table (internal use)
@@ -48,6 +50,8 @@ class LowFreqOsc
 		uint32_t 	gain_;			// amplitude of LFO for LFO_EXTERNAL profile
 									// or decay rate for exponential decay or inverse ED
 		uint32_t 	duty_; 			// duty cycle in fraction of time lenght
+        uint8_t     channel_;       // Expression Pedal channel to send potentiometer data
+        float       thres_;         // threshold for the Expression Pedal (0 to 1) (duty cycle)
 };
 
 #endif 	// GPS_LFO 	Low Frequency Oscillator

@@ -44,7 +44,7 @@ int32_t GSP_Pots::AssignPot(int32_t effect, int32_t pot)
     if (effect_to_seq_[effect] >= 0)
     {
         link_id[effect_to_seq_[effect]]   = pot;
-     }
+    }
     else  return -1;
 
     //effect_to_seq_[20]  = {-1, -1,  0, -1, -1, -1,  1, -1,  2,  3, -1, -1, -1, -1, -1,  4,  5, -1, -1, -1};
@@ -61,6 +61,11 @@ int32_t GSP_Pots::AssignPot(int32_t effect, int32_t pot)
             number_pots++;
         }
     }
+
+    // link_id          = {-1, 0, -1, -1,  3,  2}
+    // effect_lfo       = {2,  6,  8,  9, 15, 16}
+    // effect_id        = {    6,         15, 16} = {6, 15, 16}
+    // pot_id           = {    0,          3,  2} = {0, 3, 2}
 
 	return 0;
 }
