@@ -43,14 +43,14 @@ It starts with ASCII A, with one or more ```rid``` identifiers in sequence. The 
 
 ### Command S
 
-The ```S``` command states that the External Device shall start sending potentiometer data, at a rate of 10 Hz, with two bytes (one word) each, in the format specified bellow. 
+The ```S``` command states that the External Device shall start sending potentiometer data, at a rate of 10 Hz, with two bytes (one word) each, in the format specified bellow. The ```S``` command has no parameters.
 
-After reading the potentiometer voltages and receiving the ```S``` command, ED sends the data to DS by serial line in following binary format:
+After receiving the ```S``` command and reading the potentiometer voltages, ED sends the data to DS by serial line in following binary format:
 
 	P<m><P1_lsb><P1_msb><P2_lsb><P2_msb><P3_lsb><P3_msb>…<Pm_lsb><Pm_msb>\n
 
 in which 
-- ```m``` is  the number of expression pedals data contained in the message, in binary format, one byte,  
+- ```m``` is  the number of expression pedals data contained in the message plus 48 (to avoid the non printing range of ASCII table), in binary format, one byte,
 - ```P1…Pm``` are the potentiometer data, scaled from 0 up to 16383 (14 bits).
 - ```_lsb``` and ```_msb``` are the least and most significant byte of potentiometer data.
 
