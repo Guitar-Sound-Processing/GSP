@@ -64,8 +64,8 @@ Nor Daisy Seed or the External Device can identify if there really is an express
 
 For instance, if two Expression pedals are selected with commands:
 
- 	tml 5
-	pot wah 3
+ 	tml 1 8 3 20
+	wah 1 8 5 0
 
 then DS will send this request command to ED 
 
@@ -73,7 +73,9 @@ then DS will send this request command to ED
 
 in which 51 = 3 + 48 and 53 = 5 + 48. After receiving the enable command ```S``` to send data, ED answers with the potentiometer data sent at 10 Hz frequency:
 
-	P<2><P3_lsb><P3_msb><P5_lsb><P5_msb>\n
+	P<50><P3_lsb><P3_msb><P5_lsb><P5_msb>\n
+
+such that 50 = 2 data field + 48
 
 ### Command C
 
