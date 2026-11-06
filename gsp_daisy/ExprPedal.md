@@ -60,7 +60,7 @@ GSP on Daisy Seed operates with the potentiometer data in 16 bits. However, send
 
 The inverse procedure is then carried on from DS side in order to restitute the original potentiometer data. As an example, let us assume 3 expression pedals connected to pot identifiers 0, 2, and 5, where ID 0 is shared between two effects. Daisy Seed then sends to ED the command ```A0205\n```, followed by the ```S``` command. ED then starts sending the expression pedal data at 10 Hz with messages in the format ```P<4><P0_lsb><P0_msb><P2_lsb><P2_msb><P0_lsb><P0_msb><P5_lsb><P5_msb>\n```. One may note that all bytes are sent in ASCII. Of course ```m``` defines the number of data received from the DS side.
 
-Nor Daisy Seed nor the External Device can identify if there really is an expression pedal attached to a given pedal input. So the user has to take care in order to select the appropriate identifier when linking it to a given effect.
+Nor Daisy Seed or the External Device can identify if there really is an expression pedal attached to a given pedal input. So the user has to take care in order to select the appropriate identifier when linking it to a given effect.
 
 For instance, if two Expression pedals are selected with commands:
 
