@@ -43,20 +43,29 @@ int32_t GSP_Pots::AssignPot(int32_t effect, int32_t pot)
 
     if (effect_to_seq_[effect] >= 0)
     {
-        link_id_[effect_to_seq_[effect]]   = pot;
-     }
+        link_id[effect_to_seq_[effect]]   = pot;
+    }
     else  return -1;
 
+    //effect_to_seq_[20]  = {-1, -1,  0, -1, -1, -1,  1, -1,  2,  3, -1, -1, -1, -1, -1,  4,  5, -1, -1, -1};
+    //effect_id[6]       = {2, 6, 8, 9, 15, 16}; // phr, wah, chs, vbt, tml, vol
+    //link_id[6]         = {-1, -1, -1, -1, -1, -1};
+
     number_pots     = 0;
-    for (ipot = 0; ipot < 6; ipot++)
+    for (ipot = 0; ipot < number_lfo; ipot++)
     {
-        if (link_id_[ipot] >= 0)
+        if (link_id[ipot] >= 0)
         {
-            effect_id[number_pots]  = effect_id_[ipot];
-            pot_id[number_pots]     = link_id_[ipot];
+            effect_id[number_pots]  = effect_lfo[ipot];
+            pot_id[number_pots]     = link_id[ipot];
             number_pots++;
         }
     }
+
+    // link_id          = {-1, 0, -1, -1,  3,  2}
+    // effect_lfo       = {2,  6,  8,  9, 15, 16}
+    // effect_id        = {    6,         15, 16} = {6, 15, 16}
+    // pot_id           = {    0,          3,  2} = {0, 3, 2}
 
 	return 0;
 }
@@ -76,7 +85,7 @@ int32_t GSP_Pots::GetPotID(int32_t effect)
 	if (effect > MAX_EFFECT_NUMBER) return -1;
     if (effect_to_seq_[effect] >= 0)
     {
-	    return link_id_[effect_to_seq_[effect]];	
+	    return link_id[effect_to_seq_[effect]];	
     }
     else return -1;
 }
@@ -99,17 +108,17 @@ int32_t GSP_Pots::RemovePot(int32_t effect)
 	
     if (effect_to_seq_[effect] >= 0)
     {
-	    link_id_[effect_to_seq_[effect]] = -1;
+	    link_id[effect_to_seq_[effect]] = -1;
     }
     else return -1;
 
     number_pots     = 0;
-    for (ipot = 0; ipot < 6; ipot++)
+    for (ipot = 0; ipot < number_lfo; ipot++)
     {
-        if (link_id_[ipot] >= 0)
+        if (link_id[ipot] >= 0)
         {
-            effect_id[number_pots]  = effect_id_[ipot];
-            pot_id[number_pots]     = link_id_[ipot];
+            effect_id[number_pots]  = effect_lfo[ipot];
+            pot_id[number_pots]     = link_id[ipot];
             number_pots++;
         }
     }

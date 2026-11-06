@@ -17,10 +17,11 @@ class GSP_Pots
 		uint32_t 	number_pots;
 		int32_t 	effect_id[6];
         int32_t     pot_id[6];
+        uint32_t    number_lfo  = 6;
+        int32_t     effect_lfo[6]       = {2, 6, 8, 9, 15, 16}; // phr, wah, chs, vbt, tml, vol
+        int32_t     link_id[6]          = {-1, -1, -1, -1, -1, -1};
 	private:
         int8_t      effect_to_seq_[20]  = {-1, -1,  0, -1, -1, -1,  1, -1,  2,  3, -1, -1, -1, -1, -1,  4,  5, -1, -1, -1};
-        int32_t     effect_id_[6]       = {2, 6, 8, 9, 15, 16}; // phr, wah, chs, vbt, tml, vol
-        int32_t     link_id_[6]         = {-1, -1, -1, -1, -1, -1};
 };
 
 #endif 	// GSP_CHAIN_H
