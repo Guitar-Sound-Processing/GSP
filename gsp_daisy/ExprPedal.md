@@ -64,7 +64,7 @@ Nor Daisy Seed or the External Device can identify if there really is an express
 
 For instance, if two Expression pedals are selected with commands:
 
- 	pot tml 5
+ 	tml 5
 	pot wah 3
 
 then DS will send this request command to ED 
