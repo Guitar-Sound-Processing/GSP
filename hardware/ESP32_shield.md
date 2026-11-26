@@ -21,7 +21,7 @@ The Expression Pedal headers have the following pinout:
 - V3 - 3V output power line
 - Pn - Expression Pedal input signal (0 to 3V)
 - Sn - Input signal to detect the Expression Pedal insertion on plug (Ground or On states)
-- Gnd - Ground output line
+- GD - Ground output line
   
 In normal situation all these jumpers shall be wired. The ESP32 Wrover TIGO module has 34 pins (2x17). However the board has 36 (2x18) pins, as can be seen in figure above, since it is difficult to find female headers with 17 pins. So care must be taken in order to avoid placing the Wrover module in the wrong pins. 
 
